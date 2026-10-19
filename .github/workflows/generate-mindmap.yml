@@ -1,0 +1,56 @@
+name: 生成领域思维导图
+
+on:
+  pull_request:
+    paths:
+      - "taxonomy.json"
+      - "README.md"
+      - "README_cn.md"
+      - "scripts/build_mindmap.py"
+      - ".github/workflows/generate-mindmap.yml"
+  push:
+    paths:
+      - "taxonomy.json"
+      - "README.md"
+      - "README_cn.md"
+      - "scripts/build_mindmap.py"
+      - ".github/workflows/generate-mindmap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/build_mindmap.py --check
+
+  generate:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/build_mindmap.py
+      - run: python scripts/build_mindmap.py --check
+      - name: 提交自动生成的思维导图
+        run: |
+          if [[ -n "$(git status --porcelain mindmap.svg mindmap_cn.svg mindmap.md mindmap_cn.md)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add mindmap.svg mindmap_cn.svg mindmap.md mindmap_cn.md
+            git commit -m "更新中英文领域思维导图"
+            git push
+          fi

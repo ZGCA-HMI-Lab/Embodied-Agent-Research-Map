@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3600 1512" role="img" aria-labelledby="title desc">
+<title id="title">3D Hand Mind Map</title>
+<desc id="desc">A colorful taxonomy map with a code for each leaf category.</desc>
+<rect width="3600" height="1512" fill="#ffffff"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M 1800 756.0 C 1575.0 756.0, 1575.0 297.0, 1350 297.0" stroke="#05a6c7" stroke-width="5"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 127.0, 900 127.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 748.8 127.0 C 599.4 127.0, 599.4 110, 450 110" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 748.8 127.0 C 599.4 127.0, 599.4 144, 450 144" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 178, 900 178" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 212, 900 212" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 246, 900 246" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 280, 900 280" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 314, 900 314" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 365.0, 900 365.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 711.8399999999999 365.0 C 580.92 365.0, 580.92 348, 450 348" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 711.8399999999999 365.0 C 580.92 365.0, 580.92 382, 450 382" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 416, 900 416" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 450, 900 450" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1161.84 297.0 C 1030.92 297.0, 1030.92 484, 900 484" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 756.0 C 2025.0 756.0, 2025.0 620.0, 2250 620.0" stroke="#ff7b50" stroke-width="5"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 518, 2700 518" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 552, 2700 552" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 586, 2700 586" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 620, 2700 620" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 654, 2700 654" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 688, 2700 688" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 2561.36 620.0 C 2630.6800000000003 620.0, 2630.6800000000003 722, 2700 722" stroke="#ff7b50" stroke-width="3"/>
+<path d="M 1800 756.0 C 1575.0 756.0, 1575.0 875.0, 1350 875.0" stroke="#b1c91e" stroke-width="5"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 756, 900 756" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 790, 900 790" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 824, 900 824" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 858, 900 858" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 892, 900 892" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 926, 900 926" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 960, 900 960" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1063.28 875.0 C 981.64 875.0, 981.64 994, 900 994" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1800 756.0 C 2025.0 756.0, 2025.0 1096.0, 2250 1096.0" stroke="#ff9f24" stroke-width="5"/>
+<path d="M 2499.76 1096.0 C 2599.88 1096.0, 2599.88 1045.0, 2700 1045.0" stroke="#ff9f24" stroke-width="3"/>
+<path d="M 2851.2 1045.0 C 3000.6 1045.0, 3000.6 1028, 3150 1028" stroke="#ff9f24" stroke-width="3"/>
+<path d="M 2851.2 1045.0 C 3000.6 1045.0, 3000.6 1062, 3150 1062" stroke="#ff9f24" stroke-width="3"/>
+<path d="M 2499.76 1096.0 C 2599.88 1096.0, 2599.88 1096, 2700 1096" stroke="#ff9f24" stroke-width="3"/>
+<path d="M 2499.76 1096.0 C 2599.88 1096.0, 2599.88 1130, 2700 1130" stroke="#ff9f24" stroke-width="3"/>
+<path d="M 2499.76 1096.0 C 2599.88 1096.0, 2599.88 1164, 2700 1164" stroke="#ff9f24" stroke-width="3"/>
+<path d="M 1800 756.0 C 1575.0 756.0, 1575.0 1215.0, 1350 1215.0" stroke="#a96ab1" stroke-width="5"/>
+<path d="M 1100.24 1215.0 C 1000.12 1215.0, 1000.12 1198, 900 1198" stroke="#a96ab1" stroke-width="3"/>
+<path d="M 1100.24 1215.0 C 1000.12 1215.0, 1000.12 1232, 900 1232" stroke="#a96ab1" stroke-width="3"/>
+<path d="M 1800 756.0 C 2025.0 756.0, 2025.0 1300.0, 2250 1300.0" stroke="#7d7bc5" stroke-width="5"/>
+<path d="M 2524.4 1300.0 C 2612.2 1300.0, 2612.2 1266, 2700 1266" stroke="#7d7bc5" stroke-width="3"/>
+<path d="M 2524.4 1300.0 C 2612.2 1300.0, 2612.2 1300, 2700 1300" stroke="#7d7bc5" stroke-width="3"/>
+<path d="M 2524.4 1300.0 C 2612.2 1300.0, 2612.2 1334, 2700 1334" stroke="#7d7bc5" stroke-width="3"/>
+<path d="M 1800 756.0 C 1575.0 756.0, 1575.0 1385.0, 1350 1385.0" stroke="#13a98b" stroke-width="5"/>
+<path d="M 1260.4 1385.0 C 1080.2 1385.0, 1080.2 1368, 900 1368" stroke="#13a98b" stroke-width="3"/>
+<path d="M 1260.4 1385.0 C 1080.2 1385.0, 1080.2 1402, 900 1402" stroke="#13a98b" stroke-width="3"/>
+</g>
+<circle cx="1350" cy="297.0" r="5" fill="#05a6c7"/>
+<text x="1334" y="304.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Hand Modeling</text>
+<circle cx="900" cy="127.0" r="5" fill="#05a6c7"/>
+<text x="884" y="134.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Kinematics</text>
+<circle cx="450" cy="110" r="4" fill="#05a6c7"/>
+<text x="434" y="117" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Forward<tspan dx="6" fill="#05a6c7" font-weight="650">[H.FK]</tspan></text>
+<circle cx="450" cy="144" r="4" fill="#05a6c7"/>
+<text x="434" y="151" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Inverse<tspan dx="6" fill="#05a6c7" font-weight="650">[H.IK]</tspan></text>
+<circle cx="900" cy="178" r="4" fill="#05a6c7"/>
+<text x="884" y="185" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">2.5D<tspan dx="6" fill="#05a6c7" font-weight="650">[H.VX]</tspan></text>
+<circle cx="900" cy="212" r="4" fill="#05a6c7"/>
+<text x="884" y="219" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Graph<tspan dx="6" fill="#05a6c7" font-weight="650">[H.GH]</tspan></text>
+<circle cx="900" cy="246" r="4" fill="#05a6c7"/>
+<text x="884" y="253" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Transformer<tspan dx="6" fill="#05a6c7" font-weight="650">[H.TR]</tspan></text>
+<circle cx="900" cy="280" r="4" fill="#05a6c7"/>
+<text x="884" y="287" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Texture<tspan dx="6" fill="#05a6c7" font-weight="650">[H.UV]</tspan></text>
+<circle cx="900" cy="314" r="4" fill="#05a6c7"/>
+<text x="884" y="321" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Implicit Shape<tspan dx="6" fill="#05a6c7" font-weight="650">[H.SP]</tspan></text>
+<circle cx="900" cy="365.0" r="5" fill="#05a6c7"/>
+<text x="884" y="372.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Neural Render</text>
+<circle cx="450" cy="348" r="4" fill="#05a6c7"/>
+<text x="434" y="355" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Generation<tspan dx="6" fill="#05a6c7" font-weight="650">[H.GEN]</tspan></text>
+<circle cx="450" cy="382" r="4" fill="#05a6c7"/>
+<text x="434" y="389" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Avatar<tspan dx="6" fill="#05a6c7" font-weight="650">[H.AVA]</tspan></text>
+<circle cx="900" cy="416" r="4" fill="#05a6c7"/>
+<text x="884" y="423" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Dynamics<tspan dx="6" fill="#05a6c7" font-weight="650">[H.DN]</tspan></text>
+<circle cx="900" cy="450" r="4" fill="#05a6c7"/>
+<text x="884" y="457" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Temporal<tspan dx="6" fill="#05a6c7" font-weight="650">[H.TP]</tspan></text>
+<circle cx="900" cy="484" r="4" fill="#05a6c7"/>
+<text x="884" y="491" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Weak-Supervision<tspan dx="6" fill="#05a6c7" font-weight="650">[H.WS]</tspan></text>
+<circle cx="2250" cy="620.0" r="5" fill="#ff7b50"/>
+<text x="2266" y="627.0" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Hand-Object Interaction</text>
+<circle cx="2700" cy="518" r="4" fill="#ff7b50"/>
+<text x="2716" y="525" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Kinematics<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.FK]</tspan></text>
+<circle cx="2700" cy="552" r="4" fill="#ff7b50"/>
+<text x="2716" y="559" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Graph<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.GH]</tspan></text>
+<circle cx="2700" cy="586" r="4" fill="#ff7b50"/>
+<text x="2716" y="593" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Implicit Shape<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.SP]</tspan></text>
+<circle cx="2700" cy="620" r="4" fill="#ff7b50"/>
+<text x="2716" y="627" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Neural Render<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.NR]</tspan></text>
+<circle cx="2700" cy="654" r="4" fill="#ff7b50"/>
+<text x="2716" y="661" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Dynamics<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.DN]</tspan></text>
+<circle cx="2700" cy="688" r="4" fill="#ff7b50"/>
+<text x="2716" y="695" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Contact<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.Con]</tspan></text>
+<circle cx="2700" cy="722" r="4" fill="#ff7b50"/>
+<text x="2716" y="729" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Affordance<tspan dx="6" fill="#ff7b50" font-weight="650">[HO.AF]</tspan></text>
+<circle cx="1350" cy="875.0" r="5" fill="#b1c91e"/>
+<text x="1334" y="882.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Hand-Hand Interaction</text>
+<circle cx="900" cy="756" r="4" fill="#b1c91e"/>
+<text x="884" y="763" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Kinematics<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.FK]</tspan></text>
+<circle cx="900" cy="790" r="4" fill="#b1c91e"/>
+<text x="884" y="797" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">2.5D<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.VX]</tspan></text>
+<circle cx="900" cy="824" r="4" fill="#b1c91e"/>
+<text x="884" y="831" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Graph<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.GH]</tspan></text>
+<circle cx="900" cy="858" r="4" fill="#b1c91e"/>
+<text x="884" y="865" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Transformer<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.TR]</tspan></text>
+<circle cx="900" cy="892" r="4" fill="#b1c91e"/>
+<text x="884" y="899" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Implicit Shape<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.SP]</tspan></text>
+<circle cx="900" cy="926" r="4" fill="#b1c91e"/>
+<text x="884" y="933" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Neural Render<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.NR]</tspan></text>
+<circle cx="900" cy="960" r="4" fill="#b1c91e"/>
+<text x="884" y="967" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Gesture Prediction<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.GP]</tspan></text>
+<circle cx="900" cy="994" r="4" fill="#b1c91e"/>
+<text x="884" y="1001" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Manipulation<tspan dx="6" fill="#b1c91e" font-weight="650">[HH.Mani]</tspan></text>
+<circle cx="2250" cy="1096.0" r="5" fill="#ff9f24"/>
+<text x="2266" y="1103.0" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Full Body Modeling</text>
+<circle cx="2700" cy="1045.0" r="5" fill="#ff9f24"/>
+<text x="2716" y="1052.0" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Kinematics</text>
+<circle cx="3150" cy="1028" r="4" fill="#ff9f24"/>
+<text x="3166" y="1035" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Forward<tspan dx="6" fill="#ff9f24" font-weight="650">[FBR.FK]</tspan></text>
+<circle cx="3150" cy="1062" r="4" fill="#ff9f24"/>
+<text x="3166" y="1069" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Inverse<tspan dx="6" fill="#ff9f24" font-weight="650">[FBR.IK]</tspan></text>
+<circle cx="2700" cy="1096" r="4" fill="#ff9f24"/>
+<text x="2716" y="1103" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Implicit Shape<tspan dx="6" fill="#ff9f24" font-weight="650">[FBR.SP]</tspan></text>
+<circle cx="2700" cy="1130" r="4" fill="#ff9f24"/>
+<text x="2716" y="1137" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Neural Render<tspan dx="6" fill="#ff9f24" font-weight="650">[FBR.NR]</tspan></text>
+<circle cx="2700" cy="1164" r="4" fill="#ff9f24"/>
+<text x="2716" y="1171" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Grasp<tspan dx="6" fill="#ff9f24" font-weight="650">[FBR.GR]</tspan></text>
+<circle cx="1350" cy="1215.0" r="5" fill="#a96ab1"/>
+<text x="1334" y="1222.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Multi-Modal Motion</text>
+<circle cx="900" cy="1198" r="4" fill="#a96ab1"/>
+<text x="884" y="1205" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">In Scene<tspan dx="6" fill="#a96ab1" font-weight="650">[MM.IS]</tspan></text>
+<circle cx="900" cy="1232" r="4" fill="#a96ab1"/>
+<text x="884" y="1239" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Text to Motion<tspan dx="6" fill="#a96ab1" font-weight="650">[MM.Tex]</tspan></text>
+<circle cx="2250" cy="1300.0" r="5" fill="#7d7bc5"/>
+<text x="2266" y="1307.0" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Dexterous Robot Hand</text>
+<circle cx="2700" cy="1266" r="4" fill="#7d7bc5"/>
+<text x="2716" y="1273" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Dynamics<tspan dx="6" fill="#7d7bc5" font-weight="650">[RO.DN]</tspan></text>
+<circle cx="2700" cy="1300" r="4" fill="#7d7bc5"/>
+<text x="2716" y="1307" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Imitation<tspan dx="6" fill="#7d7bc5" font-weight="650">[RO.IM]</tspan></text>
+<circle cx="2700" cy="1334" r="4" fill="#7d7bc5"/>
+<text x="2716" y="1341" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">VLA<tspan dx="6" fill="#7d7bc5" font-weight="650">[RO.VLA]</tspan></text>
+<circle cx="1350" cy="1385.0" r="5" fill="#13a98b"/>
+<text x="1334" y="1392.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Tools</text>
+<circle cx="900" cy="1368" r="4" fill="#13a98b"/>
+<text x="884" y="1375" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Model<tspan dx="6" fill="#13a98b" font-weight="650">[T.MD]</tspan></text>
+<circle cx="900" cy="1402" r="4" fill="#13a98b"/>
+<text x="884" y="1409" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">MoCap<tspan dx="6" fill="#13a98b" font-weight="650">[T.MC]</tspan></text>
+<rect x="1620" y="702.0" width="360" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
+<text x="1800" y="765.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">3D Hand</text>
+</svg>
