@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.BENCH.3",
+  "slug": "new-benchmark",
+  "short_name": "Replace me",
+  "title": "Replace with the exact paper title",
+  "authors": "Replace with authors",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "benchmark",
+  "category": "AM.MAN.DEX.BENCH",
+  "related_categories": [],
+  "tags": [
+    "benchmark",
+    "dexterous",
+    "bimanual",
+    "simulation"
+  ],
+  "benchmark": {
+    "hands": {
+      "en": "Replace with verified information or an explicit unknown.",
+      "zh": "填写已核实信息，未知或未报告时明确说明。"
+    },
+    "tasks": {
+      "en": "Replace with verified information or an explicit unknown.",
+      "zh": "填写已核实信息，未知或未报告时明确说明。"
+    },
+    "cross_hand": {
+      "en": "Replace with verified information or an explicit unknown.",
+      "zh": "填写已核实信息，未知或未报告时明确说明。"
+    },
+    "release": {
+      "en": "Replace with verified information or an explicit unknown.",
+      "zh": "填写已核实信息，未知或未报告时明确说明。"
+    },
+    "highlight": {
+      "en": "Replace with verified information or an explicit unknown.",
+      "zh": "填写已核实信息，未知或未报告时明确说明。"
+    }
+  },
+  "links": {
+    "paper": "https://example.org/replace-with-primary-paper"
+  },
+  "sources": [
+    "https://example.org/replace-with-primary-paper"
+  ],
+  "verified_on": "2026-10-20",
+  "reading_status": "indexed",
+  "notes": {},
+  "show_on_map": false
+}

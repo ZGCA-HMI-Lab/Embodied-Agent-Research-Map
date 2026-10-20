@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.BENCH.2",
+  "slug": "handson",
+  "short_name": "HandsOn",
+  "title": "HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation",
+  "authors": "Tianwei Luo et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "benchmark",
+  "category": "AM.MAN.DEX.BENCH",
+  "related_categories": [],
+  "tags": [
+    "benchmark",
+    "dexterous",
+    "bimanual",
+    "simulation"
+  ],
+  "benchmark": {
+    "hands": {
+      "en": "Abstract claims six; released assets identify Wuji 1, Wuji 2 beta1, Sharpa Wave and Allegro V3; six-hand accounting remains unresolved.",
+      "zh": "摘要称 6 手；公开资产可核验 Wuji 1、Wuji 2 beta1、Sharpa Wave、Allegro V3 四型，六手口径待核。"
+    },
+    "tasks": {
+      "en": "66: Core-50 + Transfer-16.",
+      "zh": "66 个：Core-50＋Transfer-16。"
+    },
+    "cross_hand": {
+      "en": "Current 66-task evaluator uses Wuji 1; other hands require integration, with no matched evaluation reported.",
+      "zh": "当前 66 任务评测器仅 Wuji 1，其他手复用同任务需适配、未统一评测。"
+    },
+    "release": {
+      "en": "Benchmark code and 18,000 PhysX demonstrations released; Newton data pending.",
+      "zh": "基准代码与 PhysX 的 18,000 条示范已发布；Newton 数据待发布。"
+    },
+    "highlight": {
+      "en": "Demonstration-backed execution and held-out transfer are evaluated separately, including skill composition and deformable interactions.",
+      "zh": "示范学习与保留任务迁移分开评测，覆盖技能组合与可变形交互。"
+    }
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.26765v1",
+    "code": "https://github.com/TsinghuaC3I/HandsOn",
+    "data": "https://huggingface.co/datasets/Cyan666/HandsOn-Datasets",
+    "hand_catalog": "https://github.com/TsinghuaC3I/HandsOn/blob/main/docs/robot-assets.md"
+  },
+  "sources": [
+    "https://arxiv.org/pdf/2610.26765v1",
+    "https://github.com/TsinghuaC3I/HandsOn",
+    "https://huggingface.co/datasets/Cyan666/HandsOn-Datasets",
+    "https://github.com/TsinghuaC3I/HandsOn/blob/main/docs/robot-assets.md",
+    "https://arxiv.org/abs/2610.26765v1",
+    "https://arxiv.org/html/2610.26765v1"
+  ],
+  "verified_on": "2026-10-20",
+  "reading_status": "skimmed",
+  "notes": {
+    "en": "notes/handson.md",
+    "zh": "notes/handson_cn.md"
+  },
+  "show_on_map": true
+}

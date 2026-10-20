@@ -5,20 +5,50 @@
     {
       "name": "Manipulation Action Models",
       "name_zh": "操作动作模型",
-      "code": "AM.MAN",
-      "children": []
+      "children": [
+        {
+          "name": "Gripper Manipulation Models",
+          "name_zh": "夹爪操作模型",
+          "code": "AM.MAN.GRIP",
+          "children": [],
+          "catalog_path": "manipulation/grippers",
+          "description": "Simple grippers such as two-finger parallel grippers; single-arm and bimanual systems.",
+          "description_zh": "以两指平行夹爪等简单夹持器为主要研究平台，包括单臂和双臂系统。"
+        },
+        {
+          "name": "Multi-Fingered Dexterous Hand Manipulation Models",
+          "name_zh": "多指灵巧手操作模型",
+          "children": [
+            {
+              "name": "Benchmarks",
+              "name_zh": "Benchmarks｜评测基准",
+              "code": "AM.MAN.DEX.BENCH",
+              "children": [],
+              "catalog_path": "manipulation/dexterous/benchmarks",
+              "description": "Dexterous-hand evaluation tasks, data, environments, and protocols. Distinguish published support from demonstrated configurations.",
+              "description_zh": "灵巧手操作评测任务、数据、环境与评分协议；区分论文声明、公开资产和实际评测配置。"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Navigation Action Models",
       "name_zh": "导航动作模型",
       "code": "AM.NAV",
-      "children": []
+      "children": [],
+      "catalog_path": "navigation",
+      "description": "Includes point-goal, object-goal, and language-guided navigation, exploration, and navigation trajectory generation. The focus is reaching or finding a target using environmental observations; locomotion execution can be linked as a related area.",
+      "description_zh": "包括点目标导航、物体目标导航、语言导航、探索与导航轨迹生成。重点是利用环境观测到达或找到目标；涉及行走执行时，可关联身体运动与全身控制板块。"
     },
     {
       "name": "Body Motion and Whole-Body Control Models",
       "name_zh": "身体运动与全身控制模型",
       "code": "AM.WBC",
-      "children": []
+      "children": [],
+      "catalog_path": "whole-body-control",
+      "description": "Includes locomotion, balance, motion tracking, getting up, dynamic motor skills, and coordinated body control. Loco-manipulation belongs here when body coordination, balance, or motion execution is the main research question; manipulation can be noted as a related area.",
+      "description_zh": "包括行走、平衡、动作跟踪、起身、复杂运动技能与身体协同控制。行走操作以身体协同、平衡或动作执行为主要研究问题时归入本类，并可关联操作板块。"
     }
   ]
 }

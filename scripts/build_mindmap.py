@@ -1,93 +1,10 @@
 #!/usr/bin/env python3
-"""Validate taxonomy and render the repository's XMind-style SVG map."""
+"""SVG renderer; running this file delegates to the complete catalog builder."""
 
-import argparse
 import html
-import json
-import re
-import sys
 import unicodedata
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "taxonomy.json"
-README = ROOT / "README.md"
-README_CN = ROOT / "README_cn.md"
-SVG = ROOT / "mindmap.svg"
-SVG_CN = ROOT / "mindmap_cn.svg"
-PAGE = ROOT / "mindmap.md"
-PAGE_CN = ROOT / "mindmap_cn.md"
 PALETTE = ["#05a6c7", "#ff7b50", "#b1c91e", "#ff9f24", "#a96ab1", "#7d7bc5", "#13a98b"]
-CODE_RE = re.compile(r"^[A-Z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)+$")
-PAPER_ID_RE = re.compile(r"^\|\s*\[([A-Z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)+\.\d+)\]\s*\|")
-
-
-def clean_text(value, context):
-    if not isinstance(value, str) or not value.strip():
-        raise ValueError(f"{context}必须是非空字符串")
-    return " ".join(value.split())
-
-
-def load_taxonomy(language="en"):
-    data = json.loads(SOURCE.read_text(encoding="utf-8"))
-    if not isinstance(data, dict):
-        raise ValueError("taxonomy.json 最外层必须是对象")
-    title = clean_text(data.get("title" if language == "en" else "title_zh"), "title ")
-    branches = data.get("children")
-    if not isinstance(branches, list) or not branches:
-        raise ValueError("根节点 children 必须是非空列表")
-    codes = set()
-
-    def visit(nodes, depth=1):
-        out = []
-        for node in nodes:
-            if not isinstance(node, dict):
-                raise ValueError("每个分类节点都必须是对象")
-            name = clean_text(node.get("name" if language == "en" else "name_zh"), "分类 name ")
-            children = node.get("children", [])
-            if not isinstance(children, list):
-                raise ValueError(f"分类“{name}”的 children 必须是列表")
-            code = node.get("code")
-            if code is not None:
-                if not isinstance(code, str) or not CODE_RE.fullmatch(code):
-                    raise ValueError(f"分类“{name}”的 code 格式无效：{code!r}")
-                if children:
-                    raise ValueError(f"带 code 的分类“{name}”必须是论文分类末端节点")
-                if code in codes:
-                    raise ValueError(f"分类 code 重复：{code}")
-                codes.add(code)
-            elif not children:
-                raise ValueError(f"末端分类“{name}”必须填写 code")
-            out.append({"name": name, "code": code, "depth": depth, "children": visit(children, depth + 1)})
-        return out
-
-    tree = visit(branches)
-    return title, tree, codes
-
-
-def check_paper_ids(codes):
-    counts = {}
-    id_sets = {}
-    for readme in (README, README_CN):
-        paper_ids = []
-        for line_number, line in enumerate(readme.read_text(encoding="utf-8").splitlines(), 1):
-            match = PAPER_ID_RE.match(line)
-            if not match:
-                continue
-            paper_id = match.group(1)
-            category_code = paper_id.rsplit(".", 1)[0]
-            if category_code not in codes:
-                raise ValueError(f"{readme.name} 第 {line_number} 行使用了未定义的分类 code：{category_code}")
-            if paper_id in paper_ids:
-                raise ValueError(f"{readme.name} 中论文编号重复：{paper_id}")
-            paper_ids.append(paper_id)
-        counts[readme.name] = len(paper_ids)
-        id_sets[readme.name] = set(paper_ids)
-    if id_sets[README.name] != id_sets[README_CN.name]:
-        missing_cn = sorted(id_sets[README.name] - id_sets[README_CN.name])
-        missing_en = sorted(id_sets[README_CN.name] - id_sets[README.name])
-        raise ValueError(f"中英文 README 的论文编号不一致；中文缺少 {missing_cn}，英文缺少 {missing_en}")
-    return counts
 
 
 def prepare_positions(title, tree):
@@ -126,10 +43,12 @@ def prepare_positions(title, tree):
     for branch in tree:
         branch["side"] = -1 if branch["top_index"] % 2 == 0 else 1
 
-    def set_x(node):
-        node["x"] = center_x + node["side"] * min(450 * node["depth"], 1350)
+    def set_x(node, parent_edge=None):
+        node["x"] = (center_x + node["side"] * 450 if parent_edge is None
+                     else parent_edge + node["side"] * 120)
+        text_edge = node["x"] + node["side"] * (label_width(node) + 28)
         for child in node["children"]:
-            set_x(child)
+            set_x(child, text_edge)
 
     for branch in tree:
         set_x(branch)
@@ -161,7 +80,7 @@ def svg_document(title, tree, language="en"):
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{left} 0 {width} {height}" role="img" aria-labelledby="title desc">',
         f'<title id="title">{html.escape(title)} Mind Map</title>' if language == "en" else f'<title id="title">{html.escape(title)} 领域思维导图</title>',
-        '<desc id="desc">A colorful taxonomy map with a code for each leaf category.</desc>' if language == "en" else '<desc id="desc">由分类树自动生成的彩色分支图，叶节点显示论文分类标签。</desc>',
+        '<desc id="desc">Research categories with category codes and named paper entries.</desc>' if language == "en" else '<desc id="desc">由分类数据自动生成的研究地图，显示分类码及已添加的工作名称。</desc>',
         f'<rect x="{left}" width="{width}" height="{height}" fill="#ffffff"/>',
         '<g fill="none" stroke-linecap="round" stroke-linejoin="round">',
     ]
@@ -204,49 +123,16 @@ def mindmap_page(title, language="en"):
     if language == "zh":
         return (
             f"# {title}：领域思维导图\n\n"
-            "本图由 `taxonomy.json` 自动生成。分类编码可供论文列表引用。\n\n"
+            "本图由 `taxonomy.json` 自动生成。分类编码对应论文列表，总图仅显示选定代表工作；全部条目见分类索引。\n\n"
             "[![领域思维导图](mindmap_cn.svg)](mindmap_cn.svg)\n"
         )
     return (
         f"# {title}: Field Mind Map\n\n"
-        "Generated from `taxonomy.json`. Category codes are used to label papers in the list.\n\n"
+        "Generated from `taxonomy.json`. Category codes identify list sections; selected paper names appear on the overview map; the full collection is in the category indexes.\n\n"
         f"[![{title} field mind map](mindmap.svg)](mindmap.svg)\n"
     )
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="只校验分类树和中英文 README 中的论文标签")
-    args = parser.parse_args()
-    try:
-        title, tree, codes = load_taxonomy("en")
-        title_zh, tree_zh, _ = load_taxonomy("zh")
-        paper_counts = check_paper_ids(codes)
-        svg, leaf_count = svg_document(title, tree, "en")
-        svg_zh, _ = svg_document(title_zh, tree_zh, "zh")
-        if args.check:
-            generated = (
-                (SVG, svg + "\n"),
-                (SVG_CN, svg_zh + "\n"),
-                (PAGE, mindmap_page(title, "en")),
-                (PAGE_CN, mindmap_page(title_zh, "zh")),
-            )
-            for path, expected in generated:
-                if path.exists() and path.read_text(encoding="utf-8") != expected:
-                    raise ValueError(f"{path.name} 已过期；请运行 python3 scripts/build_mindmap.py 并提交生成文件")
-            counts = "，".join(f"{name} {count} 篇" for name, count in paper_counts.items())
-            print(f"分类树正确：{len(codes)} 个论文分类标签；论文编号有效：{counts}")
-            return 0
-        SVG.write_text(svg + "\n", encoding="utf-8")
-        SVG_CN.write_text(svg_zh + "\n", encoding="utf-8")
-        PAGE.write_text(mindmap_page(title, "en"), encoding="utf-8")
-        PAGE_CN.write_text(mindmap_page(title_zh, "zh"), encoding="utf-8")
-        print(f"已生成中英文思维导图和独立页面（{leaf_count} 个末端分类）")
-        return 0
-    except (OSError, json.JSONDecodeError, ValueError) as exc:
-        print(f"错误：{exc}", file=sys.stderr)
-        return 1
-
-
 if __name__ == "__main__":
+    from build_catalog import main
     raise SystemExit(main())
