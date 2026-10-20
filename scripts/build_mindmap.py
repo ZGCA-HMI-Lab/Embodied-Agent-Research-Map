@@ -107,8 +107,9 @@ def prepare_positions(title, tree):
 
     for i, branch in enumerate(tree):
         collect(branch, i)
-    row_gap = 34
-    height = max(1040, (len(leaves) - 1) * row_gap + 220)
+    row_gap = 120 if len(leaves) <= 6 else 34
+    min_height = 360 if len(leaves) <= 6 else 1040
+    height = max(min_height, (len(leaves) - 1) * row_gap + 220)
     width, center_x = 3600, 1800
 
     def assign(node):
@@ -143,11 +144,25 @@ def label_width(node):
 
 def svg_document(title, tree, language="en"):
     width, height, center_x, center_y, leaves = prepare_positions(title, tree)
+    title_units = sum(1 if unicodedata.east_asian_width(char) in "WF" else 0.56 for char in title)
+    title_width = max(360, round(title_units * 34 + 96))
+
+    def horizontal_bounds(node):
+        yield node["x"]
+        yield node["x"] + node["side"] * (label_width(node) + 28)
+        for child in node["children"]:
+            yield from horizontal_bounds(child)
+
+    bounds = [center_x - title_width / 2, center_x + title_width / 2]
+    for branch in tree:
+        bounds.extend(horizontal_bounds(branch))
+    left = min(bounds) - 80
+    width = max(bounds) - left + 80
     parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{left} 0 {width} {height}" role="img" aria-labelledby="title desc">',
         f'<title id="title">{html.escape(title)} Mind Map</title>' if language == "en" else f'<title id="title">{html.escape(title)} 领域思维导图</title>',
         '<desc id="desc">A colorful taxonomy map with a code for each leaf category.</desc>' if language == "en" else '<desc id="desc">由分类树自动生成的彩色分支图，叶节点显示论文分类标签。</desc>',
-        f'<rect width="{width}" height="{height}" fill="#ffffff"/>',
+        f'<rect x="{left}" width="{width}" height="{height}" fill="#ffffff"/>',
         '<g fill="none" stroke-linecap="round" stroke-linejoin="round">',
     ]
 
@@ -179,7 +194,7 @@ def svg_document(title, tree, language="en"):
 
     for index, branch in enumerate(tree):
         draw_nodes(branch, PALETTE[index % len(PALETTE)])
-    parts.append(f'<rect x="{center_x - 180}" y="{center_y - 54}" width="360" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>')
+    parts.append(f'<rect x="{center_x - title_width / 2}" y="{center_y - 54}" width="{title_width}" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>')
     parts.append(f'<text x="{center_x}" y="{center_y + 9}" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">{html.escape(title)}</text>')
     parts.append('</svg>')
     return "\n".join(parts), len(leaves)
@@ -195,7 +210,7 @@ def mindmap_page(title, language="en"):
     return (
         f"# {title}: Field Mind Map\n\n"
         "Generated from `taxonomy.json`. Category codes are used to label papers in the list.\n\n"
-        "[![3D Hand field mind map](mindmap.svg)](mindmap.svg)\n"
+        f"[![{title} field mind map](mindmap.svg)](mindmap.svg)\n"
     )
 
 
