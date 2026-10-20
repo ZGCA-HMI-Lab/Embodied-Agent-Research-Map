@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.METHOD.EFF.1",
+  "slug": "pacevla",
+  "short_name": "PaceVLA",
+  "title": "PaceVLA: Adaptive Temporal Action Quantization in Vision-Language-Action Models",
+  "authors": "Hojin Jeon et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.METHOD.EFF",
+  "related_categories": [],
+  "tags": [
+    "manipulation",
+    "vla",
+    "gripper",
+    "dexterous",
+    "execution-speedup",
+    "temporal-action-quantization"
+  ],
+  "tldr": {
+    "en": "**Training:** Derive fine/coarse action targets with long/short horizons from the same demonstrations; use LVLM phase annotations to supervise an acceleration judge.\n**Structure:** A shared action backbone, four output heads (fine/coarse × long/short), a judge and a router.\n**Inference:** From images, instructions and robot state, judge whether coarse execution is suitable, select a horizon and generate actions with the corresponding head; preserve fine control when needed.",
+    "zh": "**训练：**同一示范构造普通／加速、长／短范围的动作标签；大视觉语言模型标注各阶段能否加速，监督判断器。\n**结构：**共享动作主干，配 4 个输出头（普通／加速 × 长／短范围），另加判断器和路由器。\n**推理：**根据图像、指令和机器人状态，先判断能否加速、再选预测范围，由对应头生成动作；可加速时用粗时间粒度，精细阶段保留细粒度控制。"
+  },
+  "evaluation_scope": {
+    "en": "Three simulation suites with GR00T N1.5 and RLDX-1-IMG; six real tasks with GR00T N1.5 on Franka gripper, OpenArm hands and ALLEX. Requires action-module fine-tuning and controller adaptation; faster execution, not lower per-step inference latency.",
+    "zh": "3 套仿真基准验证 GR00T N1.5、RLDX-1-IMG；真机用 GR00T N1.5，在 Franka 夹爪、OpenArm 灵巧手及 ALLEX 上测 6 个任务。需微调动作模块并适配控制器；加速执行，单步推理未提速。"
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.25961v1",
+    "project": "https://pacevla.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.25961v1",
+    "https://arxiv.org/html/2610.25961v1"
+  ],
+  "verified_on": "2026-10-20",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true
+}

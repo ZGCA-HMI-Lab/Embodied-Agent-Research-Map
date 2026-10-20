@@ -1,19 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-589.1200000000001 0 3335.2 700" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-589.1200000000001 0 3335.2 820" role="img" aria-labelledby="title desc">
 <title id="title">Embodied Action Models Mind Map</title>
 <desc id="desc">Research categories with category codes and named paper entries.</desc>
-<rect x="-589.1200000000001" width="3335.2" height="700" fill="#ffffff"/>
+<rect x="-589.1200000000001" width="3335.2" height="820" fill="#ffffff"/>
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M 1800 350.0 C 1575.0 350.0, 1575.0 230.0, 1350 230.0" stroke="#05a6c7" stroke-width="5"/>
-<path d="M 1001.68 230.0 C 941.68 230.0, 941.68 110, 881.68 110" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1001.68 230.0 C 941.68 230.0, 941.68 290.0, 881.68 290.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 410.0 C 1575.0 410.0, 1575.0 290.0, 1350 290.0" stroke="#05a6c7" stroke-width="5"/>
+<path d="M 1001.68 290.0 C 941.68 290.0, 941.68 110, 881.68 110" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1001.68 290.0 C 941.68 290.0, 941.68 290.0, 881.68 290.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 249.9999999999999 290.0 C 189.9999999999999 290.0, 189.9999999999999 290.0, 129.9999999999999 290.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -255.28000000000014 290.0 C -315.28000000000014 290.0, -315.28000000000014 230, -375.28000000000014 230" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -255.28000000000014 290.0 C -315.28000000000014 290.0, -315.28000000000014 350, -375.28000000000014 350" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1800 350.0 C 2025.0 350.0, 2025.0 470, 2250 470" stroke="#ff7b50" stroke-width="5"/>
-<path d="M 1800 350.0 C 1575.0 350.0, 1575.0 590, 1350 590" stroke="#b1c91e" stroke-width="5"/>
+<path d="M 1001.68 290.0 C 941.68 290.0, 941.68 470.0, 881.68 470.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 681.1999999999999 470.0 C 621.1999999999999 470.0, 621.1999999999999 470.0, 561.1999999999999 470.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -218.32000000000016 470.0 C -278.32000000000016 470.0, -278.32000000000016 470, -338.32000000000016 470" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 410.0 C 2025.0 410.0, 2025.0 590, 2250 590" stroke="#ff7b50" stroke-width="5"/>
+<path d="M 1800 410.0 C 1575.0 410.0, 1575.0 710, 1350 710" stroke="#b1c91e" stroke-width="5"/>
 </g>
-<circle cx="1350" cy="230.0" r="5" fill="#05a6c7"/>
-<text x="1334" y="237.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Manipulation Action Models</text>
+<circle cx="1350" cy="290.0" r="5" fill="#05a6c7"/>
+<text x="1334" y="297.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Manipulation Action Models</text>
 <circle cx="881.68" cy="110" r="4" fill="#05a6c7"/>
 <text x="865.68" y="117" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Gripper Manipulation Models<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.GRIP]</tspan></text>
 <circle cx="881.68" cy="290.0" r="5" fill="#05a6c7"/>
@@ -24,10 +27,16 @@
 <text x="-391.28000000000014" y="237" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">BiDex-100</text>
 <circle cx="-375.28000000000014" cy="350" r="4" fill="#05a6c7"/>
 <text x="-391.28000000000014" y="357" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">HandsOn</text>
-<circle cx="2250" cy="470" r="4" fill="#ff7b50"/>
-<text x="2266" y="477" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Navigation Action Models<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
-<circle cx="1350" cy="590" r="4" fill="#b1c91e"/>
-<text x="1334" y="597" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Body Motion and Whole-Body Control Models<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC]</tspan></text>
-<rect x="1542.5" y="296.0" width="515" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
-<text x="1800" y="359.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">Embodied Action Models</text>
+<circle cx="881.68" cy="470.0" r="5" fill="#05a6c7"/>
+<text x="865.68" y="477.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Common Methods</text>
+<circle cx="561.1999999999999" cy="470.0" r="5" fill="#05a6c7"/>
+<text x="545.1999999999999" y="477.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Execution Efficiency and Temporal Control<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
+<circle cx="-338.32000000000016" cy="470" r="4" fill="#05a6c7"/>
+<text x="-354.32000000000016" y="477" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA</text>
+<circle cx="2250" cy="590" r="4" fill="#ff7b50"/>
+<text x="2266" y="597" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Navigation Action Models<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
+<circle cx="1350" cy="710" r="4" fill="#b1c91e"/>
+<text x="1334" y="717" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Body Motion and Whole-Body Control Models<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC]</tspan></text>
+<rect x="1542.5" y="356.0" width="515" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
+<text x="1800" y="419.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">Embodied Action Models</text>
 </svg>

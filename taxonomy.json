@@ -29,6 +29,21 @@
               "description_zh": "灵巧手操作评测任务、数据、环境与评分协议；区分论文声明、公开资产和实际评测配置。"
             }
           ]
+        },
+        {
+          "name": "Common Methods",
+          "name_zh": "共性方法",
+          "children": [
+            {
+              "name": "Execution Efficiency and Temporal Control",
+              "name_zh": "执行效率与时序控制",
+              "code": "AM.MAN.METHOD.EFF",
+              "children": [],
+              "catalog_path": "manipulation/common-methods/execution-efficiency",
+              "description": "Methods for faster task execution through action timing, temporal granularity and scheduling across manipulation platforms. Record evaluated backbones and embodiments; distinguish execution speed from model inference latency.",
+              "description_zh": "通过动作节奏、时间粒度与调度提高任务执行效率的操作共性方法。记录已验证基座与本体，区分动作执行加速和模型推理加速。"
+            }
+          ]
         }
       ]
     },

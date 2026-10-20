@@ -50,7 +50,7 @@ git status --short
 | `category` | 一个已定义末端分类码；不根据编号的历史前缀推断当前分类 |
 | `related_categories` | 其他已定义末端分类码，不与主分类重复 |
 | `tags` | 小写连字符标签，如 `dexterous`、`bimanual`、`simulation`、`cross-embodiment` |
-| `tldr` | 非 benchmark 条目必填 `en` 和 `zh`，一句话说明问题、关键方法和贡献 |
+| `tldr` | 非 benchmark 条目必填 `en` 和 `zh`，简短说明问题、方法和贡献；必要时按训练、结构、推理三点写，避免长篇展开 |
 | `benchmark` | benchmark 条目使用下述五个双语字段，不能再重复填写 tldr |
 | `evaluation_scope` | 可选双语补充说明，显示在分类页摘要的“评测范围”中，不代替基准五项摘要 |
 | `links` | 至少有 paper；可有 project、code、data、assets、hand_catalog；只填写确实存在的 HTTP(S) 来源 |
