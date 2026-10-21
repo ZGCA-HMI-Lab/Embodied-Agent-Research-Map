@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.BENCH.3",
+  "slug": "evo-dexbench",
+  "short_name": "Evo-DexBench",
+  "title": "Evo-DexBench: Benchmarking Generalization across Related Tasks for Dexterous Manipulation",
+  "authors": "Bing Cheng et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "benchmark",
+  "category": "AM.MAN.DEX.BENCH",
+  "related_categories": [],
+  "tags": [
+    "benchmark",
+    "dexterous",
+    "bimanual",
+    "simulation",
+    "tactile",
+    "few-shot",
+    "cross-task-generalization"
+  ],
+  "benchmark": {
+    "hands": {
+      "en": "One type: Shadow Hand on Franka Panda, single or dual arm–hand units; 123 virtual taxels per hand.",
+      "zh": "1 型：Shadow Hand＋Franka Panda，支持单臂单手／双臂双手；每手 123 个虚拟触点。"
+    },
+    "tasks": {
+      "en": "30: 24 Core + 6 Gen in six interaction families; 15 single-hand and 15 bimanual tasks, each with three layouts.",
+      "zh": "30 个：24 Core＋6 Gen，6 类功能交互；单手／双手各 15 个，每任务 3 种布局。"
+    },
+    "cross_hand": {
+      "en": "Shadow Hand only; no matched same-task evaluation across hand types. Single and bimanual setups serve different task families.",
+      "zh": "仅 Shadow Hand，未验证同任务跨手型复用；单／双手配置对应不同任务类。"
+    },
+    "release": {
+      "en": "ManiSkill 3/SAPIEN code, 1,248 HDF5/LeRobot-v3 demos and redistributable assets public; PartNet requires separate access. KineDex training example available; no public benchmark-trained checkpoint found as of the check date.",
+      "zh": "ManiSkill 3／SAPIEN 环境代码、1,248 条 HDF5／LeRobot-v3 示范及可分发资产已公开；PartNet 需单独授权。有 KineDex 训练例程，截至核验日未找到公开的基准训练 checkpoint。"
+    },
+    "highlight": {
+      "en": "Controlled related-task Core→Gen transfer with only eight demos per Gen task, testing source relatedness and breadth rather than target-task memorization; includes scene variation and tactile ablations.",
+      "zh": "以功能相关性组织 Core→Gen，每个 Gen 仅 8 条示范，检验源任务相关性与广度带来的迁移，配合场景变化和触觉消融。"
+    }
+  },
+  "evaluation_scope": {
+    "en": "Paper baselines cover 15 of 30 tasks in three families, using π0.5, DP-C, DP-T, KineDex and SmolVLA. Simulation-only evidence; 100 episodes per task, SR and StageScore. Published resources were inspected, not reproduced locally.",
+    "zh": "论文基线覆盖其中 3 类、15 个任务，比较 π0.5、DP-C、DP-T、KineDex、SmolVLA；为仿真评测，每任务 100 回合，报告成功率与阶段分数。本次核查资源，未本地复现。"
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.21180v1",
+    "project": "https://mint-sjtu.github.io/Evo-DexBench.io/",
+    "code": "https://github.com/MINT-SJTU/Evo-DexBench",
+    "data": "https://huggingface.co/datasets/MINT-SJTU/Evo-DexBench-dataset",
+    "assets": "https://huggingface.co/datasets/MINT-SJTU/Evo-DexBench_Assets"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.21180v1",
+    "https://mint-sjtu.github.io/Evo-DexBench.io/",
+    "https://github.com/MINT-SJTU/Evo-DexBench",
+    "https://github.com/MINT-SJTU/Evo-DexBench/blob/main/docs/task-catalog.md",
+    "https://github.com/MINT-SJTU/Evo-DexBench/blob/main/examples/policies/kinedex/README.md",
+    "https://github.com/MINT-SJTU/Evo-DexBench/releases",
+    "https://huggingface.co/collections/MINT-SJTU/evo-dexbench",
+    "https://huggingface.co/datasets/MINT-SJTU/Evo-DexBench-dataset",
+    "https://huggingface.co/datasets/MINT-SJTU/Evo-DexBench_Assets",
+    "https://huggingface.co/api/datasets/MINT-SJTU/Evo-DexBench-dataset",
+    "https://huggingface.co/api/models?author=MINT-SJTU&search=Evo-DexBench"
+  ],
+  "verified_on": "2026-10-21",
+  "reading_status": "skimmed",
+  "notes": {
+    "en": "notes/evo-dexbench.md",
+    "zh": "notes/evo-dexbench_cn.md"
+  },
+  "show_on_map": true
+}

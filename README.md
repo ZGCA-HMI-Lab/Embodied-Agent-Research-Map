@@ -21,7 +21,7 @@ The current focus is **manipulation action models**. Navigation and body motion 
 | Category | Code | Records | Index |
 |---|---|---:|---|
 | Gripper Manipulation Models | `AM.MAN.GRIP` | 0 | [Open](catalog/manipulation/grippers.md) |
-| Benchmarks | `AM.MAN.DEX.BENCH` | 2 | [Open](catalog/manipulation/dexterous/benchmarks.md) |
+| Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](catalog/manipulation/dexterous/benchmarks.md) |
 | Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 1 | [Open](catalog/manipulation/dexterous/demonstrations/video-to-robot.md) |
 | Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](catalog/manipulation/dexterous/in-hand/reinforcement-learning.md) |
 | Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](catalog/manipulation/common-methods/execution-efficiency.md) |
