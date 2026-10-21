@@ -42,6 +42,21 @@
                   "description_zh": "从真实或生成视频恢复操作过程，转换为可执行的灵巧机器人动作。记录场景假设与物理修正方式，区分轨迹回放和闭环策略部署；重定向、RL 等作为方法标签，不因使用某项技术就自动归入本类。"
                 }
               ]
+            },
+            {
+              "name": "In-Hand Manipulation",
+              "name_zh": "手内操作",
+              "children": [
+                {
+                  "name": "Reinforcement Learning",
+                  "name_zh": "强化学习",
+                  "code": "AM.MAN.DEX.INHAND.RL",
+                  "children": [],
+                  "catalog_path": "manipulation/dexterous/in-hand/reinforcement-learning",
+                  "description": "Reinforcement learning for in-hand rotation, repositioning and coordinated object manipulation. Record sensing, demonstrations, sim-to-real techniques and evaluated objects as tags or evaluation scope; using RL in a demonstration-conversion pipeline alone does not place a work here.",
+                  "description_zh": "以强化学习获得手内旋转、重定位及物体协同操作策略。感知方式、示范利用、仿真到真机技术和已验证物体用标签与评测范围记录；仅在示范转换流程中使用 RL，不自动归入本类。"
+                }
+              ]
             }
           ]
         },

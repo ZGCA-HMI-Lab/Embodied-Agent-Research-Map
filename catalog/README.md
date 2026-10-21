@@ -4,13 +4,14 @@
 
 [Home](../README.md)
 
-4 records. Each has one primary category and may reference related areas.
+5 records. Each has one primary category and may reference related areas.
 
 | Category | Code | Records | Index |
 |---|---|---:|---|
 | Gripper Manipulation Models | `AM.MAN.GRIP` | 0 | [Open](manipulation/grippers.md) |
 | Benchmarks | `AM.MAN.DEX.BENCH` | 2 | [Open](manipulation/dexterous/benchmarks.md) |
 | Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 1 | [Open](manipulation/dexterous/demonstrations/video-to-robot.md) |
+| Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](manipulation/dexterous/in-hand/reinforcement-learning.md) |
 | Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](manipulation/common-methods/execution-efficiency.md) |
 | Navigation Action Models | `AM.NAV` | 0 | [Open](navigation.md) |
 | Body Motion and Whole-Body Control Models | `AM.WBC` | 0 | [Open](whole-body-control.md) |

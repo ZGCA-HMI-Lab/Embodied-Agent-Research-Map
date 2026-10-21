@@ -1,29 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-451.35999999999996 0 3041.2000000000003 940" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-451.35999999999996 0 3041.2000000000003 1060" role="img" aria-labelledby="title desc">
 <title id="title">具身动作模型 领域思维导图</title>
 <desc id="desc">由分类数据自动生成的研究地图，显示分类码及已添加的工作名称。</desc>
-<rect x="-451.35999999999996" width="3041.2000000000003" height="940" fill="#ffffff"/>
+<rect x="-451.35999999999996" width="3041.2000000000003" height="1060" fill="#ffffff"/>
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M 1800 470.0 C 1575.0 470.0, 1575.0 350.0, 1350 350.0" stroke="#05a6c7" stroke-width="5"/>
-<path d="M 1190 350.0 C 1130.0 350.0, 1130.0 110, 1070 110" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1190 350.0 C 1130.0 350.0, 1130.0 350.0, 1070 350.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 350.0 C 784.0 350.0, 784.0 290.0, 724 290.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 530.0 C 1575.0 530.0, 1575.0 410.0, 1350 410.0" stroke="#05a6c7" stroke-width="5"/>
+<path d="M 1190 410.0 C 1130.0 410.0, 1130.0 110, 1070 110" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1190 410.0 C 1130.0 410.0, 1130.0 410.0, 1070 410.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 844 410.0 C 784.0 410.0, 784.0 290.0, 724 290.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 228.71999999999997 290.0 C 168.71999999999997 290.0, 168.71999999999997 230, 108.71999999999997 230" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 228.71999999999997 290.0 C 168.71999999999997 290.0, 168.71999999999997 350, 108.71999999999997 350" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 350.0 C 784.0 350.0, 784.0 470.0, 724 470.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 844 410.0 C 784.0 410.0, 784.0 470.0, 724 470.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 498 470.0 C 438.0 470.0, 438.0 470.0, 378 470.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -141.03999999999996 470.0 C -201.03999999999996 470.0, -201.03999999999996 470, -261.03999999999996 470" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1190 350.0 C 1130.0 350.0, 1130.0 590.0, 1070 590.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 954 590.0 C 894.0 590.0, 894.0 590.0, 834 590.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 361.5999999999999 590.0 C 301.5999999999999 590.0, 301.5999999999999 590, 241.5999999999999 590" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1800 470.0 C 2025.0 470.0, 2025.0 710, 2250 710" stroke="#ff7b50" stroke-width="5"/>
-<path d="M 1800 470.0 C 1575.0 470.0, 1575.0 830, 1350 830" stroke="#b1c91e" stroke-width="5"/>
+<path d="M 844 410.0 C 784.0 410.0, 784.0 590.0, 724 590.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 608 590.0 C 548.0 590.0, 548.0 590.0, 488 590.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 88.63999999999993 590.0 C 28.63999999999993 590.0, 28.63999999999993 590, -31.36000000000007 590" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1190 410.0 C 1130.0 410.0, 1130.0 710.0, 1070 710.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 954 710.0 C 894.0 710.0, 894.0 710.0, 834 710.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 361.5999999999999 710.0 C 301.5999999999999 710.0, 301.5999999999999 710, 241.5999999999999 710" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 530.0 C 2025.0 530.0, 2025.0 830, 2250 830" stroke="#ff7b50" stroke-width="5"/>
+<path d="M 1800 530.0 C 1575.0 530.0, 1575.0 950, 1350 950" stroke="#b1c91e" stroke-width="5"/>
 </g>
-<circle cx="1350" cy="350.0" r="5" fill="#05a6c7"/>
-<text x="1334" y="357.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">操作动作模型</text>
+<circle cx="1350" cy="410.0" r="5" fill="#05a6c7"/>
+<text x="1334" y="417.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">操作动作模型</text>
 <circle cx="1070" cy="110" r="4" fill="#05a6c7"/>
 <text x="1054" y="117" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">夹爪操作模型<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.GRIP]</tspan></text>
-<circle cx="1070" cy="350.0" r="5" fill="#05a6c7"/>
-<text x="1054" y="357.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">多指灵巧手操作模型</text>
+<circle cx="1070" cy="410.0" r="5" fill="#05a6c7"/>
+<text x="1054" y="417.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">多指灵巧手操作模型</text>
 <circle cx="724" cy="290.0" r="5" fill="#05a6c7"/>
 <text x="708" y="297.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Benchmarks｜评测基准<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.BENCH]</tspan></text>
 <circle cx="108.71999999999997" cy="230" r="4" fill="#05a6c7"/>
@@ -36,16 +39,22 @@
 <text x="362" y="477.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">视频示范到机器人动作<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.DEMO.V2R]</tspan></text>
 <circle cx="-261.03999999999996" cy="470" r="4" fill="#05a6c7"/>
 <text x="-277.03999999999996" y="477" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Gen2Dex</text>
-<circle cx="1070" cy="590.0" r="5" fill="#05a6c7"/>
-<text x="1054" y="597.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">共性方法</text>
-<circle cx="834" cy="590.0" r="5" fill="#05a6c7"/>
-<text x="818" y="597.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">执行效率与时序控制<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
-<circle cx="241.5999999999999" cy="590" r="4" fill="#05a6c7"/>
-<text x="225.5999999999999" y="597" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA</text>
-<circle cx="2250" cy="710" r="4" fill="#ff7b50"/>
-<text x="2266" y="717" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">导航动作模型<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
-<circle cx="1350" cy="830" r="4" fill="#b1c91e"/>
-<text x="1334" y="837" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">身体运动与全身控制模型<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC]</tspan></text>
-<rect x="1620.0" y="416.0" width="360" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
-<text x="1800" y="479.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">具身动作模型</text>
+<circle cx="724" cy="590.0" r="5" fill="#05a6c7"/>
+<text x="708" y="597.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">手内操作</text>
+<circle cx="488" cy="590.0" r="5" fill="#05a6c7"/>
+<text x="472" y="597.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">强化学习<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.INHAND.RL]</tspan></text>
+<circle cx="-31.36000000000007" cy="590" r="4" fill="#05a6c7"/>
+<text x="-47.36000000000007" y="597" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">No Eyes, No Problem</text>
+<circle cx="1070" cy="710.0" r="5" fill="#05a6c7"/>
+<text x="1054" y="717.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">共性方法</text>
+<circle cx="834" cy="710.0" r="5" fill="#05a6c7"/>
+<text x="818" y="717.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">执行效率与时序控制<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
+<circle cx="241.5999999999999" cy="710" r="4" fill="#05a6c7"/>
+<text x="225.5999999999999" y="717" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA</text>
+<circle cx="2250" cy="830" r="4" fill="#ff7b50"/>
+<text x="2266" y="837" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">导航动作模型<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
+<circle cx="1350" cy="950" r="4" fill="#b1c91e"/>
+<text x="1334" y="957" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">身体运动与全身控制模型<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC]</tspan></text>
+<rect x="1620.0" y="476.0" width="360" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
+<text x="1800" y="539.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">具身动作模型</text>
 </svg>
