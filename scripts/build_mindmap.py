@@ -24,9 +24,8 @@ def prepare_positions(title, tree):
 
     for i, branch in enumerate(tree):
         collect(branch, i)
-    row_gap = 120 if len(leaves) <= 6 else 34
-    min_height = 360 if len(leaves) <= 6 else 1040
-    height = max(min_height, (len(leaves) - 1) * row_gap + 220)
+    row_gap = max(34, min(120, 900 / max(1, len(leaves) - 1)))
+    height = max(360, (len(leaves) - 1) * row_gap + 220)
     width, center_x = 3600, 1800
 
     def assign(node):

@@ -4,12 +4,13 @@
 
 [首页](../README_cn.md)
 
-共 3 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。
+共 4 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。
 
 | 分类 | 编号前缀 | 条目数 | 阅读入口 |
 |---|---|---:|---|
 | 夹爪操作模型 | `AM.MAN.GRIP` | 0 | [查看](manipulation/grippers_cn.md) |
 | Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 2 | [查看](manipulation/dexterous/benchmarks_cn.md) |
+| 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 1 | [查看](manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
 | 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](manipulation/common-methods/execution-efficiency_cn.md) |
 | 导航动作模型 | `AM.NAV` | 0 | [查看](navigation_cn.md) |
 | 身体运动与全身控制模型 | `AM.WBC` | 0 | [查看](whole-body-control_cn.md) |

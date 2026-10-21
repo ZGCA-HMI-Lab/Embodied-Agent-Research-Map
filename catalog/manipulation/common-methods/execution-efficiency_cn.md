@@ -10,6 +10,6 @@
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
-| [AM.MAN.METHOD.EFF.1] <a id="am-man-method-eff-1"></a> | [PaceVLA: Adaptive Temporal Action Quantization in Vision-Language-Action Models](https://arxiv.org/pdf/2610.25961v1)<br>Hojin Jeon et al | **训练：**同一示范构造普通／加速、长／短范围的动作标签；大视觉语言模型标注各阶段能否加速，监督判断器。<br>**结构：**共享动作主干，配 4 个输出头（普通／加速 × 长／短范围），另加判断器和路由器。<br>**推理：**根据图像、指令和机器人状态，先判断能否加速、再选预测范围，由对应头生成动作；可加速时用粗时间粒度，精细阶段保留细粒度控制。<br>**评测范围:** 3 套仿真基准验证 GR00T N1.5、RLDX-1-IMG；真机用 GR00T N1.5，在 Franka 夹爪、OpenArm 灵巧手及 ALLEX 上测 6 个任务。需微调动作模块并适配控制器；加速执行，单步推理未提速。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.25961v1) · [项目](https://pacevla.github.io/) | 初读<br>2026-10-20 |
+| [AM.MAN.METHOD.EFF.1] <a id="am-man-method-eff-1"></a> | [PaceVLA: Adaptive Temporal Action Quantization in Vision-Language-Action Models](https://arxiv.org/pdf/2610.25961v1)<br>Hojin Jeon et al<br>**标签:** `manipulation` `vla` `gripper` `dexterous` `execution-speedup` `temporal-action-quantization` | **训练：**同一示范构造普通／加速、长／短范围的动作标签；大视觉语言模型标注各阶段能否加速，监督判断器。<br>**结构：**共享动作主干，配 4 个输出头（普通／加速 × 长／短范围），另加判断器和路由器。<br>**推理：**根据图像、指令和机器人状态，先判断能否加速、再选预测范围，由对应头生成动作；可加速时用粗时间粒度，精细阶段保留细粒度控制。<br>**评测范围:** 3 套仿真基准验证 GR00T N1.5、RLDX-1-IMG；真机用 GR00T N1.5，在 Franka 夹爪、OpenArm 灵巧手及 ALLEX 上测 6 个任务。需微调动作模块并适配控制器；加速执行，单步推理未提速。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.25961v1) · [项目](https://pacevla.github.io/) | 初读<br>2026-10-20 |
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

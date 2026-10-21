@@ -27,6 +27,21 @@
               "catalog_path": "manipulation/dexterous/benchmarks",
               "description": "Dexterous-hand evaluation tasks, data, environments, and protocols. Distinguish published support from demonstrated configurations.",
               "description_zh": "灵巧手操作评测任务、数据、环境与评分协议；区分论文声明、公开资产和实际评测配置。"
+            },
+            {
+              "name": "Demonstration Acquisition and Action Conversion",
+              "name_zh": "示范获取与动作转换",
+              "children": [
+                {
+                  "name": "Video Demonstrations to Robot Actions",
+                  "name_zh": "视频示范到机器人动作",
+                  "code": "AM.MAN.DEX.DEMO.V2R",
+                  "children": [],
+                  "catalog_path": "manipulation/dexterous/demonstrations/video-to-robot",
+                  "description": "Recover manipulation from real or generated videos and convert it into executable dexterous robot actions. Record scene assumptions and physical refinement; distinguish trajectory replay from closed-loop policy deployment. Retargeting and RL are method tags, not automatic inclusion criteria.",
+                  "description_zh": "从真实或生成视频恢复操作过程，转换为可执行的灵巧机器人动作。记录场景假设与物理修正方式，区分轨迹回放和闭环策略部署；重定向、RL 等作为方法标签，不因使用某项技术就自动归入本类。"
+                }
+              ]
             }
           ]
         },

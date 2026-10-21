@@ -107,8 +107,12 @@ def category_page(root, taxonomy, category, papers, language):
                                       relative(root / paper["notes"][language], page)))
             title = link(paper["title"], paper["links"]["paper"])
             author = cell(paper["authors"])
+            work = f"{title}<br>{author}"
+            if paper["tags"]:
+                label = "标签" if language == "zh" else "Tags"
+                work += f"<br>**{label}:** " + " ".join(f"`{tag}`" for tag in paper["tags"])
             reading = STATUSES[language][paper["reading_status"]]
-            lines.append(f"| [{paper['id']}] <a id=\"{anchor(paper)}\"></a> | {title}<br>{author} | "
+            lines.append(f"| [{paper['id']}] <a id=\"{anchor(paper)}\"></a> | {work} | "
                          f"{cell(tldr(paper, language))} | {cell(paper['venue'])} / {paper['year']} | "
                          f"{' · '.join(resources)} | {reading}<br>{paper['verified_on']} |")
     if related:

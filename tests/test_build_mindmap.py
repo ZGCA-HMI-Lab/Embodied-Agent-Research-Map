@@ -87,6 +87,15 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("../../../notes/work-1_cn.md",
                       (self.root / "catalog/manipulation/dexterous/benchmarks_cn.md").read_text())
 
+    def test_paper_tags_are_visible_in_both_category_indexes(self):
+        self.paper["tags"] = ["dexterous", "retargeting"]
+        self.write_paper(self.paper)
+        outputs = build_outputs(self.root)
+        for suffix, label in [("", "Tags"), ("_cn", "标签")]:
+            with self.subTest(language=suffix):
+                page = outputs[self.root / f"catalog/manipulation/dexterous/benchmarks{suffix}.md"]
+                self.assertIn(f"**{label}:** `dexterous` `retargeting`", page)
+
     def test_optional_evaluation_scope_is_visible_for_benchmarks_and_models(self):
         for kind in ("benchmark", "model"):
             with self.subTest(kind=kind):
@@ -234,6 +243,14 @@ class CatalogTests(unittest.TestCase):
                 self.assertLess(child["x"], node["x"] - renderer.label_width(node) - 28)
                 inspect(child)
         inspect(tree[0])
+
+    def test_seventh_map_leaf_does_not_leave_excessive_bottom_whitespace(self):
+        tree = [{"name": "Branch", "code": None, "depth": 1, "children": [
+            {"name": f"Work {i}", "code": None, "depth": 2, "children": []}
+            for i in range(7)
+        ]}]
+        _, height, _, _, leaves = renderer.prepare_positions("Actions", tree)
+        self.assertLessEqual(height - max(node["y"] for node in leaves), 120)
 
 
 if __name__ == "__main__":

@@ -49,7 +49,7 @@ git status --short
 | `kind` | `model`、`benchmark`、`dataset`、`tool` 或 `survey` |
 | `category` | 一个已定义末端分类码；不根据编号的历史前缀推断当前分类 |
 | `related_categories` | 其他已定义末端分类码，不与主分类重复 |
-| `tags` | 小写连字符标签，如 `dexterous`、`bimanual`、`simulation`、`cross-embodiment` |
+| `tags` | 小写连字符标签，如 `dexterous`、`bimanual`、`simulation`、`cross-embodiment`；分类页在标题、作者下显示，方法标签不代替主分类 |
 | `tldr` | 非 benchmark 条目必填 `en` 和 `zh`，简短说明问题、方法和贡献；必要时按训练、结构、推理三点写，避免长篇展开 |
 | `benchmark` | benchmark 条目使用下述五个双语字段，不能再重复填写 tldr |
 | `evaluation_scope` | 可选双语补充说明，显示在分类页摘要的“评测范围”中，不代替基准五项摘要 |

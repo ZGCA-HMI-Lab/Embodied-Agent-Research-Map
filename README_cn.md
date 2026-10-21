@@ -10,7 +10,7 @@
 2. 点击分类入口，阅读该方向的全部短条目与 TL;DR。
 3. 需要深入时，点击条目中的“笔记”查看单篇阅读记录。
 
-当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作保留夹爪、多指灵巧手的平台入口，以及跨平台的共性方法入口；灵巧手下已有 Benchmarks 分支，共性方法下已有执行效率与时序控制分支。
+当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作保留夹爪、多指灵巧手的平台入口，以及跨平台的共性方法入口。灵巧手下已有 Benchmarks 和“示范获取与动作转换 → 视频示范到机器人动作”；共性方法下已有执行效率与时序控制。
 
 [![具身动作模型研究地图](mindmap_cn.svg)](mindmap_cn.svg)
 
@@ -22,6 +22,7 @@
 |---|---|---:|---|
 | 夹爪操作模型 | `AM.MAN.GRIP` | 0 | [查看](catalog/manipulation/grippers_cn.md) |
 | Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 2 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) |
+| 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 1 | [查看](catalog/manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
 | 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](catalog/manipulation/common-methods/execution-efficiency_cn.md) |
 | 导航动作模型 | `AM.NAV` | 0 | [查看](catalog/navigation_cn.md) |
 | 身体运动与全身控制模型 | `AM.WBC` | 0 | [查看](catalog/whole-body-control_cn.md) |
