@@ -36,7 +36,7 @@
     "zh": "学习历史先验与随机性的混合程度，并按学得的多模态权重分配求解步数。"
   },
   "evaluation_scope": {
-    "en": "Eight simulated and four real tasks, including Franka Research3 and Galaxea R1 Lite; no verified π0.5 deployment in this record.",
-    "zh": "8 项仿真与 4 项真机任务，包括 Franka Research3 和 Galaxea R1 Lite；本条未核实 π0.5 部署。"
+    "en": "Eight simulated and four real tasks, including Franka Research3 and Galaxea R1 Lite. π0.5 compatibility remains to be checked.",
+    "zh": "8 项仿真与 4 项真机任务，包括 Franka Research3 和 Galaxea R1 Lite；π0.5 适配情况待核对。"
   }
 }

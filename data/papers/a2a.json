@@ -34,7 +34,7 @@
     "zh": "将本体动作历史编码为潜在生成起点，向未来动作迁移，替代从高斯噪声开始的生成。"
   },
   "evaluation_scope": {
-    "en": "Visuomotor policy and temporal-generation experiments; not established here as a plug-in π0.5 accelerator. Detailed timing protocol remains to be extracted.",
-    "zh": "视觉运动策略与时序生成实验；本次证据不能将其写成即插即用的 π0.5 加速器。具体计时口径待进一步摘录。"
+    "en": "Visuomotor policy and temporal-generation experiments. Timing protocol and adaptation to π0.5 remain to be checked.",
+    "zh": "视觉运动策略与时序生成实验；计时口径及 π0.5 适配条件待核对。"
   }
 }

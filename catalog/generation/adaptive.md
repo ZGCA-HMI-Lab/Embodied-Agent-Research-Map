@@ -10,7 +10,7 @@ Adapt stochasticity and solver steps to the current conditional action distribut
 
 | ID | Work | TL;DR / key facts | Publication | Resources | Reading / checked |
 |---|---|---|---|---|---|
-| [LAT.GEN.ADAPT.1] <a id="lat-gen-adapt-1"></a> | [MARS Policy: Multimodality Only When It Matters](https://arxiv.org/abs/2605.29766v1)<br>Jindou Jia et al.<br>**Tags:** `visuomotor-policy` `adaptive-sampling` `multimodality` `history-source` | Learn how much stochasticity to mix with historical priors, then allocate solver steps according to the learned multimodality weights.<br>**Evaluation scope:** Eight simulated and four real tasks, including Franka Research3 and Galaxea R1 Lite; no verified π0.5 deployment in this record. | arXiv v1 / 2026 | [Paper](https://arxiv.org/abs/2605.29766v1) | Indexed<br>2026-10-22 |
+| [LAT.GEN.ADAPT.1] <a id="lat-gen-adapt-1"></a> | [MARS Policy: Multimodality Only When It Matters](https://arxiv.org/abs/2605.29766v1)<br>Jindou Jia et al.<br>**Tags:** `visuomotor-policy` `adaptive-sampling` `multimodality` `history-source` | Learn how much stochasticity to mix with historical priors, then allocate solver steps according to the learned multimodality weights.<br>**Evaluation scope:** Eight simulated and four real tasks, including Franka Research3 and Galaxea R1 Lite. π0.5 compatibility remains to be checked. | arXiv v1 / 2026 | [Paper](https://arxiv.org/abs/2605.29766v1) | Indexed<br>2026-10-22 |
 
 ## Related records
 

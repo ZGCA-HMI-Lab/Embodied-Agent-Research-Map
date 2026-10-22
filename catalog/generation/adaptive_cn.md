@@ -10,7 +10,7 @@
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
-| [LAT.GEN.ADAPT.1] <a id="lat-gen-adapt-1"></a> | [MARS Policy: Multimodality Only When It Matters](https://arxiv.org/abs/2605.29766v1)<br>Jindou Jia et al.<br>**标签:** `visuomotor-policy` `adaptive-sampling` `multimodality` `history-source` | 学习历史先验与随机性的混合程度，并按学得的多模态权重分配求解步数。<br>**评测范围:** 8 项仿真与 4 项真机任务，包括 Franka Research3 和 Galaxea R1 Lite；本条未核实 π0.5 部署。 | arXiv v1 / 2026 | [论文](https://arxiv.org/abs/2605.29766v1) · [笔记](../../notes/mars-policy_cn.md) | 已收录<br>2026-10-22 |
+| [LAT.GEN.ADAPT.1] <a id="lat-gen-adapt-1"></a> | [MARS Policy: Multimodality Only When It Matters](https://arxiv.org/abs/2605.29766v1)<br>Jindou Jia et al.<br>**标签:** `visuomotor-policy` `adaptive-sampling` `multimodality` `history-source` | 学习历史先验与随机性的混合程度，并按学得的多模态权重分配求解步数。<br>**评测范围:** 8 项仿真与 4 项真机任务，包括 Franka Research3 和 Galaxea R1 Lite；π0.5 适配情况待核对。 | arXiv v1 / 2026 | [论文](https://arxiv.org/abs/2605.29766v1) · [笔记](../../notes/mars-policy_cn.md) | 已收录<br>2026-10-22 |
 
 ## 相关工作
 

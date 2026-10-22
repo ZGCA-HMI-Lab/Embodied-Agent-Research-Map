@@ -35,7 +35,7 @@
     "zh": "以图像编辑去噪的 KV 上下文驱动动作 Flow 专家，替代稠密未来视频，推理无需解码目标 RGB。"
   },
   "evaluation_scope": {
-    "en": "Simulation and real-robot comparisons; distinguish retaining latent visual computation from decoding future RGB. Detailed timing configuration not extracted here.",
-    "zh": "仿真与真机对比；应区分保留潜在视觉计算与解码未来 RGB。本次未摘录详细计时配置。"
+    "en": "Simulation and real-robot comparisons. Inference retains image-editing latent computation without decoding future RGB. Timing setup: pending extraction.",
+    "zh": "仿真与真机对比。推理保留图像编辑潜变量计算，无需解码未来 RGB；详细计时配置待补。"
   }
 }

@@ -36,7 +36,7 @@
     "zh": "学习调度器，联合选择感知语言复用与动作去噪模式，保持基座策略冻结。"
   },
   "evaluation_scope": {
-    "en": "GR00T/CogACT, SimplerEnv and six Franka tasks; RTX 4090. A trained scheduler is distinct from retraining the base policy.",
-    "zh": "GR00T/CogACT、SimplerEnv 与 6 项 Franka 真机任务；RTX 4090。调度器需要训练，不能把基座免重训理解成整个方法免训练。"
+    "en": "GR00T/CogACT, SimplerEnv and six Franka tasks; RTX 4090. The scheduler is trained with the base policy frozen.",
+    "zh": "GR00T/CogACT、SimplerEnv 与 6 项 Franka 真机任务；RTX 4090。基座策略冻结，调度器单独训练。"
   }
 }

@@ -35,7 +35,7 @@
     "zh": "保留视频联合训练，在推理时移除显式未来生成，区分训练表征收益与部署成本。"
   },
   "evaluation_scope": {
-    "en": "LIBERO, RoboTwin and real tasks; source reports 190 ms in its setup. Not comparable directly with timings from other hardware or model paths.",
-    "zh": "LIBERO、RoboTwin 与真机；原文在其设置下报告 190 ms，不能与其他硬件或计时路径直接比较。"
+    "en": "LIBERO, RoboTwin and real tasks; the paper reports 190 ms under its evaluation setup.",
+    "zh": "LIBERO、RoboTwin 与真机；论文在其评测设置下报告 190 ms。"
   }
 }

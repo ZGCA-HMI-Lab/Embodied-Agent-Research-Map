@@ -1,8 +1,8 @@
 # 动态任务文献扩展：分类分析与迁移建议
 
-日期：2026-10-22。状态：用户已要求暂不加入，本提案暂缓，仅保留供参考。尚未修改 taxonomy、论文 JSON 或生成文件；以后仅在用户明确要求继续时恢复。
+日期：2026-10-22。状态：暂缓，尚未实施。
 
-依据：用户引用的“动态机器人论文追踪”（6aa8eb01-9d88-83e8-b53e-be8493daff80），读取到一轮内的 10 条追踪消息，提取出 15 个不同的直接 arXiv 入口。已核验这些入口的元信息和摘要，另补查会话中反复提及的 DOMINO/PUMA 与 DynamicVLA/DOM。未把旧会话的创新性判断、实验数字当作已验证事实。
+本提案讨论动态感知、实时重规划与反馈控制相关论文的分类方式。下表列出 15 篇方法论文，另附 DOMINO/PUMA 与 DynamicVLA/DOM 两篇方法和基准文献。
 
 ## 结论
 
@@ -65,7 +65,7 @@ VLA / WAM 实时与动态控制
 | 14 | [PACT-VLA](https://arxiv.org/abs/2610.28019) | LAT.SELECT | 用提交前观测评价候选；区别于更新候选生成状态 |
 | 15 | [DirectWAM](https://arxiv.org/abs/2610.28122) | LAT.GEN.STEP | 保留未来到动作级联的一步蒸馏；不自动作为动态扰动方法 |
 
-另补会话中只有名称但重要的 [DOMINO/PUMA](https://arxiv.org/abs/2603.15620v3) 与 [DynamicVLA/DOM](https://arxiv.org/abs/2601.22153v2)，分别交叉进入方法和基准入口。同一论文一个 JSON、一套编号；不为方法名和基准名再造两篇论文。
+另有 [DOMINO/PUMA](https://arxiv.org/abs/2603.15620v3) 与 [DynamicVLA/DOM](https://arxiv.org/abs/2601.22153v2)，分别交叉进入方法和基准入口。同一论文一个 JSON、一套编号；不为方法名和基准名再造两篇论文。
 
 ## 对已有十六篇的影响
 
@@ -97,8 +97,8 @@ VLA / WAM 实时与动态控制
 
 方法论文顺带提出基准时，如 DSDyn-VLA/DynBench，仍为一个 model 记录，通过 related_categories 关联 LAT.BENCH，详细基准事实放笔记/评测矩阵，不复制相同论文标题以绕过去重校验。
 
-## 本轮范围和下一步
+## 后续工作
 
-本轮只交付分类分析，不修改正式研究数据。十五个直接来源候选和两个补查来源并不代表整个追踪会话提及的所有工作；ForeTime-VLA、UniMPA、GeoAAC、Real-Time EXPO-FT、VLA-Feedback、Reactive Real-Time Flow、Streaming-WAM 等只有名称的线索，实施时定位正式论文，身份未核实则进入待核验清单。
+ForeTime-VLA、UniMPA、GeoAAC、Real-Time EXPO-FT、VLA-Feedback、Reactive Real-Time Flow、Streaming-WAM 等工作的正式来源与分类仍待核对。
 
-确认分类后，按“迁移两篇已有分类 → 收录已核验新论文与基准 → 补查名称线索 → 生成双语索引/导图与动态评测矩阵 → 结构/链接/测试/视觉检查”实施。不运行训练或机器人评测，不提交或推送 Git。
+实施顺序：迁移已有条目，补充新论文与基准，建立动态评测矩阵，最后更新索引和导图。

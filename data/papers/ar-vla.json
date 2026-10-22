@@ -37,7 +37,7 @@
     "zh": "以保留长期历史的自回归动作专家替换反复重置的动作块，接受可刷新的视觉语言前缀，并重锚定过时感知。"
   },
   "evaluation_scope": {
-    "en": "Specialist/generalist simulation and real robots; an architectural training route, not a drop-in solver-step change.",
-    "zh": "专用/通用策略的仿真与真机实验；属于架构与训练路线，不能视为直接修改求解步数。"
+    "en": "Simulation and real-robot experiments with specialist and generalist policies; requires training an autoregressive action expert.",
+    "zh": "专用/通用策略的仿真与真机实验，需要训练自回归动作专家。"
   }
 }

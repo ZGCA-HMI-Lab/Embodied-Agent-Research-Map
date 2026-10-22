@@ -10,8 +10,8 @@
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
-| [LAT.VLM.1] <a id="lat-vlm-1"></a> | [ElegantVLA: Learning When to Think for Efficient Vision-Language-Action Models](https://arxiv.org/abs/2605.29438v1)<br>Ye Li et al.<br>**标签:** `vla` `vlm-reuse` `learned-scheduler` | 学习调度器，联合选择感知语言复用与动作去噪模式，保持基座策略冻结。<br>**评测范围:** GR00T/CogACT、SimplerEnv 与 6 项 Franka 真机任务；RTX 4090。调度器需要训练，不能把基座免重训理解成整个方法免训练。 | arXiv v1 / 2026 | [论文](https://arxiv.org/abs/2605.29438v1) · [项目](https://anonymous.4open.science/w/elegantvla/) · [笔记](../../notes/elegantvla_cn.md) | 已收录<br>2026-10-22 |
-| [LAT.VLM.2] <a id="lat-vlm-2"></a> | [Think Twice, Act Once: Token-Aware Compression and Action Reuse for Efficient Inference in Vision-Language-Action Models](https://arxiv.org/abs/2505.21200v1)<br>Xudong Tan et al.<br>**标签:** `vla` `token-pruning` `action-reuse` `training-free` | 免训练地筛选视觉 token，并在稳定步骤复用动作，跳过冗余解码。<br>**评测范围:** 论文报告 LIBERO 评测；这是 2025 年的复用方法，与 2026 年同名流式方法不同。本次未摘录计时硬件。 | arXiv v1 / 2025 | [论文](https://arxiv.org/abs/2505.21200v1) · [笔记](../../notes/flashvla-reuse_cn.md) | 已收录<br>2026-10-22 |
+| [LAT.VLM.1] <a id="lat-vlm-1"></a> | [ElegantVLA: Learning When to Think for Efficient Vision-Language-Action Models](https://arxiv.org/abs/2605.29438v1)<br>Ye Li et al.<br>**标签:** `vla` `vlm-reuse` `learned-scheduler` | 学习调度器，联合选择感知语言复用与动作去噪模式，保持基座策略冻结。<br>**评测范围:** GR00T/CogACT、SimplerEnv 与 6 项 Franka 真机任务；RTX 4090。基座策略冻结，调度器单独训练。 | arXiv v1 / 2026 | [论文](https://arxiv.org/abs/2605.29438v1) · [项目](https://anonymous.4open.science/w/elegantvla/) · [笔记](../../notes/elegantvla_cn.md) | 已收录<br>2026-10-22 |
+| [LAT.VLM.2] <a id="lat-vlm-2"></a> | [Think Twice, Act Once: Token-Aware Compression and Action Reuse for Efficient Inference in Vision-Language-Action Models](https://arxiv.org/abs/2505.21200v1)<br>Xudong Tan et al.<br>**标签:** `vla` `token-pruning` `action-reuse` `training-free` | 免训练地筛选视觉 token，并在稳定步骤复用动作，跳过冗余解码。<br>**评测范围:** 2025 年 token 压缩与动作复用方法，使用 LIBERO 评测。计时硬件待补。 | arXiv v1 / 2025 | [论文](https://arxiv.org/abs/2505.21200v1) · [笔记](../../notes/flashvla-reuse_cn.md) | 已收录<br>2026-10-22 |
 
 ## 相关工作
 

@@ -34,7 +34,7 @@
     "zh": "在执行当前动作块时生成下一块，冻结已承诺执行的动作并补全其余部分，无需重训策略。"
   },
   "evaluation_scope": {
-    "en": "Twelve dynamic Kinetix tasks and six bimanual real tasks. Targets delay robustness and throughput; guidance is not a claim of fewer base-model evaluations.",
-    "zh": "12 项动态 Kinetix 任务与 6 项双臂真机任务。目标是延迟鲁棒性与吞吐；引导补全并不代表减少基座前向次数。"
+    "en": "Twelve dynamic Kinetix tasks and six bimanual real tasks; evaluates delay robustness, trajectory continuity and task throughput.",
+    "zh": "12 项动态 Kinetix 任务与 6 项双臂真机任务，评估延迟鲁棒性、轨迹连续性与任务吞吐。"
   }
 }

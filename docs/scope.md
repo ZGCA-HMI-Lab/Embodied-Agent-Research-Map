@@ -8,6 +8,6 @@ Categories follow the main bottleneck: perception/VLM reuse; one-step generation
 
 Foundation papers explain architecture and are not automatically counted as dedicated acceleration methods. A result on one backbone is not evidence of universal drop-in compatibility.
 
-Records verify metadata, abstracts and selected sections, not exhaustive full-paper reading. Details not extracted in this pass are marked as such; this does not mean the paper omitted them. Author-reported experiments are not local reproductions. All initial reading states are indexed.
+Records retain paper versions, sources and evaluation settings. Details awaiting extraction are marked as pending; information absent from the source is marked as unreported. Performance numbers come from the cited papers, with reproductions documented separately.
 
 Version-pinned sources and verification dates are recorded. FLOPs, model-forward time, complete local policy-call time, sensor-to-actuation age and task completion time remain separate. Cross-hardware numbers are not a speed leaderboard. See [CONTRIBUTING](../CONTRIBUTING.md).

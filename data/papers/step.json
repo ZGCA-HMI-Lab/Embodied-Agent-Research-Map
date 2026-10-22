@@ -33,7 +33,7 @@
     "zh": "学习具有时空一致性的热启动动作，再用少量扩散步骤修正，并通过扰动机制缓解执行停滞。"
   },
   "evaluation_scope": {
-    "en": "Nine simulated benchmarks and two real tasks; two-step sampling is reported. Hardware and per-benchmark horizons were not extracted in this pass.",
-    "zh": "9 个仿真基准与 2 项真机任务，报告两步采样。本次未摘录硬件与逐基准 horizon。"
+    "en": "Nine simulated benchmarks and two real tasks, with two-step sampling. Hardware and per-benchmark horizons: pending extraction.",
+    "zh": "9 个仿真基准与 2 项真机任务，报告两步采样；硬件与逐基准 horizon 待补。"
   }
 }

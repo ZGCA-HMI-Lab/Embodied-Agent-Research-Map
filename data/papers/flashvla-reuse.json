@@ -33,7 +33,7 @@
     "zh": "免训练地筛选视觉 token，并在稳定步骤复用动作，跳过冗余解码。"
   },
   "evaluation_scope": {
-    "en": "The paper reports LIBERO evaluation; this is the 2025 reuse method, not the 2026 streaming method. Timing hardware not extracted in this pass.",
-    "zh": "论文报告 LIBERO 评测；这是 2025 年的复用方法，与 2026 年同名流式方法不同。本次未摘录计时硬件。"
+    "en": "LIBERO evaluation of the 2025 token-compression/action-reuse method. Timing hardware: pending extraction.",
+    "zh": "2025 年 token 压缩与动作复用方法，使用 LIBERO 评测。计时硬件待补。"
   }
 }
