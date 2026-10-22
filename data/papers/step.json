@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "LAT.GEN.HIST.2",
+  "slug": "step",
+  "short_name": "STEP",
+  "title": "STEP: Warm-Started Visuomotor Policies with Spatiotemporal Consistency Prediction",
+  "authors": "Jinhao Li, Yuxuan Cong, Yingqiao Wang, Hao Xia, Shan Huang, Yijia Zhang, Ningyi Xu, Guohao Dai",
+  "year": 2026,
+  "venue": "ICML 2026 / PMLR 306",
+  "kind": "model",
+  "category": "LAT.GEN.HIST",
+  "related_categories": [],
+  "tags": [
+    "diffusion-policy",
+    "warm-start",
+    "temporal-consistency"
+  ],
+  "links": {
+    "paper": "https://proceedings.mlr.press/v306/li26aa.html",
+    "code": "https://github.com/Kimho666/STEP"
+  },
+  "sources": [
+    "https://proceedings.mlr.press/v306/li26aa.html"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/step_cn.md"
+  },
+  "show_on_map": false,
+  "tldr": {
+    "en": "Learn consistent warm-start actions for a diffusion policy and refine them with few sampling steps; perturbations help avoid execution stalls.",
+    "zh": "学习具有时空一致性的热启动动作，再用少量扩散步骤修正，并通过扰动机制缓解执行停滞。"
+  },
+  "evaluation_scope": {
+    "en": "Nine simulated benchmarks and two real tasks; two-step sampling is reported. Hardware and per-benchmark horizons were not extracted in this pass.",
+    "zh": "9 个仿真基准与 2 项真机任务，报告两步采样。本次未摘录硬件与逐基准 horizon。"
+  }
+}

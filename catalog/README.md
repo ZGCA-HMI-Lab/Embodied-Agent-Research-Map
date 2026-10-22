@@ -4,14 +4,14 @@
 
 [Home](../README.md)
 
-6 records. Each has one primary category and may reference related areas.
+16 records. Each has one primary category and may reference related areas.
 
 | Category | Code | Records | Index |
 |---|---|---:|---|
-| Gripper Manipulation Models | `AM.MAN.GRIP` | 0 | [Open](manipulation/grippers.md) |
-| Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](manipulation/dexterous/benchmarks.md) |
-| Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 1 | [Open](manipulation/dexterous/demonstrations/video-to-robot.md) |
-| Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](manipulation/dexterous/in-hand/reinforcement-learning.md) |
-| Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](manipulation/common-methods/execution-efficiency.md) |
-| Navigation Action Models | `AM.NAV` | 0 | [Open](navigation.md) |
-| Body Motion and Whole-Body Control Models | `AM.WBC` | 0 | [Open](whole-body-control.md) |
+| Perception and VLM reuse | `LAT.VLM` | 2 | [Open](perception/vlm-reuse.md) |
+| One-step generation and distillation | `LAT.GEN.STEP` | 2 | [Open](generation/one-step.md) |
+| History sources and warm starts | `LAT.GEN.HIST` | 3 | [Open](generation/history.md) |
+| Adaptive sampling budgets | `LAT.GEN.ADAPT` | 1 | [Open](generation/adaptive.md) |
+| Asynchronous execution and delay compensation | `LAT.ASYNC` | 4 | [Open](execution/asynchronous.md) |
+| Execution timing and granularity | `LAT.EXEC` | 1 | [Open](execution/temporal-granularity.md) |
+| WAM and policy foundations | `LAT.BASE` | 3 | [Open](foundations/models.md) |

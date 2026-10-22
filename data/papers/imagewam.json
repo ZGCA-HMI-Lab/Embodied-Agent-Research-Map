@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "LAT.BASE.2",
+  "slug": "imagewam",
+  "short_name": "ImageWAM",
+  "title": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
+  "authors": "Yuyang Zhang et al.",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.BASE",
+  "related_categories": [],
+  "tags": [
+    "wam",
+    "image-editing",
+    "kv-context"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2606.19531v1",
+    "project": "https://zhangwenyao1.github.io/ImageWAM/",
+    "code": "https://github.com/yuyangalin/ImageWAM"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2606.19531v1",
+    "https://github.com/yuyangalin/ImageWAM"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/imagewam_cn.md"
+  },
+  "show_on_map": false,
+  "tldr": {
+    "en": "Use image-editing denoising KV context for an action flow expert instead of dense future video; target RGB need not be decoded.",
+    "zh": "以图像编辑去噪的 KV 上下文驱动动作 Flow 专家，替代稠密未来视频，推理无需解码目标 RGB。"
+  },
+  "evaluation_scope": {
+    "en": "Simulation and real-robot comparisons; distinguish retaining latent visual computation from decoding future RGB. Detailed timing configuration not extracted here.",
+    "zh": "仿真与真机对比；应区分保留潜在视觉计算与解码未来 RGB。本次未摘录详细计时配置。"
+  }
+}

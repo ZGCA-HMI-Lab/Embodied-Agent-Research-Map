@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "LAT.GEN.STEP.2",
+  "slug": "snapflow",
+  "short_name": "SnapFlow",
+  "title": "SnapFlow: One-Step Action Generation for Flow-Matching VLAs via Progressive Self-Distillation",
+  "authors": "Wuyang Luan, Junhui Li, Weiguang Zhao, Rui Ma, Tieru Wu",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "LAT.GEN.STEP",
+  "related_categories": [],
+  "tags": [
+    "vla",
+    "one-step",
+    "self-distillation"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2604.05656v2"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2604.05656v2",
+    "https://arxiv.org/html/2604.05656v2"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/snapflow_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Self-distill a pretrained flow policy with local velocity and stop-gradient shortcut targets; add destination-time conditioning for one-NFE generation.",
+    "zh": "联合局部速度监督与停止梯度的捷径目标自蒸馏预训练策略，增加目标时间条件，实现一次网络求值生成。"
+  },
+  "evaluation_scope": {
+    "en": "π0.5/π0, LIBERO and humanoid retrieval; archived π0.5 batch-one model timing uses A800-80G. Model-path timing is not sensor-to-actuation latency.",
+    "zh": "π0.5/π0、LIBERO 与人形机器人取物；归档 π0.5 的 batch=1 模型计时使用 A800-80G。模型路径耗时不等于传感到执行延迟。"
+  }
+}

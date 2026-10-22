@@ -42,7 +42,7 @@ git status --short
 
 | 字段 | 规则 |
 |---|---|
-| `id` | 稳定编号，如 `AM.MAN.DEX.BENCH.1`；唯一、不可复用。重新归类时保留原编号，当前归属以 category 为准 |
+| `id` | 稳定编号，如 `LAT.GEN.STEP.1`；唯一、不可复用。重新归类时保留原编号，当前归属以 category 为准 |
 | `slug` | 全局唯一、小写连字符形式；必须与 JSON 文件名一致；笔记沿用同一 slug |
 | `short_name`、`title`、`authors` | 简称、原文完整标题、作者；同一论文不重复收录，版本更新在原记录维护 |
 | `year`、`venue` | 年份与发表／版本信息；预印本明确写 arXiv 及版本，不编造录用信息 |
@@ -57,7 +57,7 @@ git status --short
 | `sources` | 非空原始证据链接列表。数据和开放状态依据官方页面核对，不只看二手介绍 |
 | `verified_on` | 最近事实核验日期，格式 YYYY-MM-DD；核实后才更新 |
 | `reading_status` | indexed＝仅收录；skimmed＝初读；read＝已读；reproduced＝已复现。不得将“下载可用”写成“已复现” |
-| `notes` | 可选语言到现有 Markdown 文件的映射，如 `{"zh": "notes/bidex-100_cn.md"}`；可仅有中文，也可为空 |
+| `notes` | 可选语言到现有 Markdown 文件的映射，如 `{"zh": "notes/let-it-be-simple_cn.md"}`；可仅有中文，也可为空 |
 | `show_on_map` | 布尔值；默认模板为 false，防止几百篇工作挤满总图 |
 
 ## Benchmark 摘要五项

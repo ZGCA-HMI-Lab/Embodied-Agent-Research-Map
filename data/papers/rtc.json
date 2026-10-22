@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "LAT.ASYNC.1",
+  "slug": "rtc",
+  "short_name": "RTC",
+  "title": "Real-Time Execution of Action Chunking Flow Policies",
+  "authors": "Kevin Black, Manuel Y. Galliker, Sergey Levine",
+  "year": 2025,
+  "venue": "NeurIPS 2025; arXiv v2",
+  "kind": "model",
+  "category": "LAT.ASYNC",
+  "related_categories": [],
+  "tags": [
+    "vla",
+    "asynchronous",
+    "inpainting",
+    "training-free"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2506.07339v2",
+    "project": "https://pi.website/research/real_time_chunking"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2506.07339v2"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/rtc_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Generate the next chunk while executing the current one; freeze committed actions and inpaint the remainder without policy retraining.",
+    "zh": "在执行当前动作块时生成下一块，冻结已承诺执行的动作并补全其余部分，无需重训策略。"
+  },
+  "evaluation_scope": {
+    "en": "Twelve dynamic Kinetix tasks and six bimanual real tasks. Targets delay robustness and throughput; guidance is not a claim of fewer base-model evaluations.",
+    "zh": "12 项动态 Kinetix 任务与 6 项双臂真机任务。目标是延迟鲁棒性与吞吐；引导补全并不代表减少基座前向次数。"
+  }
+}

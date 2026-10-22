@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "id": "AM.MAN.GRIP.1",
+  "id": "LAT.GEN.STEP.3",
   "slug": "new-model",
   "short_name": "Replace me",
   "title": "Replace with the exact paper title",
   "authors": "Replace with authors",
   "year": 2026,
-  "venue": "arXiv v1",
+  "venue": "arXiv version to verify",
   "kind": "model",
-  "category": "AM.MAN.GRIP",
+  "category": "LAT.GEN.STEP",
   "related_categories": [],
   "tags": [
-    "manipulation"
+    "vla"
   ],
   "links": {
     "paper": "https://example.org/replace-with-primary-paper"
@@ -19,12 +19,16 @@
   "sources": [
     "https://example.org/replace-with-primary-paper"
   ],
-  "verified_on": "2026-10-20",
+  "verified_on": "2026-10-22",
   "reading_status": "indexed",
   "notes": {},
   "show_on_map": false,
   "tldr": {
-    "en": "State the task, key method and contribution.",
-    "zh": "一句话说明任务、关键方法和贡献。"
+    "en": "State the bottleneck, training changes and inference mechanism.",
+    "zh": "说明瓶颈、训练改动与推理机制；全部示例须替换。"
+  },
+  "evaluation_scope": {
+    "en": "Record tested backbones, tasks, hardware and timing boundary; mark unverified details.",
+    "zh": "记录已验证基座、任务、硬件与计时边界；未核实信息明确注明。"
   }
 }

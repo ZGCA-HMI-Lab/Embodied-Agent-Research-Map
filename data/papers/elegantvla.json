@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "LAT.VLM.1",
+  "slug": "elegantvla",
+  "short_name": "ElegantVLA",
+  "title": "ElegantVLA: Learning When to Think for Efficient Vision-Language-Action Models",
+  "authors": "Ye Li et al.",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.VLM",
+  "related_categories": [
+    "LAT.GEN.ADAPT"
+  ],
+  "tags": [
+    "vla",
+    "vlm-reuse",
+    "learned-scheduler"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2605.29438v1",
+    "project": "https://anonymous.4open.science/w/elegantvla/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2605.29438v1",
+    "https://arxiv.org/html/2605.29438v1"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/elegantvla_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "A learned scheduler jointly selects perception-language reuse and action denoising modes; the base policy stays frozen.",
+    "zh": "学习调度器，联合选择感知语言复用与动作去噪模式，保持基座策略冻结。"
+  },
+  "evaluation_scope": {
+    "en": "GR00T/CogACT, SimplerEnv and six Franka tasks; RTX 4090. A trained scheduler is distinct from retraining the base policy.",
+    "zh": "GR00T/CogACT、SimplerEnv 与 6 项 Franka 真机任务；RTX 4090。调度器需要训练，不能把基座免重训理解成整个方法免训练。"
+  }
+}

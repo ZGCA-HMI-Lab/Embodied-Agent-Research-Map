@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "LAT.GEN.HIST.3",
+  "slug": "delta-flow",
+  "short_name": "Δ-Flow",
+  "title": "Δ Flow Matching for Robot Foundation Models",
+  "authors": "Kuangji Zuo et al.",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.GEN.HIST",
+  "related_categories": [
+    "LAT.BASE"
+  ],
+  "tags": [
+    "vla",
+    "wam",
+    "history-source",
+    "one-step"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2610.15794v1",
+    "project": "https://zuo-kuangji.github.io/delta-flow/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.15794v1",
+    "https://arxiv.org/html/2610.15794v1"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/delta-flow_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Construct mildly noisy sources from recent action/visual history and learn residual transport for single-step VLA/WAM generation.",
+    "zh": "从近期动作或视觉历史构造带轻噪声的起点，学习残差迁移，实现 VLA/WAM 单步生成。"
+  },
+  "evaluation_scope": {
+    "en": "π0.5, ImageWAM and Fast-WAM on LIBERO/Plus; A100-80GB local policy-call timing. Training-free WAM action-source adaptation is a separate experiment.",
+    "zh": "π0.5、ImageWAM、Fast-WAM 的 LIBERO/Plus 实验；A100-80GB 本地策略调用计时。WAM 动作起点的免训练适配是另一个实验设置。"
+  }
+}

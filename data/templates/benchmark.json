@@ -1,51 +1,52 @@
 {
   "schema_version": 1,
-  "id": "AM.MAN.DEX.BENCH.3",
+  "id": "LAT.ASYNC.5",
   "slug": "new-benchmark",
   "short_name": "Replace me",
   "title": "Replace with the exact paper title",
   "authors": "Replace with authors",
   "year": 2026,
-  "venue": "arXiv v1",
+  "venue": "arXiv version to verify",
   "kind": "benchmark",
-  "category": "AM.MAN.DEX.BENCH",
+  "category": "LAT.ASYNC",
   "related_categories": [],
   "tags": [
-    "benchmark",
-    "dexterous",
-    "bimanual",
-    "simulation"
+    "benchmark"
   ],
-  "benchmark": {
-    "hands": {
-      "en": "Replace with verified information or an explicit unknown.",
-      "zh": "填写已核实信息，未知或未报告时明确说明。"
-    },
-    "tasks": {
-      "en": "Replace with verified information or an explicit unknown.",
-      "zh": "填写已核实信息，未知或未报告时明确说明。"
-    },
-    "cross_hand": {
-      "en": "Replace with verified information or an explicit unknown.",
-      "zh": "填写已核实信息，未知或未报告时明确说明。"
-    },
-    "release": {
-      "en": "Replace with verified information or an explicit unknown.",
-      "zh": "填写已核实信息，未知或未报告时明确说明。"
-    },
-    "highlight": {
-      "en": "Replace with verified information or an explicit unknown.",
-      "zh": "填写已核实信息，未知或未报告时明确说明。"
-    }
-  },
   "links": {
     "paper": "https://example.org/replace-with-primary-paper"
   },
   "sources": [
     "https://example.org/replace-with-primary-paper"
   ],
-  "verified_on": "2026-10-20",
+  "verified_on": "2026-10-22",
   "reading_status": "indexed",
   "notes": {},
-  "show_on_map": false
+  "show_on_map": false,
+  "evaluation_scope": {
+    "en": "Record tested backbones, tasks, hardware and timing boundary; mark unverified details.",
+    "zh": "记录已验证基座、任务、硬件与计时边界；未核实信息明确注明。"
+  },
+  "benchmark": {
+    "hands": {
+      "en": "Replace with verified information or explicit uncertainty.",
+      "zh": "替换为已核实信息，或明确写出未知。"
+    },
+    "tasks": {
+      "en": "Replace with verified information or explicit uncertainty.",
+      "zh": "替换为已核实信息，或明确写出未知。"
+    },
+    "cross_hand": {
+      "en": "Replace with verified information or explicit uncertainty.",
+      "zh": "替换为已核实信息，或明确写出未知。"
+    },
+    "release": {
+      "en": "Replace with verified information or explicit uncertainty.",
+      "zh": "替换为已核实信息，或明确写出未知。"
+    },
+    "highlight": {
+      "en": "Replace with verified information or explicit uncertainty.",
+      "zh": "替换为已核实信息，或明确写出未知。"
+    }
+  }
 }

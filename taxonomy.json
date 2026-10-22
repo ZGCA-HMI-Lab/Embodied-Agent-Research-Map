@@ -1,99 +1,75 @@
 {
-  "title": "Embodied Action Models",
-  "title_zh": "具身动作模型",
+  "title": "VLA / WAM Latency",
+  "title_zh": "VLA / WAM 延迟优化",
   "children": [
     {
-      "name": "Manipulation Action Models",
-      "name_zh": "操作动作模型",
+      "code": "LAT.VLM",
+      "name": "Perception and VLM reuse",
+      "name_zh": "感知与 VLM 复用",
+      "catalog_path": "perception/vlm-reuse",
+      "description": "Token reduction and temporal reuse of perception-language computation.",
+      "description_zh": "视觉 token 压缩、感知语言计算的时间复用与按需刷新。",
+      "children": []
+    },
+    {
+      "name": "Action Generation",
+      "name_zh": "动作生成加速",
       "children": [
         {
-          "name": "Gripper Manipulation Models",
-          "name_zh": "夹爪操作模型",
-          "code": "AM.MAN.GRIP",
-          "children": [],
-          "catalog_path": "manipulation/grippers",
-          "description": "Simple grippers such as two-finger parallel grippers; single-arm and bimanual systems.",
-          "description_zh": "以两指平行夹爪等简单夹持器为主要研究平台，包括单臂和双臂系统。"
+          "code": "LAT.GEN.STEP",
+          "name": "One-step generation and distillation",
+          "name_zh": "一步生成与蒸馏",
+          "catalog_path": "generation/one-step",
+          "description": "Training objectives and schedules for fewer action-expert evaluations.",
+          "description_zh": "通过训练目标与噪声调度减少 Action Expert 调用次数。",
+          "children": []
         },
         {
-          "name": "Multi-Fingered Dexterous Hand Manipulation Models",
-          "name_zh": "多指灵巧手操作模型",
-          "children": [
-            {
-              "name": "Benchmarks",
-              "name_zh": "Benchmarks｜评测基准",
-              "code": "AM.MAN.DEX.BENCH",
-              "children": [],
-              "catalog_path": "manipulation/dexterous/benchmarks",
-              "description": "Dexterous-hand evaluation tasks, data, environments, and protocols. Distinguish published support from demonstrated configurations.",
-              "description_zh": "灵巧手操作评测任务、数据、环境与评分协议；区分论文声明、公开资产和实际评测配置。"
-            },
-            {
-              "name": "Demonstration Acquisition and Action Conversion",
-              "name_zh": "示范获取与动作转换",
-              "children": [
-                {
-                  "name": "Video Demonstrations to Robot Actions",
-                  "name_zh": "视频示范到机器人动作",
-                  "code": "AM.MAN.DEX.DEMO.V2R",
-                  "children": [],
-                  "catalog_path": "manipulation/dexterous/demonstrations/video-to-robot",
-                  "description": "Recover manipulation from real or generated videos and convert it into executable dexterous robot actions. Record scene assumptions and physical refinement; distinguish trajectory replay from closed-loop policy deployment. Retargeting and RL are method tags, not automatic inclusion criteria.",
-                  "description_zh": "从真实或生成视频恢复操作过程，转换为可执行的灵巧机器人动作。记录场景假设与物理修正方式，区分轨迹回放和闭环策略部署；重定向、RL 等作为方法标签，不因使用某项技术就自动归入本类。"
-                }
-              ]
-            },
-            {
-              "name": "In-Hand Manipulation",
-              "name_zh": "手内操作",
-              "children": [
-                {
-                  "name": "Reinforcement Learning",
-                  "name_zh": "强化学习",
-                  "code": "AM.MAN.DEX.INHAND.RL",
-                  "children": [],
-                  "catalog_path": "manipulation/dexterous/in-hand/reinforcement-learning",
-                  "description": "Reinforcement learning for in-hand rotation, repositioning and coordinated object manipulation. Record sensing, demonstrations, sim-to-real techniques and evaluated objects as tags or evaluation scope; using RL in a demonstration-conversion pipeline alone does not place a work here.",
-                  "description_zh": "以强化学习获得手内旋转、重定位及物体协同操作策略。感知方式、示范利用、仿真到真机技术和已验证物体用标签与评测范围记录；仅在示范转换流程中使用 RL，不自动归入本类。"
-                }
-              ]
-            }
-          ]
+          "code": "LAT.GEN.HIST",
+          "name": "History sources and warm starts",
+          "name_zh": "历史先验与热启动",
+          "catalog_path": "generation/history",
+          "description": "Use historical actions or visual states to construct generation sources.",
+          "description_zh": "利用历史动作或视觉状态构造生成起点，而非仅拼接历史条件。",
+          "children": []
         },
         {
-          "name": "Common Methods",
-          "name_zh": "共性方法",
-          "children": [
-            {
-              "name": "Execution Efficiency and Temporal Control",
-              "name_zh": "执行效率与时序控制",
-              "code": "AM.MAN.METHOD.EFF",
-              "children": [],
-              "catalog_path": "manipulation/common-methods/execution-efficiency",
-              "description": "Methods for faster task execution through action timing, temporal granularity and scheduling across manipulation platforms. Record evaluated backbones and embodiments; distinguish execution speed from model inference latency.",
-              "description_zh": "通过动作节奏、时间粒度与调度提高任务执行效率的操作共性方法。记录已验证基座与本体，区分动作执行加速和模型推理加速。"
-            }
-          ]
+          "code": "LAT.GEN.ADAPT",
+          "name": "Adaptive sampling budgets",
+          "name_zh": "自适应采样预算",
+          "catalog_path": "generation/adaptive",
+          "description": "Adapt stochasticity and solver steps to the current conditional action distribution.",
+          "description_zh": "根据条件动作分布调节随机性与采样步数。",
+          "children": []
         }
       ]
     },
     {
-      "name": "Navigation Action Models",
-      "name_zh": "导航动作模型",
-      "code": "AM.NAV",
-      "children": [],
-      "catalog_path": "navigation",
-      "description": "Includes point-goal, object-goal, and language-guided navigation, exploration, and navigation trajectory generation. The focus is reaching or finding a target using environmental observations; locomotion execution can be linked as a related area.",
-      "description_zh": "包括点目标导航、物体目标导航、语言导航、探索与导航轨迹生成。重点是利用环境观测到达或找到目标；涉及行走执行时，可关联身体运动与全身控制板块。"
+      "code": "LAT.ASYNC",
+      "name": "Asynchronous execution and delay compensation",
+      "name_zh": "异步执行与延迟补偿",
+      "catalog_path": "execution/asynchronous",
+      "description": "Overlap inference and execution; maintain temporal alignment and chunk continuity.",
+      "description_zh": "重叠推理与执行，处理观测过时、动作块衔接与时间对齐。",
+      "children": []
     },
     {
-      "name": "Body Motion and Whole-Body Control Models",
-      "name_zh": "身体运动与全身控制模型",
-      "code": "AM.WBC",
-      "children": [],
-      "catalog_path": "whole-body-control",
-      "description": "Includes locomotion, balance, motion tracking, getting up, dynamic motor skills, and coordinated body control. Loco-manipulation belongs here when body coordination, balance, or motion execution is the main research question; manipulation can be noted as a related area.",
-      "description_zh": "包括行走、平衡、动作跟踪、起身、复杂运动技能与身体协同控制。行走操作以身体协同、平衡或动作执行为主要研究问题时归入本类，并可关联操作板块。"
+      "code": "LAT.EXEC",
+      "name": "Execution timing and granularity",
+      "name_zh": "执行时序与动作粒度",
+      "catalog_path": "execution/temporal-granularity",
+      "description": "Task execution efficiency is tracked separately from model inference latency.",
+      "description_zh": "记录任务执行效率，并与模型推理延迟分别比较。",
+      "children": []
+    },
+    {
+      "code": "LAT.BASE",
+      "name": "WAM and policy foundations",
+      "name_zh": "WAM 与策略基座",
+      "catalog_path": "foundations/models",
+      "description": "Architectural context and WAM visual-generation costs; not a count of dedicated VLA accelerators.",
+      "description_zh": "记录策略架构与 WAM 视觉生成成本；不把所有基座算成专门的 VLA 加速方法。",
+      "children": []
     }
   ]
 }

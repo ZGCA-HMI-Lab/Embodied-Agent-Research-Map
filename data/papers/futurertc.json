@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "LAT.ASYNC.2",
+  "slug": "futurertc",
+  "short_name": "FutureRTC",
+  "title": "FutureRTC: Real-Time Robot Execution with Anticipatory-Conditioned Action Chunking",
+  "authors": "Hai Jiang, Yixian Zou, Binbin Liang, Boqian Liu, Fanman Meng, Shuaicheng Liu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.ASYNC",
+  "related_categories": [],
+  "tags": [
+    "vla",
+    "asynchronous",
+    "future-conditioning",
+    "observation-staleness"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2607.24008v1",
+    "project": "https://jianghaiscu.github.io/FutureRTC_proj/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2607.24008v1",
+    "https://arxiv.org/html/2607.24008v1",
+    "https://jianghaiscu.github.io/FutureRTC_proj/"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/futurertc_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Predict execution-time visual representations and corrected proprioception; train adaptation modules with policy consistency while keeping the underlying policy unchanged.",
+    "zh": "预测执行时刻的视觉表征并校正本体状态，用策略一致性训练适配模块，保持底层策略不变。"
+  },
+  "evaluation_scope": {
+    "en": "π0.5/SmolVLA on LIBERO with delay sweeps and real manipulation. The official page states code will be released; unchanged policy does not mean training-free adapters.",
+    "zh": "π0.5/SmolVLA 的 LIBERO 延迟扫描与真机操作。官方项目页标注代码待发布；底层策略不变不等于适配模块免训练。"
+  }
+}

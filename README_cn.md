@@ -1,18 +1,18 @@
-# 具身动作模型研究地图
+# VLA / WAM 真机延迟优化文献地图
 
-面向机器人动作生成与控制的学习式模型、评测基准和阅读记录。
+[English](README.md) · [研究范围](docs/scope_cn.md) · [维护规范](CONTRIBUTING.md)
 
-[English](README.md) · [研究范围与分类依据](docs/scope_cn.md) · [维护规范](CONTRIBUTING.md)
+围绕 VLA / WAM 的推理成本、观测时效性与动作执行连续性组织文献。由“真机延迟优化计划”中的研究问题出发，保留可追溯的原始论文来源，不把聊天中的判断直接当成论文事实。
 
 ## 从这里开始
 
-1. 看下方导图了解研究结构；总图仅展示选定代表工作。
-2. 点击分类入口，阅读该方向的全部短条目与 TL;DR。
-3. 需要深入时，点击条目中的“笔记”查看单篇阅读记录。
+1. 看[论文比较与阅读路线](notes/latency-review_cn.md)，区分 VLM、动作生成和执行系统的瓶颈。
+2. 按下方分类阅读双语短条目，点击“笔记”查看边界与研究问题。
+3. 查看[核验记录](docs/source-audit_cn.md)，了解版本、计时口径及尚未提取的信息。
 
-当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作保留夹爪、多指灵巧手及跨平台共性方法入口。灵巧手下已有 Benchmarks、示范获取与动作转换、手内操作；手内操作按研究方法细分，当前已收录强化学习工作。
+当前收录 **16 篇**：初始 12 个候选名称经同名消歧得到 13 篇，另补 3 篇相关架构文献；并非全领域计数。π0.5 是基座背景，Fast-WAM/ImageWAM 也涉及效率。核验日期为 2026-10-22，全部为 indexed，未进行本地复现。
 
-[![具身动作模型研究地图](mindmap_cn.svg)](mindmap_cn.svg)
+[![研究地图](mindmap_cn.svg)](mindmap_cn.svg)
 
 ## 分类入口
 
@@ -20,42 +20,31 @@
 
 | 分类 | 编号前缀 | 条目数 | 阅读入口 |
 |---|---|---:|---|
-| 夹爪操作模型 | `AM.MAN.GRIP` | 0 | [查看](catalog/manipulation/grippers_cn.md) |
-| Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) |
-| 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 1 | [查看](catalog/manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
-| 强化学习 | `AM.MAN.DEX.INHAND.RL` | 1 | [查看](catalog/manipulation/dexterous/in-hand/reinforcement-learning_cn.md) |
-| 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](catalog/manipulation/common-methods/execution-efficiency_cn.md) |
-| 导航动作模型 | `AM.NAV` | 0 | [查看](catalog/navigation_cn.md) |
-| 身体运动与全身控制模型 | `AM.WBC` | 0 | [查看](catalog/whole-body-control_cn.md) |
+| 感知与 VLM 复用 | `LAT.VLM` | 2 | [查看](catalog/perception/vlm-reuse_cn.md) |
+| 一步生成与蒸馏 | `LAT.GEN.STEP` | 2 | [查看](catalog/generation/one-step_cn.md) |
+| 历史先验与热启动 | `LAT.GEN.HIST` | 3 | [查看](catalog/generation/history_cn.md) |
+| 自适应采样预算 | `LAT.GEN.ADAPT` | 1 | [查看](catalog/generation/adaptive_cn.md) |
+| 异步执行与延迟补偿 | `LAT.ASYNC` | 4 | [查看](catalog/execution/asynchronous_cn.md) |
+| 执行时序与动作粒度 | `LAT.EXEC` | 1 | [查看](catalog/execution/temporal-granularity_cn.md) |
+| WAM 与策略基座 | `LAT.BASE` | 3 | [查看](catalog/foundations/models_cn.md) |
 
 <!-- END GENERATED:CATALOG -->
 
-[查看全部分类](catalog/README_cn.md)
+## 日常添加文献
 
-## 内容放在哪里
+论文统一维护在 `data/papers/<slug>.json`；可选详细笔记放 `notes/`。普通工作复制 `data/templates/model.json`，基准复制 `benchmark.json`，替换全部占位信息，分配未使用且未退役的编号。只有末端分类码可用于 category；关联方向写 related_categories。
 
-| 位置 | 用途 |
-|---|---|
-| [data/papers/](data/papers/) | 每篇一个 JSON，统一维护编号、分类、双语摘要、链接和核验信息 |
-| [catalog/](catalog/README_cn.md) | 自动生成的双语分类索引，收录全部工作 |
-| [notes/](notes/README.md) | 可选的单篇阅读笔记、方法比较与复现记录 |
-| [taxonomy.json](taxonomy.json) | 分类层级、双语名称及索引路径 |
-| [docs/scope_cn.md](docs/scope_cn.md) | 研究范围、分类边界和参考综述 |
+- 保留双语摘要、原始证据链接与实际核验日期。
+- 阅读状态依本人进度更新；下载代码不等于复现。
+- `show_on_map` 只为代表工作设为 true，所有条目仍进入分类页。
+- 两篇 FlashVLA 使用不同 slug；PaceVLA 保留历史编号，当前归属以 category 为准。
+- 生成页与导图由脚本更新，笔记由人工维护。
 
-## 后续如何积累
-
-每篇至少有一条带来源的短记录；基准摘要须说明手型、任务数、同任务跨手复用、开放状态和核心特点。详细笔记按需建立。论文声明、公开资产、实际评测配置和自己复现的结果分别记录，未知信息明确保留。
-
-新增或修改数据后运行：
-
-```bash
-python3 scripts/build_catalog.py
-python3 scripts/build_catalog.py --check
-python3 -m unittest discover -s tests -v
+```powershell
+python -X utf8 scripts/build_catalog.py
+python -X utf8 scripts/build_catalog.py --check
+python -X utf8 -m unittest discover -s tests -v
+git diff --check
 ```
 
-具体步骤、字段说明和模板见 [CONTRIBUTING.md](CONTRIBUTING.md)。首页、分类页、导图无需逐篇重复录入。
-
-## 致谢
-
-思维导图展示与分类编号组织方式参考 [Hand3DResearch](https://github.com/SeanChenxy/Hand3DResearch)。本仓库独立维护具身动作模型的范围与分类。
+本仓库只管理文献与研究记录，不启动模型训练或机器人实验。模板来源：[Embodied-Agent-Research-Map](https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map)，分类导图组织参考 [Hand3DResearch](https://github.com/SeanChenxy/Hand3DResearch)。

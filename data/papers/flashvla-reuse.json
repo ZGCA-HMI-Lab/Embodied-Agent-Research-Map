@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "LAT.VLM.2",
+  "slug": "flashvla-reuse",
+  "short_name": "FlashVLA (reuse, 2025)",
+  "title": "Think Twice, Act Once: Token-Aware Compression and Action Reuse for Efficient Inference in Vision-Language-Action Models",
+  "authors": "Xudong Tan et al.",
+  "year": 2025,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.VLM",
+  "related_categories": [],
+  "tags": [
+    "vla",
+    "token-pruning",
+    "action-reuse",
+    "training-free"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2505.21200v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2505.21200v1"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/flashvla-reuse_cn.md"
+  },
+  "show_on_map": false,
+  "tldr": {
+    "en": "Training-free token selection and action reuse skip redundant VLA decoding during stable steps.",
+    "zh": "免训练地筛选视觉 token，并在稳定步骤复用动作，跳过冗余解码。"
+  },
+  "evaluation_scope": {
+    "en": "The paper reports LIBERO evaluation; this is the 2025 reuse method, not the 2026 streaming method. Timing hardware not extracted in this pass.",
+    "zh": "论文报告 LIBERO 评测；这是 2025 年的复用方法，与 2026 年同名流式方法不同。本次未摘录计时硬件。"
+  }
+}

@@ -1,61 +1,46 @@
-# Embodied Action Model Research Map
+# VLA / WAM Latency Research Map
 
-Learned models for robot action generation and control, evaluation benchmarks, and reading notes.
+[简体中文](README_cn.md) · [Scope](docs/scope.md) · [Contributing](CONTRIBUTING.md)
 
-[简体中文](README_cn.md) · [Scope and rationale](docs/scope.md) · [Contribution guide](CONTRIBUTING.md)
+A literature map for VLA/WAM inference cost, observation freshness and continuous execution. It starts from the user's latency research discussion; published evidence and local research hypotheses are kept separate.
 
-## Start Here
+## Start here
 
-1. Use the map to understand the research structure; it shows selected representative works.
-2. Open a category to read every indexed work and its concise summary.
-3. Follow a record's Notes link for detailed reading or reproduction notes when available.
+1. Read the [Chinese comparison and reading guide](notes/latency-review_cn.md).
+2. Browse the bilingual categories below and follow each record's paper link.
+3. Consult the [source/version audit](docs/source-audit_cn.md) for verification limits and missing details.
 
-The current focus is **manipulation action models**. Navigation and body motion / whole-body control remain research entry points. Manipulation provides entries for grippers, multi-fingered dexterous hands and common methods across platforms. Dexterous-hand work covers benchmarks, demonstration acquisition and action conversion, and in-hand manipulation. In-hand work is grouped by method, with reinforcement learning currently indexed.
+There are **16 records**, not an exhaustive field count: 12 initial names resolve to 13 distinct papers after FlashVLA disambiguation, plus three architecture references. π0.5 is foundation context; Fast-WAM and ImageWAM also discuss efficiency. Checked on 2026-10-22. All reading states are indexed; no local reproduction has been performed. Detailed notes are currently Chinese only.
 
-[![Embodied action model research map](mindmap.svg)](mindmap.svg)
+[![Research map](mindmap.svg)](mindmap.svg)
 
-## Category Navigation
+## Categories
 
 <!-- BEGIN GENERATED:CATALOG -->
 
 | Category | Code | Records | Index |
 |---|---|---:|---|
-| Gripper Manipulation Models | `AM.MAN.GRIP` | 0 | [Open](catalog/manipulation/grippers.md) |
-| Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](catalog/manipulation/dexterous/benchmarks.md) |
-| Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 1 | [Open](catalog/manipulation/dexterous/demonstrations/video-to-robot.md) |
-| Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](catalog/manipulation/dexterous/in-hand/reinforcement-learning.md) |
-| Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](catalog/manipulation/common-methods/execution-efficiency.md) |
-| Navigation Action Models | `AM.NAV` | 0 | [Open](catalog/navigation.md) |
-| Body Motion and Whole-Body Control Models | `AM.WBC` | 0 | [Open](catalog/whole-body-control.md) |
+| Perception and VLM reuse | `LAT.VLM` | 2 | [Open](catalog/perception/vlm-reuse.md) |
+| One-step generation and distillation | `LAT.GEN.STEP` | 2 | [Open](catalog/generation/one-step.md) |
+| History sources and warm starts | `LAT.GEN.HIST` | 3 | [Open](catalog/generation/history.md) |
+| Adaptive sampling budgets | `LAT.GEN.ADAPT` | 1 | [Open](catalog/generation/adaptive.md) |
+| Asynchronous execution and delay compensation | `LAT.ASYNC` | 4 | [Open](catalog/execution/asynchronous.md) |
+| Execution timing and granularity | `LAT.EXEC` | 1 | [Open](catalog/execution/temporal-granularity.md) |
+| WAM and policy foundations | `LAT.BASE` | 3 | [Open](catalog/foundations/models.md) |
 
 <!-- END GENERATED:CATALOG -->
 
-[Browse all categories](catalog/README.md)
+## Maintain the collection
 
-## Where Content Lives
+Edit one canonical JSON per paper in `data/papers/`, optional notes in `notes/`, and categories in `taxonomy.json`. Use the model/benchmark templates, replace all example values, and allocate a unique non-retired ID. A paper has one primary leaf category and optional related categories. The two FlashVLA papers have distinct slugs; PaceVLA keeps its historical ID, while category determines its current placement.
 
-| Location | Purpose |
-|---|---|
-| [data/papers/](data/papers/) | One JSON per work: stable ID, category, bilingual summary, links, and verification details |
-| [catalog/](catalog/README.md) | Generated bilingual indexes containing the complete collection |
-| [notes/](notes/README.md) | Optional detailed reading, comparison, and reproduction notes |
-| [taxonomy.json](taxonomy.json) | Category hierarchy, bilingual names, and index routes |
-| [docs/scope.md](docs/scope.md) | Scope, classification boundaries, and supporting surveys |
+`show_on_map` selects overview representatives; all records appear in category indexes. Check primary sources and record the actual verification date. Keep model latency, full local policy-call latency, sensor-to-actuation age and task completion time distinct. Generated indexes/maps must not be patched manually.
 
-## Growing the Collection
-
-Every work needs a concise source-backed record. Benchmark summaries specify hand types, task counts, same-task cross-hand reuse, release status, and the key distinction. Detailed notes are optional. Keep paper claims, published assets, evaluated configurations, and reproduced results distinct; retain explicit unknowns.
-
-After editing source data, run:
-
-```bash
-python3 scripts/build_catalog.py
-python3 scripts/build_catalog.py --check
-python3 -m unittest discover -s tests -v
+```powershell
+python -X utf8 scripts/build_catalog.py
+python -X utf8 scripts/build_catalog.py --check
+python -X utf8 -m unittest discover -s tests -v
+git diff --check
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for fields, templates, and workflow. Homepages, category pages, and maps are generated from the same records.
-
-## Acknowledgments
-
-Map presentation and category-based indexing were inspired by [Hand3DResearch](https://github.com/SeanChenxy/Hand3DResearch). This repository independently maintains its embodied-action scope and categories.
+This repository organizes literature; it does not launch training or robot experiments. Based on [Embodied-Agent-Research-Map](https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map); map organization acknowledges [Hand3DResearch](https://github.com/SeanChenxy/Hand3DResearch).

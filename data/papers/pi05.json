@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "LAT.BASE.3",
+  "slug": "pi05",
+  "short_name": "π0.5",
+  "title": "π0.5: a Vision-Language-Action Model with Open-World Generalization",
+  "authors": "Physical Intelligence et al.",
+  "year": 2025,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.BASE",
+  "related_categories": [],
+  "tags": [
+    "vla",
+    "foundation-model",
+    "background"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2504.16054v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2504.16054v1"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/pi05_cn.md"
+  },
+  "show_on_map": false,
+  "tldr": {
+    "en": "Co-train on heterogeneous robotic and semantic tasks for open-world generalization; use as policy context for acceleration studies.",
+    "zh": "以异构机器人与语义任务联合训练，提升开放世界泛化；作为加速研究的策略背景收录。"
+  },
+  "evaluation_scope": {
+    "en": "Real-world long-horizon manipulation; foundation reference, not a dedicated inference-acceleration method. Local checkpoint/version must be recorded separately.",
+    "zh": "真实世界长时序操作；属于基础模型文献，不是专门推理加速方法。本地 checkpoint 与实现版本需要另记。"
+  }
+}

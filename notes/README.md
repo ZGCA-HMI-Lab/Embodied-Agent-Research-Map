@@ -1,14 +1,23 @@
-# 阅读笔记 / Reading Notes
+# 阅读笔记
 
-单篇详细笔记是可选的。没有笔记的论文仍可在分类索引中完整收录短条目。
+- [VLA / WAM 真机延迟优化：比较表与阅读路线](latency-review_cn.md)
+- [文献来源、版本及待补信息](../docs/source-audit_cn.md)
 
-- [BiDex-100 中文笔记](bidex-100_cn.md) · [English](bidex-100.md)
-- [HandsOn 中文笔记](handson_cn.md) · [English](handson.md)
+- [ElegantVLA](elegantvla_cn.md)
+- [FlashVLA (reuse, 2025)](flashvla-reuse_cn.md)
+- [Let It Be Simple](let-it-be-simple_cn.md)
+- [SnapFlow](snapflow_cn.md)
+- [A2A](a2a_cn.md)
+- [STEP](step_cn.md)
+- [Δ-Flow](delta-flow_cn.md)
+- [MARS Policy](mars-policy_cn.md)
+- [RTC](rtc_cn.md)
+- [FutureRTC](futurertc_cn.md)
+- [FlashVLA (streaming)](flashvla-streaming_cn.md)
+- [AR-VLA](ar-vla_cn.md)
+- [PaceVLA](pacevla_cn.md)
+- [Fast-WAM](fast-wam_cn.md)
+- [ImageWAM](imagewam_cn.md)
+- [π0.5](pi05_cn.md)
 
-以上为初读记录，未复现实验。后续笔记按稳定 slug 命名：`<slug>_cn.md` 与 `<slug>.md`，在对应数据记录的 `notes` 字段登记；本目录不要求人工维护完整论文清单。
-
-建议内容：阅读问题、方法理解、实验依据、局限与未解问题、和其他工作的关系、可尝试的实验。已验证事实应同步更新数据记录，笔记中保留推理与历史核验日期。
-
-Detailed notes are optional and manually maintained. Use the paper's stable slug and register available language versions in its data record. Record questions, method understanding, experimental evidence, limitations, relationships, and possible experiments. The generator never overwrites these notes.
-
-[分类索引](../catalog/README_cn.md) · [Category index](../catalog/README.md)
+笔记是人工维护的索引与研究问题，生成脚本不会覆盖。当前全部 reading_status 为 indexed；不声称已复现或代表用户阅读进度。

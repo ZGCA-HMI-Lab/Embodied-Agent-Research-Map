@@ -4,14 +4,14 @@
 
 [首页](../README_cn.md)
 
-共 6 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。
+共 16 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。
 
 | 分类 | 编号前缀 | 条目数 | 阅读入口 |
 |---|---|---:|---|
-| 夹爪操作模型 | `AM.MAN.GRIP` | 0 | [查看](manipulation/grippers_cn.md) |
-| Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 3 | [查看](manipulation/dexterous/benchmarks_cn.md) |
-| 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 1 | [查看](manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
-| 强化学习 | `AM.MAN.DEX.INHAND.RL` | 1 | [查看](manipulation/dexterous/in-hand/reinforcement-learning_cn.md) |
-| 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](manipulation/common-methods/execution-efficiency_cn.md) |
-| 导航动作模型 | `AM.NAV` | 0 | [查看](navigation_cn.md) |
-| 身体运动与全身控制模型 | `AM.WBC` | 0 | [查看](whole-body-control_cn.md) |
+| 感知与 VLM 复用 | `LAT.VLM` | 2 | [查看](perception/vlm-reuse_cn.md) |
+| 一步生成与蒸馏 | `LAT.GEN.STEP` | 2 | [查看](generation/one-step_cn.md) |
+| 历史先验与热启动 | `LAT.GEN.HIST` | 3 | [查看](generation/history_cn.md) |
+| 自适应采样预算 | `LAT.GEN.ADAPT` | 1 | [查看](generation/adaptive_cn.md) |
+| 异步执行与延迟补偿 | `LAT.ASYNC` | 4 | [查看](execution/asynchronous_cn.md) |
+| 执行时序与动作粒度 | `LAT.EXEC` | 1 | [查看](execution/temporal-granularity_cn.md) |
+| WAM 与策略基座 | `LAT.BASE` | 3 | [查看](foundations/models_cn.md) |

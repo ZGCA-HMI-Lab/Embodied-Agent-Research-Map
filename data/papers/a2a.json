@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "LAT.GEN.HIST.1",
+  "slug": "a2a",
+  "short_name": "A2A",
+  "title": "Action-to-Action Flow Matching",
+  "authors": "Jindou Jia et al.",
+  "year": 2026,
+  "venue": "RSS 2026; arXiv v2",
+  "kind": "model",
+  "category": "LAT.GEN.HIST",
+  "related_categories": [],
+  "tags": [
+    "visuomotor-policy",
+    "history-source",
+    "latent-flow"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2602.07322v2",
+    "project": "https://jingliangli.com/A2A_Flow_Matching/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2602.07322v2",
+    "https://jingliangli.com/A2A_Flow_Matching/"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/a2a_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Encode proprioceptive history into a latent source and transport it toward future actions instead of starting from Gaussian noise.",
+    "zh": "将本体动作历史编码为潜在生成起点，向未来动作迁移，替代从高斯噪声开始的生成。"
+  },
+  "evaluation_scope": {
+    "en": "Visuomotor policy and temporal-generation experiments; not established here as a plug-in π0.5 accelerator. Detailed timing protocol remains to be extracted.",
+    "zh": "视觉运动策略与时序生成实验；本次证据不能将其写成即插即用的 π0.5 加速器。具体计时口径待进一步摘录。"
+  }
+}

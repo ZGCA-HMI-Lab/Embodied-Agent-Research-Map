@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "LAT.GEN.STEP.1",
+  "slug": "let-it-be-simple",
+  "short_name": "Let It Be Simple",
+  "title": "Let It Be Simple: One-Step Action Generation for Vision-Language-Action Models",
+  "authors": "Yitong Chen, Shiduo Zhang, Jingjing Gong, Xipeng Qiu",
+  "year": 2026,
+  "venue": "arXiv v3",
+  "kind": "model",
+  "category": "LAT.GEN.STEP",
+  "related_categories": [],
+  "tags": [
+    "vla",
+    "one-step",
+    "flow-matching",
+    "noise-schedule"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2606.05737v3",
+    "code": "https://github.com/bondtesty/let-it-be-simple"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2606.05737v3",
+    "https://arxiv.org/html/2606.05737v3",
+    "https://github.com/bondtesty/let-it-be-simple"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/let-it-be-simple_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Bias standard flow-matching training toward the noise endpoint to obtain one-step policies without distillation.",
+    "zh": "将标准 Flow Matching 的训练时间采样向噪声端偏移，获得无需蒸馏的一步策略。"
+  },
+  "evaluation_scope": {
+    "en": "LIBERO variants, multiple VLA architectures and real robots; model-forward profiling on RTX 5090 excludes I/O and networking. Results depend on training recipe and replanning.",
+    "zh": "LIBERO 系列、多种 VLA 架构与真机；RTX 5090 的模型前向计时不含 I/O 和网络。结果依赖训练配置与重规划设置。"
+  }
+}

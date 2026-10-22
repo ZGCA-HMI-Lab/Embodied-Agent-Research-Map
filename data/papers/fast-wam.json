@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "LAT.BASE.1",
+  "slug": "fast-wam",
+  "short_name": "Fast-WAM",
+  "title": "Fast-WAM: Do World Action Models Need Test-time Future Imagination?",
+  "authors": "Tianyuan Yuan, Zibin Dong, Yicheng Liu, Hang Zhao",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "LAT.BASE",
+  "related_categories": [],
+  "tags": [
+    "wam",
+    "video-cotraining",
+    "action-only-inference"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2603.16666v2",
+    "project": "https://yuantianyuan01.github.io/FastWAM/",
+    "code": "https://github.com/yuantianyuan01/FastWAM"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2603.16666v2",
+    "https://huggingface.co/yuanty/fastwam"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/fast-wam_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Retain video co-training but remove explicit future generation at inference, separating training representations from deployment cost.",
+    "zh": "保留视频联合训练，在推理时移除显式未来生成，区分训练表征收益与部署成本。"
+  },
+  "evaluation_scope": {
+    "en": "LIBERO, RoboTwin and real tasks; source reports 190 ms in its setup. Not comparable directly with timings from other hardware or model paths.",
+    "zh": "LIBERO、RoboTwin 与真机；原文在其设置下报告 190 ms，不能与其他硬件或计时路径直接比较。"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "LAT.ASYNC.4",
+  "slug": "ar-vla",
+  "short_name": "AR-VLA",
+  "title": "AR-VLA: True Autoregressive Action Expert for Vision-Language-Action Models",
+  "authors": "Yutong Hu et al.",
+  "year": 2026,
+  "venue": "RSS 2026; arXiv v2",
+  "kind": "model",
+  "category": "LAT.ASYNC",
+  "related_categories": [
+    "LAT.VLM"
+  ],
+  "tags": [
+    "vla",
+    "autoregressive",
+    "persistent-memory",
+    "observation-staleness"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2603.10126v2",
+    "project": "https://arvla.insait.ai/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2603.10126v2",
+    "https://arvla.insait.ai/"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/ar-vla_cn.md"
+  },
+  "show_on_map": false,
+  "tldr": {
+    "en": "Replace resetting action chunks with a persistent autoregressive expert conditioned on refreshable vision-language prefixes and re-anchor stale perception.",
+    "zh": "以保留长期历史的自回归动作专家替换反复重置的动作块，接受可刷新的视觉语言前缀，并重锚定过时感知。"
+  },
+  "evaluation_scope": {
+    "en": "Specialist/generalist simulation and real robots; an architectural training route, not a drop-in solver-step change.",
+    "zh": "专用/通用策略的仿真与真机实验；属于架构与训练路线，不能视为直接修改求解步数。"
+  }
+}

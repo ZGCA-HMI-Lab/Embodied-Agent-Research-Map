@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "LAT.ASYNC.3",
+  "slug": "flashvla-streaming",
+  "short_name": "FlashVLA (streaming)",
+  "title": "FlashVLA: Streaming Action Decoding for Fast and Asynchronous VLA Inference",
+  "authors": "Zekai Li, Jiaming Tang, Zhijian Liu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "LAT.ASYNC",
+  "related_categories": [
+    "LAT.GEN.STEP"
+  ],
+  "tags": [
+    "vla",
+    "streaming",
+    "asynchronous",
+    "causal-attention"
+  ],
+  "links": {
+    "paper": "https://arxiv.org/abs/2608.27384v1",
+    "code": "https://github.com/z-lab/flashvla"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2608.27384v1",
+    "https://arxiv.org/html/2608.27384v1"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "indexed",
+  "notes": {
+    "zh": "notes/flashvla-streaming_cn.md"
+  },
+  "show_on_map": true,
+  "tldr": {
+    "en": "Use staggered-noise action buffers and chunk-causal attention so a warmed stream emits an executable chunk per forward pass.",
+    "zh": "用错开噪声等级的动作缓冲与块级因果注意力，使预热后的流每次前向输出一个可执行动作块。"
+  },
+  "evaluation_scope": {
+    "en": "π0.5, SmolVLA, LingBot-VLA; LIBERO/RoboTwin 2.0 and Franka. Each chunk still traverses multiple denoising stages; fine-tuning and cold start matter.",
+    "zh": "π0.5、SmolVLA、LingBot-VLA；LIBERO/RoboTwin 2.0 与 Franka。每个块仍经历多级去噪，需要微调并考虑冷启动。"
+  }
+}
