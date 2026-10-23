@@ -2,6 +2,16 @@
 
 [中文首页](../README_cn.md) · [English home](../README.md) · [本地页面](../site/index.html)
 
+## 线上部署状态（2026-10-23 核查）
+
+当前主仓库为 Private。GitHub Settings → Pages 明确显示 “Upgrade or make this repository public to enable Pages”。[运行 #12](https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/actions/runs/39953592587) 的 validate 成功，deploy 在 configure-pages 获取站点时因 Pages 未启用而返回 Not Found。当前没有已验证可用的线上地址。
+
+GitHub Free 组织的 Pages 仅支持公开仓库；私有组织仓库需要支持该功能的付费套餐。见 [GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)。仅修改工作流或将 README 链接指向预期域名不能解除此限制。
+
+发布方式待仓库所有者选择：保留主仓库私有、另建公开站点仓库仅同步生成网站；将整个主仓库公开；或升级组织套餐。未经明确授权，不改变主仓库可见性、不公开提交历史、不购买套餐。
+
+维护者必须等部署成功、实际打开网站并验证论文链接后，再把 README 主入口改成线上 URL。GitHub 的 blob/main/site/index.html 只能作为源码入口，禁止标作在线网站。
+
 ## 查看与发布
 
 本地直接用浏览器打开 `site/index.html`，或运行：

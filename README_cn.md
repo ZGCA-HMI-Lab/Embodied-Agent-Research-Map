@@ -4,7 +4,7 @@
 
 [English](README.md) · [研究范围与分类依据](docs/scope_cn.md) · [维护规范](CONTRIBUTING.md)
 
-**[Interactive Map · 交互地图](site/index.html)**：按分类与时间浏览，搜索论文、组合筛选主题、点击阅读详情。本地用浏览器打开此 HTML 即可；[预览与发布说明](docs/interactive-map.md)。
+**Interactive Map · 交互地图（线上待部署）**：按分类与时间浏览，搜索论文、组合筛选主题、点击论文名打开原文。当前仓库的 Pages 尚未启用；[本地页面源码](site/index.html)在 GitHub 中显示代码，并非在线网站。查看[本地预览与部署状态](docs/interactive-map.md)。
 
 ## 从这里开始
 

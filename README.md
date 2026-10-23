@@ -4,7 +4,7 @@ Learned models for robot action generation and control, datasets, evaluation ben
 
 [简体中文](README_cn.md) · [Scope and rationale](docs/scope.md) · [Contribution guide](CONTRIBUTING.md)
 
-**[Interactive Map](site/index.html)**: explore categories over time, search papers, combine topic filters and open details. Open the HTML in a local browser; see [preview and publishing instructions](docs/interactive-map.md).
+**Interactive Map (online deployment pending)**: explore categories over time, search papers, combine topic filters and open original papers. Pages is not enabled for this repository. The [local page source](site/index.html) opens code on GitHub, not a hosted website; see [local preview and deployment status](docs/interactive-map.md).
 
 ## Start Here
 
