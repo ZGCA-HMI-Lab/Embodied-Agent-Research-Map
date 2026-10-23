@@ -4,13 +4,11 @@
 
 ## 线上部署状态（2026-10-23 核查）
 
-当前主仓库为 Private。GitHub Settings → Pages 明确显示 “Upgrade or make this repository public to enable Pages”。[运行 #12](https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/actions/runs/39953592587) 的 validate 成功，deploy 在 configure-pages 获取站点时因 Pages 未启用而返回 Not Found。当前没有已验证可用的线上地址。
+[打开在线交互地图](https://zgca-hmi-lab.github.io/Embodied-Agent-Research-Map/)。仓库所有者已明确授权将整个研究仓库及提交历史公开；仓库现为 Public，Pages Source 已设为 GitHub Actions，HTTPS 已启用。[运行 #13 的第二次执行](https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/actions/runs/39968922105) 已部署成功。线上页面、搜索、论文详情和原文跳转已在浏览器验证。
 
-GitHub Free 组织的 Pages 仅支持公开仓库；私有组织仓库需要支持该功能的付费套餐。见 [GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)。仅修改工作流或将 README 链接指向预期域名不能解除此限制。
+此前部署失败的原因是私有仓库所在套餐不支持 Pages，且首页链接误指向 HTML 源码。该限制已通过上述授权的公开设置解除。GitHub 的 blob/main/site/index.html 只作为源码入口，README 主入口始终使用已验证的线上 URL。
 
-发布方式待仓库所有者选择：保留主仓库私有、另建公开站点仓库仅同步生成网站；将整个主仓库公开；或升级组织套餐。未经明确授权，不改变主仓库可见性、不公开提交历史、不购买套餐。
-
-维护者必须等部署成功、实际打开网站并验证论文链接后，再把 README 主入口改成线上 URL。GitHub 的 blob/main/site/index.html 只能作为源码入口，禁止标作在线网站。
+后续修改源数据 → 统一构建与校验 → 提交并推送 main → Actions 校验及部署成功 → 刷新线上页面。仅本地修改或推送成功不代表部署成功；维护者应检查 Actions 的 deploy 结果。不要另建分类数据或手改 site/。
 
 ## 查看与发布
 
@@ -24,7 +22,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 
 线上使用 GitHub Pages：仓库 Settings → Pages → Build and deployment → Source 选择 GitHub Actions（首次设置一次，需要仓库管理权限）。现有工作流在 main 推送或手动运行时，先完成 Python 测试、生成一致性和 Node 测试，再发布 site/。PR 只校验不部署。
 
-配置并成功部署后，默认地址为 https://zgca-hmi-lab.github.io/Embodied-Agent-Research-Map/ 。这是预期部署地址，不代表仓库已经启用 Pages。GitHub 仓库内的 HTML 链接展示源码；运行交互页面应使用本地浏览器或部署地址。部署成功后可把首页主入口改为线上地址，同时保留本地入口。
+线上地址为 https://zgca-hmi-lab.github.io/Embodied-Agent-Research-Map/ 。GitHub 仓库内的 HTML 链接展示源码；运行交互页面应使用线上地址或本地预览。
 
 ## 一次修改同步所有视图
 

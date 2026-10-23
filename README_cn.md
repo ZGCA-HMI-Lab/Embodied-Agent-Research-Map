@@ -4,7 +4,7 @@
 
 [English](README.md) · [研究范围与分类依据](docs/scope_cn.md) · [维护规范](CONTRIBUTING.md)
 
-**Interactive Map · 交互地图（线上待部署）**：按分类与时间浏览，搜索论文、组合筛选主题、点击论文名打开原文。当前仓库的 Pages 尚未启用；[本地页面源码](site/index.html)在 GitHub 中显示代码，并非在线网站。查看[本地预览与部署状态](docs/interactive-map.md)。
+**[Interactive Map · 在线交互地图](https://zgca-hmi-lab.github.io/Embodied-Agent-Research-Map/)**：按分类与时间浏览，搜索论文、组合筛选主题；点击论文名打开原文，点击“简介与资源”查看总结。网站随 main 分支通过校验的更新自动发布；[本地预览与维护说明](docs/interactive-map.md)。
 
 ## 从这里开始
 

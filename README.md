@@ -4,7 +4,7 @@ Learned models for robot action generation and control, datasets, evaluation ben
 
 [简体中文](README_cn.md) · [Scope and rationale](docs/scope.md) · [Contribution guide](CONTRIBUTING.md)
 
-**Interactive Map (online deployment pending)**: explore categories over time, search papers, combine topic filters and open original papers. Pages is not enabled for this repository. The [local page source](site/index.html) opens code on GitHub, not a hosted website; see [local preview and deployment status](docs/interactive-map.md).
+**[Interactive Map · Live website](https://zgca-hmi-lab.github.io/Embodied-Agent-Research-Map/)**: explore categories over time, search papers and combine topic filters. Click a paper name for the original paper or “Summary & resources” for details. Validated main-branch updates deploy automatically; see [preview and maintenance instructions](docs/interactive-map.md).
 
 ## Start Here
 
