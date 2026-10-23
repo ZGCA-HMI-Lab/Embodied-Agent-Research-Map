@@ -7,6 +7,7 @@
 | 文件或目录 | 编辑方式 |
 |---|---|
 | `data/papers/<slug>.json` | 手动维护，每篇一个文件，是条目、双语摘要和资源的唯一数据源 |
+| `data/topics.json` | 手动维护主题双语名称及匹配的 tags，自动生成跨分类主题页 |
 | `taxonomy.json` | 手动维护分类、双语名称、说明和稳定的 `catalog_path` |
 | `data/retired_ids.json` | 删除记录时登记旧编号，禁止复用 |
 | `notes/<slug>_cn.md`、`notes/<slug>.md` | 可选的人工阅读笔记；生成器绝不改写 |
@@ -49,7 +50,8 @@ git status --short
 | `kind` | `model`、`benchmark`、`dataset`、`tool` 或 `survey` |
 | `category` | 一个已定义末端分类码；不根据编号的历史前缀推断当前分类 |
 | `related_categories` | 其他已定义末端分类码，不与主分类重复 |
-| `tags` | 小写连字符标签，如 `dexterous`、`bimanual`、`simulation`、`cross-embodiment`；分类页在标题、作者下显示，方法标签不代替主分类 |
+| `tags` | 小写连字符标签，如 `dexterous`、`bimanual`、`simulation`、`cross-embodiment`；分类页在标题、作者下显示；匹配 data/topics.json 的标签可点击进入主题页，方法标签不代替主分类 |
+| `display_tags` | 可选数组，最多三个 `{ "en": "RL", "zh": "RL" }` 形式的简短双语标签；直接出现在首页、导图和条目标题旁。为所有上图论文填写，完整 tags 仍负责检索 |
 | `tldr` | 非 benchmark 条目必填 `en` 和 `zh`，简短说明问题、方法和贡献；必要时按训练、结构、推理三点写，避免长篇展开 |
 | `benchmark` | benchmark 条目使用下述五个双语字段，不能再重复填写 tldr |
 | `evaluation_scope` | 可选双语补充说明，显示在分类页摘要的“评测范围”中，不代替基准五项摘要 |
@@ -59,6 +61,12 @@ git status --short
 | `reading_status` | indexed＝仅收录；skimmed＝初读；read＝已读；reproduced＝已复现。不得将“下载可用”写成“已复现” |
 | `notes` | 可选语言到现有 Markdown 文件的映射，如 `{"zh": "notes/bidex-100_cn.md"}`；可仅有中文，也可为空 |
 | `show_on_map` | 布尔值；默认模板为 false，防止几百篇工作挤满总图 |
+
+## 主分类、可见标签与主题浏览
+
+灵巧手按主要贡献分为数据集与评测基准、机器人示范数据生成、机器人操作策略与控制、人手动作与操作视频建模。策略与控制按研究问题细分；RL、VLA 和手内操作等方法／任务不再与这些主分类并列。
+
+`display_tags` 是给读者看的简短标签，每篇最多三个，填写与正文一致的双语主题和方法，不从完整 tags 自动截取。`data/topics.json` 将稳定主题 slug 映射到 en、zh 名称与非空 tags 列表；任何匹配标签都能让论文进入该主题，但同主题只计一次。主题页覆盖全部论文，首页代表工作与导图仍遵守 show_on_map。新增主题要明确筛选边界，主题成员不等于该主题是其主要贡献。
 
 ## Benchmark 摘要五项
 

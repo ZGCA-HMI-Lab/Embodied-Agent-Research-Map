@@ -4,15 +4,19 @@
 
 [Home](../README.md)
 
-9 records. Each has one primary category and may reference related areas.
+12 records. Each has one primary category and may reference related areas.
 
-| Category path | Code | Records | Index |
-|---|---|---:|---|
-| Manipulation Action Models → Gripper Manipulation Models → Datasets | `AM.MAN.GRIP.DATASET` | 1 | [Open](manipulation/grippers/datasets.md) |
-| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](manipulation/dexterous/benchmarks.md) |
-| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Demonstration Acquisition and Action Conversion → Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 2 | [Open](manipulation/dexterous/demonstrations/video-to-robot.md) |
-| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → In-Hand Manipulation → Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](manipulation/dexterous/in-hand/reinforcement-learning.md) |
-| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → VLA → Execution Feedback and Correction | `AM.MAN.DEX.VLA.FEEDBACK` | 1 | [Open](manipulation/dexterous/vla/execution-feedback.md) |
-| Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](manipulation/common-methods/execution-efficiency.md) |
-| Navigation Action Models | `AM.NAV` | 0 | [Open](navigation.md) |
-| Body Motion and Whole-Body Control Models | `AM.WBC` | 0 | [Open](whole-body-control.md) |
+**Browse by topic：** [VLA (4)](topics/vla.md) · [Reinforcement learning (2)](topics/reinforcement-learning.md) · [Touch and contact feedback (5)](topics/tactile.md) · [In-hand manipulation (1)](topics/in-hand-manipulation.md)
+
+| Category path | Records | Index | Selected works / topics and methods |
+|---|---:|---|---|
+| Manipulation Action Models → Gripper Manipulation Models → Datasets | 1 | [Open](manipulation/grippers/datasets.md) | [TacClaw-Infinity｜Gripper demonstrations · Tactile dataset](manipulation/grippers/datasets.md#am-man-grip-1) |
+| Manipulation Action Models → Gripper Manipulation Models → Agent Architectures → Agent + WAM | 1 | [Open](manipulation/grippers/agent-architectures/agent-wam.md) | [AR-WAM｜Agent + WAM · Event feedback · Failure recovery](manipulation/grippers/agent-architectures/agent-wam.md#am-man-grip-agent-wam-1) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Datasets and Benchmarks | 3 | [Open](manipulation/dexterous/benchmarks.md) | [BiDex-100｜Bimanual manipulation · Benchmark](manipulation/dexterous/benchmarks.md#am-man-dex-bench-1)<br>[HandsOn｜Bimanual manipulation · Simulation benchmark](manipulation/dexterous/benchmarks.md#am-man-dex-bench-2)<br>[Evo-DexBench｜Dexterous hands / grippers · Simulation benchmark](manipulation/dexterous/benchmarks.md#am-man-dex-bench-3) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | 2 | [Open](manipulation/dexterous/demonstrations/generation.md) | [Gen2Dex｜Video demonstrations · Retargeting · RL trajectory optimization](manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-1)<br>[DexAgent｜Video demonstrations · Agent-built simulation · Data augmentation](manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | 2 | [Open](manipulation/dexterous/policies/policy-learning.md) | [No Eyes, No Problem｜In-hand manipulation · RL · Tactile](manipulation/dexterous/policies/policy-learning.md#am-man-dex-inhand-rl-1)<br>[TTP｜VLA · Tactile fusion · Joint action/touch prediction](manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | 1 | [Open](manipulation/dexterous/policies/execution-feedback.md) | [AgenticTactileVLA｜VLA · Contact feedback · Online action correction](manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Human Hand Motion and Manipulation Video Modeling | 1 | [Open](manipulation/dexterous/human-hand-modeling.md) | [P³-WAM｜Unified perception, prediction and planning](manipulation/dexterous/human-hand-modeling.md#am-man-dex-human-unified-1) |
+| Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control | 1 | [Open](manipulation/common-methods/execution-efficiency.md) | [PaceVLA｜VLA · Execution speedup · Temporal action granularity](manipulation/common-methods/execution-efficiency.md#am-man-method-eff-1) |
+| Navigation Action Models | 0 | [Open](navigation.md) | — |
+| Body Motion and Whole-Body Control Models | 0 | [Open](whole-body-control.md) | — |

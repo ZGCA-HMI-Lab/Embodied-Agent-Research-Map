@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v1",
   "kind": "model",
-  "category": "AM.MAN.DEX.INHAND.RL",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
   "related_categories": [],
   "tags": [
     "in-hand-manipulation",
@@ -38,5 +38,19 @@
   "verified_on": "2026-10-21",
   "reading_status": "skimmed",
   "notes": {},
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "In-hand manipulation",
+      "zh": "手内操作"
+    },
+    {
+      "en": "RL",
+      "zh": "RL"
+    },
+    {
+      "en": "Tactile",
+      "zh": "触觉"
+    }
+  ]
 }

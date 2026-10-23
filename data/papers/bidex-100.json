@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v1",
   "kind": "benchmark",
-  "category": "AM.MAN.DEX.BENCH",
+  "category": "AM.MAN.DEX.DATA",
   "related_categories": [],
   "tags": [
     "benchmark",
@@ -58,5 +58,15 @@
     "en": "notes/bidex-100.md",
     "zh": "notes/bidex-100_cn.md"
   },
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Bimanual manipulation",
+      "zh": "双手操作"
+    },
+    {
+      "en": "Benchmark",
+      "zh": "评测基准"
+    }
+  ]
 }

@@ -21,65 +21,90 @@
               ],
               "description": "Datasets for gripper manipulation, including single-arm and bimanual collection. Record acquisition hardware and processing methods alongside the dataset; distinguish reported collection scale from public releases.",
               "description_zh": "服务于夹爪操作学习的数据集，包括单臂和双臂采集。采集硬件与处理方法随数据集记录，区分论文报告规模和实际公开范围。"
+            },
+            {
+              "name": "Agent Architectures",
+              "name_zh": "Agent 架构",
+              "children": [
+                {
+                  "name": "Agent + WAM",
+                  "name_zh": "Agent＋WAM",
+                  "code": "AM.MAN.GRIP.AGENT.WAM",
+                  "catalog_path": "manipulation/grippers/agent-architectures/agent-wam",
+                  "description": "Runtime architectures connecting high-level agents to world action models. Focus on command interfaces, responsibility for planning and memory, event feedback and failure recovery; record the low-level model and evaluated embodiments explicitly.",
+                  "description_zh": "运行时连接高层 Agent 与世界动作模型的系统架构。重点记录指令接口、规划与记忆的职责分配、事件反馈和失败恢复，同时注明底层模型与已验证本体。",
+                  "children": []
+                }
+              ]
             }
           ]
         },
         {
-          "name": "Multi-Fingered Dexterous Hand Manipulation Models",
-          "name_zh": "多指灵巧手操作模型",
+          "name": "Multi-Fingered Dexterous Hand Manipulation Research",
+          "name_zh": "多指灵巧手操作研究",
           "children": [
             {
-              "name": "Benchmarks",
-              "name_zh": "Benchmarks｜评测基准",
-              "code": "AM.MAN.DEX.BENCH",
+              "name": "Datasets and Benchmarks",
+              "name_zh": "数据集与评测基准",
+              "code": "AM.MAN.DEX.DATA",
               "children": [],
               "catalog_path": "manipulation/dexterous/benchmarks",
-              "description": "Dexterous-hand evaluation tasks, data, environments, and protocols. Distinguish published support from demonstrated configurations.",
-              "description_zh": "灵巧手操作评测任务、数据、环境与评分协议；区分论文声明、公开资产和实际评测配置。"
+              "description": "Reusable dexterous-hand datasets, tasks, environments and evaluation protocols. Distinguish reported support, public assets and evaluated configurations.",
+              "description_zh": "可复用的灵巧手数据集、任务、环境与评测协议。区分论文声明、公开资产和实际评测配置。"
             },
             {
-              "name": "Demonstration Acquisition and Action Conversion",
-              "name_zh": "示范获取与动作转换",
+              "name": "Robot Demonstration Data Generation",
+              "name_zh": "机器人示范数据生成",
+              "code": "AM.MAN.DEX.DEMO",
+              "children": [],
+              "catalog_path": "manipulation/dexterous/demonstrations/generation",
+              "description": "Generate robot demonstration trajectories or training data from real or generated videos, retargeting and simulation optimization. Classify by the main contribution: online retargeting controllers belong under policy/control. Distinguish replay from closed-loop deployment.",
+              "description_zh": "从真实或生成视频出发，通过重定向、仿真优化等生成机器人示范轨迹或训练数据。按主要贡献归类：在线操控的重定向控制器归策略与控制；区分轨迹回放与闭环策略部署。",
+              "catalog_aliases": [
+                "manipulation/dexterous/demonstrations/video-to-robot"
+              ]
+            },
+            {
+              "name": "Robot Manipulation Policies and Control",
+              "name_zh": "机器人操作策略与控制",
               "children": [
                 {
-                  "name": "Video Demonstrations to Robot Actions",
-                  "name_zh": "视频示范到机器人动作",
-                  "code": "AM.MAN.DEX.DEMO.V2R",
+                  "name": "Action Policy Learning",
+                  "name_zh": "动作策略学习",
+                  "code": "AM.MAN.DEX.POLICY.LEARNING",
                   "children": [],
-                  "catalog_path": "manipulation/dexterous/demonstrations/video-to-robot",
-                  "description": "Recover manipulation from real or generated videos and convert it into executable dexterous robot actions. Record scene assumptions and physical refinement; distinguish trajectory replay from closed-loop policy deployment. Retargeting and RL are method tags, not automatic inclusion criteria.",
-                  "description_zh": "从真实或生成视频恢复操作过程，转换为可执行的灵巧机器人动作。记录场景假设与物理修正方式，区分轨迹回放和闭环策略部署；重定向、RL 等作为方法标签，不因使用某项技术就自动归入本类。"
+                  "catalog_path": "manipulation/dexterous/policies/policy-learning",
+                  "description": "Learn policies that generate robot actions from observations. Record tasks such as in-hand manipulation and methods such as RL, VLA and tactile fusion as visible labels and topics, rather than competing primary categories.",
+                  "description_zh": "学习根据观测生成机器人动作的策略。手内操作等任务，以及 RL、VLA、触觉融合等方法，通过可见标签和主题入口展示，不作为相互竞争的主分类。",
+                  "catalog_aliases": [
+                    "manipulation/dexterous/in-hand/reinforcement-learning",
+                    "manipulation/dexterous/vla/tactile-action-modeling"
+                  ]
+                },
+                {
+                  "name": "Execution Feedback and Action Correction",
+                  "name_zh": "执行反馈与动作修正",
+                  "code": "AM.MAN.DEX.POLICY.FEEDBACK",
+                  "children": [],
+                  "catalog_path": "manipulation/dexterous/policies/execution-feedback",
+                  "description": "Execution monitoring, action correction and failure recovery as the main contribution. Specify whether feedback changes commands, subsequent observations or model parameters. Ordinary closed-loop input alone does not qualify.",
+                  "description_zh": "主要贡献是执行监控、动作修正与失败恢复。注明反馈作用于执行指令、后续观测还是模型参数；不能仅因策略使用闭环观测就归入本类。",
+                  "catalog_aliases": [
+                    "manipulation/dexterous/vla/execution-feedback"
+                  ]
                 }
               ]
             },
             {
-              "name": "In-Hand Manipulation",
-              "name_zh": "手内操作",
-              "children": [
-                {
-                  "name": "Reinforcement Learning",
-                  "name_zh": "强化学习",
-                  "code": "AM.MAN.DEX.INHAND.RL",
-                  "children": [],
-                  "catalog_path": "manipulation/dexterous/in-hand/reinforcement-learning",
-                  "description": "Reinforcement learning for in-hand rotation, repositioning and coordinated object manipulation. Record sensing, demonstrations, sim-to-real techniques and evaluated objects as tags or evaluation scope; using RL in a demonstration-conversion pipeline alone does not place a work here.",
-                  "description_zh": "以强化学习获得手内旋转、重定位及物体协同操作策略。感知方式、示范利用、仿真到真机技术和已验证物体用标签与评测范围记录；仅在示范转换流程中使用 RL，不自动归入本类。"
-                }
-              ]
-            },
-            {
-              "name": "VLA",
-              "name_zh": "VLA",
-              "children": [
-                {
-                  "name": "Execution Feedback and Correction",
-                  "name_zh": "执行反馈与纠错",
-                  "code": "AM.MAN.DEX.VLA.FEEDBACK",
-                  "catalog_path": "manipulation/dexterous/vla/execution-feedback",
-                  "description": "Execution feedback, action correction and recovery for dexterous-hand VLA systems. Distinguish changes to executed commands, subsequent policy observations and model parameters; record sensing and task scenarios as tags.",
-                  "description_zh": "面向灵巧手 VLA 的执行反馈、动作纠正与失败恢复。区分对执行指令、后续策略观测和模型参数的影响；感知方式与验证任务用标签记录。",
-                  "children": []
-                }
+              "name": "Human Hand Motion and Manipulation Video Modeling",
+              "name_zh": "人手动作与操作视频建模",
+              "code": "AM.MAN.DEX.HUMAN",
+              "children": [],
+              "catalog_path": "manipulation/dexterous/human-hand-modeling",
+              "description": "Supporting research on human hand/camera trajectories and manipulation videos: reconstruction, prediction and instruction-conditioned generation. Distinguish human representations and robot retargeting demonstrations from directly learned closed-loop robot control.",
+              "description_zh": "以人手／相机轨迹和操作视频为对象，研究运动重建、未来预测与指令条件生成。作为灵巧手支撑研究收录；区分人手表示、机器人重定向演示和直接学习的闭环机器人控制。",
+              "catalog_aliases": [
+                "manipulation/dexterous/human-hand-modeling/unified-modeling"
               ]
             }
           ]

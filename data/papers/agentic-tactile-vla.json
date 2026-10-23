@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v1",
   "kind": "model",
-  "category": "AM.MAN.DEX.VLA.FEEDBACK",
+  "category": "AM.MAN.DEX.POLICY.FEEDBACK",
   "related_categories": [],
   "tags": [
     "dexterous",
@@ -40,5 +40,19 @@
   "verified_on": "2026-10-22",
   "reading_status": "skimmed",
   "notes": {},
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLA",
+      "zh": "VLA"
+    },
+    {
+      "en": "Contact feedback",
+      "zh": "接触反馈"
+    },
+    {
+      "en": "Online action correction",
+      "zh": "在线动作修正"
+    }
+  ]
 }

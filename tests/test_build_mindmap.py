@@ -150,6 +150,66 @@ class CatalogTests(unittest.TestCase):
                 self.assertIn("仅在一种机器人上评测。", outputs[
                     self.root / "catalog/manipulation/dexterous/benchmarks_cn.md"])
 
+    def test_display_labels_reach_home_category_and_svg_in_both_languages(self):
+        self.paper["display_tags"] = [{"en": "In-hand", "zh": "手内操作"},
+                                      {"en": "RL", "zh": "RL"}]
+        self.write_paper(self.paper)
+        outputs = build_outputs(self.root)
+        for suffix, label in [("", "Work One｜In-hand · RL"),
+                              ("_cn", "Work One｜手内操作 · RL")]:
+            self.assertIn(label, outputs[self.root / f"README{suffix}.md"])
+            self.assertIn(label, outputs[self.root / f"catalog/manipulation/dexterous/benchmarks{suffix}.md"])
+            labels = ["".join(n.itertext()) for n in ET.fromstring(outputs[
+                self.root / f"mindmap{suffix}.svg"]).findall("{http://www.w3.org/2000/svg}text")]
+            self.assertIn(label, labels)
+
+    def test_topics_include_hidden_papers_once_and_link_to_current_category(self):
+        (self.root / "data/topics.json").write_text(json.dumps({
+            "reinforcement-learning": {"en": "Reinforcement learning", "zh": "强化学习",
+                                       "tags": ["reinforcement-learning", "residual-rl"]}}))
+        self.paper.update(tags=["reinforcement-learning", "residual-rl"], show_on_map=False)
+        self.write_paper(self.paper)
+        self.category["catalog_path"] = "new-policy"
+        self.write_taxonomy()
+        outputs = build_outputs(self.root)
+        for suffix, name in [("", "Reinforcement learning"), ("_cn", "强化学习")]:
+            topic = self.root / f"catalog/topics/reinforcement-learning{suffix}.md"
+            self.assertIn(topic, outputs)
+            self.assertEqual(outputs[topic].count("#am-man-dex-bench-1"), 1)
+            self.assertIn(f"../new-policy{suffix}.md#am-man-dex-bench-1", outputs[topic])
+            self.assertIn(name, outputs[topic])
+            self.assertIn(f"topics/reinforcement-learning{suffix}.md", outputs[
+                self.root / f"catalog/new-policy{suffix}.md"])
+            self.assertIn(f"{name} (1)", outputs[self.root / f"README{suffix}.md"])
+            self.assertNotIn("Work One", outputs[self.root / f"README{suffix}.md"])
+        generate(self.root)
+        generate(self.root, check=True)
+
+    def test_invalid_display_labels_are_rejected(self):
+        for value in ("RL", [{"zh": "触觉"}], [{"en": "", "zh": "触觉"}],
+                      [{"en": "RL", "zh": "RL"}] * 4):
+            with self.subTest(value=value):
+                self.paper["display_tags"] = value
+                self.write_paper(self.paper)
+                with self.assertRaises(ValueError):
+                    self.load()
+
+    def test_invalid_topic_definitions_and_route_collisions_are_rejected(self):
+        for topics in ({"../outside": {"en": "RL", "zh": "RL", "tags": ["rl"]}},
+                       {"rl": {"en": "RL", "tags": ["rl"]}},
+                       {"rl": {"en": "RL", "zh": "RL", "tags": []}},
+                       {"rl": {"en": "RL", "zh": "RL", "tags": ["Bad tag"]}}):
+            with self.subTest(topics=topics):
+                (self.root / "data/topics.json").write_text(json.dumps(topics))
+                with self.assertRaises(ValueError):
+                    build_outputs(self.root)
+        (self.root / "data/topics.json").write_text(json.dumps({
+            "rl": {"en": "RL", "zh": "RL", "tags": ["rl"]}}))
+        self.category["catalog_path"] = "topics/rl"
+        self.write_taxonomy()
+        with self.assertRaises(ValueError):
+            build_outputs(self.root)
+
     def test_missing_generated_file_and_edited_index_fail_read_only_check(self):
         generate(self.root)
         target = self.root / "catalog/manipulation/dexterous/benchmarks.md"

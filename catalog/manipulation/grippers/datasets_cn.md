@@ -8,10 +8,12 @@
 
 服务于夹爪操作学习的数据集，包括单臂和双臂采集。采集硬件与处理方法随数据集记录，区分论文报告规模和实际公开范围。
 
+**按主题浏览：** [VLA (4)](../../topics/vla_cn.md) · [强化学习 (2)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (5)](../../topics/tactile_cn.md) · [手内操作 (1)](../../topics/in-hand-manipulation_cn.md)
+
 `AM.MAN.GRIP.DATASET` · 1 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
-| [AM.MAN.GRIP.1] <a id="am-man-grip-1"></a> | [TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation](https://arxiv.org/pdf/2610.20320v1)<br>Fucai Zhu et al<br>**标签:** `dataset` `gripper` `tactile` `umi` `robot-free-collection` `bimanual` `structured-annotation` `cross-embodiment` `real-world` | **定位：**以视觉—触觉—语言—动作（VTLA）数据集为主，配套触觉 UMI 采集器与处理方法。<br>**构建：**无需目标机器人，采集同步视觉、触觉与末端运动，配语言描述；质控过滤后标注接触阶段、子任务与目标物体。<br>**规模／开放：**论文报告 1 万＋小时、100 万＋段、1000＋任务类型；官方门户标注首批 1000 小时子集，重放／运动学工具公开，策略训练与评测代码待发布。<br>**评测范围:** TacClaw 为手持夹持采集器，不是多指关节手。π0.5、StarVLA 在 Tianji Marvin M6S Lite、RealMan RM75-b、DM-Sparky One 上验证叠杯、瓶子分类、擦花瓶三个双臂任务，每任务 1600 条训练示范、50 次评测；采集任务规模不等于部署评测任务数。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.20320v1) · [项目](https://daimon-robotics.github.io/tacclaw-infinity-page/) · [代码](https://github.com/daimon-robotics/TacClaw-Infinity) · [数据](https://huggingface.co/datasets/daimonrobotics/Daimon-Infinity) · [笔记](../../../notes/tacclaw-infinity_cn.md) | 初读<br>2026-10-21 |
+| [AM.MAN.GRIP.1] <a id="am-man-grip-1"></a> | **TacClaw-Infinity｜夹爪示范 · 触觉数据集**<br>[TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation](https://arxiv.org/pdf/2610.20320v1)<br>Fucai Zhu et al<br>**标签:** `dataset` `gripper` [tactile](../../topics/tactile_cn.md) `umi` `robot-free-collection` `bimanual` `structured-annotation` `cross-embodiment` `real-world` | **定位：**以视觉—触觉—语言—动作（VTLA）数据集为主，配套触觉 UMI 采集器与处理方法。<br>**构建：**无需目标机器人，采集同步视觉、触觉与末端运动，配语言描述；质控过滤后标注接触阶段、子任务与目标物体。<br>**规模／开放：**论文报告 1 万＋小时、100 万＋段、1000＋任务类型；官方门户标注首批 1000 小时子集，重放／运动学工具公开，策略训练与评测代码待发布。<br>**评测范围:** TacClaw 为手持夹持采集器，不是多指关节手。π0.5、StarVLA 在 Tianji Marvin M6S Lite、RealMan RM75-b、DM-Sparky One 上验证叠杯、瓶子分类、擦花瓶三个双臂任务，每任务 1600 条训练示范、50 次评测；采集任务规模不等于部署评测任务数。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.20320v1) · [项目](https://daimon-robotics.github.io/tacclaw-infinity-page/) · [代码](https://github.com/daimon-robotics/TacClaw-Infinity) · [数据](https://huggingface.co/datasets/daimonrobotics/Daimon-Infinity) · [笔记](../../../notes/tacclaw-infinity_cn.md) | 初读<br>2026-10-21 |
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

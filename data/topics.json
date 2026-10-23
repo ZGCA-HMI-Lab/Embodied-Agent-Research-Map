@@ -1,0 +1,34 @@
+{
+  "vla": {
+    "en": "VLA",
+    "zh": "VLA",
+    "tags": [
+      "vla",
+      "vla-fine-tuning"
+    ]
+  },
+  "reinforcement-learning": {
+    "en": "Reinforcement learning",
+    "zh": "强化学习",
+    "tags": [
+      "reinforcement-learning",
+      "residual-rl",
+      "ppo"
+    ]
+  },
+  "tactile": {
+    "en": "Touch and contact feedback",
+    "zh": "触觉与接触反馈",
+    "tags": [
+      "tactile",
+      "contact-estimation"
+    ]
+  },
+  "in-hand-manipulation": {
+    "en": "In-hand manipulation",
+    "zh": "手内操作",
+    "tags": [
+      "in-hand-manipulation"
+    ]
+  }
+}

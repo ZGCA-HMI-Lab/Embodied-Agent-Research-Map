@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v2",
   "kind": "tool",
-  "category": "AM.MAN.DEX.DEMO.V2R",
+  "category": "AM.MAN.DEX.DEMO",
   "related_categories": [],
   "tags": [
     "dexterous",
@@ -44,5 +44,19 @@
   "verified_on": "2026-10-23",
   "reading_status": "skimmed",
   "notes": {},
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Video demonstrations",
+      "zh": "视频示范"
+    },
+    {
+      "en": "Agent-built simulation",
+      "zh": "Agent构建仿真"
+    },
+    {
+      "en": "Data augmentation",
+      "zh": "数据扩增"
+    }
+  ]
 }

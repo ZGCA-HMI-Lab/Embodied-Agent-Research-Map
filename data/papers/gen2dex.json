@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v1",
   "kind": "model",
-  "category": "AM.MAN.DEX.DEMO.V2R",
+  "category": "AM.MAN.DEX.DEMO",
   "related_categories": [],
   "tags": [
     "dexterous",
@@ -37,5 +37,19 @@
   "verified_on": "2026-10-21",
   "reading_status": "skimmed",
   "notes": {},
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Video demonstrations",
+      "zh": "视频示范"
+    },
+    {
+      "en": "Retargeting",
+      "zh": "重定向"
+    },
+    {
+      "en": "RL trajectory optimization",
+      "zh": "RL轨迹优化"
+    }
+  ]
 }

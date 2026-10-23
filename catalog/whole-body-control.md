@@ -8,6 +8,8 @@ Body Motion and Whole-Body Control Models
 
 Includes locomotion, balance, motion tracking, getting up, dynamic motor skills, and coordinated body control. Loco-manipulation belongs here when body coordination, balance, or motion execution is the main research question; manipulation can be noted as a related area.
 
+**Browse by topic：** [VLA (4)](topics/vla.md) · [Reinforcement learning (2)](topics/reinforcement-learning.md) · [Touch and contact feedback (5)](topics/tactile.md) · [In-hand manipulation (1)](topics/in-hand-manipulation.md)
+
 `AM.WBC` · 0 primary records
 
 No records yet.

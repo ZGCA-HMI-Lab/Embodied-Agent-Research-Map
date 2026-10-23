@@ -49,5 +49,15 @@
     "en": "notes/tacclaw-infinity.md",
     "zh": "notes/tacclaw-infinity_cn.md"
   },
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Gripper demonstrations",
+      "zh": "夹爪示范"
+    },
+    {
+      "en": "Tactile dataset",
+      "zh": "触觉数据集"
+    }
+  ]
 }

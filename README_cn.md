@@ -10,7 +10,9 @@
 2. 点击分类入口，阅读该方向的全部短条目与 TL;DR。
 3. 需要深入时，点击条目中的“笔记”查看单篇阅读记录。
 
-当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作按夹爪、多指灵巧手及跨平台共性方法组织。夹爪下已建立[数据集](catalog/manipulation/grippers/datasets_cn.md)分支；灵巧手下已有 Benchmarks、示范获取与动作转换、手内操作和 VLA；VLA 当前收录执行反馈与纠错，手内操作再按研究方法细分，当前已收录强化学习工作。
+当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作按夹爪、多指灵巧手及跨平台共性方法组织。灵巧手下按主要贡献分为**数据集与评测基准、机器人示范数据生成、机器人操作策略与控制、人手动作与操作视频建模**；策略与控制再分为动作策略学习、执行反馈与动作修正。
+
+论文名称旁直接显示主题与方法，例如 **No Eyes, No Problem｜手内操作 · RL · 触觉**。下方“按主题浏览”可以跨分类查找 VLA、强化学习、触觉与接触反馈、手内操作；每篇论文只有一份正式记录。
 
 [![具身动作模型研究地图](mindmap_cn.svg)](mindmap_cn.svg)
 
@@ -18,16 +20,20 @@
 
 <!-- BEGIN GENERATED:CATALOG -->
 
-| 分类路径 | 分类码 | 条目数 | 阅读入口 |
-|---|---|---:|---|
-| 操作动作模型 → 夹爪操作模型 → 数据集 | `AM.MAN.GRIP.DATASET` | 1 | [查看](catalog/manipulation/grippers/datasets_cn.md) |
-| 操作动作模型 → 多指灵巧手操作模型 → Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) |
-| 操作动作模型 → 多指灵巧手操作模型 → 示范获取与动作转换 → 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 2 | [查看](catalog/manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
-| 操作动作模型 → 多指灵巧手操作模型 → 手内操作 → 强化学习 | `AM.MAN.DEX.INHAND.RL` | 1 | [查看](catalog/manipulation/dexterous/in-hand/reinforcement-learning_cn.md) |
-| 操作动作模型 → 多指灵巧手操作模型 → VLA → 执行反馈与纠错 | `AM.MAN.DEX.VLA.FEEDBACK` | 1 | [查看](catalog/manipulation/dexterous/vla/execution-feedback_cn.md) |
-| 操作动作模型 → 共性方法 → 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](catalog/manipulation/common-methods/execution-efficiency_cn.md) |
-| 导航动作模型 | `AM.NAV` | 0 | [查看](catalog/navigation_cn.md) |
-| 身体运动与全身控制模型 | `AM.WBC` | 0 | [查看](catalog/whole-body-control_cn.md) |
+**按主题浏览：** [VLA (4)](catalog/topics/vla_cn.md) · [强化学习 (2)](catalog/topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (5)](catalog/topics/tactile_cn.md) · [手内操作 (1)](catalog/topics/in-hand-manipulation_cn.md)
+
+| 分类路径 | 条目数 | 阅读入口 | 代表工作／主题与方法 |
+|---|---:|---|---|
+| 操作动作模型 → 夹爪操作模型 → 数据集 | 1 | [查看](catalog/manipulation/grippers/datasets_cn.md) | [TacClaw-Infinity｜夹爪示范 · 触觉数据集](catalog/manipulation/grippers/datasets_cn.md#am-man-grip-1) |
+| 操作动作模型 → 夹爪操作模型 → Agent 架构 → Agent＋WAM | 1 | [查看](catalog/manipulation/grippers/agent-architectures/agent-wam_cn.md) | [AR-WAM｜Agent＋WAM · 事件反馈 · 失败恢复](catalog/manipulation/grippers/agent-architectures/agent-wam_cn.md#am-man-grip-agent-wam-1) |
+| 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) | [BiDex-100｜双手操作 · 评测基准](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-1)<br>[HandsOn｜双手操作 · 仿真评测](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-2)<br>[Evo-DexBench｜灵巧手／夹爪 · 仿真评测](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-3) |
+| 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | 2 | [查看](catalog/manipulation/dexterous/demonstrations/generation_cn.md) | [Gen2Dex｜视频示范 · 重定向 · RL轨迹优化](catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-1)<br>[DexAgent｜视频示范 · Agent构建仿真 · 数据扩增](catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-2) |
+| 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | 2 | [查看](catalog/manipulation/dexterous/policies/policy-learning_cn.md) | [No Eyes, No Problem｜手内操作 · RL · 触觉](catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1)<br>[TTP｜VLA · 触觉融合 · 动作与触觉联合预测](catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) |
+| 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | 1 | [查看](catalog/manipulation/dexterous/policies/execution-feedback_cn.md) | [AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正](catalog/manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1) |
+| 操作动作模型 → 多指灵巧手操作研究 → 人手动作与操作视频建模 | 1 | [查看](catalog/manipulation/dexterous/human-hand-modeling_cn.md) | [P³-WAM｜统一感知、预测与规划](catalog/manipulation/dexterous/human-hand-modeling_cn.md#am-man-dex-human-unified-1) |
+| 操作动作模型 → 共性方法 → 执行效率与时序控制 | 1 | [查看](catalog/manipulation/common-methods/execution-efficiency_cn.md) | [PaceVLA｜VLA · 执行加速 · 动作时间粒度](catalog/manipulation/common-methods/execution-efficiency_cn.md#am-man-method-eff-1) |
+| 导航动作模型 | 0 | [查看](catalog/navigation_cn.md) | — |
+| 身体运动与全身控制模型 | 0 | [查看](catalog/whole-body-control_cn.md) | — |
 
 <!-- END GENERATED:CATALOG -->
 
@@ -41,6 +47,7 @@
 | [catalog/](catalog/README_cn.md) | 自动生成的双语分类索引，收录全部工作 |
 | [notes/](notes/README.md) | 可选的单篇阅读笔记、方法比较与复现记录 |
 | [taxonomy.json](taxonomy.json) | 分类层级、双语名称及索引路径 |
+| [data/topics.json](data/topics.json) | VLA、强化学习等主题的名称和标签匹配规则 |
 | [docs/scope_cn.md](docs/scope_cn.md) | 研究范围、分类边界和参考综述 |
 
 ## 后续如何积累

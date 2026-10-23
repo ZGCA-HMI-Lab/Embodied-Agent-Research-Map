@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.VLA.TACTILE.1",
+  "slug": "ttp",
+  "short_name": "TTP",
+  "title": "Human-Centric Transferable Tactile Pre-Training for Dexterous Robotic Manipulation",
+  "authors": "Chi Zhang, Penglin Cai et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "gripper",
+    "vla",
+    "tactile",
+    "multi-expert",
+    "future-tactile-prediction",
+    "human-demonstration-pretraining",
+    "cross-embodiment",
+    "unified-representation",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "**核心：**TTP 在 VLA 中结合视觉语言理解、动作生成和触觉预测专家，联合学习未来动作与触觉，并通过统一人机动作／触觉表示，实现人类示范预训练到机器人微调的迁移。\n**结构与输入：**基于 BeingH-0.5 增加触觉输入及触觉预测专家；图像、指令、本体状态与历史触觉作为条件，用流匹配联合训练动作和触觉预测。MPG 门控调节两个专家所用的上下文特征。\n**数据边界：**H-Tac 包含几何推算接触、触觉手套实测及仿真信号，不能将全部触觉监督理解为实测压力。",
+    "en": "**Core:** TTP combines vision-language understanding, action generation and tactile prediction experts in a VLA, jointly learning future actions and touch. Unified human/robot action and tactile representations support human-demonstration pretraining followed by robot fine-tuning.\n**Structure/inputs:** Extend BeingH-0.5 with tactile inputs and a tactile prediction expert. Images, instructions, proprioception and tactile history condition joint flow-matching training; MPG gates context features used by both prediction experts.\n**Data boundary:** H-Tac mixes geometry-derived contact, tactile-glove measurements and simulated signals; not all supervision is measured pressure."
+  },
+  "evaluation_scope": {
+    "zh": "9 项真机任务，Franka／Realman 搭配 Inspire、DexBotic 灵巧手或 DM-Tac 夹爪，包含单臂和双臂。需下游机器人微调，不是零样本人机迁移。削皮、折纸和其余任务分别采用长度、折叠进度和成功率，不能将汇总进度全部写成成功率；LIBERO 等无原生触觉的仿真使用状态与前次动作之差作触觉代理。",
+    "en": "Nine real-robot tasks on Franka/Realman with Inspire or DexBotic hands or a DM-Tac gripper, in single/bimanual setups. Requires robot fine-tuning. Peeling length, folding progress and success rates are distinct metrics. Simulation benchmarks without native touch use state-minus-previous-action as a tactile proxy."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2607.01067v1",
+    "project": "https://beingbeyond.github.io/TTP/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2607.01067v1",
+    "https://arxiv.org/pdf/2607.01067v1"
+  ],
+  "verified_on": "2026-10-23",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLA",
+      "zh": "VLA"
+    },
+    {
+      "en": "Tactile fusion",
+      "zh": "触觉融合"
+    },
+    {
+      "en": "Joint action/touch prediction",
+      "zh": "动作与触觉联合预测"
+    }
+  ]
+}

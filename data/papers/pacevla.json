@@ -37,5 +37,19 @@
   "verified_on": "2026-10-20",
   "reading_status": "skimmed",
   "notes": {},
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLA",
+      "zh": "VLA"
+    },
+    {
+      "en": "Execution speedup",
+      "zh": "执行加速"
+    },
+    {
+      "en": "Temporal action granularity",
+      "zh": "动作时间粒度"
+    }
+  ]
 }

@@ -5,7 +5,8 @@ import re
 from pathlib import Path
 from urllib.parse import quote, unquote
 
-from research_data import BENCHMARK_FIELDS, categories, load_papers, load_taxonomy, render_tree
+from research_data import (BENCHMARK_FIELDS, categories, load_papers, load_taxonomy,
+                           load_topics, paper_label, render_tree)
 import build_mindmap as renderer
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,15 +74,35 @@ def category_paths(taxonomy, language):
     return paths
 
 
-def navigation(root, taxonomy, papers, page, language):
-    heading = "| 分类路径 | 分类码 | 条目数 | 阅读入口 |" if language == "zh" else "| Category path | Code | Records | Index |"
-    lines = [heading, "|---|---|---:|---|"]
+def topic_file(root, slug, language):
+    return root / "catalog/topics" / (slug + ("_cn.md" if language == "zh" else ".md"))
+
+
+def topic_matches(paper, topic):
+    return bool(set(paper["tags"]) & set(topic["tags"]))
+
+
+def topic_navigation(root, topics, papers, page, language):
+    if not topics:
+        return ""
+    label = "按主题浏览" if language == "zh" else "Browse by topic"
+    entries = [link(f"{topic[language]} ({sum(topic_matches(p, topic) for p in papers)})",
+                    relative(topic_file(root, slug, language), page))
+               for slug, topic in topics.items()]
+    return f"**{label}：** " + " · ".join(entries)
+
+
+def navigation(root, taxonomy, papers, page, language, topics=None):
+    heading = "| 分类路径 | 条目数 | 阅读入口 | 代表工作／主题与方法 |" if language == "zh" else "| Category path | Records | Index | Selected works / topics and methods |"
+    lines = [topic_navigation(root, topics or {}, papers, page, language), "", heading, "|---|---:|---|---|"]
     paths = category_paths(taxonomy, language)
     for code, category in categories(taxonomy).items():
         count = sum(p["category"] == code for p in papers)
         name = paths[code]
         target = relative(catalog_file(root, category, language), page)
-        lines.append(f"| {cell(name)} | `{code}` | {count} | {link('查看' if language == 'zh' else 'Open', target)} |")
+        selected = "<br>".join(link(paper_label(p, language), target + "#" + anchor(p))
+                                for p in papers if p["category"] == code and p["show_on_map"])
+        lines.append(f"| {cell(name)} | {count} | {link('查看' if language == 'zh' else 'Open', target)} | {selected or '—'} |")
     return "\n".join(lines)
 
 
@@ -92,7 +113,8 @@ def replace_home_block(content, block):
     return content[:start] + BEGIN + "\n\n" + block + "\n\n" + END + content[finish:]
 
 
-def category_page(root, taxonomy, category, papers, language):
+def category_page(root, taxonomy, category, papers, language, topics=None):
+    topics = topics or {}
     page = catalog_file(root, category, language)
     own = [p for p in papers if p["category"] == category["code"]]
     related = [p for p in papers if category["code"] in p["related_categories"]]
@@ -106,7 +128,8 @@ def category_page(root, taxonomy, category, papers, language):
                   relative(root / "catalog" / ("README_cn.md" if language == "zh" else "README.md"), page)) + " · " +
              link("English" if language == "zh" else "简体中文", relative(opposite, page)), "",
              category_paths(taxonomy, language)[category["code"]], "",
-             description, "", f"`{category['code']}` · {len(own)} " + ("篇主分类工作" if language == "zh" else "primary records"), ""]
+             description, "", topic_navigation(root, topics, papers, page, language), "",
+             f"`{category['code']}` · {len(own)} " + ("篇主分类工作" if language == "zh" else "primary records"), ""]
     if not own:
         lines.append("尚未收录工作。" if language == "zh" else "No records yet.")
     else:
@@ -122,10 +145,14 @@ def category_page(root, taxonomy, category, papers, language):
                                       relative(root / paper["notes"][language], page)))
             title = link(paper["title"], paper["links"]["paper"])
             author = cell(paper["authors"])
-            work = f"{title}<br>{author}"
+            work = f"**{cell(paper_label(paper, language))}**<br>{title}<br>{author}"
             if paper["tags"]:
                 label = "标签" if language == "zh" else "Tags"
-                work += f"<br>**{label}:** " + " ".join(f"`{tag}`" for tag in paper["tags"])
+                def tag_link(tag):
+                    entries = [link(tag, relative(topic_file(root, slug, language), page))
+                               for slug, topic in topics.items() if tag in topic["tags"]]
+                    return " / ".join(entries) if entries else f"`{tag}`"
+                work += f"<br>**{label}:** " + " ".join(tag_link(tag) for tag in paper["tags"])
             reading = STATUSES[language][paper["reading_status"]]
             lines.append(f"| [{paper['id']}] <a id=\"{anchor(paper)}\"></a> | {work} | "
                          f"{cell(tldr(paper, language))} | {cell(paper['venue'])} / {paper['year']} | "
@@ -140,6 +167,30 @@ def category_page(root, taxonomy, category, papers, language):
               if language == "zh" else
               "Records are generated from canonical data; detailed reading notes are optional. Release status is dated, and unreported or unverified claims remain explicit.", ""]
     return "\n".join(lines)
+
+
+def topic_page(root, taxonomy, topics, slug, papers, language):
+    page = topic_file(root, slug, language)
+    topic = topics[slug]
+    matches = [p for p in papers if topic_matches(p, topic)]
+    home = root / ("README_cn.md" if language == "zh" else "README.md")
+    opposite = topic_file(root, slug, "en" if language == "zh" else "zh")
+    description = ("跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。"
+                   if language == "zh" else
+                   "Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.")
+    lines = [GENERATED, "", f"# {topic[language]}", "",
+             link("首页" if language == "zh" else "Home", relative(home, page)) + " · " +
+             link("English" if language == "zh" else "简体中文", relative(opposite, page)), "",
+             description, "", topic_navigation(root, topics, papers, page, language), "",
+             f"{len(matches)} " + ("篇工作" if language == "zh" else "records"), "",
+             "| 工作／主题与方法 | 主分类 | 匹配标签 |" if language == "zh" else "| Work / topics and methods | Primary category | Matching tags |",
+             "|---|---|---|"]
+    known, paths = categories(taxonomy), category_paths(taxonomy, language)
+    for paper in matches:
+        target = relative(catalog_file(root, known[paper["category"]], language), page) + "#" + anchor(paper)
+        matched = " · ".join(f"`{tag}`" for tag in paper["tags"] if tag in topic["tags"])
+        lines.append(f"| {link(paper_label(paper, language), target)} | {cell(paths[paper['category']])} | {matched} |")
+    return "\n".join(lines) + "\n"
 
 
 def alias_page(root, category, route, papers, language):
@@ -159,20 +210,27 @@ def build_outputs(root):
     root = Path(root).resolve()
     taxonomy = load_taxonomy(root / "taxonomy.json")
     papers = load_papers(root, taxonomy)
+    topics = load_topics(root)
+    reserved = {"topics/" + slug for slug in topics}
+    for category in categories(taxonomy).values():
+        if reserved.intersection([category["catalog_path"], *category.get("catalog_aliases", [])]):
+            raise ValueError("Category route conflicts with a topic page")
     outputs = {}
     for language in ("en", "zh"):
         suffix = "_cn" if language == "zh" else ""
         home = root / f"README{suffix}.md"
         if not home.is_file():
             raise ValueError(f"Missing homepage: {home.name}")
-        block = navigation(root, taxonomy, papers, home, language)
+        block = navigation(root, taxonomy, papers, home, language, topics)
         outputs[home] = replace_home_block(home.read_text(encoding="utf-8"), block)
         index = root / "catalog" / f"README{suffix}.md"
         title = "# 分类索引" if language == "zh" else "# Category Index"
         count = f"共 {len(papers)} 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。" if language == "zh" else f"{len(papers)} records. Each has one primary category and may reference related areas."
-        outputs[index] = "\n".join([GENERATED, "", title, "", link("首页" if language == "zh" else "Home", relative(home, index)), "", count, "", navigation(root, taxonomy, papers, index, language), ""])
+        outputs[index] = "\n".join([GENERATED, "", title, "", link("首页" if language == "zh" else "Home", relative(home, index)), "", count, "", navigation(root, taxonomy, papers, index, language, topics), ""])
+        for slug in topics:
+            outputs[topic_file(root, slug, language)] = topic_page(root, taxonomy, topics, slug, papers, language)
         for category in categories(taxonomy).values():
-            outputs[catalog_file(root, category, language)] = category_page(root, taxonomy, category, papers, language)
+            outputs[catalog_file(root, category, language)] = category_page(root, taxonomy, category, papers, language, topics)
             for route in category.get("catalog_aliases", []):
                 page = catalog_file(root, {"catalog_path": route}, language)
                 outputs[page] = alias_page(root, category, route, papers, language)

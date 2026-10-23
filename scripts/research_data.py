@@ -57,6 +57,30 @@ def categories(taxonomy):
     return result
 
 
+def load_topics(root):
+    path = Path(root) / "data/topics.json"
+    topics = read_json(path) if path.exists() else {}
+    if not isinstance(topics, dict):
+        raise ValueError("topics must be an object")
+    for slug, topic in topics.items():
+        if not SLUG_RE.fullmatch(slug) or slug == "readme":
+            raise ValueError(f"Invalid topic slug: {slug}")
+        if not isinstance(topic, dict) or set(topic) != {"en", "zh", "tags"}:
+            raise ValueError(f"{slug}: topic requires en, zh and tags")
+        localized({lang: topic[lang] for lang in LANGUAGES}, f"topic.{slug}")
+        tags = topic["tags"]
+        if (not isinstance(tags, list) or not tags
+                or any(not isinstance(tag, str) or not SLUG_RE.fullmatch(tag) for tag in tags)
+                or len(set(tags)) != len(tags)):
+            raise ValueError(f"{slug}: invalid topic tags")
+    return topics
+
+
+def paper_label(paper, language):
+    labels = [tag[language] for tag in paper.get("display_tags", [])]
+    return paper["short_name"] + ("｜" + " · ".join(labels) if labels else "")
+
+
 def load_taxonomy(path):
     data = read_json(path)
     if not isinstance(data, dict) or set(data) != {"title", "title_zh", "children"}:
@@ -114,7 +138,7 @@ def load_papers(root, taxonomy):
     required = {"schema_version", "id", "slug", "short_name", "title", "authors", "year", "venue",
                 "kind", "category", "related_categories", "tags", "links", "sources", "verified_on",
                 "reading_status", "notes", "show_on_map"}
-    optional = {"benchmark", "tldr", "evaluation_scope"}
+    optional = {"benchmark", "tldr", "evaluation_scope", "display_tags"}
     records, ids, slugs, identities = [], set(), set(), set()
     retired_path = root / "data/retired_ids.json"
     retired = read_json(retired_path) if retired_path.exists() else []
@@ -153,6 +177,11 @@ def load_papers(root, taxonomy):
         if (not isinstance(tags, list) or any(not isinstance(t, str) or not SLUG_RE.fullmatch(t) for t in tags)
                 or len(set(tags)) != len(tags)):
             raise ValueError(f"{slug}: invalid tags")
+        display_tags = record.get("display_tags", [])
+        if not isinstance(display_tags, list) or len(display_tags) > 3:
+            raise ValueError(f"{slug}: display_tags must contain at most three bilingual labels")
+        for tag in display_tags:
+            localized(tag, f"{slug}.display_tags")
         if record["kind"] not in ("benchmark", "model", "dataset", "tool", "survey"):
             raise ValueError(f"{slug}: invalid kind")
         if record["kind"] == "benchmark":
@@ -210,7 +239,7 @@ def render_tree(taxonomy, records, language):
             if code:
                 for paper in records:
                     if paper["category"] == code and paper["show_on_map"]:
-                        children.append({"name": paper["short_name"], "code": None, "paper_id": paper["id"],
+                        children.append({"name": paper_label(paper, language), "code": None, "paper_id": paper["id"],
                                          "depth": depth + 1, "children": []})
             rendered.append({"name": node["name" if language == "en" else "name_zh"],
                              "code": code, "depth": depth, "children": children})

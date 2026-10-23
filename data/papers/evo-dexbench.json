@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v1",
   "kind": "benchmark",
-  "category": "AM.MAN.DEX.BENCH",
+  "category": "AM.MAN.DEX.DATA",
   "related_categories": [],
   "tags": [
     "benchmark",
@@ -71,5 +71,15 @@
     "en": "notes/evo-dexbench.md",
     "zh": "notes/evo-dexbench_cn.md"
   },
-  "show_on_map": true
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Dexterous hands / grippers",
+      "zh": "灵巧手／夹爪"
+    },
+    {
+      "en": "Simulation benchmark",
+      "zh": "仿真评测"
+    }
+  ]
 }

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.WAM.1",
+  "slug": "ar-wam",
+  "short_name": "AR-WAM",
+  "title": "AR-WAM: A Visual-Conditioned Agent-Ready World Action Model for Robotic Manipulation",
+  "authors": "Yicheng Jiang, Zesen Gan et al",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.WAM",
+  "related_categories": [],
+  "tags": [
+    "gripper",
+    "bimanual",
+    "agent-architecture",
+    "wam",
+    "visual-grounding",
+    "atomic-operations",
+    "latent-foresight",
+    "hierarchical-control",
+    "agent-memory",
+    "event-triggered-feedback",
+    "failure-recovery"
+  ],
+  "tldr": {
+    "zh": "**Agent 架构：**通过“目标框＋原子操作”和 detect–execute–query 接口连接通用 Agent 与 WAM：Agent 负责任务分解、记忆及失败后的重新定位与重试，WAM 联合预测动作和未来视觉／语义表示，实现事件触发的规划—执行反馈闭环。\n**接口与反馈：**detect 在 Agent 侧定位目标，execute 驱动策略，query 返回触发原因、夹爪状态与当前观测；夹爪开合、位移达到阈值或超时触发下一轮 Agent 推理。历史保存在 Agent 侧，更换 Agent 不改底层策略。\n**底层模型：**0.5B 策略以当前图像、机器人状态、目标框及操作标记为条件，无语言编码器；联合预测动作片段与潜在未来表示，不生成完整未来视频。目标掩码、技能结束时末端位姿及任务摘要辅助诊断意图与执行错误。",
+    "en": "**Agent architecture:** Connect a general-purpose agent to a WAM through target boxes, atomic operations and detect–execute–query. The agent handles decomposition, memory, re-localization and retries; the WAM jointly predicts actions and future visual/semantic representations in an event-triggered planning–execution loop.\n**Interface/feedback:** detect grounds targets on the agent side, execute runs the policy, and query returns trigger reason, gripper state and observation. Gripper events, displacement thresholds or timeouts invoke the agent again. History stays with the agent; swapping agents does not change the policy.\n**Low-level model:** A 0.5B policy conditions on images, robot state, boxes and operation tokens, without a language encoder. It predicts action chunks and latent futures rather than full videos; masks, skill-terminal end-effector poses and task abstracts support intent/execution diagnosis."
+  },
+  "evaluation_scope": {
+    "zh": "RoboTwin 2.0 的 10 个双臂任务及 RMBench；真机 Astribot S1 双臂夹爪用本地 Qwen3.8-27B 驱动，每任务用 100 条真机示范微调，在按次数按铃、指定瓶子抓取两次、鸡蛋放指定格共 3 项任务上各评测 20 次，平均成功率 71.7%。能力受预定义原子技能和 Agent 定位精度限制；未验证多指灵巧手。",
+    "en": "Ten RoboTwin 2.0 dual-arm tasks and RMBench. Astribot S1 dual-gripper experiments use a local Qwen3.8-27B agent and 100 real demonstrations for fine-tuning per task. Three tasks (counted bell presses, picking a specified bottle twice, and egg placement in a specified cell), 20 trials each, average 71.7% success. Limited by predefined skills and grounding accuracy; no multi-finger-hand validation."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.23578v2",
+    "project": "https://ar-wam.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2609.23578v2",
+    "https://arxiv.org/pdf/2609.23578v2",
+    "https://ar-wam.github.io/"
+  ],
+  "verified_on": "2026-10-23",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent + WAM",
+      "zh": "Agent＋WAM"
+    },
+    {
+      "en": "Event feedback",
+      "zh": "事件反馈"
+    },
+    {
+      "en": "Failure recovery",
+      "zh": "失败恢复"
+    }
+  ]
+}
