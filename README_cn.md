@@ -1,6 +1,6 @@
 # 具身动作模型研究地图
 
-面向机器人动作生成与控制的学习式模型、评测基准和阅读记录。
+面向机器人动作生成与控制的学习式模型、数据集、评测基准和阅读记录。
 
 [English](README.md) · [研究范围与分类依据](docs/scope_cn.md) · [维护规范](CONTRIBUTING.md)
 
@@ -10,7 +10,7 @@
 2. 点击分类入口，阅读该方向的全部短条目与 TL;DR。
 3. 需要深入时，点击条目中的“笔记”查看单篇阅读记录。
 
-当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作保留夹爪、多指灵巧手及跨平台共性方法入口。灵巧手下已有 Benchmarks、示范获取与动作转换、手内操作；手内操作按研究方法细分，当前已收录强化学习工作。
+当前重点是**操作动作模型**；导航、身体运动与全身控制保留研究入口。操作按夹爪、多指灵巧手及跨平台共性方法组织。夹爪下已建立[数据集](catalog/manipulation/grippers/datasets_cn.md)分支；灵巧手下已有 Benchmarks、示范获取与动作转换、手内操作和 VLA；VLA 当前收录执行反馈与纠错，手内操作再按研究方法细分，当前已收录强化学习工作。
 
 [![具身动作模型研究地图](mindmap_cn.svg)](mindmap_cn.svg)
 
@@ -18,13 +18,14 @@
 
 <!-- BEGIN GENERATED:CATALOG -->
 
-| 分类 | 编号前缀 | 条目数 | 阅读入口 |
+| 分类路径 | 分类码 | 条目数 | 阅读入口 |
 |---|---|---:|---|
-| 夹爪操作模型 | `AM.MAN.GRIP` | 0 | [查看](catalog/manipulation/grippers_cn.md) |
-| Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) |
-| 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 1 | [查看](catalog/manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
-| 强化学习 | `AM.MAN.DEX.INHAND.RL` | 1 | [查看](catalog/manipulation/dexterous/in-hand/reinforcement-learning_cn.md) |
-| 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](catalog/manipulation/common-methods/execution-efficiency_cn.md) |
+| 操作动作模型 → 夹爪操作模型 → 数据集 | `AM.MAN.GRIP.DATASET` | 1 | [查看](catalog/manipulation/grippers/datasets_cn.md) |
+| 操作动作模型 → 多指灵巧手操作模型 → Benchmarks｜评测基准 | `AM.MAN.DEX.BENCH` | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) |
+| 操作动作模型 → 多指灵巧手操作模型 → 示范获取与动作转换 → 视频示范到机器人动作 | `AM.MAN.DEX.DEMO.V2R` | 2 | [查看](catalog/manipulation/dexterous/demonstrations/video-to-robot_cn.md) |
+| 操作动作模型 → 多指灵巧手操作模型 → 手内操作 → 强化学习 | `AM.MAN.DEX.INHAND.RL` | 1 | [查看](catalog/manipulation/dexterous/in-hand/reinforcement-learning_cn.md) |
+| 操作动作模型 → 多指灵巧手操作模型 → VLA → 执行反馈与纠错 | `AM.MAN.DEX.VLA.FEEDBACK` | 1 | [查看](catalog/manipulation/dexterous/vla/execution-feedback_cn.md) |
+| 操作动作模型 → 共性方法 → 执行效率与时序控制 | `AM.MAN.METHOD.EFF` | 1 | [查看](catalog/manipulation/common-methods/execution-efficiency_cn.md) |
 | 导航动作模型 | `AM.NAV` | 0 | [查看](catalog/navigation_cn.md) |
 | 身体运动与全身控制模型 | `AM.WBC` | 0 | [查看](catalog/whole-body-control_cn.md) |
 

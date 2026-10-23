@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.VLA.FEEDBACK.1",
+  "slug": "agentic-tactile-vla",
+  "short_name": "AgenticTactileVLA",
+  "title": "AgenticTactileVLA: Contact-Guided Execution-Time Supervision for Generalizable Dexterous Manipulation without VLA Retraining",
+  "authors": "Elizaveta Semenyakina et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.VLA.FEEDBACK",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "vla",
+    "execution-feedback",
+    "action-correction",
+    "proprioception",
+    "contact-estimation",
+    "compliant-control",
+    "grasping",
+    "pick-and-place",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "**反馈与纠错：**在 VLA 闭合手指后，用指令与实际指位的偏差、以及纠正时的电机负载反馈判断接触；抓握不足时暂停后续身体运动指令的推进（保持身体稳定），逐指补闭合至接触，满足支持判据则保持手形继续执行，否则交回 VLA 重试。\n**作用位置：**外部、无需训练的监督层修改执行指令；修正后的手部状态进入下一轮 VLA 观测，不更新 VLA 参数。基础 VLA 已用遥操作示范微调。\n**柔顺模式：**闭合前由语言提示或 VLM 选择预设限流控制，减小对易损物体的挤压；无需额外触觉传感器，电机反馈不等于标定接触力。",
+    "en": "**Feedback/correction:** After nominal VLA finger closure, detect contact evidence from commanded-versus-measured finger motion and, during correction, motor-effort feedback. If support is insufficient, pause body-reference progression while maintaining stabilization and advance unsupported fingers independently until contact. Retain the corrected hand configuration when support criteria pass; otherwise return control to the VLA for retry.\n**Where it acts:** An external, nonlearned supervisor changes executed commands; the corrected hand state enters subsequent VLA observations without updating VLA parameters. The base VLA was fine-tuned on teleoperated demonstrations.\n**Compliant mode:** Before closure, language cues or a VLM select predefined current-limited control for fragile objects. No additional tactile sensors are required; motor feedback is not calibrated contact force."
+  },
+  "evaluation_scope": {
+    "zh": "Unitree G1＋BrainCo Revo2，固定 GR00T-N1.6-3B；5 个训练外物体、每物体 15 次配对试验，共享 60 秒／最多 3 次接近预算，完成率由基础 VLA 的 61.3% 提升到 84.0%（无条件补闭合为 72.0%）。柔顺分支仅验证闭合与保持时的物体完整性，未验证自主搬运；未证明跨手型或跨 VLA 通用。",
+    "en": "Unitree G1 with BrainCo Revo2 and fixed GR00T-N1.6-3B; five held-out objects, 15 matched trials per object, with a shared 60-second/three-approach budget. Completion rises from 61.3% for the base VLA to 84.0% (72.0% for unconditional close-to-stall). The compliant branch evaluates object integrity during closure and holding, not autonomous transport; cross-hand and cross-VLA generality are not established."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.04391v1"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.04391v1",
+    "https://arxiv.org/pdf/2610.04391v1"
+  ],
+  "verified_on": "2026-10-22",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true
+}

@@ -4,6 +4,8 @@
 
 [Home](../../../../README.md) · [All categories](../../../README.md) · [简体中文](reinforcement-learning_cn.md)
 
+Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → In-Hand Manipulation → Reinforcement Learning
+
 Reinforcement learning for in-hand rotation, repositioning and coordinated object manipulation. Record sensing, demonstrations, sim-to-real techniques and evaluated objects as tags or evaluation scope; using RL in a demonstration-conversion pipeline alone does not place a work here.
 
 `AM.MAN.DEX.INHAND.RL` · 1 primary records

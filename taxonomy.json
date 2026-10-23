@@ -9,11 +9,20 @@
         {
           "name": "Gripper Manipulation Models",
           "name_zh": "夹爪操作模型",
-          "code": "AM.MAN.GRIP",
-          "children": [],
-          "catalog_path": "manipulation/grippers",
-          "description": "Simple grippers such as two-finger parallel grippers; single-arm and bimanual systems.",
-          "description_zh": "以两指平行夹爪等简单夹持器为主要研究平台，包括单臂和双臂系统。"
+          "children": [
+            {
+              "name": "Datasets",
+              "name_zh": "数据集",
+              "code": "AM.MAN.GRIP.DATASET",
+              "children": [],
+              "catalog_path": "manipulation/grippers/datasets",
+              "catalog_aliases": [
+                "manipulation/grippers"
+              ],
+              "description": "Datasets for gripper manipulation, including single-arm and bimanual collection. Record acquisition hardware and processing methods alongside the dataset; distinguish reported collection scale from public releases.",
+              "description_zh": "服务于夹爪操作学习的数据集，包括单臂和双臂采集。采集硬件与处理方法随数据集记录，区分论文报告规模和实际公开范围。"
+            }
+          ]
         },
         {
           "name": "Multi-Fingered Dexterous Hand Manipulation Models",
@@ -55,6 +64,21 @@
                   "catalog_path": "manipulation/dexterous/in-hand/reinforcement-learning",
                   "description": "Reinforcement learning for in-hand rotation, repositioning and coordinated object manipulation. Record sensing, demonstrations, sim-to-real techniques and evaluated objects as tags or evaluation scope; using RL in a demonstration-conversion pipeline alone does not place a work here.",
                   "description_zh": "以强化学习获得手内旋转、重定位及物体协同操作策略。感知方式、示范利用、仿真到真机技术和已验证物体用标签与评测范围记录；仅在示范转换流程中使用 RL，不自动归入本类。"
+                }
+              ]
+            },
+            {
+              "name": "VLA",
+              "name_zh": "VLA",
+              "children": [
+                {
+                  "name": "Execution Feedback and Correction",
+                  "name_zh": "执行反馈与纠错",
+                  "code": "AM.MAN.DEX.VLA.FEEDBACK",
+                  "catalog_path": "manipulation/dexterous/vla/execution-feedback",
+                  "description": "Execution feedback, action correction and recovery for dexterous-hand VLA systems. Distinguish changes to executed commands, subsequent policy observations and model parameters; record sensing and task scenarios as tags.",
+                  "description_zh": "面向灵巧手 VLA 的执行反馈、动作纠正与失败恢复。区分对执行指令、后续策略观测和模型参数的影响；感知方式与验证任务用标签记录。",
+                  "children": []
                 }
               ]
             }

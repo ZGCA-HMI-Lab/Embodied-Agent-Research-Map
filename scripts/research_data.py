@@ -66,7 +66,14 @@ def load_taxonomy(path):
     if not isinstance(data["children"], list) or not data["children"]:
         raise ValueError("taxonomy.children must be a non-empty list")
     codes, routes = set(), set()
-    allowed = {"name", "name_zh", "children", "code", "catalog_path", "description", "description_zh"}
+    allowed = {"name", "name_zh", "children", "code", "catalog_path", "catalog_aliases", "description", "description_zh"}
+
+    def register_route(route):
+        if not isinstance(route, str) or not ROUTE_RE.fullmatch(route) or route.split("/")[-1] == "readme":
+            raise ValueError(f"Invalid catalog route: {route}")
+        if route in routes:
+            raise ValueError(f"Duplicate catalog route: {route}")
+        routes.add(route)
 
     def visit(nodes):
         for node in nodes:
@@ -79,18 +86,18 @@ def load_taxonomy(path):
                 raise ValueError("taxonomy node children must be a list")
             code = node.get("code")
             if children:
-                if code is not None or any(k in node for k in ("catalog_path", "description", "description_zh")):
+                if code is not None or any(k in node for k in ("catalog_path", "catalog_aliases", "description", "description_zh")):
                     raise ValueError("Only leaf categories may define codes, routes and descriptions")
             else:
                 if not isinstance(code, str) or not CODE_RE.fullmatch(code) or code in codes:
                     raise ValueError(f"Invalid or duplicate category code: {code}")
                 codes.add(code)
-                route = node.get("catalog_path")
-                if not isinstance(route, str) or not ROUTE_RE.fullmatch(route) or route.split("/")[-1] == "readme":
-                    raise ValueError(f"Invalid catalog_path: {route}")
-                if route in routes:
-                    raise ValueError(f"Duplicate catalog_path: {route}")
-                routes.add(route)
+                register_route(node.get("catalog_path"))
+                aliases = node.get("catalog_aliases", [])
+                if not isinstance(aliases, list):
+                    raise ValueError("catalog_aliases must be a list of former catalog routes")
+                for route in aliases:
+                    register_route(route)
                 text(node.get("description"), "description")
                 text(node.get("description_zh"), "description_zh")
             visit(children)

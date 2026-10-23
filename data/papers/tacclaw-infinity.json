@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.1",
+  "slug": "tacclaw-infinity",
+  "short_name": "TacClaw-Infinity",
+  "title": "TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation",
+  "authors": "Fucai Zhu et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "dataset",
+  "category": "AM.MAN.GRIP.DATASET",
+  "related_categories": [],
+  "tags": [
+    "dataset",
+    "gripper",
+    "tactile",
+    "umi",
+    "robot-free-collection",
+    "bimanual",
+    "structured-annotation",
+    "cross-embodiment",
+    "real-world"
+  ],
+  "tldr": {
+    "en": "**Type:** Primarily a VTLA dataset, with a tactile UMI-style collection interface and processing methods.\n**Construction:** Record synchronized vision, touch and end-effector motion without the target robot, with language descriptions; curate trajectories and annotate contact phases, subtasks and target objects.\n**Scale/release:** Paper reports 10,000+ hours, 1M+ episodes and 1,000+ task types. The official portal advertises an initial 1,000-hour subset; replay/kinematic tools are public, while policy training/evaluation code is forthcoming.",
+    "zh": "**定位：**以视觉—触觉—语言—动作（VTLA）数据集为主，配套触觉 UMI 采集器与处理方法。\n**构建：**无需目标机器人，采集同步视觉、触觉与末端运动，配语言描述；质控过滤后标注接触阶段、子任务与目标物体。\n**规模／开放：**论文报告 1 万＋小时、100 万＋段、1000＋任务类型；官方门户标注首批 1000 小时子集，重放／运动学工具公开，策略训练与评测代码待发布。"
+  },
+  "evaluation_scope": {
+    "en": "TacClaw is a handheld gripper interface, not an articulated multi-finger hand. Two policies, π0.5 and StarVLA, are tested on three bimanual tasks across Tianji Marvin M6S Lite, RealMan RM75-b and DM-Sparky One, using 1,600 demonstrations and 50 trials per task. Collection scale is not the number of deployed evaluation tasks.",
+    "zh": "TacClaw 为手持夹持采集器，不是多指关节手。π0.5、StarVLA 在 Tianji Marvin M6S Lite、RealMan RM75-b、DM-Sparky One 上验证叠杯、瓶子分类、擦花瓶三个双臂任务，每任务 1600 条训练示范、50 次评测；采集任务规模不等于部署评测任务数。"
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.20320v1",
+    "project": "https://daimon-robotics.github.io/tacclaw-infinity-page/",
+    "code": "https://github.com/daimon-robotics/TacClaw-Infinity",
+    "data": "https://huggingface.co/datasets/daimonrobotics/Daimon-Infinity"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.20320v1",
+    "https://arxiv.org/html/2610.20320v1",
+    "https://daimon-robotics.github.io/tacclaw-infinity-page/",
+    "https://github.com/daimon-robotics/TacClaw-Infinity",
+    "https://huggingface.co/datasets/daimonrobotics/Daimon-Infinity",
+    "https://huggingface.co/api/datasets/daimonrobotics/Daimon-Infinity/tree/main?limit=100"
+  ],
+  "verified_on": "2026-10-21",
+  "reading_status": "skimmed",
+  "notes": {
+    "en": "notes/tacclaw-infinity.md",
+    "zh": "notes/tacclaw-infinity_cn.md"
+  },
+  "show_on_map": true
+}

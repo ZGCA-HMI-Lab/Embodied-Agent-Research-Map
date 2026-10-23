@@ -4,6 +4,8 @@
 
 [Home](../README.md) · [All categories](README.md) · [简体中文](navigation_cn.md)
 
+Navigation Action Models
+
 Includes point-goal, object-goal, and language-guided navigation, exploration, and navigation trajectory generation. The focus is reaching or finding a target using environmental observations; locomotion execution can be linked as a related area.
 
 `AM.NAV` · 0 primary records

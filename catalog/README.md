@@ -4,14 +4,15 @@
 
 [Home](../README.md)
 
-6 records. Each has one primary category and may reference related areas.
+9 records. Each has one primary category and may reference related areas.
 
-| Category | Code | Records | Index |
+| Category path | Code | Records | Index |
 |---|---|---:|---|
-| Gripper Manipulation Models | `AM.MAN.GRIP` | 0 | [Open](manipulation/grippers.md) |
-| Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](manipulation/dexterous/benchmarks.md) |
-| Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 1 | [Open](manipulation/dexterous/demonstrations/video-to-robot.md) |
-| Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](manipulation/dexterous/in-hand/reinforcement-learning.md) |
-| Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](manipulation/common-methods/execution-efficiency.md) |
+| Manipulation Action Models → Gripper Manipulation Models → Datasets | `AM.MAN.GRIP.DATASET` | 1 | [Open](manipulation/grippers/datasets.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](manipulation/dexterous/benchmarks.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Demonstration Acquisition and Action Conversion → Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 2 | [Open](manipulation/dexterous/demonstrations/video-to-robot.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → In-Hand Manipulation → Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](manipulation/dexterous/in-hand/reinforcement-learning.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → VLA → Execution Feedback and Correction | `AM.MAN.DEX.VLA.FEEDBACK` | 1 | [Open](manipulation/dexterous/vla/execution-feedback.md) |
+| Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](manipulation/common-methods/execution-efficiency.md) |
 | Navigation Action Models | `AM.NAV` | 0 | [Open](navigation.md) |
 | Body Motion and Whole-Body Control Models | `AM.WBC` | 0 | [Open](whole-body-control.md) |

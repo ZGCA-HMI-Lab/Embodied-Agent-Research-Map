@@ -76,6 +76,43 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("一种明确手型。", zh)
         self.assertIn("# Keep my introduction", outputs[self.root / "README.md"])
 
+    def test_home_and_category_show_the_full_classification_path(self):
+        outputs = build_outputs(self.root)
+        for suffix, path in [
+            ("", "Manipulation → Dexterous hands → Benchmarks"),
+            ("_cn", "操作 → 灵巧手 → 评测基准"),
+        ]:
+            with self.subTest(language=suffix):
+                self.assertIn(path, outputs[self.root / f"README{suffix}.md"])
+                self.assertIn(path, outputs[
+                    self.root / f"catalog/manipulation/dexterous/benchmarks{suffix}.md"])
+
+    def test_category_move_keeps_old_entry_links_and_paper_id(self):
+        generate(self.root)
+        old_route = self.category["catalog_path"]
+        self.category.update(code="AM.MOVED", catalog_path="renamed-benchmarks",
+                             catalog_aliases=[old_route])
+        self.paper["category"] = "AM.MOVED"
+        self.write_taxonomy()
+        self.write_paper(self.paper)
+        generate(self.root)
+        for suffix in ("", "_cn"):
+            old = self.root / f"catalog/manipulation/dexterous/benchmarks{suffix}.md"
+            new = self.root / f"catalog/renamed-benchmarks{suffix}.md"
+            self.assertIn(f"../../renamed-benchmarks{suffix}.md#am-man-dex-bench-1", old.read_text())
+            self.assertIn('id="am-man-dex-bench-1"', old.read_text())
+            self.assertIn("[AM.MAN.DEX.BENCH.1]", new.read_text())
+        generate(self.root, check=True)
+
+    def test_invalid_or_colliding_catalog_aliases_are_rejected(self):
+        for aliases in ("old-page", ["../outside"], ["readme"],
+                        [self.category["catalog_path"]], ["old-page", "old-page"]):
+            with self.subTest(aliases=aliases):
+                self.category["catalog_aliases"] = aliases
+                self.write_taxonomy()
+                with self.assertRaises(ValueError):
+                    load_taxonomy(self.root / "taxonomy.json")
+
     def test_notes_are_optional_and_existing_notes_are_never_rewritten(self):
         (self.root / "notes").mkdir()
         note = self.root / "notes/work-1_cn.md"

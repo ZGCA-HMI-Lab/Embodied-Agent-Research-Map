@@ -4,6 +4,8 @@
 
 [Home](../README.md) · [All categories](README.md) · [简体中文](whole-body-control_cn.md)
 
+Body Motion and Whole-Body Control Models
+
 Includes locomotion, balance, motion tracking, getting up, dynamic motor skills, and coordinated body control. Loco-manipulation belongs here when body coordination, balance, or motion execution is the main research question; manipulation can be noted as a related area.
 
 `AM.WBC` · 0 primary records

@@ -4,6 +4,8 @@
 
 [首页](../../../README_cn.md) · [全部分类](../../README_cn.md) · [English](benchmarks.md)
 
+操作动作模型 → 多指灵巧手操作模型 → Benchmarks｜评测基准
+
 灵巧手操作评测任务、数据、环境与评分协议；区分论文声明、公开资产和实际评测配置。
 
 `AM.MAN.DEX.BENCH` · 3 篇主分类工作

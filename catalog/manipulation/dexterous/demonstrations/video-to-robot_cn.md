@@ -4,12 +4,15 @@
 
 [首页](../../../../README_cn.md) · [全部分类](../../../README_cn.md) · [English](video-to-robot.md)
 
+操作动作模型 → 多指灵巧手操作模型 → 示范获取与动作转换 → 视频示范到机器人动作
+
 从真实或生成视频恢复操作过程，转换为可执行的灵巧机器人动作。记录场景假设与物理修正方式，区分轨迹回放和闭环策略部署；重定向、RL 等作为方法标签，不因使用某项技术就自动归入本类。
 
-`AM.MAN.DEX.DEMO.V2R` · 1 篇主分类工作
+`AM.MAN.DEX.DEMO.V2R` · 2 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
 | [AM.MAN.DEX.DEMO.V2R.1] <a id="am-man-dex-demo-v2r-1"></a> | [Gen2Dex: Learning Dexterous Manipulation from Simulation-Initialized Generated Video Demonstrations](https://arxiv.org/pdf/2610.24392v1)<br>Xiaowen Qiu et al<br>**标签:** `dexterous` `generated-video` `video-to-robot` `retargeting` `residual-rl` `trajectory-optimization` `sim-to-real` | **目标：**将仿真场景初始化的生成视频转为可执行灵巧手示范。<br>**方法：**恢复并对齐手物运动，重定向后用 PPO 残差 RL、倒序课程及物理有效重置状态修正不可靠参考。<br>**输出：**优化后的机器人轨迹；真机展示采用开环回放。<br>**评测范围:** 需已知物体几何、初始位姿和相机参数。Shadow 用于主仿真，Sharpa 用于 ARCTIC 对照；Wuji＋xArm 真机展示 4 个任务，初始物体需人工对齐，未验证通用闭环策略。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.24392v1) | 初读<br>2026-10-21 |
+| [AM.MAN.DEX.DEMO.V2R.2] <a id="am-man-dex-demo-v2r-2"></a> | [DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library](https://arxiv.org/pdf/2609.35318v2)<br>Youhui Wang et al<br>**标签:** `dexterous` `human-video` `video-to-robot` `human2sim2robot` `agentic-data-generation` `simulation-verification` `trajectory-optimization` `tool-library` `data-augmentation` `vla-fine-tuning` `sim-to-real` `bimanual` | **Human2Sim2Robot：**单段人类操作视频＋任务指令 → 拆解子任务、识别物体属性 → 重建仿真场景 → 轨迹优化或代码生成，结合仿真验证找到一条成功的机器人轨迹 → 改变物体与机器人初始状态扩增示范、处理渲染外观 → 用所得数据微调 π₀.₅ → 部署真实灵巧手。<br>**特色：**智能体在各阶段选择或编写工具，根据验证失败反馈反复修正；新工具与验证器保存到库，供后续视频转换复用。“自进化”指工具代码积累，验证反馈作用于数据生成流程。<br>**评测范围:** 双臂 YamBox＋两只 Sharpa 手，11 个任务；每任务一段人类视频，扩增 500 条机器人示范微调 π₀.₅，随机初始物体状态下每任务闭环评测 10 次，平均成功率 63.6%（最强对照 SPIDER 为 18.2%）。另有开环轨迹回放：11/11 表示每任务 10 次至少成功一次，不代表全部试验成功。覆盖刚体、关节物体、绳索及长程任务；通过仿真检查仍可能有 Sim-to-Real 与力敏感交互失败。 | arXiv v2 / 2026 | [论文](https://arxiv.org/pdf/2609.35318v2) · [项目](https://dexagent1.github.io/) | 初读<br>2026-10-23 |
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

@@ -4,6 +4,8 @@
 
 [Home](../../../README.md) · [All categories](../../README.md) · [简体中文](execution-efficiency_cn.md)
 
+Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control
+
 Methods for faster task execution through action timing, temporal granularity and scheduling across manipulation platforms. Record evaluated backbones and embodiments; distinguish execution speed from model inference latency.
 
 `AM.MAN.METHOD.EFF` · 1 primary records

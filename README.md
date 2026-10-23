@@ -1,6 +1,6 @@
 # Embodied Action Model Research Map
 
-Learned models for robot action generation and control, evaluation benchmarks, and reading notes.
+Learned models for robot action generation and control, datasets, evaluation benchmarks, and reading notes.
 
 [简体中文](README_cn.md) · [Scope and rationale](docs/scope.md) · [Contribution guide](CONTRIBUTING.md)
 
@@ -10,7 +10,7 @@ Learned models for robot action generation and control, evaluation benchmarks, a
 2. Open a category to read every indexed work and its concise summary.
 3. Follow a record's Notes link for detailed reading or reproduction notes when available.
 
-The current focus is **manipulation action models**. Navigation and body motion / whole-body control remain research entry points. Manipulation provides entries for grippers, multi-fingered dexterous hands and common methods across platforms. Dexterous-hand work covers benchmarks, demonstration acquisition and action conversion, and in-hand manipulation. In-hand work is grouped by method, with reinforcement learning currently indexed.
+The current focus is **manipulation action models**. Navigation and body motion / whole-body control remain research entry points. Manipulation is organized into grippers, multi-fingered dexterous hands and common methods across platforms. Gripper work currently includes a [datasets](catalog/manipulation/grippers/datasets.md) branch. Dexterous-hand work covers benchmarks, demonstration acquisition and action conversion, in-hand manipulation, and VLA. The VLA branch currently covers execution feedback and correction. In-hand work is grouped by method, with reinforcement learning currently indexed.
 
 [![Embodied action model research map](mindmap.svg)](mindmap.svg)
 
@@ -18,13 +18,14 @@ The current focus is **manipulation action models**. Navigation and body motion 
 
 <!-- BEGIN GENERATED:CATALOG -->
 
-| Category | Code | Records | Index |
+| Category path | Code | Records | Index |
 |---|---|---:|---|
-| Gripper Manipulation Models | `AM.MAN.GRIP` | 0 | [Open](catalog/manipulation/grippers.md) |
-| Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](catalog/manipulation/dexterous/benchmarks.md) |
-| Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 1 | [Open](catalog/manipulation/dexterous/demonstrations/video-to-robot.md) |
-| Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](catalog/manipulation/dexterous/in-hand/reinforcement-learning.md) |
-| Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](catalog/manipulation/common-methods/execution-efficiency.md) |
+| Manipulation Action Models → Gripper Manipulation Models → Datasets | `AM.MAN.GRIP.DATASET` | 1 | [Open](catalog/manipulation/grippers/datasets.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Benchmarks | `AM.MAN.DEX.BENCH` | 3 | [Open](catalog/manipulation/dexterous/benchmarks.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Demonstration Acquisition and Action Conversion → Video Demonstrations to Robot Actions | `AM.MAN.DEX.DEMO.V2R` | 2 | [Open](catalog/manipulation/dexterous/demonstrations/video-to-robot.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → In-Hand Manipulation → Reinforcement Learning | `AM.MAN.DEX.INHAND.RL` | 1 | [Open](catalog/manipulation/dexterous/in-hand/reinforcement-learning.md) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → VLA → Execution Feedback and Correction | `AM.MAN.DEX.VLA.FEEDBACK` | 1 | [Open](catalog/manipulation/dexterous/vla/execution-feedback.md) |
+| Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control | `AM.MAN.METHOD.EFF` | 1 | [Open](catalog/manipulation/common-methods/execution-efficiency.md) |
 | Navigation Action Models | `AM.NAV` | 0 | [Open](catalog/navigation.md) |
 | Body Motion and Whole-Body Control Models | `AM.WBC` | 0 | [Open](catalog/whole-body-control.md) |
 

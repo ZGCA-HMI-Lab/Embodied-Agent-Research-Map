@@ -60,12 +60,26 @@ def anchor(paper):
     return paper["id"].lower().replace(".", "-")
 
 
+def category_paths(taxonomy, language):
+    paths = {}
+    key = "name_zh" if language == "zh" else "name"
+    def walk(nodes, parents):
+        for node in nodes:
+            path = parents + [node[key]]
+            if node.get("code"):
+                paths[node["code"]] = " → ".join(path)
+            walk(node["children"], path)
+    walk(taxonomy["children"], [])
+    return paths
+
+
 def navigation(root, taxonomy, papers, page, language):
-    heading = "| 分类 | 编号前缀 | 条目数 | 阅读入口 |" if language == "zh" else "| Category | Code | Records | Index |"
+    heading = "| 分类路径 | 分类码 | 条目数 | 阅读入口 |" if language == "zh" else "| Category path | Code | Records | Index |"
     lines = [heading, "|---|---|---:|---|"]
+    paths = category_paths(taxonomy, language)
     for code, category in categories(taxonomy).items():
         count = sum(p["category"] == code for p in papers)
-        name = category["name_zh" if language == "zh" else "name"]
+        name = paths[code]
         target = relative(catalog_file(root, category, language), page)
         lines.append(f"| {cell(name)} | `{code}` | {count} | {link('查看' if language == 'zh' else 'Open', target)} |")
     return "\n".join(lines)
@@ -91,6 +105,7 @@ def category_page(root, taxonomy, category, papers, language):
              link("全部分类" if language == "zh" else "All categories",
                   relative(root / "catalog" / ("README_cn.md" if language == "zh" else "README.md"), page)) + " · " +
              link("English" if language == "zh" else "简体中文", relative(opposite, page)), "",
+             category_paths(taxonomy, language)[category["code"]], "",
              description, "", f"`{category['code']}` · {len(own)} " + ("篇主分类工作" if language == "zh" else "primary records"), ""]
     if not own:
         lines.append("尚未收录工作。" if language == "zh" else "No records yet.")
@@ -127,6 +142,19 @@ def category_page(root, taxonomy, category, papers, language):
     return "\n".join(lines)
 
 
+def alias_page(root, category, route, papers, language):
+    page = catalog_file(root, {"catalog_path": route}, language)
+    target = relative(catalog_file(root, category, language), page)
+    title = "分类入口已调整" if language == "zh" else "Category entry moved"
+    label = "前往当前分类" if language == "zh" else "Open the current category"
+    lines = [GENERATED, "", f"# {title}", "", link(label, target), ""]
+    for paper in papers:
+        if paper["category"] == category["code"]:
+            lines += [f'<a id="{anchor(paper)}"></a>', "",
+                      link(f"{paper['short_name']} [{paper['id']}]", target + "#" + anchor(paper)), ""]
+    return "\n".join(lines)
+
+
 def build_outputs(root):
     root = Path(root).resolve()
     taxonomy = load_taxonomy(root / "taxonomy.json")
@@ -145,6 +173,9 @@ def build_outputs(root):
         outputs[index] = "\n".join([GENERATED, "", title, "", link("首页" if language == "zh" else "Home", relative(home, index)), "", count, "", navigation(root, taxonomy, papers, index, language), ""])
         for category in categories(taxonomy).values():
             outputs[catalog_file(root, category, language)] = category_page(root, taxonomy, category, papers, language)
+            for route in category.get("catalog_aliases", []):
+                page = catalog_file(root, {"catalog_path": route}, language)
+                outputs[page] = alias_page(root, category, route, papers, language)
         title, tree, _ = render_tree(taxonomy, papers, language)
         svg, _ = renderer.svg_document(title, tree, language)
         outputs[root / f"mindmap{suffix}.svg"] = svg + "\n"

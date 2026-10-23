@@ -4,6 +4,8 @@
 
 [Home](../../../README.md) · [All categories](../../README.md) · [简体中文](benchmarks_cn.md)
 
+Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Models → Benchmarks
+
 Dexterous-hand evaluation tasks, data, environments, and protocols. Distinguish published support from demonstrated configurations.
 
 `AM.MAN.DEX.BENCH` · 3 primary records
