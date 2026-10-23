@@ -57,5 +57,10 @@
       "en": "Failure recovery",
       "zh": "失败恢复"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-09",
+    "source": "https://arxiv.org/pdf/2609.23578v2",
+    "basis": "arxiv-id-month"
+  }
 }

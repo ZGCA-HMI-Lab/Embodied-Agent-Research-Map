@@ -49,5 +49,10 @@
       "en": "Unified perception, prediction and planning",
       "zh": "统一感知、预测与规划"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-10",
+    "source": "https://arxiv.org/pdf/2610.22363v1",
+    "basis": "arxiv-id-month"
+  }
 }

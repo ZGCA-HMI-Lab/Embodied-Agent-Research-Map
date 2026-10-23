@@ -4,6 +4,8 @@
 
 [English](README.md) · [研究范围与分类依据](docs/scope_cn.md) · [维护规范](CONTRIBUTING.md)
 
+**[Interactive Map · 交互地图](site/index.html)**：按分类与时间浏览，搜索论文、组合筛选主题、点击阅读详情。本地用浏览器打开此 HTML 即可；[预览与发布说明](docs/interactive-map.md)。
+
 ## 从这里开始
 
 1. 看下方导图了解研究结构；总图仅展示选定代表工作。
@@ -26,7 +28,7 @@
 |---|---:|---|---|
 | 操作动作模型 → 夹爪操作模型 → 数据集 | 1 | [查看](catalog/manipulation/grippers/datasets_cn.md) | [TacClaw-Infinity｜夹爪示范 · 触觉数据集](catalog/manipulation/grippers/datasets_cn.md#am-man-grip-1) |
 | 操作动作模型 → 夹爪操作模型 → Agent 架构 → Agent＋WAM | 1 | [查看](catalog/manipulation/grippers/agent-architectures/agent-wam_cn.md) | [AR-WAM｜Agent＋WAM · 事件反馈 · 失败恢复](catalog/manipulation/grippers/agent-architectures/agent-wam_cn.md#am-man-grip-agent-wam-1) |
-| 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) | [BiDex-100｜双手操作 · 评测基准](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-1)<br>[HandsOn｜双手操作 · 仿真评测](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-2)<br>[Evo-DexBench｜灵巧手／夹爪 · 仿真评测](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-3) |
+| 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | 3 | [查看](catalog/manipulation/dexterous/benchmarks_cn.md) | [BiDex-100｜双手操作 · 评测基准](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-1)<br>[HandsOn｜双手操作 · 仿真评测](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-2)<br>[Evo-DexBench｜灵巧手操作 · 仿真评测](catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-3) |
 | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | 2 | [查看](catalog/manipulation/dexterous/demonstrations/generation_cn.md) | [Gen2Dex｜视频示范 · 重定向 · RL轨迹优化](catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-1)<br>[DexAgent｜视频示范 · Agent构建仿真 · 数据扩增](catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-2) |
 | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | 2 | [查看](catalog/manipulation/dexterous/policies/policy-learning_cn.md) | [No Eyes, No Problem｜手内操作 · RL · 触觉](catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1)<br>[TTP｜VLA · 触觉融合 · 动作与触觉联合预测](catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) |
 | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | 1 | [查看](catalog/manipulation/dexterous/policies/execution-feedback_cn.md) | [AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正](catalog/manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1) |
@@ -48,6 +50,7 @@
 | [notes/](notes/README.md) | 可选的单篇阅读笔记、方法比较与复现记录 |
 | [taxonomy.json](taxonomy.json) | 分类层级、双语名称及索引路径 |
 | [data/topics.json](data/topics.json) | VLA、强化学习等主题的名称和标签匹配规则 |
+| [site/index.html](site/index.html) | 自动生成的交互地图，与目录和静态导图共用论文数据 |
 | [docs/scope_cn.md](docs/scope_cn.md) | 研究范围、分类边界和参考综述 |
 
 ## 后续如何积累
@@ -60,6 +63,7 @@
 python3 scripts/build_catalog.py
 python3 scripts/build_catalog.py --check
 python3 -m unittest discover -s tests -v
+node --test tests/test_map_core.cjs
 ```
 
 具体步骤、字段说明和模板见 [CONTRIBUTING.md](CONTRIBUTING.md)。首页、分类页、导图无需逐篇重复录入。

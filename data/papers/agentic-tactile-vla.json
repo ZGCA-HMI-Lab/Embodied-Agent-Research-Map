@@ -54,5 +54,10 @@
       "en": "Online action correction",
       "zh": "在线动作修正"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-10",
+    "source": "https://arxiv.org/pdf/2610.04391v1",
+    "basis": "arxiv-id-month"
+  }
 }

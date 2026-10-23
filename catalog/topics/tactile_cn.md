@@ -12,7 +12,7 @@
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
-| [Evo-DexBench｜灵巧手／夹爪 · 仿真评测](../manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-3) | 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | `tactile` |
+| [Evo-DexBench｜灵巧手操作 · 仿真评测](../manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-3) | 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | `tactile` |
 | [No Eyes, No Problem｜手内操作 · RL · 触觉](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |
 | [AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正](../manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | `contact-estimation` |
 | [TTP｜VLA · 触觉融合 · 动作与触觉联合预测](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |

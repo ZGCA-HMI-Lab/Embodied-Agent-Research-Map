@@ -48,5 +48,10 @@
   "reading_status": "indexed",
   "notes": {},
   "show_on_map": false,
-  "display_tags": []
+  "display_tags": [],
+  "publication_date": {
+    "value": "2026",
+    "source": "https://example.org/replace-with-date-source",
+    "basis": "source"
+  }
 }

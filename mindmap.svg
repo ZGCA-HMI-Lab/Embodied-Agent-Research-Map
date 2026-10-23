@@ -55,7 +55,7 @@
 <circle cx="-547.7600000000001" cy="317.6923076923077" r="4" fill="#05a6c7"/>
 <text x="-563.7600000000001" y="324.6923076923077" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">HandsOn｜Bimanual manipulation · Simulation benchmark</text>
 <circle cx="-547.7600000000001" cy="386.9230769230769" r="4" fill="#05a6c7"/>
-<text x="-563.7600000000001" y="393.9230769230769" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Evo-DexBench｜Dexterous hands / grippers · Simulation benchmark</text>
+<text x="-563.7600000000001" y="393.9230769230769" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Evo-DexBench｜Dexterous manipulation · Simulation benchmark</text>
 <circle cx="105.3599999999999" cy="490.7692307692307" r="5" fill="#05a6c7"/>
 <text x="89.3599999999999" y="497.7692307692307" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Robot Demonstration Data Generation<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.DEMO]</tspan></text>
 <circle cx="-695.6000000000001" cy="456.15384615384613" r="4" fill="#05a6c7"/>

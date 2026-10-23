@@ -51,5 +51,10 @@
       "en": "RL trajectory optimization",
       "zh": "RL轨迹优化"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-10",
+    "source": "https://arxiv.org/pdf/2610.24392v1",
+    "basis": "arxiv-id-month"
+  }
 }

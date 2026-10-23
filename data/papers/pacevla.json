@@ -51,5 +51,10 @@
       "en": "Temporal action granularity",
       "zh": "动作时间粒度"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-10",
+    "source": "https://arxiv.org/pdf/2610.25961v1",
+    "basis": "arxiv-id-month"
+  }
 }

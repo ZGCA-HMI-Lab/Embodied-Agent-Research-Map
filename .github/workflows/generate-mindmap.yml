@@ -1,4 +1,4 @@
-name: 校验研究地图与分类索引
+name: 校验研究地图与交互页面
 
 on:
   pull_request:
@@ -6,6 +6,8 @@ on:
       - "taxonomy.json"
       - "data/**"
       - "scripts/**"
+      - "web/**"
+      - "site/**"
       - "tests/**"
       - "catalog/**"
       - "notes/**"
@@ -20,6 +22,8 @@ on:
       - "taxonomy.json"
       - "data/**"
       - "scripts/**"
+      - "web/**"
+      - "site/**"
       - "tests/**"
       - "catalog/**"
       - "notes/**"
@@ -42,7 +46,36 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: 测试数据校验与生成行为
         run: python -m unittest discover -s tests -v
       - name: 检查数据、索引、首页入口及导图是否同步
         run: python scripts/build_catalog.py --check
+      - name: 校验交互地图筛选、时间与分类逻辑
+        run: node --test tests/test_map_core.cjs
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: 发布通过校验的交互地图
+        id: deployment
+        uses: actions/deploy-pages@v4

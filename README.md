@@ -4,6 +4,8 @@ Learned models for robot action generation and control, datasets, evaluation ben
 
 [简体中文](README_cn.md) · [Scope and rationale](docs/scope.md) · [Contribution guide](CONTRIBUTING.md)
 
+**[Interactive Map](site/index.html)**: explore categories over time, search papers, combine topic filters and open details. Open the HTML in a local browser; see [preview and publishing instructions](docs/interactive-map.md).
+
 ## Start Here
 
 1. Use the map to understand the research structure; it shows selected representative works.
@@ -26,7 +28,7 @@ Paper names show topics and methods directly, for example **No Eyes, No Problem�
 |---|---:|---|---|
 | Manipulation Action Models → Gripper Manipulation Models → Datasets | 1 | [Open](catalog/manipulation/grippers/datasets.md) | [TacClaw-Infinity｜Gripper demonstrations · Tactile dataset](catalog/manipulation/grippers/datasets.md#am-man-grip-1) |
 | Manipulation Action Models → Gripper Manipulation Models → Agent Architectures → Agent + WAM | 1 | [Open](catalog/manipulation/grippers/agent-architectures/agent-wam.md) | [AR-WAM｜Agent + WAM · Event feedback · Failure recovery](catalog/manipulation/grippers/agent-architectures/agent-wam.md#am-man-grip-agent-wam-1) |
-| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Datasets and Benchmarks | 3 | [Open](catalog/manipulation/dexterous/benchmarks.md) | [BiDex-100｜Bimanual manipulation · Benchmark](catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-1)<br>[HandsOn｜Bimanual manipulation · Simulation benchmark](catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-2)<br>[Evo-DexBench｜Dexterous hands / grippers · Simulation benchmark](catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-3) |
+| Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Datasets and Benchmarks | 3 | [Open](catalog/manipulation/dexterous/benchmarks.md) | [BiDex-100｜Bimanual manipulation · Benchmark](catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-1)<br>[HandsOn｜Bimanual manipulation · Simulation benchmark](catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-2)<br>[Evo-DexBench｜Dexterous manipulation · Simulation benchmark](catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-3) |
 | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | 2 | [Open](catalog/manipulation/dexterous/demonstrations/generation.md) | [Gen2Dex｜Video demonstrations · Retargeting · RL trajectory optimization](catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-1)<br>[DexAgent｜Video demonstrations · Agent-built simulation · Data augmentation](catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2) |
 | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | 2 | [Open](catalog/manipulation/dexterous/policies/policy-learning.md) | [No Eyes, No Problem｜In-hand manipulation · RL · Tactile](catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-inhand-rl-1)<br>[TTP｜VLA · Tactile fusion · Joint action/touch prediction](catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) |
 | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | 1 | [Open](catalog/manipulation/dexterous/policies/execution-feedback.md) | [AgenticTactileVLA｜VLA · Contact feedback · Online action correction](catalog/manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1) |
@@ -48,6 +50,7 @@ Paper names show topics and methods directly, for example **No Eyes, No Problem�
 | [notes/](notes/README.md) | Optional detailed reading, comparison, and reproduction notes |
 | [taxonomy.json](taxonomy.json) | Category hierarchy, bilingual names, and index routes |
 | [data/topics.json](data/topics.json) | Topic names and matching tags for VLA, RL and other cross-category views |
+| [site/index.html](site/index.html) | Generated interactive map sharing canonical data with the catalog and static map |
 | [docs/scope.md](docs/scope.md) | Scope, classification boundaries, and supporting surveys |
 
 ## Growing the Collection
@@ -60,6 +63,7 @@ After editing source data, run:
 python3 scripts/build_catalog.py
 python3 scripts/build_catalog.py --check
 python3 -m unittest discover -s tests -v
+node --test tests/test_map_core.cjs
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for fields, templates, and workflow. Homepages, category pages, and maps are generated from the same records.

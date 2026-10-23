@@ -14,6 +14,8 @@
 | `docs/scope_cn.md`、`docs/scope.md` | 人工维护研究范围、分类边界与综述依据 |
 | `README*.md` | 人工维护总览；只有 GENERATED:CATALOG 标记内的入口表由脚本更新 |
 | `catalog/**/*.md`、`mindmap*.svg`、`mindmap*.md` | 自动生成；修改源数据后再生成，不能直接修补结果 |
+| `web/` | 手动维护交互页面布局与交互逻辑，不写论文数据 |
+| `site/` | 自动生成的交互页面与数据；禁止手工编辑 |
 | `data/templates/` | 新条目模板，不会被计入论文数量 |
 
 分类依据见[研究范围与分类说明](docs/scope_cn.md)。每篇只有一个主分类；其他关系填写 `related_categories` 和 `tags`，不用复制条目。
@@ -31,11 +33,12 @@
 python3 scripts/build_catalog.py
 python3 scripts/build_catalog.py --check
 python3 -m unittest discover -s tests -v
+node --test tests/test_map_core.cjs
 git diff --check
 git status --short
 ```
 
-旧命令 `python3 scripts/build_mindmap.py` 及其 `--check` 仍可用，会委托完整构建流程。新增论文通常只编辑一份数据文件及可选笔记，无需手改两个首页和分类表。
+旧命令 `python3 scripts/build_mindmap.py` 及其 `--check` 仍可用，会委托完整构建流程。新增论文通常只编辑一份数据文件及可选笔记，无需手改两个首页和分类表。交互页面也由相同构建生成，接口与操作步骤见 [Interactive Map 维护说明](docs/interactive-map.md)。
 
 ## 数据字段
 
@@ -47,6 +50,7 @@ git status --short
 | `slug` | 全局唯一、小写连字符形式；必须与 JSON 文件名一致；笔记沿用同一 slug |
 | `short_name`、`title`、`authors` | 简称、原文完整标题、作者；同一论文不重复收录，版本更新在原记录维护 |
 | `year`、`venue` | 年份与发表／版本信息；预印本明确写 arXiv 及版本，不编造录用信息 |
+| `publication_date` | 可选对象：value、source、basis。value 为 YYYY／YYYY-MM／YYYY-MM-DD；basis 为 source 或 arxiv-id-month。编号推导只允许月份并标注依据；缺失则保留 year，绝不使用 verified_on 替代。详见 [交互接口](docs/interactive-map.md) |
 | `kind` | `model`、`benchmark`、`dataset`、`tool` 或 `survey` |
 | `category` | 一个已定义末端分类码；不根据编号的历史前缀推断当前分类 |
 | `related_categories` | 其他已定义末端分类码，不与主分类重复 |
@@ -91,6 +95,10 @@ git status --short
 修改 `taxonomy.json` 的分类层级；中间节点只含双语名称和 children，末端节点增加唯一 code、catalog_path、description 与 description_zh。`catalog_path` 使用小写字母、数字和连字符组成的相对路径，不带扩展名；不要仅因显示名称改变而换路径。
 
 分类树不保存论文列表，图中的工作由数据记录及 show_on_map 决定。首页、总索引和分类页显示完整分类路径。新增分类会自动生成空索引和首页入口。调整已有分类时先更新记录归属与相关分类，保持 id、slug 稳定；如必须换索引路径，可在末端节点的 `catalog_aliases` 列表登记旧路径（格式与 catalog_path 相同），生成器会保留双语旧入口和当前条目的锚点链接。新旧路径不得与其他分类冲突。删除论文时把旧 id 加入 retired_ids，不再分配给新论文。
+
+## 交互页面修改
+
+更新论文时应填写可追溯的公开时间及最多三个可见标签，运行统一构建后检查静态图与交互页面均能找到该论文。网页使用全部论文；show_on_map 只限制静态代表作视图。涉及 web/ 或导出接口时，除测试外，还要在浏览器检查搜索、组合主题、双语详情、空结果和移动布局。分类只读 category，不能从历史 ID 推断。不得为网页单独维护摘要或人工聚合 JSON。
 
 ## 提交与审阅
 

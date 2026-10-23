@@ -81,6 +81,24 @@ def paper_label(paper, language):
     return paper["short_name"] + ("｜" + " · ".join(labels) if labels else "")
 
 
+def validate_publication_date(value, context):
+    if not isinstance(value, dict) or set(value) != {"value", "source", "basis"}:
+        raise ValueError(f"{context}: publication_date requires value, source and basis")
+    stamp = value["value"]
+    if not isinstance(stamp, str) or not re.fullmatch(r"\d{4}(?:-\d{2}(?:-\d{2})?)?", stamp):
+        raise ValueError(f"{context}: use YYYY, YYYY-MM or YYYY-MM-DD")
+    date.fromisoformat(stamp + {4: "-01-01", 7: "-01", 10: ""}[len(stamp)])
+    url(value["source"], f"{context}.source")
+    if value["basis"] not in ("source", "arxiv-id-month"):
+        raise ValueError(f"{context}: unsupported date basis")
+    if value["basis"] == "arxiv-id-month":
+        parsed = urlsplit(value["source"])
+        match = re.fullmatch(r"/(?:abs|pdf|html)/(\d{2})(\d{2})\.\d{4,5}(?:v\d+)?(?:\.pdf)?/?", parsed.path)
+        if (parsed.hostname not in ("arxiv.org", "www.arxiv.org") or not match
+                or stamp != f"20{match[1]}-{match[2]}"):
+            raise ValueError(f"{context}: identifier-derived month must match its arXiv source")
+
+
 def load_taxonomy(path):
     data = read_json(path)
     if not isinstance(data, dict) or set(data) != {"title", "title_zh", "children"}:
@@ -138,7 +156,7 @@ def load_papers(root, taxonomy):
     required = {"schema_version", "id", "slug", "short_name", "title", "authors", "year", "venue",
                 "kind", "category", "related_categories", "tags", "links", "sources", "verified_on",
                 "reading_status", "notes", "show_on_map"}
-    optional = {"benchmark", "tldr", "evaluation_scope", "display_tags"}
+    optional = {"benchmark", "tldr", "evaluation_scope", "display_tags", "publication_date"}
     records, ids, slugs, identities = [], set(), set(), set()
     retired_path = root / "data/retired_ids.json"
     retired = read_json(retired_path) if retired_path.exists() else []
@@ -167,6 +185,8 @@ def load_papers(root, taxonomy):
         identities.add(identity)
         if type(record["year"]) is not int or not 1 <= record["year"] <= 9999:
             raise ValueError(f"{slug}: invalid year")
+        if "publication_date" in record:
+            validate_publication_date(record["publication_date"], slug)
         if record["category"] not in known:
             raise ValueError(f"{slug}: unknown primary category")
         related = record["related_categories"]

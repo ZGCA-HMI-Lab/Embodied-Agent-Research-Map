@@ -76,6 +76,68 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("一种明确手型。", zh)
         self.assertIn("# Keep my introduction", outputs[self.root / "README.md"])
 
+    def test_interactive_export_keeps_hidden_paper_current_category_and_benchmark_facts(self):
+        self.category.update(code="AM.NEW", catalog_path="new-category")
+        self.write_taxonomy()
+        self.paper.update(category="AM.NEW", show_on_map=False, publication_date={
+            "value": "2025-08", "source": "https://arxiv.org/abs/2508.01234", "basis": "arxiv-id-month"})
+        self.write_paper(self.paper)
+        outputs = build_outputs(self.root)
+        path = self.root / "site/map.json"
+        self.assertIn(path, outputs)
+        data = json.loads(outputs[path])
+        self.assertEqual(data["schema_version"], 1)
+        paper = data["papers"][0]
+        self.assertEqual(paper["id"], "AM.MAN.DEX.BENCH.1")
+        self.assertEqual(paper["category"], "AM.NEW")
+        self.assertEqual(paper["publication_date"]["value"], "2025-08")
+        self.assertEqual(paper["benchmark"]["hands"]["zh"], "一种明确手型。")
+        self.assertTrue(paper["catalog_urls"]["zh"].endswith("/catalog/new-category_cn.md#am-man-dex-bench-1"))
+
+    def test_publication_dates_preserve_precision_and_do_not_use_verification_date(self):
+        for value in ("2024", "2024-02", "2024-02-29"):
+            with self.subTest(value=value):
+                self.paper["publication_date"] = {"value": value, "basis": "source", "source": "https://example.org/date"}
+                self.write_paper(self.paper)
+                _, papers = self.load()
+                self.assertEqual(papers[0]["publication_date"]["value"], value)
+        del self.paper["publication_date"]
+        self.write_paper(self.paper)
+        outputs = build_outputs(self.root)
+        self.assertIn(self.root / "site/map.json", outputs)
+        paper = json.loads(outputs[self.root / "site/map.json"])["papers"][0]
+        self.assertEqual(paper["publication_date"], {"value": "2026", "basis": "year-only", "source": None})
+
+    def test_invalid_publication_dates_and_unjustified_identifier_dates_are_rejected(self):
+        for record in (
+            {"value": "2026-02-30", "source": "https://example.org", "basis": "source"},
+            {"value": "2026-13", "source": "https://example.org", "basis": "source"},
+            {"value": "2026-1", "source": "https://example.org", "basis": "source"},
+            {"value": "2026-01", "basis": "source"},
+            {"value": "2026-01-01", "source": "https://arxiv.org/abs/2601.12345", "basis": "arxiv-id-month"},
+            {"value": "2026-02", "source": "https://arxiv.org/abs/2601.12345", "basis": "arxiv-id-month"},
+            {"value": "2026-01", "source": "https://evil.example/2601.12345", "basis": "arxiv-id-month"},
+        ):
+            with self.subTest(record=record):
+                self.paper["publication_date"] = record
+                self.write_paper(self.paper)
+                with self.assertRaises(ValueError):
+                    self.load()
+
+    def test_site_payload_escapes_script_end_and_staleness_is_checked_read_only(self):
+        self.paper["short_name"] = "</script><script>alert(1)</script>"
+        self.write_paper(self.paper)
+        outputs = build_outputs(self.root)
+        path = self.root / "site/map-data.js"
+        self.assertIn(path, outputs)
+        self.assertNotIn("</script>", outputs[path])
+        generate(self.root)
+        page = self.root / "site/index.html"
+        page.write_text(page.read_text() + "\nchanged\n")
+        with self.assertRaises(ValueError):
+            generate(self.root, check=True)
+        self.assertTrue(page.read_text().endswith("changed\n"))
+
     def test_home_and_category_show_the_full_classification_path(self):
         outputs = build_outputs(self.root)
         for suffix, path in [
@@ -330,6 +392,25 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(papers[0]["id"], "AM.MAN.DEX.BENCH.1")
         self.assertIn("[AM.MAN.DEX.BENCH.1]",
                       build_outputs(self.root)[self.root / "catalog/new-category.md"])
+
+    def test_taxonomy_rename_and_reparent_sync_all_views(self):
+        self.taxonomy["children"].clear()
+        self.category.update(name="Shared Evaluation", name_zh="共同评测")
+        self.taxonomy["children"].append({
+            "name": "New Direction", "name_zh": "新方向", "children": [self.category]})
+        self.write_taxonomy()
+        outputs = build_outputs(self.root)
+        exported = json.loads(outputs[self.root / "site/map.json"])
+        self.assertEqual(exported["taxonomy"], self.taxonomy)
+        self.assertEqual(exported["papers"][0]["category"], self.category["code"])
+        taxonomy, papers = self.load()
+        _, tree, _ = render_tree(taxonomy, papers, "zh")
+        self.assertEqual(tree[-1]["name"], "新方向")
+        self.assertEqual(tree[-1]["children"][0]["name"], "共同评测")
+        self.assertIn("Work One", str(tree[-1]["children"][0]["children"]))
+        for filename in ("README_cn.md", "catalog/README_cn.md", "mindmap_cn.svg", "site/mindmap_cn.svg"):
+            self.assertIn("共同评测", outputs[self.root / filename])
+            self.assertNotIn("评测基准", outputs[self.root / filename])
 
     def test_deep_paper_nodes_clear_parent_labels(self):
         taxonomy, papers = self.load()

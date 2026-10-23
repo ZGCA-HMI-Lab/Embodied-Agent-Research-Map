@@ -58,5 +58,10 @@
       "en": "Data augmentation",
       "zh": "数据扩增"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-09",
+    "source": "https://arxiv.org/pdf/2609.35318v2",
+    "basis": "arxiv-id-month"
+  }
 }

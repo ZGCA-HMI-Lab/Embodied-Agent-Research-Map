@@ -68,5 +68,10 @@
       "en": "Benchmark",
       "zh": "评测基准"
     }
-  ]
+  ],
+  "publication_date": {
+    "value": "2026-10",
+    "source": "https://arxiv.org/pdf/2610.25459v1",
+    "basis": "arxiv-id-month"
+  }
 }
