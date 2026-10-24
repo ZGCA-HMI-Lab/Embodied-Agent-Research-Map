@@ -8,6 +8,10 @@
 
 [No Eyes, No Problem [AM.MAN.DEX.INHAND.RL.1]](../policies/policy-learning_cn.md#am-man-dex-inhand-rl-1)
 
+<a id="am-man-dex-policy-learning-1"></a>
+
+[EgoJEPA [AM.MAN.DEX.POLICY.LEARNING.1]](../policies/policy-learning_cn.md#am-man-dex-policy-learning-1)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning_cn.md#am-man-dex-vla-tactile-1)

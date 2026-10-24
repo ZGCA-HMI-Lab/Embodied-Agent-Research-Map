@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "AM.WBC.ARM.TORSO.1",
+  "slug": "wbd",
+  "short_name": "WBD",
+  "title": "Whole-Body Dexterity",
+  "authors": "Conor Mc Gartoll, An Dang, Pranay Thangeda, Arjun Gupta, Carolina Higuera, Nima Fazeli, Mustafa Mukadam, Manikantan Nambi",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.WBC.ARM.TORSO",
+  "related_categories": [],
+  "tags": [
+    "humanoid",
+    "bimanual",
+    "torso-assisted-manipulation",
+    "regrasping",
+    "reinforcement-learning",
+    "ppo",
+    "expert-distillation",
+    "diffusion-policy",
+    "inverse-dynamics",
+    "teleoperation",
+    "command-refinement",
+    "sim-to-real"
+  ],
+  "tldr": {
+    "zh": "WBD 将双臂与躯干支撑下的物体搬移建模为抱持状态转换，用 RL 专家生成跨身体区域换抱的轨迹，再训练扩散运动先验与逆动力学模型，将人的粗略指令转成维持物体支撑的双臂关节动作。",
+    "en": "WBD formulates object repositioning supported by the arms and torso as transitions between holding states, uses RL experts to generate cross-body regrasping trajectories, and trains a diffusion motion prior with an inverse-dynamics model to refine coarse human commands into arm-joint actions that maintain object support."
+  },
+  "evaluation_scope": {
+    "zh": "训练流程先优化并验证稳定抱持姿态，按物体用 PPO 学习左臂／双臂／右臂抱持模式间的转移，再从专家轨迹训练共享控制器。最终模型输入本体历史与 5 维物体几何描述；粗略指令在扩散去噪中提供梯度引导，预测双臂关键点运动后由逆动力学输出 14 维关节目标增量，无需逐时刻物体位姿。专家训练时腰腿固定，手指保持固定闭合姿态；真机为人工遥操作的 Unitree G1，下肢和平衡由独立 AMO 控制器负责。仿真使用 15 个几何物体；真机演示篮球、纸箱的肩部触碰、腋下收纳及纸箱搬运，不代表统一学习了行走与全身操作。",
+    "en": "Stable holding configurations are optimized and validated before per-object PPO experts learn transfers between left-, both- and right-arm holds; expert trajectories train a shared controller. It conditions on proprioceptive history and five geometry features, uses coarse commands for gradient guidance during diffusion, and maps generated arm-keypoint motions through inverse dynamics to 14 joint-target increments without per-step object pose. Expert training fixes the waist and legs, with fingers held closed. Hardware uses a human-teleoperated Unitree G1 with independent AMO lower-body and balance control. Simulation covers 15 geometric objects; hardware demonstrates shoulder touches and underarm stowing with a basketball and box, plus box transport. These results do not establish a jointly learned locomotion and whole-body manipulation policy."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.22184v1"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.22184v1",
+    "https://arxiv.org/abs/2610.22184v1"
+  ],
+  "verified_on": "2026-10-24",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "RL expert distillation",
+      "zh": "RL专家蒸馏"
+    },
+    {
+      "en": "Diffusion policy",
+      "zh": "扩散策略"
+    },
+    {
+      "en": "Command refinement",
+      "zh": "指令细化"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-15",
+    "source": "https://arxiv.org/abs/2610.22184v1",
+    "basis": "source"
+  }
+}

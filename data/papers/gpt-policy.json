@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.ICL.1",
+  "slug": "gpt-policy",
+  "short_name": "GPT-Policy",
+  "title": "In-Context Robot Learning with VLM Agents",
+  "authors": "Dongzhou Cheng, Taoran Yi et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.ICL",
+  "related_categories": [],
+  "tags": [
+    "gripper",
+    "bimanual",
+    "agent-architecture",
+    "vlm",
+    "in-context-learning",
+    "tool-use",
+    "video-demonstration",
+    "goal-image",
+    "interaction-history",
+    "execution-feedback",
+    "inverse-kinematics",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "GPT-Policy 将示范视频关键帧、可选的对齐动作记录、目标图和执行历史组织成上下文，让无需额外训练的通用 VLM 通过工具调用生成末端位姿与夹爪指令，再由运动执行层转换为关节轨迹，并将观测和执行结果回填上下文，实现机器人操作中的在线适应。",
+    "en": "GPT-Policy organizes demonstration keyframes, optional aligned action records, goal images and interaction history as context for an off-the-shelf VLM with no additional training; the VLM calls tools specifying end-effector poses and gripper commands, a motion execution layer converts these into joint trajectories, and observations and execution results update the context for online adaptation."
+  },
+  "evaluation_scope": {
+    "zh": "比较人类视频、机器人视频及动作、目标图、自交互历史、在线人机交互五类上下文，任务含毛巾／本子抓取、拧瓶盖、插拔插头、布局整理与移动探索等。论文列出 YAM、ARX X5 和 Morphi Kino 的双臂夹爪实现配置；配置支持不等于每个平台均完成全部任务评测。各实验条件重复 3 次，部分模型比较为单次运行；任务进度不能替代成功率。模型权重固定，反馈仅更新上下文；插值、IK 与时间规划负责运动执行，不代表已验证无碰撞或可靠接触，论文报告了双臂碰撞、执行与成功判断方面的不足。",
+    "en": "Studies five context families: human videos, robot videos with actions, goal images, self-interaction history and online human interaction, across cloth/notebook pickup, bottle opening, plug manipulation, arrangement and mobile exploration. YAM, ARX X5 and Morphi Kino dual-arm gripper configurations are documented, without establishing full task coverage on every platform. Each experimental condition has three trials; some model comparisons are individual runs and task progress is not success rate. VLM weights stay fixed and feedback updates context. Interpolation, IK and time parameterization execute motions; they do not establish collision-free or reliable contact control. Inter-arm collisions and execution/outcome-verification failures are reported."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.19138v1",
+    "project": "https://cheng-haha.github.io/GPT-Policy/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2609.19138v1",
+    "https://arxiv.org/abs/2609.19138v1",
+    "https://cheng-haha.github.io/GPT-Policy/"
+  ],
+  "verified_on": "2026-10-24",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLM Agent",
+      "zh": "VLM Agent"
+    },
+    {
+      "en": "In-context learning",
+      "zh": "上下文学习"
+    },
+    {
+      "en": "Closed-loop tool control",
+      "zh": "工具闭环控制"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-16",
+    "source": "https://arxiv.org/abs/2609.19138v1",
+    "basis": "source"
+  }
+}

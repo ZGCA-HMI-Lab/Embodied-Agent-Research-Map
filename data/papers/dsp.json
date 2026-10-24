@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.PLANNING.1",
+  "slug": "dsp",
+  "short_name": "DSP",
+  "title": "Dexterity from Supervised Play",
+  "authors": "Botao He, Yiming Dou, Yiannis Aloimonos, Jitendra Malik, Akash Sharma, Ruoshi Liu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.PLANNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "in-hand-manipulation",
+    "autonomous-data-collection",
+    "supervised-play",
+    "behavior-cloning",
+    "diffusion-policy",
+    "world-model",
+    "diffusion-forcing",
+    "model-predictive-control",
+    "policy-distillation",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DSP 先用约 15 分钟无指定任务目标的遥操作示范学会“摆弄物体”，让机器人自主交互数小时训练世界模型；执行时由同一 Play 策略提出候选动作、世界模型预测后果、MPC 选择最接近目标姿态的动作并滚动重规划，实现灵巧手内物体重定向，还可将规划结果蒸馏成直接输出动作的快速策略。",
+    "en": "DSP behavior-clones a goal-free play policy from about 15 minutes of teleoperation, then collects hours of autonomous robot interaction to train a world model; at execution, the same play policy proposes action chunks, the world model predicts their outcomes, and MPC selects goal-reaching motions and replans for in-hand reorientation, with optional distillation into a fast direct-action policy."
+  },
+  "evaluation_scope": {
+    "zh": "评测 Push-T 平面推动，以及仿真和真机手内立方体姿态重定向；真机使用 Sharpa 右手、22 个关节位置指令，主实验结合本体状态与标记立方体位姿，另有 RGB 输入实验。目标在 MPC 评分时加入，Play 策略和世界模型不以目标为条件；真机流程直接从真机交互学习，不依赖仿真到真实迁移。蒸馏是可选加速研究，不能把仿真中的蒸馏成绩或 PPO 对比写成全部已在真机验证。",
+    "en": "Evaluated on planar Push-T and simulated/real cube reorientation. Hardware uses a Sharpa right hand with 22 joint-position commands; the main setup observes proprioception and tagged-cube pose, with an additional RGB-input experiment. Goals enter MPC scoring while the play policy and world model remain goal-agnostic. The hardware pipeline learns from real interaction rather than sim-to-real transfer. Distillation is an optional acceleration study; simulation distillation results and PPO comparisons are not all hardware validations."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.22340v1",
+    "project": "https://play-policy.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.22340v1",
+    "https://arxiv.org/abs/2610.22340v1",
+    "https://play-policy.github.io/"
+  ],
+  "verified_on": "2026-10-24",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "In-hand manipulation",
+      "zh": "手内操作"
+    },
+    {
+      "en": "Autonomous interaction collection",
+      "zh": "自主交互采集"
+    },
+    {
+      "en": "World model + MPC",
+      "zh": "世界模型＋MPC"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-15",
+    "source": "https://arxiv.org/abs/2610.22340v1",
+    "basis": "source"
+  }
+}

@@ -38,6 +38,15 @@ window.RESEARCH_MAP = {
                     "description": "Runtime architectures connecting high-level agents to world action models. Focus on command interfaces, responsibility for planning and memory, event feedback and failure recovery; record the low-level model and evaluated embodiments explicitly.",
                     "description_zh": "运行时连接高层 Agent 与世界动作模型的系统架构。重点记录指令接口、规划与记忆的职责分配、事件反馈和失败恢复，同时注明底层模型与已验证本体。",
                     "children": []
+                  },
+                  {
+                    "name": "In-Context Learning and Tool-Based Control",
+                    "name_zh": "上下文学习与工具控制",
+                    "code": "AM.MAN.GRIP.AGENT.ICL",
+                    "children": [],
+                    "catalog_path": "manipulation/grippers/agent-architectures/in-context-tool-control",
+                    "description": "Agent architectures that use demonstrations, goals and interaction history as context to select parameterized robot-tool actions. Specify context construction, fixed versus updated weights, motion execution and returned feedback; distinguish numerical tool control from a learned WAM executor.",
+                    "description_zh": "通过示范、目标与交互历史等上下文选择参数化机器人动作工具的 Agent 架构。注明上下文组织、模型权重是否更新、运动执行及反馈内容，区分数值工具控制和学习式 WAM 执行器。"
                   }
                 ]
               }
@@ -84,6 +93,15 @@ window.RESEARCH_MAP = {
                       "manipulation/dexterous/in-hand/reinforcement-learning",
                       "manipulation/dexterous/vla/tactile-action-modeling"
                     ]
+                  },
+                  {
+                    "name": "World Models and Planning-Based Control",
+                    "name_zh": "世界模型与规划控制",
+                    "code": "AM.MAN.DEX.POLICY.PLANNING",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/policies/world-model-planning",
+                    "description": "Learn action-conditioned dynamics and use predicted outcomes to search or select robot actions toward a goal. Record interaction collection, action priors, planning and optional policy distillation; world modeling alone does not establish closed-loop control.",
+                    "description_zh": "学习动作条件动力学，并根据预测结果搜索或选择朝向目标的机器人动作。记录交互采集、动作先验、规划与可选策略蒸馏；单独学习世界模型不等同于闭环控制。"
                   },
                   {
                     "name": "Execution Feedback and Action Correction",
@@ -142,11 +160,20 @@ window.RESEARCH_MAP = {
       {
         "name": "Body Motion and Whole-Body Control Models",
         "name_zh": "身体运动与全身控制模型",
-        "code": "AM.WBC",
-        "children": [],
-        "catalog_path": "whole-body-control",
-        "description": "Includes locomotion, balance, motion tracking, getting up, dynamic motor skills, and coordinated body control. Loco-manipulation belongs here when body coordination, balance, or motion execution is the main research question; manipulation can be noted as a related area.",
-        "description_zh": "包括行走、平衡、动作跟踪、起身、复杂运动技能与身体协同控制。行走操作以身体协同、平衡或动作执行为主要研究问题时归入本类，并可关联操作板块。"
+        "children": [
+          {
+            "name": "Bimanual and Torso-Assisted Manipulation",
+            "name_zh": "双臂与躯干协同操作",
+            "code": "AM.WBC.ARM.TORSO",
+            "children": [],
+            "catalog_path": "whole-body-control/arm-torso-manipulation",
+            "catalog_aliases": [
+              "whole-body-control"
+            ],
+            "description": "Manipulate objects through coordinated arm motions and support from the torso or other upper-body surfaces, including holding, regrasping and on-body object transfer. Record the learned policy outputs and the independent controllers used for the waist, legs, balance or locomotion; placement here does not imply unified whole-body actuation.",
+            "description_zh": "通过双臂运动与躯干等上身表面的支撑协同完成抱持、换抱及物体在身体周围的转移。明确学习策略的输出自由度，以及腰腿、平衡或行走由何种独立控制器负责；本类不默认等同于统一全身关节控制。"
+          }
+        ]
       }
     ]
   },
@@ -766,6 +793,161 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.1",
+      "slug": "egojepa",
+      "short_name": "EgoJEPA",
+      "title": "EgoJEPA: Beyond Retargeting for Dexterous Manipulation from Egocentric Videos",
+      "authors": "Meng Cao, Can Zhao, Jinjie Wei et al",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "gripper",
+        "egocentric-video",
+        "human-demonstration-pretraining",
+        "hand-motion-annotations",
+        "jepa",
+        "latent-action",
+        "cross-embodiment",
+        "wam",
+        "joint-flow-matching",
+        "embodiment-adapter",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "EgoJEPA 先以人手运动差条件下的未来视觉预测学出潜在动作，再用人类视频预训练联合预测视觉与动作的 WAM，最后通过机器人示范和本体适配器微调，直接生成机器人动作，减少跨本体迁移对人工几何重定向的依赖。",
+        "en": "EgoJEPA learns latent actions through future-visual prediction conditioned on hand-motion differences, pretrains a WAM to jointly predict visual dynamics and latent actions from human videos, then fine-tunes it with robot demonstrations and embodiment-specific adapters to directly generate robot actions with less reliance on hand-crafted geometric retargeting."
+      },
+      "evaluation_scope": {
+        "zh": "阶段 1 仍需视频对齐的人手运动标注；阶段 2 冻结动作编码器，以联合流匹配训练视觉／动作 Transformer；阶段 3 固定视觉编码器，同时微调视频 Transformer、动作 Transformer 和输入／输出 MLP 适配器，加入三视角及本体状态，预测 32 步相对机器人动作。评测为 Sharpa 抓玩偶，Wuji 叠杯、拉拉链、拧瓶盖，Xense Tac UMI 夹爪折纸箱，动作维度分别为 56／52／14；每任务在域内、域外各评测 20 次。域外平均成功率 74%，重定向基线为 65%；仍需本体及任务对应的机器人示范，未验证每项任务都能跨三种本体执行，也不是零样本换手或 MPC 搜索控制。",
+        "en": "Stage 1 still requires video-aligned human hand-motion annotations. Stage 2 freezes the action encoder and trains visual/action Transformers with joint flow matching. Stage 3 freezes the visual encoder but jointly tunes the video and action Transformers and input/output MLP adapters, adds three views and proprioception, and predicts 32-step relative robot actions. Tasks are plush-toy grasping with Sharpa, cup stacking/zipper manipulation/bottle opening with Wuji, and box folding with a Xense Tac UMI gripper; action dimensions are 56/52/14. Each task has 20 trials per in-/out-of-domain setting. Average out-of-domain success is 74% versus 65% for retargeting. Embodiment/task-specific robot demonstrations remain necessary; evaluation does not establish every task across all three embodiments, zero-shot hand transfer or MPC-based control."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.20904v1",
+        "project": "https://mengcaopku.github.io/EgoJEPA/"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.20904v1",
+        "https://arxiv.org/abs/2610.20904v1",
+        "https://mengcaopku.github.io/EgoJEPA/"
+      ],
+      "verified_on": "2026-10-24",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Human-video pretraining",
+          "zh": "人类视频预训练"
+        },
+        {
+          "en": "Latent-action transfer",
+          "zh": "潜在动作迁移"
+        },
+        {
+          "en": "WAM",
+          "zh": "WAM"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-14",
+        "source": "https://arxiv.org/abs/2610.20904v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "EgoJEPA｜Human-video pretraining · Latent-action transfer · WAM",
+        "zh": "EgoJEPA｜人类视频预训练 · 潜在动作迁移 · WAM"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.PLANNING.1",
+      "slug": "dsp",
+      "short_name": "DSP",
+      "title": "Dexterity from Supervised Play",
+      "authors": "Botao He, Yiming Dou, Yiannis Aloimonos, Jitendra Malik, Akash Sharma, Ruoshi Liu",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.PLANNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "in-hand-manipulation",
+        "autonomous-data-collection",
+        "supervised-play",
+        "behavior-cloning",
+        "diffusion-policy",
+        "world-model",
+        "diffusion-forcing",
+        "model-predictive-control",
+        "policy-distillation",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DSP 先用约 15 分钟无指定任务目标的遥操作示范学会“摆弄物体”，让机器人自主交互数小时训练世界模型；执行时由同一 Play 策略提出候选动作、世界模型预测后果、MPC 选择最接近目标姿态的动作并滚动重规划，实现灵巧手内物体重定向，还可将规划结果蒸馏成直接输出动作的快速策略。",
+        "en": "DSP behavior-clones a goal-free play policy from about 15 minutes of teleoperation, then collects hours of autonomous robot interaction to train a world model; at execution, the same play policy proposes action chunks, the world model predicts their outcomes, and MPC selects goal-reaching motions and replans for in-hand reorientation, with optional distillation into a fast direct-action policy."
+      },
+      "evaluation_scope": {
+        "zh": "评测 Push-T 平面推动，以及仿真和真机手内立方体姿态重定向；真机使用 Sharpa 右手、22 个关节位置指令，主实验结合本体状态与标记立方体位姿，另有 RGB 输入实验。目标在 MPC 评分时加入，Play 策略和世界模型不以目标为条件；真机流程直接从真机交互学习，不依赖仿真到真实迁移。蒸馏是可选加速研究，不能把仿真中的蒸馏成绩或 PPO 对比写成全部已在真机验证。",
+        "en": "Evaluated on planar Push-T and simulated/real cube reorientation. Hardware uses a Sharpa right hand with 22 joint-position commands; the main setup observes proprioception and tagged-cube pose, with an additional RGB-input experiment. Goals enter MPC scoring while the play policy and world model remain goal-agnostic. The hardware pipeline learns from real interaction rather than sim-to-real transfer. Distillation is an optional acceleration study; simulation distillation results and PPO comparisons are not all hardware validations."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.22340v1",
+        "project": "https://play-policy.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.22340v1",
+        "https://arxiv.org/abs/2610.22340v1",
+        "https://play-policy.github.io/"
+      ],
+      "verified_on": "2026-10-24",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "In-hand manipulation",
+          "zh": "手内操作"
+        },
+        {
+          "en": "Autonomous interaction collection",
+          "zh": "自主交互采集"
+        },
+        {
+          "en": "World model + MPC",
+          "zh": "世界模型＋MPC"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-15",
+        "source": "https://arxiv.org/abs/2610.22340v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DSP｜In-hand manipulation · Autonomous interaction collection · World model + MPC",
+        "zh": "DSP｜手内操作 · 自主交互采集 · 世界模型＋MPC"
+      },
+      "topics": [
+        "in-hand-manipulation"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.VLA.FEEDBACK.1",
       "slug": "agentic-tactile-vla",
       "short_name": "AgenticTactileVLA",
@@ -1002,6 +1184,83 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.GRIP.AGENT.ICL.1",
+      "slug": "gpt-policy",
+      "short_name": "GPT-Policy",
+      "title": "In-Context Robot Learning with VLM Agents",
+      "authors": "Dongzhou Cheng, Taoran Yi et al",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.GRIP.AGENT.ICL",
+      "related_categories": [],
+      "tags": [
+        "gripper",
+        "bimanual",
+        "agent-architecture",
+        "vlm",
+        "in-context-learning",
+        "tool-use",
+        "video-demonstration",
+        "goal-image",
+        "interaction-history",
+        "execution-feedback",
+        "inverse-kinematics",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "GPT-Policy 将示范视频关键帧、可选的对齐动作记录、目标图和执行历史组织成上下文，让无需额外训练的通用 VLM 通过工具调用生成末端位姿与夹爪指令，再由运动执行层转换为关节轨迹，并将观测和执行结果回填上下文，实现机器人操作中的在线适应。",
+        "en": "GPT-Policy organizes demonstration keyframes, optional aligned action records, goal images and interaction history as context for an off-the-shelf VLM with no additional training; the VLM calls tools specifying end-effector poses and gripper commands, a motion execution layer converts these into joint trajectories, and observations and execution results update the context for online adaptation."
+      },
+      "evaluation_scope": {
+        "zh": "比较人类视频、机器人视频及动作、目标图、自交互历史、在线人机交互五类上下文，任务含毛巾／本子抓取、拧瓶盖、插拔插头、布局整理与移动探索等。论文列出 YAM、ARX X5 和 Morphi Kino 的双臂夹爪实现配置；配置支持不等于每个平台均完成全部任务评测。各实验条件重复 3 次，部分模型比较为单次运行；任务进度不能替代成功率。模型权重固定，反馈仅更新上下文；插值、IK 与时间规划负责运动执行，不代表已验证无碰撞或可靠接触，论文报告了双臂碰撞、执行与成功判断方面的不足。",
+        "en": "Studies five context families: human videos, robot videos with actions, goal images, self-interaction history and online human interaction, across cloth/notebook pickup, bottle opening, plug manipulation, arrangement and mobile exploration. YAM, ARX X5 and Morphi Kino dual-arm gripper configurations are documented, without establishing full task coverage on every platform. Each experimental condition has three trials; some model comparisons are individual runs and task progress is not success rate. VLM weights stay fixed and feedback updates context. Interpolation, IK and time parameterization execute motions; they do not establish collision-free or reliable contact control. Inter-arm collisions and execution/outcome-verification failures are reported."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.19138v1",
+        "project": "https://cheng-haha.github.io/GPT-Policy/"
+      },
+      "sources": [
+        "https://arxiv.org/html/2609.19138v1",
+        "https://arxiv.org/abs/2609.19138v1",
+        "https://cheng-haha.github.io/GPT-Policy/"
+      ],
+      "verified_on": "2026-10-24",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "VLM Agent",
+          "zh": "VLM Agent"
+        },
+        {
+          "en": "In-context learning",
+          "zh": "上下文学习"
+        },
+        {
+          "en": "Closed-loop tool control",
+          "zh": "工具闭环控制"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-16",
+        "source": "https://arxiv.org/abs/2609.19138v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "GPT-Policy｜VLM Agent · In-context learning · Closed-loop tool control",
+        "zh": "GPT-Policy｜VLM Agent · 上下文学习 · 工具闭环控制"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control.md#am-man-grip-agent-icl-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control_cn.md#am-man-grip-agent-icl-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.GRIP.AGENT.WAM.1",
       "slug": "ar-wam",
       "short_name": "AR-WAM",
@@ -1145,6 +1404,83 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/execution-efficiency.md#am-man-method-eff-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/execution-efficiency_cn.md#am-man-method-eff-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.WBC.ARM.TORSO.1",
+      "slug": "wbd",
+      "short_name": "WBD",
+      "title": "Whole-Body Dexterity",
+      "authors": "Conor Mc Gartoll, An Dang, Pranay Thangeda, Arjun Gupta, Carolina Higuera, Nima Fazeli, Mustafa Mukadam, Manikantan Nambi",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.WBC.ARM.TORSO",
+      "related_categories": [],
+      "tags": [
+        "humanoid",
+        "bimanual",
+        "torso-assisted-manipulation",
+        "regrasping",
+        "reinforcement-learning",
+        "ppo",
+        "expert-distillation",
+        "diffusion-policy",
+        "inverse-dynamics",
+        "teleoperation",
+        "command-refinement",
+        "sim-to-real"
+      ],
+      "tldr": {
+        "zh": "WBD 将双臂与躯干支撑下的物体搬移建模为抱持状态转换，用 RL 专家生成跨身体区域换抱的轨迹，再训练扩散运动先验与逆动力学模型，将人的粗略指令转成维持物体支撑的双臂关节动作。",
+        "en": "WBD formulates object repositioning supported by the arms and torso as transitions between holding states, uses RL experts to generate cross-body regrasping trajectories, and trains a diffusion motion prior with an inverse-dynamics model to refine coarse human commands into arm-joint actions that maintain object support."
+      },
+      "evaluation_scope": {
+        "zh": "训练流程先优化并验证稳定抱持姿态，按物体用 PPO 学习左臂／双臂／右臂抱持模式间的转移，再从专家轨迹训练共享控制器。最终模型输入本体历史与 5 维物体几何描述；粗略指令在扩散去噪中提供梯度引导，预测双臂关键点运动后由逆动力学输出 14 维关节目标增量，无需逐时刻物体位姿。专家训练时腰腿固定，手指保持固定闭合姿态；真机为人工遥操作的 Unitree G1，下肢和平衡由独立 AMO 控制器负责。仿真使用 15 个几何物体；真机演示篮球、纸箱的肩部触碰、腋下收纳及纸箱搬运，不代表统一学习了行走与全身操作。",
+        "en": "Stable holding configurations are optimized and validated before per-object PPO experts learn transfers between left-, both- and right-arm holds; expert trajectories train a shared controller. It conditions on proprioceptive history and five geometry features, uses coarse commands for gradient guidance during diffusion, and maps generated arm-keypoint motions through inverse dynamics to 14 joint-target increments without per-step object pose. Expert training fixes the waist and legs, with fingers held closed. Hardware uses a human-teleoperated Unitree G1 with independent AMO lower-body and balance control. Simulation covers 15 geometric objects; hardware demonstrates shoulder touches and underarm stowing with a basketball and box, plus box transport. These results do not establish a jointly learned locomotion and whole-body manipulation policy."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.22184v1"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.22184v1",
+        "https://arxiv.org/abs/2610.22184v1"
+      ],
+      "verified_on": "2026-10-24",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "RL expert distillation",
+          "zh": "RL专家蒸馏"
+        },
+        {
+          "en": "Diffusion policy",
+          "zh": "扩散策略"
+        },
+        {
+          "en": "Command refinement",
+          "zh": "指令细化"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-15",
+        "source": "https://arxiv.org/abs/2610.22184v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "WBD｜RL expert distillation · Diffusion policy · Command refinement",
+        "zh": "WBD｜RL专家蒸馏 · 扩散策略 · 指令细化"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/whole-body-control/arm-torso-manipulation.md#am-wbc-arm-torso-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/whole-body-control/arm-torso-manipulation_cn.md#am-wbc-arm-torso-1"
       },
       "notes_urls": {}
     }

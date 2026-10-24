@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.1",
+  "slug": "egojepa",
+  "short_name": "EgoJEPA",
+  "title": "EgoJEPA: Beyond Retargeting for Dexterous Manipulation from Egocentric Videos",
+  "authors": "Meng Cao, Can Zhao, Jinjie Wei et al",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "gripper",
+    "egocentric-video",
+    "human-demonstration-pretraining",
+    "hand-motion-annotations",
+    "jepa",
+    "latent-action",
+    "cross-embodiment",
+    "wam",
+    "joint-flow-matching",
+    "embodiment-adapter",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "EgoJEPA 先以人手运动差条件下的未来视觉预测学出潜在动作，再用人类视频预训练联合预测视觉与动作的 WAM，最后通过机器人示范和本体适配器微调，直接生成机器人动作，减少跨本体迁移对人工几何重定向的依赖。",
+    "en": "EgoJEPA learns latent actions through future-visual prediction conditioned on hand-motion differences, pretrains a WAM to jointly predict visual dynamics and latent actions from human videos, then fine-tunes it with robot demonstrations and embodiment-specific adapters to directly generate robot actions with less reliance on hand-crafted geometric retargeting."
+  },
+  "evaluation_scope": {
+    "zh": "阶段 1 仍需视频对齐的人手运动标注；阶段 2 冻结动作编码器，以联合流匹配训练视觉／动作 Transformer；阶段 3 固定视觉编码器，同时微调视频 Transformer、动作 Transformer 和输入／输出 MLP 适配器，加入三视角及本体状态，预测 32 步相对机器人动作。评测为 Sharpa 抓玩偶，Wuji 叠杯、拉拉链、拧瓶盖，Xense Tac UMI 夹爪折纸箱，动作维度分别为 56／52／14；每任务在域内、域外各评测 20 次。域外平均成功率 74%，重定向基线为 65%；仍需本体及任务对应的机器人示范，未验证每项任务都能跨三种本体执行，也不是零样本换手或 MPC 搜索控制。",
+    "en": "Stage 1 still requires video-aligned human hand-motion annotations. Stage 2 freezes the action encoder and trains visual/action Transformers with joint flow matching. Stage 3 freezes the visual encoder but jointly tunes the video and action Transformers and input/output MLP adapters, adds three views and proprioception, and predicts 32-step relative robot actions. Tasks are plush-toy grasping with Sharpa, cup stacking/zipper manipulation/bottle opening with Wuji, and box folding with a Xense Tac UMI gripper; action dimensions are 56/52/14. Each task has 20 trials per in-/out-of-domain setting. Average out-of-domain success is 74% versus 65% for retargeting. Embodiment/task-specific robot demonstrations remain necessary; evaluation does not establish every task across all three embodiments, zero-shot hand transfer or MPC-based control."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.20904v1",
+    "project": "https://mengcaopku.github.io/EgoJEPA/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.20904v1",
+    "https://arxiv.org/abs/2610.20904v1",
+    "https://mengcaopku.github.io/EgoJEPA/"
+  ],
+  "verified_on": "2026-10-24",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Human-video pretraining",
+      "zh": "人类视频预训练"
+    },
+    {
+      "en": "Latent-action transfer",
+      "zh": "潜在动作迁移"
+    },
+    {
+      "en": "WAM",
+      "zh": "WAM"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-14",
+    "source": "https://arxiv.org/abs/2610.20904v1",
+    "basis": "source"
+  }
+}

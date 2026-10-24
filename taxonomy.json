@@ -34,6 +34,15 @@
                   "description": "Runtime architectures connecting high-level agents to world action models. Focus on command interfaces, responsibility for planning and memory, event feedback and failure recovery; record the low-level model and evaluated embodiments explicitly.",
                   "description_zh": "运行时连接高层 Agent 与世界动作模型的系统架构。重点记录指令接口、规划与记忆的职责分配、事件反馈和失败恢复，同时注明底层模型与已验证本体。",
                   "children": []
+                },
+                {
+                  "name": "In-Context Learning and Tool-Based Control",
+                  "name_zh": "上下文学习与工具控制",
+                  "code": "AM.MAN.GRIP.AGENT.ICL",
+                  "children": [],
+                  "catalog_path": "manipulation/grippers/agent-architectures/in-context-tool-control",
+                  "description": "Agent architectures that use demonstrations, goals and interaction history as context to select parameterized robot-tool actions. Specify context construction, fixed versus updated weights, motion execution and returned feedback; distinguish numerical tool control from a learned WAM executor.",
+                  "description_zh": "通过示范、目标与交互历史等上下文选择参数化机器人动作工具的 Agent 架构。注明上下文组织、模型权重是否更新、运动执行及反馈内容，区分数值工具控制和学习式 WAM 执行器。"
                 }
               ]
             }
@@ -80,6 +89,15 @@
                     "manipulation/dexterous/in-hand/reinforcement-learning",
                     "manipulation/dexterous/vla/tactile-action-modeling"
                   ]
+                },
+                {
+                  "name": "World Models and Planning-Based Control",
+                  "name_zh": "世界模型与规划控制",
+                  "code": "AM.MAN.DEX.POLICY.PLANNING",
+                  "children": [],
+                  "catalog_path": "manipulation/dexterous/policies/world-model-planning",
+                  "description": "Learn action-conditioned dynamics and use predicted outcomes to search or select robot actions toward a goal. Record interaction collection, action priors, planning and optional policy distillation; world modeling alone does not establish closed-loop control.",
+                  "description_zh": "学习动作条件动力学，并根据预测结果搜索或选择朝向目标的机器人动作。记录交互采集、动作先验、规划与可选策略蒸馏；单独学习世界模型不等同于闭环控制。"
                 },
                 {
                   "name": "Execution Feedback and Action Correction",
@@ -138,11 +156,20 @@
     {
       "name": "Body Motion and Whole-Body Control Models",
       "name_zh": "身体运动与全身控制模型",
-      "code": "AM.WBC",
-      "children": [],
-      "catalog_path": "whole-body-control",
-      "description": "Includes locomotion, balance, motion tracking, getting up, dynamic motor skills, and coordinated body control. Loco-manipulation belongs here when body coordination, balance, or motion execution is the main research question; manipulation can be noted as a related area.",
-      "description_zh": "包括行走、平衡、动作跟踪、起身、复杂运动技能与身体协同控制。行走操作以身体协同、平衡或动作执行为主要研究问题时归入本类，并可关联操作板块。"
+      "children": [
+        {
+          "name": "Bimanual and Torso-Assisted Manipulation",
+          "name_zh": "双臂与躯干协同操作",
+          "code": "AM.WBC.ARM.TORSO",
+          "children": [],
+          "catalog_path": "whole-body-control/arm-torso-manipulation",
+          "catalog_aliases": [
+            "whole-body-control"
+          ],
+          "description": "Manipulate objects through coordinated arm motions and support from the torso or other upper-body surfaces, including holding, regrasping and on-body object transfer. Record the learned policy outputs and the independent controllers used for the waist, legs, balance or locomotion; placement here does not imply unified whole-body actuation.",
+          "description_zh": "通过双臂运动与躯干等上身表面的支撑协同完成抱持、换抱及物体在身体周围的转移。明确学习策略的输出自由度，以及腰腿、平衡或行走由何种独立控制器负责；本类不默认等同于统一全身关节控制。"
+        }
+      ]
     }
   ]
 }
