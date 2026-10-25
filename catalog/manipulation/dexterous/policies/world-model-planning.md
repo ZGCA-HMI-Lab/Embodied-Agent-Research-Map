@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Learn action-conditioned dynamics and use predicted outcomes to search or select robot actions toward a goal. Record interaction collection, action priors, planning and optional policy distillation; world modeling alone does not establish closed-loop control.
 
-**Browse by topic：** [VLA (8)](../../../topics/vla.md) · [Reinforcement learning (10)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../../topics/tactile.md) · [In-hand manipulation (2)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (9)](../../../topics/vla.md) · [Reinforcement learning (11)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../../topics/tactile.md) · [In-hand manipulation (2)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.POLICY.PLANNING` · 1 primary records
 

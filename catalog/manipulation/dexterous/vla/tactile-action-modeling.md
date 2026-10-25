@@ -36,6 +36,10 @@
 
 [DexCast [AM.MAN.DEX.POLICY.LEARNING.7]](../policies/policy-learning.md#am-man-dex-policy-learning-7)
 
+<a id="am-man-dex-policy-learning-8"></a>
+
+[AFCE [AM.MAN.DEX.POLICY.LEARNING.8]](../policies/policy-learning.md#am-man-dex-policy-learning-8)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning.md#am-man-dex-vla-tactile-1)

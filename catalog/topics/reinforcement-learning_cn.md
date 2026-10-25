@@ -6,9 +6,9 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (8)](vla_cn.md) · [强化学习 (10)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (2)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (9)](vla_cn.md) · [强化学习 (11)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (2)](in-hand-manipulation_cn.md)
 
-10 篇工作
+11 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
@@ -21,4 +21,5 @@
 | [HiFun｜分层RL · 臂手协调 · 人在环学习](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-3) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `reinforcement-learning` · `residual-rl` |
 | [DexMimic｜RL轨迹跟踪 · 价值引导重置 · 多轨迹联合训练](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-5) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `reinforcement-learning` · `ppo` · `residual-rl` |
 | [DexCast｜HOI几何迁移 · 骨架时序运动编码 · 3D扩散策略](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-7) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `residual-rl` |
+| [SGS｜RL · 成功率引导采样 · 训练起点调度](../manipulation/common-methods/rl-training-exploration_cn.md#am-man-method-rl-1) | 操作动作模型 → 共性方法 → 强化学习训练与探索 | `reinforcement-learning` · `ppo` |
 | [WBD｜RL专家蒸馏 · 扩散策略 · 指令细化](../whole-body-control/arm-torso-manipulation_cn.md#am-wbc-arm-torso-1) | 身体运动与全身控制模型 → 双臂与躯干协同操作 | `reinforcement-learning` · `ppo` |

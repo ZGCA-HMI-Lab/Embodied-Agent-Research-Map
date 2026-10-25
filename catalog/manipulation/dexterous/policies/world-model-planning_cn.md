@@ -8,7 +8,7 @@
 
 学习动作条件动力学，并根据预测结果搜索或选择朝向目标的机器人动作。记录交互采集、动作先验、规划与可选策略蒸馏；单独学习世界模型不等同于闭环控制。
 
-**按主题浏览：** [VLA (8)](../../../topics/vla_cn.md) · [强化学习 (10)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (9)](../../../topics/vla_cn.md) · [强化学习 (11)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.POLICY.PLANNING` · 1 篇主分类工作
 

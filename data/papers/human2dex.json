@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.2",
+  "slug": "human2dex",
+  "short_name": "Human2Dex",
+  "title": "Human2Dex: Dexterous Robot Learning from Wrist-Centric Human Demonstrations",
+  "authors": "Jiachen Zhang, Yuanyuan Li, Shaqi Luo",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "human-demonstrations",
+    "wrist-centric-demonstrations",
+    "cross-embodiment",
+    "cross-hand-data-reuse",
+    "demonstration-synthesis",
+    "motion-retargeting",
+    "hand-structure-alignment",
+    "grasp-pocket-interaction-representation",
+    "object-tracking",
+    "diffusion-policy",
+    "imitation-learning",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Human2Dex 将同一批腕视角人类示范经手部结构对齐和分手型动作重定向，转换为多种灵巧手的训练数据，再以物体相对拇指—食指抓取中心的 GPIR 表示辅助学习各自的扩散策略，无需采集目标机器人的任务示范。",
+    "en": "Human2Dex converts shared wrist-centric human demonstrations into hand-specific training data through structural observation alignment and motion retargeting, then conditions separate diffusion policies on GPIR object states relative to the thumb–index grasp center, without collecting task demonstrations on the target robots."
+  },
+  "evaluation_scope": {
+    "zh": "腕部 RGB＋PICO 跟踪采集示范，以局部手部外观随机化和统一 21 点骨架对齐观察；融合 PICO／视觉手部运动后分别重定向。GPIR 输入物体相对拇指—食指指尖中点的位置、图像面积及跟踪可靠性，训练另加相对位置／面积的辅助监督，部署移除辅助头。DINOv2＋扩散策略预测 16 步臂手动作、执行前 8 步再观测。1,899 条人类示范复用于 Linker O6（6 主动自由度）和 Wuji（20 主动自由度）；两手均测试海绵／羊角包抓放、杯子套入、瓶子摆正、蛋盒开盖、抽屉拉开六项任务，每项 20 次，成功率分别为 90.8%／80.8%。每个手—任务组合分别训练，动作标签、归一化和权重独立；新增手需适配并重训，不是统一跨手策略，也未验证未见手型的零样本泛化。",
+    "en": "Wrist RGB and PICO tracking capture demonstrations; local hand-appearance randomization and a shared 21-point skeleton align observations, while fused PICO/visual motion is retargeted separately. GPIR supplies object position relative to the thumb–index fingertip midpoint, image area and tracking reliability; auxiliary position/area supervision is removed at deployment. DINOv2 plus Diffusion Policy predicts 16 arm–hand steps, executes eight, then observes again. The same 1,899 human episodes support Linker O6 (6 active DoFs) and Wuji (20 active DoFs). Both perform sponge/croissant pick-and-place, cup insertion, bottle reorientation, egg-carton opening and drawer opening: 20 trials per task, with 90.8%/80.8% success respectively. Each hand–task pair has independent training, action labels, normalization and weights; a new hand requires adaptation and retraining, not a shared cross-hand policy or demonstrated zero-shot transfer to unseen hands."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.13119v1",
+    "project": "https://human2dex.pages.dev/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.13119v1",
+    "https://arxiv.org/html/2610.13119v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Wrist-view demonstrations",
+      "zh": "腕视角示范"
+    },
+    {
+      "en": "Cross-hand data reuse",
+      "zh": "跨手数据复用"
+    },
+    {
+      "en": "Grasp-relative representation",
+      "zh": "抓取相对表示"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-09",
+    "source": "https://arxiv.org/abs/2610.13119v1",
+    "basis": "source"
+  }
+}

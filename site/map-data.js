@@ -161,6 +161,15 @@ window.RESEARCH_MAP = {
                 "catalog_path": "manipulation/common-methods/execution-efficiency",
                 "description": "Methods for faster task execution through action timing, temporal granularity and scheduling across manipulation platforms. Record evaluated backbones and embodiments; distinguish execution speed from model inference latency.",
                 "description_zh": "通过动作节奏、时间粒度与调度提高任务执行效率的操作共性方法。记录已验证基座与本体，区分动作执行加速和模型推理加速。"
+              },
+              {
+                "name": "RL Training and Exploration",
+                "name_zh": "强化学习训练与探索",
+                "code": "AM.MAN.METHOD.RL",
+                "children": [],
+                "catalog_path": "manipulation/common-methods/rl-training-exploration",
+                "description": "Reusable RL training mechanisms such as curriculum learning, task/reset sampling and exploration allocation. Record what training distribution changes, how configurations are supplied, the underlying policy optimizer, evaluated embodiments and deployment policy. Distinguish a general training contribution from a task-specific policy that uses RL; sampling existing resets does not generate new configurations.",
+                "description_zh": "可复用的强化学习训练机制，包括课程学习、任务／重置采样与探索资源分配。注明改变哪部分训练分布、配置如何提供、底层策略优化器、验证本体及部署策略；区分共性训练贡献与使用 RL 的具体任务策略，从已有重置池采样不等同于生成新配置。"
               }
             ]
           }
@@ -874,6 +883,85 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.DEMO.2",
+      "slug": "human2dex",
+      "short_name": "Human2Dex",
+      "title": "Human2Dex: Dexterous Robot Learning from Wrist-Centric Human Demonstrations",
+      "authors": "Jiachen Zhang, Yuanyuan Li, Shaqi Luo",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.DEX.DEMO",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "human-demonstrations",
+        "wrist-centric-demonstrations",
+        "cross-embodiment",
+        "cross-hand-data-reuse",
+        "demonstration-synthesis",
+        "motion-retargeting",
+        "hand-structure-alignment",
+        "grasp-pocket-interaction-representation",
+        "object-tracking",
+        "diffusion-policy",
+        "imitation-learning",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Human2Dex 将同一批腕视角人类示范经手部结构对齐和分手型动作重定向，转换为多种灵巧手的训练数据，再以物体相对拇指—食指抓取中心的 GPIR 表示辅助学习各自的扩散策略，无需采集目标机器人的任务示范。",
+        "en": "Human2Dex converts shared wrist-centric human demonstrations into hand-specific training data through structural observation alignment and motion retargeting, then conditions separate diffusion policies on GPIR object states relative to the thumb–index grasp center, without collecting task demonstrations on the target robots."
+      },
+      "evaluation_scope": {
+        "zh": "腕部 RGB＋PICO 跟踪采集示范，以局部手部外观随机化和统一 21 点骨架对齐观察；融合 PICO／视觉手部运动后分别重定向。GPIR 输入物体相对拇指—食指指尖中点的位置、图像面积及跟踪可靠性，训练另加相对位置／面积的辅助监督，部署移除辅助头。DINOv2＋扩散策略预测 16 步臂手动作、执行前 8 步再观测。1,899 条人类示范复用于 Linker O6（6 主动自由度）和 Wuji（20 主动自由度）；两手均测试海绵／羊角包抓放、杯子套入、瓶子摆正、蛋盒开盖、抽屉拉开六项任务，每项 20 次，成功率分别为 90.8%／80.8%。每个手—任务组合分别训练，动作标签、归一化和权重独立；新增手需适配并重训，不是统一跨手策略，也未验证未见手型的零样本泛化。",
+        "en": "Wrist RGB and PICO tracking capture demonstrations; local hand-appearance randomization and a shared 21-point skeleton align observations, while fused PICO/visual motion is retargeted separately. GPIR supplies object position relative to the thumb–index fingertip midpoint, image area and tracking reliability; auxiliary position/area supervision is removed at deployment. DINOv2 plus Diffusion Policy predicts 16 arm–hand steps, executes eight, then observes again. The same 1,899 human episodes support Linker O6 (6 active DoFs) and Wuji (20 active DoFs). Both perform sponge/croissant pick-and-place, cup insertion, bottle reorientation, egg-carton opening and drawer opening: 20 trials per task, with 90.8%/80.8% success respectively. Each hand–task pair has independent training, action labels, normalization and weights; a new hand requires adaptation and retraining, not a shared cross-hand policy or demonstrated zero-shot transfer to unseen hands."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.13119v1",
+        "project": "https://human2dex.pages.dev/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.13119v1",
+        "https://arxiv.org/html/2610.13119v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Wrist-view demonstrations",
+          "zh": "腕视角示范"
+        },
+        {
+          "en": "Cross-hand data reuse",
+          "zh": "跨手数据复用"
+        },
+        {
+          "en": "Grasp-relative representation",
+          "zh": "抓取相对表示"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-09",
+        "source": "https://arxiv.org/abs/2610.13119v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Human2Dex｜Wrist-view demonstrations · Cross-hand data reuse · Grasp-relative representation",
+        "zh": "Human2Dex｜腕视角示范 · 跨手数据复用 · 抓取相对表示"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-2"
       },
       "notes_urls": {}
     },
@@ -2067,6 +2155,87 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.8",
+      "slug": "afce",
+      "short_name": "AFCE",
+      "title": "Beyond Actions: Learning Future Operation Targets for Vision-Language-Action Models",
+      "authors": "Min Lin, Bokai Zhou, Jianqi Lin, Kaiyuan Yang, Yicheng Chang, Junjie Yu, Xiaofan Liu, Jianhua Han, Rui Li, Shen Zhao, Xiaodan Liang",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "vla",
+        "bimanual",
+        "bimanual-coordination",
+        "action-representation",
+        "action-future-coupled-effect-learning",
+        "effect-tokens",
+        "future-grounded-supervision",
+        "robot-response",
+        "visual-transitions",
+        "state-conditioned-action-decoder",
+        "flow-matching",
+        "imitation-learning",
+        "simulation"
+      ],
+      "tldr": {
+        "zh": "AFCE 将示范动作、实际机器人运动和未来视觉变化联合编码为可解码的 Effect 监督目标，训练 π₀.₅ 根据当前观测预测 Effect，再解码为臂手动作，从而将动作及其执行结果共同纳入 VLA 策略学习。",
+        "en": "AFCE jointly encodes demonstrated actions, realized robot motion and future visual transitions into action-decodable Effect targets, trains π₀.₅ to predict Effects from current observations, and decodes them into arm–hand commands, incorporating actions and their realized consequences into VLA policy learning."
+      },
+      "evaluation_scope": {
+        "zh": "第一阶段融合动作、手掌／指尖／关节实际变化与稀疏视觉变化，以三类重建监督学习时序 Effect；随后冻结编码器并缓存标签。第二阶段将 π₀.₅ 的预测接口改为 Effect 空间，以流匹配、解码动作误差和相邻手指动作差分共同训练策略及状态条件解码器。部署只用当前图像、指令和本体状态，预测 Effect 并解码动作块，执行前缀后重新观测；未来证据编码器不上线。单／双臂共享 Effect 主干，保留配置专用接口，不代表已验证跨手不变性。DexJoCo 仿真使用 Panda＋Allegro，6 项单臂＋5 项双臂任务、共 1,100 条示范；rand-obj 下每任务每环境种子 50 次、3 种子，共 1,650 次。总体成功率 50.97%（π₀.₅ 为 39.15%）；双臂 37.33% 对 9.73%，单臂 62.33% 对 63.67%，精细控制仍有退步。每方法一个训练检查点，统计反映环境种子变化，未报告真机策略验证。",
+        "en": "Stage I fuses actions, realized palm/fingertip/joint changes and sparse visual transitions with three reconstruction objectives, then freezes the tokenizer and caches temporal Effect targets. Stage II adapts π₀.₅ to Effect-space flow matching and jointly trains the policy and state-conditioned decoder with decoded-action and adjacent-finger-difference losses. Deployment uses current images, instruction and proprioception, decodes predicted Effects, executes a prefix and observes again; future-evidence encoders remain offline. Single/dual-arm configurations share an Effect backbone with separate interfaces, without established cross-hand invariance. DexJoCo simulation uses Panda + Allegro: six single-arm and five bimanual tasks, 1,100 demonstrations; rand-obj evaluation uses 50 trials per task per environment seed across three seeds, totaling 1,650. Overall success is 50.97% versus π₀.₅'s 39.15%; bimanual means are 37.33%/9.73%, single-arm 62.33%/63.67%, with precision regressions. One trained checkpoint per method means variation is across environment seeds; hardware policy validation is not reported."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.13212v2",
+        "project": "https://afceproject.github.io/AFCE-Web/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.13212v2",
+        "https://arxiv.org/html/2610.13212v2",
+        "https://afceproject.github.io/AFCE-Web/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "VLA",
+          "zh": "VLA"
+        },
+        {
+          "en": "Joint action–effect representation",
+          "zh": "动作—结果联合表征"
+        },
+        {
+          "en": "Bimanual coordination",
+          "zh": "双手协同"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-09",
+        "source": "https://arxiv.org/abs/2610.13212v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "AFCE｜VLA · Joint action–effect representation · Bimanual coordination",
+        "zh": "AFCE｜VLA · 动作—结果联合表征 · 双手协同"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-8",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-8"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.PLANNING.1",
       "slug": "dsp",
       "short_name": "DSP",
@@ -2681,6 +2850,88 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/execution-efficiency.md#am-man-method-eff-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/execution-efficiency_cn.md#am-man-method-eff-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.METHOD.RL.1",
+      "slug": "sgs",
+      "short_name": "SGS",
+      "title": "A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control",
+      "authors": "Octi Zhang, Mateo Guaman Castro, Patrick Yin, Ignacio Dagnino, Abhishek Gupta, Rosario Scalise, Byron Boots",
+      "year": 2026,
+      "venue": "CoRL 2026 / arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.METHOD.RL",
+      "related_categories": [],
+      "tags": [
+        "manipulation",
+        "gripper",
+        "reinforcement-learning",
+        "ppo",
+        "success-guided-sampling",
+        "adaptive-curriculum",
+        "reset-distribution",
+        "training-start-scheduling",
+        "massively-parallel-simulation",
+        "contact-rich-assembly",
+        "quadruped-locomotion",
+        "teacher-student-distillation",
+        "dagger",
+        "rgb-policy",
+        "sim-to-real"
+      ],
+      "tldr": {
+        "zh": "SGS 根据各任务配置近期成功率，动态提高“尚未掌握但已有成功机会”的训练起点采样概率，让 PPO 将更多并行交互用于当前可学习的部分，提升大规模机器人强化学习的训练效率与任务能力。",
+        "en": "SGS uses recent success rates for task configurations to prioritize training resets that are neither mastered nor currently out of reach, directing more parallel PPO experience toward learnable configurations and improving large-scale robot RL efficiency and capabilities."
+      },
+      "evaluation_scope": {
+        "zh": "从固定配置池按近期成功率的 Beta 形状权重抽样，低／高成功率配置仍保留非零概率；配置包括初始状态、目标及环境，操作起点覆盖接近、稳定抓取、接近目标三类，池覆盖依赖外部重置构建。SGS 只用于训练采样，PPO 学习动作。仿真验证 13 类四足地形、UR5e＋Robotiq 2F-85 的六项装配及 Franka＋平行夹爪的螺母旋入；运动为一个多地形策略，操作每任务分别训练。百万并行环境下 Franka 螺母旋入成功率约 70%，均匀采样约 6%；简单任务在足够规模下收益较小。UR5e 点云教师经 DAgger 蒸馏为双视角 RGB＋机器人状态学生，学生真机闭环输出末端平移／旋转增量和夹爪开合，无真机数据微调；螺母旋入 18/48、圆杆插入 30/49、齿轮装配 47/50。不是多指手验证或统一跨平台策略；代码在核验时仍标注待发布。",
+        "en": "A Beta-shaped weight over recent success rates samples a fixed configuration pool, retaining nonzero probability for easy/hard cases. Configurations specify initial state, goal and environment; manipulation resets cover reaching, stable grasp and near-goal starts, with coverage supplied externally. SGS only schedules training; PPO learns actions. Simulation covers 13 quadruped terrain types, six UR5e + Robotiq 2F-85 assembly tasks and Franka parallel-gripper nut-and-bolt assembly. Locomotion uses one multi-terrain policy; manipulation trains per task. At one million environments, Franka nut-and-bolt success is about 70% versus 6% for uniform sampling; simpler tasks benefit less at sufficient scale. DAgger distills UR5e point-cloud teachers into dual-view RGB/proprioceptive students that issue closed-loop end-effector translation/rotation increments and gripper commands on hardware without real-data fine-tuning: nut-and-bolt 18/48, rod insertion 30/49, gear mesh 47/50. This is neither multi-finger-hand validation nor a shared cross-platform policy. Code remains marked coming soon at verification."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.12465v1",
+        "project": "https://sgs-rl.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.12465v1",
+        "https://arxiv.org/html/2610.12465v1",
+        "https://sgs-rl.github.io/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "RL",
+          "zh": "RL"
+        },
+        {
+          "en": "Success-guided sampling",
+          "zh": "成功率引导采样"
+        },
+        {
+          "en": "Training-reset scheduling",
+          "zh": "训练起点调度"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-08",
+        "source": "https://arxiv.org/abs/2610.12465v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "SGS｜RL · Success-guided sampling · Training-reset scheduling",
+        "zh": "SGS｜RL · 成功率引导采样 · 训练起点调度"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/rl-training-exploration_cn.md#am-man-method-rl-1"
       },
       "notes_urls": {}
     },

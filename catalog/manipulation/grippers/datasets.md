@@ -8,7 +8,7 @@ Manipulation Action Models → Gripper Manipulation Models → Datasets
 
 Datasets for gripper manipulation, including single-arm and bimanual collection. Record acquisition hardware and processing methods alongside the dataset; distinguish reported collection scale from public releases.
 
-**Browse by topic：** [VLA (8)](../../topics/vla.md) · [Reinforcement learning (10)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (9)](../../topics/vla.md) · [Reinforcement learning (11)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.GRIP.DATASET` · 1 primary records
 

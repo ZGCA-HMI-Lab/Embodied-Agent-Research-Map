@@ -8,7 +8,7 @@
 
 通过示范、目标与交互历史等上下文选择参数化机器人动作工具的 Agent 架构。注明上下文组织、模型权重是否更新、运动执行及反馈内容，区分数值工具控制和学习式 WAM 执行器。
 
-**按主题浏览：** [VLA (8)](../../../topics/vla_cn.md) · [强化学习 (10)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (9)](../../../topics/vla_cn.md) · [强化学习 (11)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.GRIP.AGENT.ICL` · 1 篇主分类工作
 

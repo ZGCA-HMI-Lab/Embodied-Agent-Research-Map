@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2802.6800000000003 0 5548.76 1342" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2802.6800000000003 0 5548.76 1444" role="img" aria-labelledby="title desc">
 <title id="title">Embodied Action Models Mind Map</title>
 <desc id="desc">Research categories with category codes and named paper entries.</desc>
-<rect x="-2802.6800000000003" width="5548.76" height="1342" fill="#ffffff"/>
+<rect x="-2802.6800000000003" width="5548.76" height="1444" fill="#ffffff"/>
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M 1800 671.0 C 1575.0 671.0, 1575.0 637.0, 1350 637.0" stroke="#05a6c7" stroke-width="5"/>
-<path d="M 1001.68 637.0 C 941.68 637.0, 941.68 144.0, 881.68 144.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 722.0 C 1575.0 722.0, 1575.0 688.0, 1350 688.0" stroke="#05a6c7" stroke-width="5"/>
+<path d="M 1001.68 688.0 C 941.68 688.0, 941.68 144.0, 881.68 144.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 521.04 144.0 C 461.03999999999996 144.0, 461.03999999999996 110.0, 401.03999999999996 110.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 3.439999999999941 110.0 C -56.56000000000006 110.0, -56.56000000000006 110, -116.56000000000006 110" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 521.04 144.0 C 461.03999999999996 144.0, 461.03999999999996 161.0, 401.03999999999996 161.0" stroke="#05a6c7" stroke-width="3"/>
@@ -12,54 +12,58 @@
 <path d="M -440.2400000000001 144.0 C -500.2400000000001 144.0, -500.2400000000001 144, -560.2400000000001 144" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 138.95999999999992 161.0 C 78.95999999999992 161.0, 78.95999999999992 178.0, 18.959999999999923 178.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -822.1600000000001 178.0 C -882.1600000000001 178.0, -882.1600000000001 178, -942.1600000000001 178" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1001.68 637.0 C 941.68 637.0, 941.68 671.0, 881.68 671.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 225.3599999999999 671.0 C 165.3599999999999 671.0, 165.3599999999999 263.0, 105.3599999999999 263.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1001.68 688.0 C 941.68 688.0, 941.68 705.0, 881.68 705.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 225.3599999999999 705.0 C 165.3599999999999 705.0, 165.3599999999999 263.0, 105.3599999999999 263.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -427.7600000000001 263.0 C -487.7600000000001 263.0, -487.7600000000001 212, -547.7600000000001 212" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -427.7600000000001 263.0 C -487.7600000000001 263.0, -487.7600000000001 246, -547.7600000000001 246" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -427.7600000000001 263.0 C -487.7600000000001 263.0, -487.7600000000001 280, -547.7600000000001 280" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -427.7600000000001 263.0 C -487.7600000000001 263.0, -487.7600000000001 314, -547.7600000000001 314" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 225.3599999999999 671.0 C 165.3599999999999 671.0, 165.3599999999999 433.0, 105.3599999999999 433.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -575.6000000000001 433.0 C -635.6000000000001 433.0, -635.6000000000001 348, -695.6000000000001 348" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -575.6000000000001 433.0 C -635.6000000000001 433.0, -635.6000000000001 382, -695.6000000000001 382" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -575.6000000000001 433.0 C -635.6000000000001 433.0, -635.6000000000001 416, -695.6000000000001 416" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -575.6000000000001 433.0 C -635.6000000000001 433.0, -635.6000000000001 450, -695.6000000000001 450" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -575.6000000000001 433.0 C -635.6000000000001 433.0, -635.6000000000001 484, -695.6000000000001 484" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -575.6000000000001 433.0 C -635.6000000000001 433.0, -635.6000000000001 518, -695.6000000000001 518" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 225.3599999999999 671.0 C 165.3599999999999 671.0, 165.3599999999999 756.0, 105.3599999999999 756.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -403.1200000000002 756.0 C -463.1200000000001 756.0, -463.1200000000001 688.0, -523.1200000000001 688.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 552, -1299.44 552" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 586, -1299.44 586" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 620, -1299.44 620" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 654, -1299.44 654" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 688, -1299.44 688" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 722, -1299.44 722" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 756, -1299.44 756" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 790, -1299.44 790" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1179.44 688.0 C -1239.44 688.0, -1239.44 824, -1299.44 824" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -403.1200000000002 756.0 C -463.1200000000001 756.0, -463.1200000000001 858.0, -523.1200000000001 858.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1241.0400000000002 858.0 C -1301.0400000000002 858.0, -1301.0400000000002 858, -1361.0400000000002 858" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -403.1200000000002 756.0 C -463.1200000000001 756.0, -463.1200000000001 892.0, -523.1200000000001 892.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1388.88 892.0 C -1448.88 892.0, -1448.88 892, -1508.88 892" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -403.1200000000002 756.0 C -463.1200000000001 756.0, -463.1200000000001 943.0, -523.1200000000001 943.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1401.2000000000003 943.0 C -1461.2000000000003 943.0, -1461.2000000000003 926, -1521.2000000000003 926" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -1401.2000000000003 943.0 C -1461.2000000000003 943.0, -1461.2000000000003 960, -1521.2000000000003 960" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 225.3599999999999 671.0 C 165.3599999999999 671.0, 165.3599999999999 1045.0, 105.3599999999999 1045.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -390.8000000000001 1045.0 C -450.8000000000001 1045.0, -450.8000000000001 994, -510.8000000000001 994" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -390.8000000000001 1045.0 C -450.8000000000001 1045.0, -450.8000000000001 1028, -510.8000000000001 1028" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -390.8000000000001 1045.0 C -450.8000000000001 1045.0, -450.8000000000001 1062, -510.8000000000001 1062" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -390.8000000000001 1045.0 C -450.8000000000001 1045.0, -450.8000000000001 1096, -510.8000000000001 1096" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 225.3599999999999 671.0 C 165.3599999999999 671.0, 165.3599999999999 1130.0, 105.3599999999999 1130.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -760.4000000000002 1130.0 C -820.4000000000002 1130.0, -820.4000000000002 1130, -880.4000000000002 1130" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1001.68 637.0 C 941.68 637.0, 941.68 1164.0, 881.68 1164.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 681.1999999999999 1164.0 C 621.1999999999999 1164.0, 621.1999999999999 1164.0, 561.1999999999999 1164.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M -218.32000000000016 1164.0 C -278.32000000000016 1164.0, -278.32000000000016 1164, -338.32000000000016 1164" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1800 671.0 C 2025.0 671.0, 2025.0 1198, 2250 1198" stroke="#ff7b50" stroke-width="5"/>
-<path d="M 1800 671.0 C 1575.0 671.0, 1575.0 1232.0, 1350 1232.0" stroke="#b1c91e" stroke-width="5"/>
-<path d="M 816.88 1232.0 C 756.88 1232.0, 756.88 1232.0, 696.88 1232.0" stroke="#b1c91e" stroke-width="3"/>
-<path d="M -58.000000000000114 1232.0 C -118.00000000000011 1232.0, -118.00000000000011 1232, -178.0000000000001 1232" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 225.3599999999999 705.0 C 165.3599999999999 705.0, 165.3599999999999 450.0, 105.3599999999999 450.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 348, -695.6000000000001 348" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 382, -695.6000000000001 382" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 416, -695.6000000000001 416" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 450, -695.6000000000001 450" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 484, -695.6000000000001 484" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 518, -695.6000000000001 518" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -575.6000000000001 450.0 C -635.6000000000001 450.0, -635.6000000000001 552, -695.6000000000001 552" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 225.3599999999999 705.0 C 165.3599999999999 705.0, 165.3599999999999 807.0, 105.3599999999999 807.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -403.1200000000002 807.0 C -463.1200000000001 807.0, -463.1200000000001 739.0, -523.1200000000001 739.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 586, -1299.44 586" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 620, -1299.44 620" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 654, -1299.44 654" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 688, -1299.44 688" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 722, -1299.44 722" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 756, -1299.44 756" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 790, -1299.44 790" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 824, -1299.44 824" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 858, -1299.44 858" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1179.44 739.0 C -1239.44 739.0, -1239.44 892, -1299.44 892" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -403.1200000000002 807.0 C -463.1200000000001 807.0, -463.1200000000001 926.0, -523.1200000000001 926.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1241.0400000000002 926.0 C -1301.0400000000002 926.0, -1301.0400000000002 926, -1361.0400000000002 926" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -403.1200000000002 807.0 C -463.1200000000001 807.0, -463.1200000000001 960.0, -523.1200000000001 960.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1388.88 960.0 C -1448.88 960.0, -1448.88 960, -1508.88 960" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -403.1200000000002 807.0 C -463.1200000000001 807.0, -463.1200000000001 1011.0, -523.1200000000001 1011.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1401.2000000000003 1011.0 C -1461.2000000000003 1011.0, -1461.2000000000003 994, -1521.2000000000003 994" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -1401.2000000000003 1011.0 C -1461.2000000000003 1011.0, -1461.2000000000003 1028, -1521.2000000000003 1028" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 225.3599999999999 705.0 C 165.3599999999999 705.0, 165.3599999999999 1113.0, 105.3599999999999 1113.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -390.8000000000001 1113.0 C -450.8000000000001 1113.0, -450.8000000000001 1062, -510.8000000000001 1062" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -390.8000000000001 1113.0 C -450.8000000000001 1113.0, -450.8000000000001 1096, -510.8000000000001 1096" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -390.8000000000001 1113.0 C -450.8000000000001 1113.0, -450.8000000000001 1130, -510.8000000000001 1130" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -390.8000000000001 1113.0 C -450.8000000000001 1113.0, -450.8000000000001 1164, -510.8000000000001 1164" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 225.3599999999999 705.0 C 165.3599999999999 705.0, 165.3599999999999 1198.0, 105.3599999999999 1198.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -760.4000000000002 1198.0 C -820.4000000000002 1198.0, -820.4000000000002 1198, -880.4000000000002 1198" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1001.68 688.0 C 941.68 688.0, 941.68 1249.0, 881.68 1249.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 681.1999999999999 1249.0 C 621.1999999999999 1249.0, 621.1999999999999 1232.0, 561.1999999999999 1232.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -218.32000000000016 1232.0 C -278.32000000000016 1232.0, -278.32000000000016 1232, -338.32000000000016 1232" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 681.1999999999999 1249.0 C 621.1999999999999 1249.0, 621.1999999999999 1266.0, 561.1999999999999 1266.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M -33.520000000000095 1266.0 C -93.5200000000001 1266.0, -93.5200000000001 1266, -153.5200000000001 1266" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 722.0 C 2025.0 722.0, 2025.0 1300, 2250 1300" stroke="#ff7b50" stroke-width="5"/>
+<path d="M 1800 722.0 C 1575.0 722.0, 1575.0 1334.0, 1350 1334.0" stroke="#b1c91e" stroke-width="5"/>
+<path d="M 816.88 1334.0 C 756.88 1334.0, 756.88 1334.0, 696.88 1334.0" stroke="#b1c91e" stroke-width="3"/>
+<path d="M -58.000000000000114 1334.0 C -118.00000000000011 1334.0, -118.00000000000011 1334, -178.0000000000001 1334" stroke="#b1c91e" stroke-width="3"/>
 </g>
-<circle cx="1350" cy="637.0" r="5" fill="#05a6c7"/>
-<text x="1334" y="644.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Manipulation Action Models</text>
+<circle cx="1350" cy="688.0" r="5" fill="#05a6c7"/>
+<text x="1334" y="695.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Manipulation Action Models</text>
 <circle cx="881.68" cy="144.0" r="5" fill="#05a6c7"/>
 <text x="865.68" y="151.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Gripper Manipulation Models</text>
 <circle cx="401.03999999999996" cy="110.0" r="5" fill="#05a6c7"/>
@@ -76,8 +80,8 @@
 <text x="2.9599999999999227" y="185.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">In-Context Learning and Tool-Based Control<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.GRIP.AGENT.ICL]</tspan></text>
 <circle cx="-942.1600000000001" cy="178" r="4" fill="#05a6c7"/>
 <text x="-958.1600000000001" y="185" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">GPT-Policy｜VLM Agent · In-context learning · Closed-loop tool control</text>
-<circle cx="881.68" cy="671.0" r="5" fill="#05a6c7"/>
-<text x="865.68" y="678.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Multi-Fingered Dexterous Hand Manipulation Research</text>
+<circle cx="881.68" cy="705.0" r="5" fill="#05a6c7"/>
+<text x="865.68" y="712.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Multi-Fingered Dexterous Hand Manipulation Research</text>
 <circle cx="105.3599999999999" cy="263.0" r="5" fill="#05a6c7"/>
 <text x="89.3599999999999" y="270.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Datasets and Benchmarks<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.DATA]</tspan></text>
 <circle cx="-547.7600000000001" cy="212" r="4" fill="#05a6c7"/>
@@ -88,84 +92,92 @@
 <text x="-563.7600000000001" y="287" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Evo-DexBench｜Dexterous manipulation · Simulation benchmark</text>
 <circle cx="-547.7600000000001" cy="314" r="4" fill="#05a6c7"/>
 <text x="-563.7600000000001" y="321" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexBioLab｜Laboratory manipulation benchmark · Dynamic experiment visuals · Parallel realistic simulation</text>
-<circle cx="105.3599999999999" cy="433.0" r="5" fill="#05a6c7"/>
-<text x="89.3599999999999" y="440.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Robot Demonstration Data Generation<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.DEMO]</tspan></text>
+<circle cx="105.3599999999999" cy="450.0" r="5" fill="#05a6c7"/>
+<text x="89.3599999999999" y="457.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Robot Demonstration Data Generation<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.DEMO]</tspan></text>
 <circle cx="-695.6000000000001" cy="348" r="4" fill="#05a6c7"/>
 <text x="-711.6000000000001" y="355" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexNinja｜Real2Sim2Real augmentation · Deformable cutting simulation · Visuotactile imitation learning</text>
 <circle cx="-695.6000000000001" cy="382" r="4" fill="#05a6c7"/>
-<text x="-711.6000000000001" y="389" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Gen2Dex｜Video demonstrations · Retargeting · RL trajectory optimization</text>
+<text x="-711.6000000000001" y="389" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Human2Dex｜Wrist-view demonstrations · Cross-hand data reuse · Grasp-relative representation</text>
 <circle cx="-695.6000000000001" cy="416" r="4" fill="#05a6c7"/>
-<text x="-711.6000000000001" y="423" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexAgent｜Video demonstrations · Agent-built simulation · Data augmentation</text>
+<text x="-711.6000000000001" y="423" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Gen2Dex｜Video demonstrations · Retargeting · RL trajectory optimization</text>
 <circle cx="-695.6000000000001" cy="450" r="4" fill="#05a6c7"/>
-<text x="-711.6000000000001" y="457" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EgoMatrix｜Contact-consistent reconstruction · RL manipulation transfer · Paired action–video generation</text>
+<text x="-711.6000000000001" y="457" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexAgent｜Video demonstrations · Agent-built simulation · Data augmentation</text>
 <circle cx="-695.6000000000001" cy="484" r="4" fill="#05a6c7"/>
-<text x="-711.6000000000001" y="491" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EgoCPT｜Human-video transfer · Joint contact–force optimization · Residual RL</text>
+<text x="-711.6000000000001" y="491" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EgoMatrix｜Contact-consistent reconstruction · RL manipulation transfer · Paired action–video generation</text>
 <circle cx="-695.6000000000001" cy="518" r="4" fill="#05a6c7"/>
-<text x="-711.6000000000001" y="525" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Hand2Robot｜Human-video transfer · Object-centric 4D reconstruction · VLA post-training</text>
-<circle cx="105.3599999999999" cy="756.0" r="5" fill="#05a6c7"/>
-<text x="89.3599999999999" y="763.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Robot Manipulation Policies and Control</text>
-<circle cx="-523.1200000000001" cy="688.0" r="5" fill="#05a6c7"/>
-<text x="-539.1200000000001" y="695.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Action Policy Learning<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.LEARNING]</tspan></text>
-<circle cx="-1299.44" cy="552" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="559" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">No Eyes, No Problem｜In-hand manipulation · RL · Tactile</text>
+<text x="-711.6000000000001" y="525" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EgoCPT｜Human-video transfer · Joint contact–force optimization · Residual RL</text>
+<circle cx="-695.6000000000001" cy="552" r="4" fill="#05a6c7"/>
+<text x="-711.6000000000001" y="559" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Hand2Robot｜Human-video transfer · Object-centric 4D reconstruction · VLA post-training</text>
+<circle cx="105.3599999999999" cy="807.0" r="5" fill="#05a6c7"/>
+<text x="89.3599999999999" y="814.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Robot Manipulation Policies and Control</text>
+<circle cx="-523.1200000000001" cy="739.0" r="5" fill="#05a6c7"/>
+<text x="-539.1200000000001" y="746.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Action Policy Learning<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.LEARNING]</tspan></text>
 <circle cx="-1299.44" cy="586" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="593" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EgoJEPA｜Human-video pretraining · Latent-action transfer · WAM</text>
+<text x="-1315.44" y="593" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">No Eyes, No Problem｜In-hand manipulation · RL · Tactile</text>
 <circle cx="-1299.44" cy="620" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="627" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Coordi-π｜VLA · AE action representation · Bimanual coordination</text>
+<text x="-1315.44" y="627" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EgoJEPA｜Human-video pretraining · Latent-action transfer · WAM</text>
 <circle cx="-1299.44" cy="654" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="661" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">HiFun｜Hierarchical RL · Arm–hand coordination · Human-in-the-loop learning</text>
+<text x="-1315.44" y="661" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Coordi-π｜VLA · AE action representation · Bimanual coordination</text>
 <circle cx="-1299.44" cy="688" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="695" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">FACT｜WAM · Joint force–action prediction · Tactile closed-loop refinement</text>
+<text x="-1315.44" y="695" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">HiFun｜Hierarchical RL · Arm–hand coordination · Human-in-the-loop learning</text>
 <circle cx="-1299.44" cy="722" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="729" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexMimic｜RL trajectory tracking · Value-guided resets · Multi-trajectory training</text>
+<text x="-1315.44" y="729" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">FACT｜WAM · Joint force–action prediction · Tactile closed-loop refinement</text>
 <circle cx="-1299.44" cy="756" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="763" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">XL-VLA｜Cross-hand transfer · Unified latent action space · VLA</text>
+<text x="-1315.44" y="763" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexMimic｜RL trajectory tracking · Value-guided resets · Multi-trajectory training</text>
 <circle cx="-1299.44" cy="790" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="797" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexCast｜HOI geometry transfer · Skeletal-temporal motion encoding · 3D diffusion policy</text>
+<text x="-1315.44" y="797" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">XL-VLA｜Cross-hand transfer · Unified latent action space · VLA</text>
 <circle cx="-1299.44" cy="824" r="4" fill="#05a6c7"/>
-<text x="-1315.44" y="831" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">TTP｜VLA · Tactile fusion · Joint action/touch prediction</text>
-<circle cx="-523.1200000000001" cy="858.0" r="5" fill="#05a6c7"/>
-<text x="-539.1200000000001" y="865.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Skill Learning and Composition<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.SKILL]</tspan></text>
-<circle cx="-1361.0400000000002" cy="858" r="4" fill="#05a6c7"/>
-<text x="-1377.0400000000002" y="865" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexStitch｜Human-video transfer · Contact-aware conversion · Skill transitions and composition</text>
-<circle cx="-523.1200000000001" cy="892.0" r="5" fill="#05a6c7"/>
-<text x="-539.1200000000001" y="899.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">World Models and Planning-Based Control<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.PLANNING]</tspan></text>
-<circle cx="-1508.88" cy="892" r="4" fill="#05a6c7"/>
-<text x="-1524.88" y="899" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DSP｜In-hand manipulation · Autonomous interaction collection · World model + MPC</text>
-<circle cx="-523.1200000000001" cy="943.0" r="5" fill="#05a6c7"/>
-<text x="-539.1200000000001" y="950.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Execution Feedback and Action Correction<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.FEEDBACK]</tspan></text>
-<circle cx="-1521.2000000000003" cy="926" r="4" fill="#05a6c7"/>
-<text x="-1537.2000000000003" y="933" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">FOMO-Dex｜Force-feedback compliance · Task-direction selection · Corrected-action imitation learning</text>
-<circle cx="-1521.2000000000003" cy="960" r="4" fill="#05a6c7"/>
-<text x="-1537.2000000000003" y="967" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AgenticTactileVLA｜VLA · Contact feedback · Online action correction</text>
-<circle cx="105.3599999999999" cy="1045.0" r="5" fill="#05a6c7"/>
-<text x="89.3599999999999" y="1052.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Agent Architectures<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.AGENT]</tspan></text>
-<circle cx="-510.8000000000001" cy="994" r="4" fill="#05a6c7"/>
-<text x="-526.8000000000002" y="1001" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AdaClearGrasp｜Adaptive clearing · RL dexterous grasping · Failure replanning</text>
-<circle cx="-510.8000000000001" cy="1028" r="4" fill="#05a6c7"/>
-<text x="-526.8000000000002" y="1035" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">GOTT｜Cross-hand contact primitive · Object-trajectory interface · Staged execution</text>
+<text x="-1315.44" y="831" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexCast｜HOI geometry transfer · Skeletal-temporal motion encoding · 3D diffusion policy</text>
+<circle cx="-1299.44" cy="858" r="4" fill="#05a6c7"/>
+<text x="-1315.44" y="865" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AFCE｜VLA · Joint action–effect representation · Bimanual coordination</text>
+<circle cx="-1299.44" cy="892" r="4" fill="#05a6c7"/>
+<text x="-1315.44" y="899" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">TTP｜VLA · Tactile fusion · Joint action/touch prediction</text>
+<circle cx="-523.1200000000001" cy="926.0" r="5" fill="#05a6c7"/>
+<text x="-539.1200000000001" y="933.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Skill Learning and Composition<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.SKILL]</tspan></text>
+<circle cx="-1361.0400000000002" cy="926" r="4" fill="#05a6c7"/>
+<text x="-1377.0400000000002" y="933" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexStitch｜Human-video transfer · Contact-aware conversion · Skill transitions and composition</text>
+<circle cx="-523.1200000000001" cy="960.0" r="5" fill="#05a6c7"/>
+<text x="-539.1200000000001" y="967.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">World Models and Planning-Based Control<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.PLANNING]</tspan></text>
+<circle cx="-1508.88" cy="960" r="4" fill="#05a6c7"/>
+<text x="-1524.88" y="967" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DSP｜In-hand manipulation · Autonomous interaction collection · World model + MPC</text>
+<circle cx="-523.1200000000001" cy="1011.0" r="5" fill="#05a6c7"/>
+<text x="-539.1200000000001" y="1018.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Execution Feedback and Action Correction<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.POLICY.FEEDBACK]</tspan></text>
+<circle cx="-1521.2000000000003" cy="994" r="4" fill="#05a6c7"/>
+<text x="-1537.2000000000003" y="1001" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">FOMO-Dex｜Force-feedback compliance · Task-direction selection · Corrected-action imitation learning</text>
+<circle cx="-1521.2000000000003" cy="1028" r="4" fill="#05a6c7"/>
+<text x="-1537.2000000000003" y="1035" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AgenticTactileVLA｜VLA · Contact feedback · Online action correction</text>
+<circle cx="105.3599999999999" cy="1113.0" r="5" fill="#05a6c7"/>
+<text x="89.3599999999999" y="1120.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Agent Architectures<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.AGENT]</tspan></text>
 <circle cx="-510.8000000000001" cy="1062" r="4" fill="#05a6c7"/>
-<text x="-526.8000000000002" y="1069" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">RoboDexVLM｜VLM Agent · Task planning · Failure replanning</text>
+<text x="-526.8000000000002" y="1069" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AdaClearGrasp｜Adaptive clearing · RL dexterous grasping · Failure replanning</text>
 <circle cx="-510.8000000000001" cy="1096" r="4" fill="#05a6c7"/>
-<text x="-526.8000000000002" y="1103" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexGraspVLA｜Hierarchical VLA · Domain-invariant visual representations · Diffusion imitation learning</text>
-<circle cx="105.3599999999999" cy="1130.0" r="5" fill="#05a6c7"/>
-<text x="89.3599999999999" y="1137.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Human Hand Motion and Manipulation Video Modeling<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.HUMAN]</tspan></text>
-<circle cx="-880.4000000000002" cy="1130" r="4" fill="#05a6c7"/>
-<text x="-896.4000000000002" y="1137" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">P³-WAM｜Unified perception, prediction and planning</text>
-<circle cx="881.68" cy="1164.0" r="5" fill="#05a6c7"/>
-<text x="865.68" y="1171.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Common Methods</text>
-<circle cx="561.1999999999999" cy="1164.0" r="5" fill="#05a6c7"/>
-<text x="545.1999999999999" y="1171.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Execution Efficiency and Temporal Control<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
-<circle cx="-338.32000000000016" cy="1164" r="4" fill="#05a6c7"/>
-<text x="-354.32000000000016" y="1171" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA｜VLA · Execution speedup · Temporal action granularity</text>
-<circle cx="2250" cy="1198" r="4" fill="#ff7b50"/>
-<text x="2266" y="1205" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Navigation Action Models<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
-<circle cx="1350" cy="1232.0" r="5" fill="#b1c91e"/>
-<text x="1334" y="1239.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Body Motion and Whole-Body Control Models</text>
-<circle cx="696.88" cy="1232.0" r="5" fill="#b1c91e"/>
-<text x="680.88" y="1239.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Bimanual and Torso-Assisted Manipulation<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC.ARM.TORSO]</tspan></text>
-<circle cx="-178.0000000000001" cy="1232" r="4" fill="#b1c91e"/>
-<text x="-194.0000000000001" y="1239" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">WBD｜RL expert distillation · Diffusion policy · Command refinement</text>
-<rect x="1542.5" y="617.0" width="515" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
-<text x="1800" y="680.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">Embodied Action Models</text>
+<text x="-526.8000000000002" y="1103" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">GOTT｜Cross-hand contact primitive · Object-trajectory interface · Staged execution</text>
+<circle cx="-510.8000000000001" cy="1130" r="4" fill="#05a6c7"/>
+<text x="-526.8000000000002" y="1137" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">RoboDexVLM｜VLM Agent · Task planning · Failure replanning</text>
+<circle cx="-510.8000000000001" cy="1164" r="4" fill="#05a6c7"/>
+<text x="-526.8000000000002" y="1171" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexGraspVLA｜Hierarchical VLA · Domain-invariant visual representations · Diffusion imitation learning</text>
+<circle cx="105.3599999999999" cy="1198.0" r="5" fill="#05a6c7"/>
+<text x="89.3599999999999" y="1205.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Human Hand Motion and Manipulation Video Modeling<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.HUMAN]</tspan></text>
+<circle cx="-880.4000000000002" cy="1198" r="4" fill="#05a6c7"/>
+<text x="-896.4000000000002" y="1205" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">P³-WAM｜Unified perception, prediction and planning</text>
+<circle cx="881.68" cy="1249.0" r="5" fill="#05a6c7"/>
+<text x="865.68" y="1256.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Common Methods</text>
+<circle cx="561.1999999999999" cy="1232.0" r="5" fill="#05a6c7"/>
+<text x="545.1999999999999" y="1239.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Execution Efficiency and Temporal Control<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
+<circle cx="-338.32000000000016" cy="1232" r="4" fill="#05a6c7"/>
+<text x="-354.32000000000016" y="1239" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA｜VLA · Execution speedup · Temporal action granularity</text>
+<circle cx="561.1999999999999" cy="1266.0" r="5" fill="#05a6c7"/>
+<text x="545.1999999999999" y="1273.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">RL Training and Exploration<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.RL]</tspan></text>
+<circle cx="-153.5200000000001" cy="1266" r="4" fill="#05a6c7"/>
+<text x="-169.5200000000001" y="1273" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">SGS｜RL · Success-guided sampling · Training-reset scheduling</text>
+<circle cx="2250" cy="1300" r="4" fill="#ff7b50"/>
+<text x="2266" y="1307" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Navigation Action Models<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
+<circle cx="1350" cy="1334.0" r="5" fill="#b1c91e"/>
+<text x="1334" y="1341.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Body Motion and Whole-Body Control Models</text>
+<circle cx="696.88" cy="1334.0" r="5" fill="#b1c91e"/>
+<text x="680.88" y="1341.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Bimanual and Torso-Assisted Manipulation<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC.ARM.TORSO]</tspan></text>
+<circle cx="-178.0000000000001" cy="1334" r="4" fill="#b1c91e"/>
+<text x="-194.0000000000001" y="1341" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">WBD｜RL expert distillation · Diffusion policy · Command refinement</text>
+<rect x="1542.5" y="668.0" width="515" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
+<text x="1800" y="731.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">Embodied Action Models</text>
 </svg>

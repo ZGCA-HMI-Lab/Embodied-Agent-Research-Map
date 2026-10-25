@@ -8,6 +8,10 @@
 
 [DexNinja [AM.MAN.DEX.DEMO.1]](generation_cn.md#am-man-dex-demo-1)
 
+<a id="am-man-dex-demo-2"></a>
+
+[Human2Dex [AM.MAN.DEX.DEMO.2]](generation_cn.md#am-man-dex-demo-2)
+
 <a id="am-man-dex-demo-v2r-1"></a>
 
 [Gen2Dex [AM.MAN.DEX.DEMO.V2R.1]](generation_cn.md#am-man-dex-demo-v2r-1)

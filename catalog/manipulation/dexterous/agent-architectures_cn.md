@@ -8,7 +8,7 @@
 
 运行时连接高层语义／几何规划或 Agent 与可复用灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、实际底层控制器，并区分反馈仅触发低层阶段切换，还是支持高层重规划与恢复。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。
 
-**按主题浏览：** [VLA (8)](../../topics/vla_cn.md) · [强化学习 (10)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (9)](../../topics/vla_cn.md) · [强化学习 (11)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.AGENT` · 4 篇主分类工作
 

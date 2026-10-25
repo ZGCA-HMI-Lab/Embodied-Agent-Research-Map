@@ -6,9 +6,9 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (8)](vla.md) · [Reinforcement learning (10)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (9)](vla.md) · [Reinforcement learning (11)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
 
-10 records
+11 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
@@ -21,4 +21,5 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [HiFun｜Hierarchical RL · Arm–hand coordination · Human-in-the-loop learning](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-3) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `residual-rl` |
 | [DexMimic｜RL trajectory tracking · Value-guided resets · Multi-trajectory training](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-5) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `ppo` · `residual-rl` |
 | [DexCast｜HOI geometry transfer · Skeletal-temporal motion encoding · 3D diffusion policy](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-7) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `residual-rl` |
+| [SGS｜RL · Success-guided sampling · Training-reset scheduling](../manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-1) | Manipulation Action Models → Common Methods → RL Training and Exploration | `reinforcement-learning` · `ppo` |
 | [WBD｜RL expert distillation · Diffusion policy · Command refinement](../whole-body-control/arm-torso-manipulation.md#am-wbc-arm-torso-1) | Body Motion and Whole-Body Control Models → Bimanual and Torso-Assisted Manipulation | `reinforcement-learning` · `ppo` |

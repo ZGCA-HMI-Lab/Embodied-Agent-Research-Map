@@ -8,7 +8,7 @@
 
 以人手／相机轨迹和操作视频为对象，研究运动重建、未来预测与指令条件生成。作为灵巧手支撑研究收录；区分人手表示、机器人重定向演示和直接学习的闭环机器人控制。
 
-**按主题浏览：** [VLA (8)](../../topics/vla_cn.md) · [强化学习 (10)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (9)](../../topics/vla_cn.md) · [强化学习 (11)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.HUMAN` · 1 篇主分类工作
 

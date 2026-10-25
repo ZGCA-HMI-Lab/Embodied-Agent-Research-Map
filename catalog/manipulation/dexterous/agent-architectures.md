@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Runtime architectures connecting high-level semantic/geometric planning or agents to reusable dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, the actual low-level controller, and whether feedback triggers low-level phase switching or high-level replanning/recovery. Task planning, skill composition and recovery are visible tags rather than nested categories.
 
-**Browse by topic：** [VLA (8)](../../topics/vla.md) · [Reinforcement learning (10)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (9)](../../topics/vla.md) · [Reinforcement learning (11)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.AGENT` · 4 primary records
 

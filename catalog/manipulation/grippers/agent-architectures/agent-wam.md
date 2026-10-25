@@ -8,7 +8,7 @@ Manipulation Action Models → Gripper Manipulation Models → Agent Architectur
 
 Runtime architectures connecting high-level agents to world action models. Focus on command interfaces, responsibility for planning and memory, event feedback and failure recovery; record the low-level model and evaluated embodiments explicitly.
 
-**Browse by topic：** [VLA (8)](../../../topics/vla.md) · [Reinforcement learning (10)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../../topics/tactile.md) · [In-hand manipulation (2)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (9)](../../../topics/vla.md) · [Reinforcement learning (11)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../../topics/tactile.md) · [In-hand manipulation (2)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.GRIP.AGENT.WAM` · 1 primary records
 

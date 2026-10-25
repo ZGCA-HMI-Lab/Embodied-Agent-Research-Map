@@ -8,7 +8,7 @@ Manipulation Action Models → Common Methods → Execution Efficiency and Tempo
 
 Methods for faster task execution through action timing, temporal granularity and scheduling across manipulation platforms. Record evaluated backbones and embodiments; distinguish execution speed from model inference latency.
 
-**Browse by topic：** [VLA (8)](../../topics/vla.md) · [Reinforcement learning (10)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (9)](../../topics/vla.md) · [Reinforcement learning (11)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.METHOD.EFF` · 1 primary records
 

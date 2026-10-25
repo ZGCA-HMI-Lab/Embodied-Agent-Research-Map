@@ -157,6 +157,15 @@
               "catalog_path": "manipulation/common-methods/execution-efficiency",
               "description": "Methods for faster task execution through action timing, temporal granularity and scheduling across manipulation platforms. Record evaluated backbones and embodiments; distinguish execution speed from model inference latency.",
               "description_zh": "通过动作节奏、时间粒度与调度提高任务执行效率的操作共性方法。记录已验证基座与本体，区分动作执行加速和模型推理加速。"
+            },
+            {
+              "name": "RL Training and Exploration",
+              "name_zh": "强化学习训练与探索",
+              "code": "AM.MAN.METHOD.RL",
+              "children": [],
+              "catalog_path": "manipulation/common-methods/rl-training-exploration",
+              "description": "Reusable RL training mechanisms such as curriculum learning, task/reset sampling and exploration allocation. Record what training distribution changes, how configurations are supplied, the underlying policy optimizer, evaluated embodiments and deployment policy. Distinguish a general training contribution from a task-specific policy that uses RL; sampling existing resets does not generate new configurations.",
+              "description_zh": "可复用的强化学习训练机制，包括课程学习、任务／重置采样与探索资源分配。注明改变哪部分训练分布、配置如何提供、底层策略优化器、验证本体及部署策略；区分共性训练贡献与使用 RL 的具体任务策略，从已有重置池采样不等同于生成新配置。"
             }
           ]
         }

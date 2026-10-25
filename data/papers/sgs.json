@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.METHOD.RL.1",
+  "slug": "sgs",
+  "short_name": "SGS",
+  "title": "A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control",
+  "authors": "Octi Zhang, Mateo Guaman Castro, Patrick Yin, Ignacio Dagnino, Abhishek Gupta, Rosario Scalise, Byron Boots",
+  "year": 2026,
+  "venue": "CoRL 2026 / arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.METHOD.RL",
+  "related_categories": [],
+  "tags": [
+    "manipulation",
+    "gripper",
+    "reinforcement-learning",
+    "ppo",
+    "success-guided-sampling",
+    "adaptive-curriculum",
+    "reset-distribution",
+    "training-start-scheduling",
+    "massively-parallel-simulation",
+    "contact-rich-assembly",
+    "quadruped-locomotion",
+    "teacher-student-distillation",
+    "dagger",
+    "rgb-policy",
+    "sim-to-real"
+  ],
+  "tldr": {
+    "zh": "SGS 根据各任务配置近期成功率，动态提高“尚未掌握但已有成功机会”的训练起点采样概率，让 PPO 将更多并行交互用于当前可学习的部分，提升大规模机器人强化学习的训练效率与任务能力。",
+    "en": "SGS uses recent success rates for task configurations to prioritize training resets that are neither mastered nor currently out of reach, directing more parallel PPO experience toward learnable configurations and improving large-scale robot RL efficiency and capabilities."
+  },
+  "evaluation_scope": {
+    "zh": "从固定配置池按近期成功率的 Beta 形状权重抽样，低／高成功率配置仍保留非零概率；配置包括初始状态、目标及环境，操作起点覆盖接近、稳定抓取、接近目标三类，池覆盖依赖外部重置构建。SGS 只用于训练采样，PPO 学习动作。仿真验证 13 类四足地形、UR5e＋Robotiq 2F-85 的六项装配及 Franka＋平行夹爪的螺母旋入；运动为一个多地形策略，操作每任务分别训练。百万并行环境下 Franka 螺母旋入成功率约 70%，均匀采样约 6%；简单任务在足够规模下收益较小。UR5e 点云教师经 DAgger 蒸馏为双视角 RGB＋机器人状态学生，学生真机闭环输出末端平移／旋转增量和夹爪开合，无真机数据微调；螺母旋入 18/48、圆杆插入 30/49、齿轮装配 47/50。不是多指手验证或统一跨平台策略；代码在核验时仍标注待发布。",
+    "en": "A Beta-shaped weight over recent success rates samples a fixed configuration pool, retaining nonzero probability for easy/hard cases. Configurations specify initial state, goal and environment; manipulation resets cover reaching, stable grasp and near-goal starts, with coverage supplied externally. SGS only schedules training; PPO learns actions. Simulation covers 13 quadruped terrain types, six UR5e + Robotiq 2F-85 assembly tasks and Franka parallel-gripper nut-and-bolt assembly. Locomotion uses one multi-terrain policy; manipulation trains per task. At one million environments, Franka nut-and-bolt success is about 70% versus 6% for uniform sampling; simpler tasks benefit less at sufficient scale. DAgger distills UR5e point-cloud teachers into dual-view RGB/proprioceptive students that issue closed-loop end-effector translation/rotation increments and gripper commands on hardware without real-data fine-tuning: nut-and-bolt 18/48, rod insertion 30/49, gear mesh 47/50. This is neither multi-finger-hand validation nor a shared cross-platform policy. Code remains marked coming soon at verification."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.12465v1",
+    "project": "https://sgs-rl.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.12465v1",
+    "https://arxiv.org/html/2610.12465v1",
+    "https://sgs-rl.github.io/"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "RL",
+      "zh": "RL"
+    },
+    {
+      "en": "Success-guided sampling",
+      "zh": "成功率引导采样"
+    },
+    {
+      "en": "Training-reset scheduling",
+      "zh": "训练起点调度"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-08",
+    "source": "https://arxiv.org/abs/2610.12465v1",
+    "basis": "source"
+  }
+}
