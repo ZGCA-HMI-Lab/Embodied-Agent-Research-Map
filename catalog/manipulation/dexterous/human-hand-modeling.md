@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Supporting research on human hand/camera trajectories and manipulation videos: reconstruction, prediction and instruction-conditioned generation. Distinguish human representations and robot retargeting demonstrations from directly learned closed-loop robot control.
 
-**Browse by topic：** [VLA (4)](../../topics/vla.md) · [Reinforcement learning (3)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (5)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (5)](../../topics/vla.md) · [Reinforcement learning (4)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (7)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.HUMAN` · 1 primary records
 

@@ -8,7 +8,7 @@
 
 从真实或生成视频出发，通过重定向、仿真优化等生成机器人示范轨迹或训练数据。按主要贡献归类：在线操控的重定向控制器归策略与控制；区分轨迹回放与闭环策略部署。
 
-**按主题浏览：** [VLA (4)](../../../topics/vla_cn.md) · [强化学习 (3)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (5)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (5)](../../../topics/vla_cn.md) · [强化学习 (4)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.DEMO` · 2 篇主分类工作
 

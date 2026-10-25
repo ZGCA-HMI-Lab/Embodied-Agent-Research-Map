@@ -870,6 +870,242 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.2",
+      "slug": "coordi-pi",
+      "short_name": "Coordi-π",
+      "title": "Coordi-π: Coordination-Aware Dual-Hand Action Representation for Bimanual Dexterous Manipulation",
+      "authors": "Yiming Meng, Yanming Shao, Weijie Shen, Kunyang Lin, Jiayu Sun, Ping Luo, Yao Mu",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "vla",
+        "action-expert",
+        "action-representation",
+        "interleaved-action-tokens",
+        "hand-identity-embedding",
+        "factorized-rope",
+        "bimanual-coordination",
+        "flow-matching",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Coordi-π 改造 π₀.₅ 动作专家（AE）内部的双手表示，将左右臂手动作拆成交错 token，结合手身份嵌入与序列／控制时间分解编码，让 AE 显式建模两侧动作及其同步关系，再联合生成同步执行的双手动作。",
+        "en": "Coordi-π modifies the bimanual representation inside the π₀.₅ action expert (AE): it interleaves separate right/left arm–hand tokens, adds hand-identity embeddings and factorizes sequence-position/control-timestep encoding, making side identity and synchronization explicit before jointly generating synchronized bimanual actions."
+      },
+      "evaluation_scope": {
+        "zh": "保留 π₀.₅ 流匹配训练目标，左右侧共享输入／输出投影；创新集中于 AE 的动作 token 表示及注意力位置编码。输入三视角 RGB、指令与 46 维本体状态，每侧动作 22 维；30 步动作块在内部为 60 个 token，输出按时间步重组为 44 维双手指令，不是左右手交替执行，也未增加预测时长。DexJoCo 五项任务的 rand-obj／rand-full 平均成功率为 51.3%／32.3%，π₀.₅ 为 31.9%／18.3%。真机为 Marvin Pro＋两只 BrainCo Revo 2，四任务各 100 条示范、各评测 20 次；总成功率 60/80（75.0%），基线为 49/80（61.3%）。精细接触与装配仍有明显失败。",
+        "en": "Retains the π₀.₅ flow-matching objective and shares input/output projections across sides; the contribution targets action-token representation and attention positional encoding inside the AE. Inputs are three RGB views, an instruction and 46-D proprioception; each side has 22-D actions. A 30-step chunk uses 60 internal tokens, paired into 44-D simultaneous commands without alternating execution or extending the prediction horizon. Across five DexJoCo tasks, average rand-obj/rand-full success is 51.3%/32.3% versus 31.9%/18.3% for π₀.₅. Hardware uses Marvin Pro with two BrainCo Revo 2 hands: four tasks, 100 demonstrations and 20 evaluation trials per task, achieving 60/80 (75.0%) versus 49/80 (61.3%). Precise contact and assembly remain failure modes."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.19753v1"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.19753v1",
+        "https://arxiv.org/abs/2610.19753v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "VLA",
+          "zh": "VLA"
+        },
+        {
+          "en": "AE action representation",
+          "zh": "AE动作表示"
+        },
+        {
+          "en": "Bimanual coordination",
+          "zh": "双手协同"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-14",
+        "source": "https://arxiv.org/abs/2610.19753v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Coordi-π｜VLA · AE action representation · Bimanual coordination",
+        "zh": "Coordi-π｜VLA · AE动作表示 · 双手协同"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.3",
+      "slug": "hifun",
+      "short_name": "HiFun",
+      "title": "HiFun: a Hierarchical Framework for Efficient Functional Dexterous Manipulation Learning",
+      "authors": "Linyi Huang, Guowei Huai, Weibin Liu, Shulong Jiang, Ping Tan, Weixuan Zhang, Hui Zhang, Jie Song",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "hierarchical-rl",
+        "reinforcement-learning",
+        "residual-rl",
+        "sac",
+        "rlpd",
+        "arm-hand-coordination",
+        "human-in-the-loop",
+        "kinesthetic-teaching",
+        "tactile",
+        "force-feedback",
+        "contact-recovery",
+        "dynamic-movement-primitives",
+        "intervention-advantage-weighting",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "HiFun 采用上下两层 RL 策略：下层在手把手示教参考上学习手指关节残差，修正和恢复接触；冻结下层后，上层通过 DMP 数据初始化与人在环 RL，学习机械臂末端运动及下层技能的激活程度，共同完成精细臂手操作。",
+        "en": "HiFun uses two RL policy layers: a lower-level policy learns finger-joint residuals around kinesthetic demonstration references to correct and restore contact; after freezing this policy, an upper-level policy initialized with DMP data and refined through human-in-the-loop RL learns end-effector motion and hand-skill activation strength for precise arm–hand manipulation."
+      },
+      "evaluation_scope": {
+        "zh": "下层采用真机残差 SAC，结合观测、指尖力与示教参考输出 12 维手指关节残差，加到参考姿态；接触异常时参考可回退以恢复接触。上层采用 RLPD／SAC，输出 6 维末端运动增量＋连续激活权重 α，用 α 在中性手姿与下层修正后的技能手姿间插值，不直接探索全部手指关节。先训练并冻结下层，再训练上层；执行时两者共同运行，下层权重固定但根据当前观测修正手指。双头 critic 分别引导机械臂对齐和技能激活时机，IAW 按价值优势加权学习人类纠正。Franka Research 3 搭配 Sharpa 或 XHand，六项工具操作／受限空间取物任务各 50 次主评测，平均成功率 98.3%；每任务最多一小时指上层在线微调，另需手技能学习、示教、DMP 数据和奖励分类器准备，评测限于训练工作区内的位姿随机化。",
+        "en": "The lower level uses real-robot residual SAC to output 12 finger-joint residuals added to a kinesthetic reference, conditioned on observations and fingertip forces; the reference can rewind after contact disruption. The upper level uses RLPD/SAC to output a 6-D end-effector increment and continuous activation weight α, interpolating between a neutral hand pose and the corrected skill pose rather than exploring every finger joint. Train and freeze the lower policy before upper-policy training; both run at execution, with fixed lower-level weights but observation-dependent finger corrections. Separate critic heads guide arm alignment and activation timing; IAW weights imitation of human interventions by estimated advantage. Six functional tool-use/constrained-retrieval tasks on Franka Research 3 with Sharpa or XHand have 50 main trials each and 98.3% average success. The one-hour per-task cap covers upper-level online fine-tuning, with additional hand-skill learning, teaching, DMP data and reward-classifier preparation; pose randomization remains within the trained workspace."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.19518v1",
+        "project": "https://hly-123.github.io/HiFun/"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.19518v1",
+        "https://arxiv.org/abs/2610.19518v1",
+        "https://hly-123.github.io/HiFun/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Hierarchical RL",
+          "zh": "分层RL"
+        },
+        {
+          "en": "Arm–hand coordination",
+          "zh": "臂手协调"
+        },
+        {
+          "en": "Human-in-the-loop learning",
+          "zh": "人在环学习"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-14",
+        "source": "https://arxiv.org/abs/2610.19518v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "HiFun｜Hierarchical RL · Arm–hand coordination · Human-in-the-loop learning",
+        "zh": "HiFun｜分层RL · 臂手协调 · 人在环学习"
+      },
+      "topics": [
+        "reinforcement-learning",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-3"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.4",
+      "slug": "fact",
+      "short_name": "FACT",
+      "title": "FACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity",
+      "authors": "Zhi Cao, Yining Hong, Jiaolong Yang, Yejin Choi, Li Fei-Fei, Jiajun Wu, Huang Huang",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "wam",
+        "human-demonstration-pretraining",
+        "tactile",
+        "force-feedback",
+        "future-force-prediction",
+        "visual-tracks",
+        "joint-flow-matching",
+        "cascaded-action-refinement",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "FACT 利用人类视触觉示范预训练，先联合预测未来视频、视觉轨迹与粗动作，再通过力—动作联合去噪结合最新触觉持续修正未执行动作，实现接触敏感的双臂灵巧操作。",
+        "en": "FACT pretrains on human visual–tactile demonstrations, jointly predicts future video, visual tracks and coarse actions, then jointly denoises force and actions with fresh tactile feedback to refine unexecuted actions for contact-sensitive bimanual dexterity."
+      },
+      "evaluation_scope": {
+        "zh": "两个模块以流匹配联合训练；细化器通过双向注意力耦合未来力与动作，每次触觉刷新复用粗规划缓存，仅修改未执行部分，权重不在线更新。输出双臂末端位姿变化与手指关节目标，预测力不作为控制参考。双 Sharpa Wave 手上评测十项任务，每项微调使用 10 条机器人＋90 条人类示范；另有预训练数据，不是零样本部署。",
+        "en": "Both modules train with flow matching. Bidirectional attention couples future force and actions; tactile refreshes reuse coarse-plan memory and refine only the unexecuted suffix, without online weight updates. Outputs are end-effector pose changes and finger-joint targets; predicted force is not a control reference. Ten tasks use two Sharpa Wave hands, with 10 robot plus 90 human demonstrations per task for fine-tuning, in addition to pretraining data; deployment is not zero-shot."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.19155v1",
+        "project": "https://fact-1-0.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.19155v1",
+        "https://arxiv.org/abs/2610.19155v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "WAM",
+          "zh": "WAM"
+        },
+        {
+          "en": "Joint force–action prediction",
+          "zh": "力—动作联合预测"
+        },
+        {
+          "en": "Tactile closed-loop refinement",
+          "zh": "触觉闭环修正"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-13",
+        "source": "https://arxiv.org/abs/2610.19155v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "FACT｜WAM · Joint force–action prediction · Tactile closed-loop refinement",
+        "zh": "FACT｜WAM · 力—动作联合预测 · 触觉闭环修正"
+      },
+      "topics": [
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-4"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.PLANNING.1",
       "slug": "dsp",
       "short_name": "DSP",

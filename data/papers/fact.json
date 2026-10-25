@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.4",
+  "slug": "fact",
+  "short_name": "FACT",
+  "title": "FACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity",
+  "authors": "Zhi Cao, Yining Hong, Jiaolong Yang, Yejin Choi, Li Fei-Fei, Jiajun Wu, Huang Huang",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "wam",
+    "human-demonstration-pretraining",
+    "tactile",
+    "force-feedback",
+    "future-force-prediction",
+    "visual-tracks",
+    "joint-flow-matching",
+    "cascaded-action-refinement",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "FACT 利用人类视触觉示范预训练，先联合预测未来视频、视觉轨迹与粗动作，再通过力—动作联合去噪结合最新触觉持续修正未执行动作，实现接触敏感的双臂灵巧操作。",
+    "en": "FACT pretrains on human visual–tactile demonstrations, jointly predicts future video, visual tracks and coarse actions, then jointly denoises force and actions with fresh tactile feedback to refine unexecuted actions for contact-sensitive bimanual dexterity."
+  },
+  "evaluation_scope": {
+    "zh": "两个模块以流匹配联合训练；细化器通过双向注意力耦合未来力与动作，每次触觉刷新复用粗规划缓存，仅修改未执行部分，权重不在线更新。输出双臂末端位姿变化与手指关节目标，预测力不作为控制参考。双 Sharpa Wave 手上评测十项任务，每项微调使用 10 条机器人＋90 条人类示范；另有预训练数据，不是零样本部署。",
+    "en": "Both modules train with flow matching. Bidirectional attention couples future force and actions; tactile refreshes reuse coarse-plan memory and refine only the unexecuted suffix, without online weight updates. Outputs are end-effector pose changes and finger-joint targets; predicted force is not a control reference. Ten tasks use two Sharpa Wave hands, with 10 robot plus 90 human demonstrations per task for fine-tuning, in addition to pretraining data; deployment is not zero-shot."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.19155v1",
+    "project": "https://fact-1-0.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.19155v1",
+    "https://arxiv.org/abs/2610.19155v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    { "en": "WAM", "zh": "WAM" },
+    { "en": "Joint force–action prediction", "zh": "力—动作联合预测" },
+    { "en": "Tactile closed-loop refinement", "zh": "触觉闭环修正" }
+  ],
+  "publication_date": {
+    "value": "2026-10-13",
+    "source": "https://arxiv.org/abs/2610.19155v1",
+    "basis": "source"
+  }
+}

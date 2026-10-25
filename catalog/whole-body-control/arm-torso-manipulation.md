@@ -8,7 +8,7 @@ Body Motion and Whole-Body Control Models → Bimanual and Torso-Assisted Manipu
 
 Manipulate objects through coordinated arm motions and support from the torso or other upper-body surfaces, including holding, regrasping and on-body object transfer. Record the learned policy outputs and the independent controllers used for the waist, legs, balance or locomotion; placement here does not imply unified whole-body actuation.
 
-**Browse by topic：** [VLA (4)](../topics/vla.md) · [Reinforcement learning (3)](../topics/reinforcement-learning.md) · [Touch and contact feedback (5)](../topics/tactile.md) · [In-hand manipulation (2)](../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (5)](../topics/vla.md) · [Reinforcement learning (4)](../topics/reinforcement-learning.md) · [Touch and contact feedback (7)](../topics/tactile.md) · [In-hand manipulation (2)](../topics/in-hand-manipulation.md)
 
 `AM.WBC.ARM.TORSO` · 1 primary records
 

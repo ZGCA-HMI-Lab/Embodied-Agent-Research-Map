@@ -6,13 +6,14 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (4)](vla.md) · [Reinforcement learning (3)](reinforcement-learning.md) · [Touch and contact feedback (5)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (5)](vla.md) · [Reinforcement learning (4)](reinforcement-learning.md) · [Touch and contact feedback (7)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
 
-4 records
+5 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
 | [DexAgent｜Video demonstrations · Agent-built simulation · Data augmentation](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `vla-fine-tuning` |
+| [Coordi-π｜VLA · AE action representation · Bimanual coordination](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [AgenticTactileVLA｜VLA · Contact feedback · Online action correction](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `vla` |
 | [TTP｜VLA · Tactile fusion · Joint action/touch prediction](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [PaceVLA｜VLA · Execution speedup · Temporal action granularity](../manipulation/common-methods/execution-efficiency.md#am-man-method-eff-1) | Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control | `vla` |

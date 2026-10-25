@@ -6,12 +6,13 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (4)](vla.md) · [Reinforcement learning (3)](reinforcement-learning.md) · [Touch and contact feedback (5)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (5)](vla.md) · [Reinforcement learning (4)](reinforcement-learning.md) · [Touch and contact feedback (7)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
 
-3 records
+4 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
 | [Gen2Dex｜Video demonstrations · Retargeting · RL trajectory optimization](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `residual-rl` |
 | [No Eyes, No Problem｜In-hand manipulation · RL · Tactile](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-inhand-rl-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `ppo` |
+| [HiFun｜Hierarchical RL · Arm–hand coordination · Human-in-the-loop learning](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-3) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `residual-rl` |
 | [WBD｜RL expert distillation · Diffusion policy · Command refinement](../whole-body-control/arm-torso-manipulation.md#am-wbc-arm-torso-1) | Body Motion and Whole-Body Control Models → Bimanual and Torso-Assisted Manipulation | `reinforcement-learning` · `ppo` |

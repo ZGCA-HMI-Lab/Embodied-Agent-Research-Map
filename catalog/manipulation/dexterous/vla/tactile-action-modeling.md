@@ -12,6 +12,18 @@
 
 [EgoJEPA [AM.MAN.DEX.POLICY.LEARNING.1]](../policies/policy-learning.md#am-man-dex-policy-learning-1)
 
+<a id="am-man-dex-policy-learning-2"></a>
+
+[Coordi-π [AM.MAN.DEX.POLICY.LEARNING.2]](../policies/policy-learning.md#am-man-dex-policy-learning-2)
+
+<a id="am-man-dex-policy-learning-3"></a>
+
+[HiFun [AM.MAN.DEX.POLICY.LEARNING.3]](../policies/policy-learning.md#am-man-dex-policy-learning-3)
+
+<a id="am-man-dex-policy-learning-4"></a>
+
+[FACT [AM.MAN.DEX.POLICY.LEARNING.4]](../policies/policy-learning.md#am-man-dex-policy-learning-4)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning.md#am-man-dex-vla-tactile-1)

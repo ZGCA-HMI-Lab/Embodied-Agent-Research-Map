@@ -4,9 +4,9 @@
 
 [首页](../README_cn.md)
 
-共 16 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。
+共 19 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。
 
-**按主题浏览：** [VLA (4)](topics/vla_cn.md) · [强化学习 (3)](topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (5)](topics/tactile_cn.md) · [手内操作 (2)](topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (5)](topics/vla_cn.md) · [强化学习 (4)](topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](topics/tactile_cn.md) · [手内操作 (2)](topics/in-hand-manipulation_cn.md)
 
 | 分类路径 | 条目数 | 阅读入口 | 代表工作／主题与方法 |
 |---|---:|---|---|
@@ -15,7 +15,7 @@
 | 操作动作模型 → 夹爪操作模型 → Agent 架构 → 上下文学习与工具控制 | 1 | [查看](manipulation/grippers/agent-architectures/in-context-tool-control_cn.md) | [GPT-Policy｜VLM Agent · 上下文学习 · 工具闭环控制](manipulation/grippers/agent-architectures/in-context-tool-control_cn.md#am-man-grip-agent-icl-1) |
 | 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | 3 | [查看](manipulation/dexterous/benchmarks_cn.md) | [BiDex-100｜双手操作 · 评测基准](manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-1)<br>[HandsOn｜双手操作 · 仿真评测](manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-2)<br>[Evo-DexBench｜灵巧手操作 · 仿真评测](manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-3) |
 | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | 2 | [查看](manipulation/dexterous/demonstrations/generation_cn.md) | [Gen2Dex｜视频示范 · 重定向 · RL轨迹优化](manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-1)<br>[DexAgent｜视频示范 · Agent构建仿真 · 数据扩增](manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-2) |
-| 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | 3 | [查看](manipulation/dexterous/policies/policy-learning_cn.md) | [No Eyes, No Problem｜手内操作 · RL · 触觉](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1)<br>[EgoJEPA｜人类视频预训练 · 潜在动作迁移 · WAM](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-1)<br>[TTP｜VLA · 触觉融合 · 动作与触觉联合预测](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) |
+| 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | 6 | [查看](manipulation/dexterous/policies/policy-learning_cn.md) | [No Eyes, No Problem｜手内操作 · RL · 触觉](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1)<br>[EgoJEPA｜人类视频预训练 · 潜在动作迁移 · WAM](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-1)<br>[Coordi-π｜VLA · AE动作表示 · 双手协同](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-2)<br>[HiFun｜分层RL · 臂手协调 · 人在环学习](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-3)<br>[FACT｜WAM · 力—动作联合预测 · 触觉闭环修正](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-4)<br>[TTP｜VLA · 触觉融合 · 动作与触觉联合预测](manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) |
 | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 世界模型与规划控制 | 1 | [查看](manipulation/dexterous/policies/world-model-planning_cn.md) | [DSP｜手内操作 · 自主交互采集 · 世界模型＋MPC](manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-1) |
 | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | 1 | [查看](manipulation/dexterous/policies/execution-feedback_cn.md) | [AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正](manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1) |
 | 操作动作模型 → 多指灵巧手操作研究 → 人手动作与操作视频建模 | 1 | [查看](manipulation/dexterous/human-hand-modeling_cn.md) | [P³-WAM｜统一感知、预测与规划](manipulation/dexterous/human-hand-modeling_cn.md#am-man-dex-human-unified-1) |

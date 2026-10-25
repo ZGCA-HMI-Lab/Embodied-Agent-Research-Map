@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.2",
+  "slug": "coordi-pi",
+  "short_name": "Coordi-π",
+  "title": "Coordi-π: Coordination-Aware Dual-Hand Action Representation for Bimanual Dexterous Manipulation",
+  "authors": "Yiming Meng, Yanming Shao, Weijie Shen, Kunyang Lin, Jiayu Sun, Ping Luo, Yao Mu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "vla",
+    "action-expert",
+    "action-representation",
+    "interleaved-action-tokens",
+    "hand-identity-embedding",
+    "factorized-rope",
+    "bimanual-coordination",
+    "flow-matching",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Coordi-π 改造 π₀.₅ 动作专家（AE）内部的双手表示，将左右臂手动作拆成交错 token，结合手身份嵌入与序列／控制时间分解编码，让 AE 显式建模两侧动作及其同步关系，再联合生成同步执行的双手动作。",
+    "en": "Coordi-π modifies the bimanual representation inside the π₀.₅ action expert (AE): it interleaves separate right/left arm–hand tokens, adds hand-identity embeddings and factorizes sequence-position/control-timestep encoding, making side identity and synchronization explicit before jointly generating synchronized bimanual actions."
+  },
+  "evaluation_scope": {
+    "zh": "保留 π₀.₅ 流匹配训练目标，左右侧共享输入／输出投影；创新集中于 AE 的动作 token 表示及注意力位置编码。输入三视角 RGB、指令与 46 维本体状态，每侧动作 22 维；30 步动作块在内部为 60 个 token，输出按时间步重组为 44 维双手指令，不是左右手交替执行，也未增加预测时长。DexJoCo 五项任务的 rand-obj／rand-full 平均成功率为 51.3%／32.3%，π₀.₅ 为 31.9%／18.3%。真机为 Marvin Pro＋两只 BrainCo Revo 2，四任务各 100 条示范、各评测 20 次；总成功率 60/80（75.0%），基线为 49/80（61.3%）。精细接触与装配仍有明显失败。",
+    "en": "Retains the π₀.₅ flow-matching objective and shares input/output projections across sides; the contribution targets action-token representation and attention positional encoding inside the AE. Inputs are three RGB views, an instruction and 46-D proprioception; each side has 22-D actions. A 30-step chunk uses 60 internal tokens, paired into 44-D simultaneous commands without alternating execution or extending the prediction horizon. Across five DexJoCo tasks, average rand-obj/rand-full success is 51.3%/32.3% versus 31.9%/18.3% for π₀.₅. Hardware uses Marvin Pro with two BrainCo Revo 2 hands: four tasks, 100 demonstrations and 20 evaluation trials per task, achieving 60/80 (75.0%) versus 49/80 (61.3%). Precise contact and assembly remain failure modes."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.19753v1"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.19753v1",
+    "https://arxiv.org/abs/2610.19753v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLA",
+      "zh": "VLA"
+    },
+    {
+      "en": "AE action representation",
+      "zh": "AE动作表示"
+    },
+    {
+      "en": "Bimanual coordination",
+      "zh": "双手协同"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-14",
+    "source": "https://arxiv.org/abs/2610.19753v1",
+    "basis": "source"
+  }
+}

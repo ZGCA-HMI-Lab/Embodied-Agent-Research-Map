@@ -8,7 +8,7 @@ Manipulation Action Models → Gripper Manipulation Models → Agent Architectur
 
 Agent architectures that use demonstrations, goals and interaction history as context to select parameterized robot-tool actions. Specify context construction, fixed versus updated weights, motion execution and returned feedback; distinguish numerical tool control from a learned WAM executor.
 
-**Browse by topic：** [VLA (4)](../../../topics/vla.md) · [Reinforcement learning (3)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (5)](../../../topics/tactile.md) · [In-hand manipulation (2)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (5)](../../../topics/vla.md) · [Reinforcement learning (4)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (7)](../../../topics/tactile.md) · [In-hand manipulation (2)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.GRIP.AGENT.ICL` · 1 primary records
 
