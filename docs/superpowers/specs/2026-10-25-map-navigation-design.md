@@ -61,3 +61,7 @@
 - SurVis：https://github.com/fabian-beck/survis ，文献浏览、分类标签定义和生成数据维护方式。
 - SurveyAtlas：https://github.com/billzhao1030/SurveyAtlas ，多条件文献检索、排序、列表与地图等视图及筛选结果导出；本次参考公开文档，不以文档宣称代替实际性能验证。
 - Argo Scholar：https://github.com/poloclub/argo-scholar ，浏览状态保存和分享思路；其引用网络依赖关系数据，不移植到当前无引用证据的数据集。
+
+## 用户反馈修正：分类默认展开（2026-10-25）
+
+用户明确要求打开页面直接看到全部分类，聚焦某分类时自动展开其全部后代。此要求替代上文默认收起大类的设计；仍保留手动收起和历史状态恢复。修改只涉及页面展开状态，不改变研究分类或论文事实。

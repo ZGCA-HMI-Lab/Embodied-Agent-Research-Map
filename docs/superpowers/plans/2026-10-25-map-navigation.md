@@ -53,3 +53,6 @@ Files: docs/interactive-map.md, CONTRIBUTING.md; generated site/ assets.
 - Publication remains separate: no commit/push/deployment performed. Local preview: http://127.0.0.1:8765/ (existing server), or site/index.html.
 - Additional browser checks: overflow reveals all 14 October manipulation papers; next-paper navigation and Escape preserve the expanded cell and return focus to FACT; oldest-first list begins with TTP (2026-07). Final build consistency and whitespace checks pass.
 - Publication authorization: user requested 推送吧 on 2026-10-25. Fresh check: 30 Python and 12 Node tests pass; generated assets match; remote main and local main both at aa9ce72 before integration. Integrate feature into main by fast-forward, then push and verify Actions/hosted assets.
+
+- Follow-up user correction: initial map, category focus, fresh category links and overview/reset now expand the entire current category subtree. Explicit collapsed history entries remain collapsed on Back/Forward. Three new regression cases failed before the change, then passed; full suite: 30 Python + 15 Node tests. Build/check and unchanged canonical data verified.
+- Browser recheck limitation for this follow-up: CUA native pipe startup failed, including after reset. No new visual verification claimed; deployment assets will be compared with the tested local build.

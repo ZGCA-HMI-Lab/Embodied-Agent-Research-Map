@@ -7,7 +7,7 @@
   const save=(key,value)=>{try{localStorage.setItem(key,value);}catch(_){} };
   const defaults={lang:read('research-map-lang','zh')==='en'?'en':'zh',view:matchMedia('(max-width:760px)').matches?'list':'map'};
   let state=M.readState(location.search,data,defaults), theme=read('research-map-theme','light'), limit=30, matches=[], lastDetailTrigger=null;
-  const open=new Set(), years=new Set(), cells=new Set(), index=M.categoryIndex(data.taxonomy), e=M.escape;
+  const open=M.expandedCategories(data.taxonomy,state.category), years=new Set(), cells=new Set(), index=M.categoryIndex(data.taxonomy), e=M.escape;
   const newest=data.papers.map(M.stamp).sort().at(-1)||'';
   const treeAll=M.buildTree(data.taxonomy,data.papers);
   const walk=(nodes,fn,depth=0)=>nodes.forEach(n=>{fn(n,depth);walk(n.children,fn,depth+1);});
@@ -29,7 +29,7 @@
   function change(patch,mode='push'){
     if(patch.paper && !state.paper)lastDetailTrigger=focusToken();
     Object.assign(state,patch);if(!Object.hasOwn(patch,'paper'))state.paper='';
-    if(Object.hasOwn(patch,'category')){open.clear();state.invalidCategory=false;}
+    if(Object.hasOwn(patch,'category')){open.clear();M.expandedCategories(data.taxonomy,state.category).forEach(k=>open.add(k));state.invalidCategory=false;}
     if(!Object.hasOwn(patch,'paper')){limit=30;cells.clear();}
     remember(mode);render();
   }
@@ -179,8 +179,8 @@
     }else if('reset' in d)reset();
     else switch(b.id){
       case 'reset':reset();break;
-      case 'overview':open.clear();change({category:''});break;
-      case 'expand':walk(treeAll,n=>{if(n.children.length)open.add(n.key);});remember('replace');render();break;
+      case 'overview':change({category:''});break;
+      case 'expand':M.expandedCategories(data.taxonomy,state.category).forEach(k=>open.add(k));remember('replace');render();break;
       case 'collapse':open.clear();cells.clear();remember('replace');render();break;
       case 'newer':case 'earlier':$('timeline').scrollBy({left:(b.id==='newer'?-1:1)*Math.max(200,$('timeline').clientWidth-300),behavior:'smooth'});break;
       case 'load-more':limit+=30;listView();break;
@@ -195,6 +195,6 @@
   $('detail').addEventListener('cancel',event=>{event.preventDefault();closeDetail();});
   $('detail').addEventListener('click',event=>{if(event.target===$('detail')){const r=$('detail').getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closeDetail();}});
   $('timeline').addEventListener('scroll',timeButtons,{passive:true});window.addEventListener('resize',timeButtons);
-  window.addEventListener('popstate',event=>{state=M.readState(location.search,data,defaults);open.clear();years.clear();cells.clear();limit=30;(event.state?.open||[]).filter(k=>cat(k)).forEach(k=>open.add(k));(event.state?.years||[]).forEach(y=>years.add(y));render();});
+  window.addEventListener('popstate',event=>{state=M.readState(location.search,data,defaults);open.clear();years.clear();cells.clear();limit=30;M.expandedCategories(data.taxonomy,state.category,event.state?.open).forEach(k=>open.add(k));(event.state?.years||[]).forEach(y=>years.add(y));render();});
   render();remember('replace');
 })();

@@ -96,3 +96,25 @@ test('CSV quotes newlines and separators and neutralizes spreadsheet formulas',(
  assert.ok(csv.includes('"\'=HYPERLINK(""x"")"'));
  assert.ok(csv.includes('"A, B\nC"'));assert.ok(csv.includes('"\'@danger"'));
 });
+
+const deepTaxonomy={children:[
+ {name:'Manipulation',children:[{name:'Dexterous',children:[{name:'Control',children:[{code:'LEARN'},{code:'PLAN'}]},{code:'BENCH'}]},{code:'GRIP'}]},
+ {name:'Whole body',children:[{name:'Motion',children:[{code:'BODY'}]}]}
+]};
+test('initial overview expands every category level down to the leaves',()=>{
+ const nodes=M.categoryIndex(deepTaxonomy);
+ const expanded=M.expandedCategories(deepTaxonomy);
+ assert.deepEqual([...expanded],nodes.filter(n=>n.children.length).map(n=>n.key));
+});
+test('focusing a parent expands all its descendants without expanding unrelated branches',()=>{
+ const nodes=M.categoryIndex(deepTaxonomy), focus=nodes.find(n=>n.name==='Dexterous');
+ const expanded=M.expandedCategories(deepTaxonomy,focus.key);
+ assert.deepEqual([...expanded],[focus.key,nodes.find(n=>n.name==='Control').key]);
+ assert.equal(M.expandedCategories(deepTaxonomy,'LEARN').size,0);
+});
+test('history restores explicit collapsed state while fresh category links expand by default',()=>{
+ const parent=M.categoryIndex(deepTaxonomy).find(n=>n.name==='Manipulation');
+ assert.equal(M.expandedCategories(deepTaxonomy,parent.key,[]).size,0);
+ assert.deepEqual([...M.expandedCategories(deepTaxonomy,parent.key,[parent.key,'deleted'])],[parent.key]);
+ assert.ok(M.expandedCategories(deepTaxonomy,parent.key).size>1);
+});

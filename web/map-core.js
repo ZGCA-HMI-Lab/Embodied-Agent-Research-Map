@@ -70,6 +70,13 @@
     visit(buildTree(taxonomy || {children:[]}, []));
     return index;
   }
+  function expandedCategories(taxonomy, category = '', restored) {
+    const nodes = categoryIndex(taxonomy);
+    const parents = nodes.filter(n => n.children.length);
+    if (Array.isArray(restored))return new Set(restored.filter(key => parents.some(n => n.key === key)));
+    const focused = nodes.find(n => n.key === category);
+    return new Set(parents.filter(n => !focused || n.path.some(ancestor => ancestor.key === focused.key)).map(n => n.key));
+  }
   function sortPapers(papers, sort = 'newest') {
     return [...papers].sort((a,b) => (sort === 'name' ? 0 :
       stamp(a).localeCompare(stamp(b)) * (sort === 'oldest' ? 1 : -1)) ||
@@ -113,7 +120,7 @@
       local(p.evaluation_scope),p.links?.paper,p.links?.project,p.links?.code,p.links?.data]);
     return [header,...rows].map(row=>row.map(quote).join(',')).join('\r\n')+'\r\n';
   }
-  const api = {categoryIndex, sortPapers, preview, readState, stateQuery, exportResults, stamp, monthKey, bounds, inWindow, filterPapers, buildTree, columns, columnFor, escape, formatText};
+  const api = {expandedCategories, categoryIndex, sortPapers, preview, readState, stateQuery, exportResults, stamp, monthKey, bounds, inWindow, filterPapers, buildTree, columns, columnFor, escape, formatText};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.MapCore = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
