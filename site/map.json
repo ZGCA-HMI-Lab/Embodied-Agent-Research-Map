@@ -86,12 +86,21 @@
                     "code": "AM.MAN.DEX.POLICY.LEARNING",
                     "children": [],
                     "catalog_path": "manipulation/dexterous/policies/policy-learning",
-                    "description": "Learn policies that generate robot actions from observations. Record tasks such as in-hand manipulation and methods such as RL, VLA and tactile fusion as visible labels and topics, rather than competing primary categories.",
-                    "description_zh": "学习根据观测生成机器人动作的策略。手内操作等任务，以及 RL、VLA、触觉融合等方法，通过可见标签和主题入口展示，不作为相互竞争的主分类。",
+                    "description": "Learn policies that generate robot actions from observations. When the main contribution is skill structure, transitions or sequential composition, use Skill Learning and Composition. Record tasks such as in-hand manipulation and methods such as RL, VLA and tactile fusion as visible labels and topics, rather than competing primary categories.",
+                    "description_zh": "学习根据观测生成机器人动作的策略。主要贡献是技能结构、技能间过渡与序列组合的工作归入“技能学习与组合”。手内操作等任务，以及 RL、VLA、触觉融合等方法，通过可见标签和主题入口展示，不作为相互竞争的主分类。",
                     "catalog_aliases": [
                       "manipulation/dexterous/in-hand/reinforcement-learning",
                       "manipulation/dexterous/vla/tactile-action-modeling"
                     ]
+                  },
+                  {
+                    "name": "Skill Learning and Composition",
+                    "name_zh": "技能学习与组合",
+                    "code": "AM.MAN.DEX.POLICY.SKILL",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/policies/skill-composition",
+                    "description": "Learn reusable skills, skill structure, inter-skill transitions and sequential composition. Record how the skill order is obtained, how transitions depend on the next skill, and how completion triggers switching. Executing a given sequence does not establish autonomous task planning or generalization to unseen orders; human-video learning remains a method tag.",
+                    "description_zh": "研究可复用技能、技能结构、技能间过渡及序列组合。注明技能顺序如何获得、过渡如何依赖下一技能，以及如何判断完成并切换。执行给定序列不等同于自主任务规划或已验证未见顺序泛化；从人类视频学习作为方法标签。"
                   },
                   {
                     "name": "World Models and Planning-Based Control",
@@ -115,6 +124,15 @@
                     ]
                   }
                 ]
+              },
+              {
+                "name": "Agent Architectures",
+                "name_zh": "Agent 架构",
+                "code": "AM.MAN.DEX.AGENT",
+                "children": [],
+                "catalog_path": "manipulation/dexterous/agent-architectures",
+                "description": "Runtime architectures connecting high-level agents to dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, execution feedback and recovery, and the actual low-level controller. Task planning, skill composition and recovery are visible tags rather than nested categories.",
+                "description_zh": "运行时连接高层 Agent 与灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、执行反馈和恢复，以及实际底层控制器。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
               },
               {
                 "name": "Human Hand Motion and Manipulation Video Modeling",
@@ -211,6 +229,88 @@
     }
   },
   "papers": [
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.AGENT.2",
+      "slug": "adacleargrasp",
+      "short_name": "AdaClearGrasp",
+      "title": "AdaClearGrasp: Learning Adaptive Clearing for Zero-Shot Robust Dexterous Grasping in Densely Cluttered Environments",
+      "authors": "Zixuan Chen, Wenquan Zhang, Jing Fang, Ruiming Zeng, Zhixuan Xu, Yiwen Hou, Xinke Wang, Jieqi Shi, Jing Huo, Yang Gao",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.AGENT",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "agent-architecture",
+        "vlm",
+        "task-planning",
+        "adaptive-clearing",
+        "cluttered-grasping",
+        "skill-library",
+        "model-context-protocol",
+        "reinforcement-learning",
+        "ppo",
+        "geometry-aware-policy",
+        "failure-recovery",
+        "sim-to-real",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "AdaClearGrasp 让 VLM 根据场景和执行反馈决定直接抓取还是先推拉清障，通过 MCP 调用几何规划技能与 PPO 训练的 GeoGrasp 抓取策略，并在失败后重新规划，实现密集杂物中的目标抓取。",
+        "en": "AdaClearGrasp uses a VLM to choose direct grasping or push/pull clearing from the scene and execution feedback, invokes geometric planning skills and a PPO-trained GeoGrasp policy through MCP, and replans after failures to grasp targets in dense clutter."
+      },
+      "evaluation_scope": {
+        "zh": "上层 Qwen3-VL-32B-Instruct 输出工具调用与参数，清障／复位采用几何规划，失败反馈修改后续技能选择。GeoGrasp 为 PPO 训练的 MLP：59 维观测包含 18 个手部关键点到物体最近点的归一化向量、目标高度和末端高度／姿态；输出 19 维关节增量（机械臂 7＋XHand 12），经 PD 执行。在无杂物环境中用 Cube、Cup、Apple 训练，评测未见物体与无需微调的真机迁移；真机为 xArm7＋XHand，几何观测依赖物体模型与 FoundationPose 位姿估计。配套 Clutter-Bench 含 7 个目标×3 个杂乱等级×10 个布局，共 210 个仿真场景；真机报告 18 个场景。",
+        "en": "The Qwen3-VL-32B-Instruct planner emits tool calls and parameters; geometric planners execute clearing/reset skills, and failure reports change subsequent skill selection. GeoGrasp is a PPO-trained MLP with 59-D observations: normalized nearest-point vectors from 18 hand keypoints, target height, and TCP height/orientation. It outputs 19 joint increments (7 arm + 12 XHand) executed by PD control. Training uses Cube, Cup and Apple without clutter; evaluation covers unseen objects and real-robot transfer without fine-tuning. Hardware uses xArm7 + XHand; geometric observations require object meshes and FoundationPose pose estimates. Clutter-Bench contains 7 targets × 3 clutter levels × 10 layouts = 210 simulation scenes; hardware evaluation reports 18 scenes."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2603.10616v1",
+        "project": "https://chenzixuan99.github.io/adaclear-grasp.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.10616v1",
+        "https://arxiv.org/html/2603.10616v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Adaptive clearing",
+          "zh": "自适应清障"
+        },
+        {
+          "en": "RL dexterous grasping",
+          "zh": "RL灵巧抓取"
+        },
+        {
+          "en": "Failure replanning",
+          "zh": "失败重规划"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-03-11",
+        "source": "https://arxiv.org/abs/2603.10616v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "AdaClearGrasp｜Adaptive clearing · RL dexterous grasping · Failure replanning",
+        "zh": "AdaClearGrasp｜自适应清障 · RL灵巧抓取 · 失败重规划"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures.md#am-man-dex-agent-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-2"
+      },
+      "notes_urls": {}
+    },
     {
       "schema_version": 1,
       "id": "AM.MAN.DEX.BENCH.1",
@@ -644,6 +744,88 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.DEMO.V2R.3",
+      "slug": "egomatrix",
+      "short_name": "EgoMatrix",
+      "title": "EgoMatrix: Physically Faithful Dexterous Robot Demonstrations from Egocentric Human Videos",
+      "authors": "Ziheng Wang, Yanming Shao, Ting Mao, Kaihan Chen, Yiqun Wang, Xuanye Wu, Yao Mu",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.DEX.DEMO",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "egocentric-video",
+        "human-video",
+        "video-to-robot",
+        "contact-aware-reconstruction",
+        "retargeting",
+        "reinforcement-learning",
+        "ppo",
+        "reference-tracking",
+        "demonstration-synthesis",
+        "paired-observation-action-data",
+        "joint-hand-object-rendering",
+        "background-transfer",
+        "data-augmentation",
+        "open-loop-replay"
+      ],
+      "tldr": {
+        "zh": "EgoMatrix 从第一视角人类视频重建并修正手物接触，经重定向与 PPO 得到可执行双手轨迹，再同步渲染机器人手和物体、迁移兼容背景，生成动作与画面一致的机器人示范数据。",
+        "en": "EgoMatrix reconstructs and refines hand–object contact from egocentric human videos, obtains executable bimanual trajectories through retargeting and PPO, then jointly renders robot hands and objects and transfers compatible backgrounds to generate robot demonstrations with synchronized actions and visual observations."
+      },
+      "evaluation_scope": {
+        "zh": "多起点位姿优化与局部接触优化减少接触间隙和穿透；先独立重定向两手，再在 Isaac Lab 中沿用 ManipTrans 框架、去掉预训练模仿器，用 PPO 训练联合双手跟踪策略，采样成功轨迹生成同步状态、控制记录与画面。背景迁移对整段交互施加统一刚体变换，保持手物相对运动与接触，仅适用于任务兼容场景。TACO、OakInk2 与自采视频共 62 条示范中成功转移 34 条（54.84%），指标为仿真轨迹转移成功率。真机为双 UR5e＋XHand 的轨迹回放；合成视觉数据对下游操作策略训练的收益尚未验证。",
+        "en": "Multi-start pose and local contact refinement reduce contact gaps and penetration. The hands are retargeted independently before a joint bimanual tracking policy is trained with PPO in Isaac Lab using ManipTrans without its pretrained imitator; successful rollouts yield synchronized states, controls and rendered observations. Background transfer applies one rigid transform to the entire interaction, preserving relative motion/contact in task-compatible scenes. Simulation trajectory transfer succeeds for 34/62 demonstrations (54.84%) from TACO, OakInk2 and self-collected videos. Hardware validation replays trajectories on dual UR5e arms with XHand hands. Benefits of synthesized visual observations for downstream manipulation-policy training remain untested."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.18822v1",
+        "project": "https://spikew726.github.io/EgoMatrix/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.18822v1",
+        "https://arxiv.org/html/2610.18822v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Contact-consistent reconstruction",
+          "zh": "接触一致重建"
+        },
+        {
+          "en": "RL manipulation transfer",
+          "zh": "RL操作迁移"
+        },
+        {
+          "en": "Paired action–video generation",
+          "zh": "动作—视频配对生成"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-13",
+        "source": "https://arxiv.org/abs/2610.18822v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "EgoMatrix｜Contact-consistent reconstruction · RL manipulation transfer · Paired action–video generation",
+        "zh": "EgoMatrix｜接触一致重建 · RL操作迁移 · 动作—视频配对生成"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-3"
       },
       "notes_urls": {}
     },
@@ -1105,6 +1287,85 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.5",
+      "slug": "dexmimic",
+      "short_name": "DexMimic",
+      "title": "DexMimic: A Generalist Dexterous Hand-Object Tracking Policy via Value-Guided Reset Allocation",
+      "authors": "Zhexi Luo, Zhixuan Xu, Rui Yang, Zeyu Xiao, Yiwen Hou, Lin Shao",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "reinforcement-learning",
+        "ppo",
+        "residual-rl",
+        "reference-conditioned-policy",
+        "hand-object-tracking",
+        "value-guided-reset-allocation",
+        "adaptive-initialization",
+        "multi-trajectory-training",
+        "bimanual",
+        "simulation",
+        "open-loop-replay"
+      ],
+      "tldr": {
+        "zh": "DexMimic 用 PPO 联合学习多条人类手物示范的通用跟踪策略，并以 Critic 动态分配训练起点：优先练尚未掌握的阶段，再从该阶段更能持续跟踪的手物状态开始，提高多轨迹学习效率。",
+        "en": "DexMimic jointly learns a generalist tracking policy across human hand–object demonstrations with PPO, using its critic to allocate training resets: prioritize under-learned phases, then favor hand–object states within each phase that support continued tracking, improving multi-trajectory training efficiency."
+      },
+      "evaluation_scope": {
+        "zh": "最终为参考条件 MLP 残差策略：根据近期手物状态、物体属性与未来参考目标，输出腕部平移／旋转及手指关节残差，叠加重定向参考的基础动作。训练起点分配仅在训练时使用 Critic 估计；难阶段增加采样，并照顾其之前的准备阶段，同阶段优先选高价值缓存状态且保留原始参考起点采样。主实验为 Wuji 手上的仿真跟踪；Wuji、Inspire、Shadow、Allegro 对照各自训练策略，并非同一权重跨四种手。真机为 7 自由度 xArm＋20 自由度 Wuji 右手，初始化物体位姿后开环回放仿真成功轨迹，未验证该 RL 策略在真机在线闭环控制。",
+        "en": "The final reference-conditioned MLP residual policy takes recent hand–object states, object properties and future reference targets, and outputs wrist translation/rotation and finger-joint residuals added to a retargeted-reference base action. Critic-guided reset allocation is training-only: prioritize difficult phases and their preparation, favor high-value buffered states within the selected phase, and retain reference-anchor sampling. Main experiments track references in simulation with Wuji. Comparisons on Wuji, Inspire, Shadow and Allegro train a separate policy for each hand, rather than sharing weights across all four. Hardware uses a 7-DoF xArm and 20-DoF Wuji right hand to replay successful simulated trajectories open-loop after initial object-pose estimation; online closed-loop deployment of the RL policy on hardware is not demonstrated."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.19089v2",
+        "project": "https://zhexiluo.github.io/DexMimic/"
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.19089v2",
+        "https://arxiv.org/abs/2610.19089v2",
+        "https://zhexiluo.github.io/DexMimic/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "RL trajectory tracking",
+          "zh": "RL轨迹跟踪"
+        },
+        {
+          "en": "Value-guided resets",
+          "zh": "价值引导重置"
+        },
+        {
+          "en": "Multi-trajectory training",
+          "zh": "多轨迹联合训练"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-13",
+        "source": "https://arxiv.org/abs/2610.19089v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexMimic｜RL trajectory tracking · Value-guided resets · Multi-trajectory training",
+        "zh": "DexMimic｜RL轨迹跟踪 · 价值引导重置 · 多轨迹联合训练"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-5",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-5"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.PLANNING.1",
       "slug": "dsp",
       "short_name": "DSP",
@@ -1178,6 +1439,86 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.SKILL.1",
+      "slug": "dexstitch",
+      "short_name": "DexStitch",
+      "title": "DexStitch: Learning and Composing Dexterous Skills from Human Videos via Contact-Aware Robotic Inpainting",
+      "authors": "Byeonggyeol Choi, Seongmin Jung, Unghui Nam, Youngbo Song, Sunhong Min, MinHyung Lee, Byonghyo Shim, Yongseok Lee",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.SKILL",
+      "related_categories": [
+        "AM.MAN.DEX.DEMO"
+      ],
+      "tags": [
+        "dexterous",
+        "human-video",
+        "egocentric-video",
+        "video-to-robot",
+        "skill-learning",
+        "skill-composition",
+        "transition-skill",
+        "next-skill-conditioning",
+        "closed-loop-skill-switching",
+        "contact-aware-retargeting",
+        "robotic-inpainting",
+        "demonstration-synthesis",
+        "diffusion-policy",
+        "imitation-learning",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DexStitch 从人类视频中提取操作技能及过渡示范，通过接触感知的人机转换训练共享扩散策略，以当前和下一技能指导衔接动作，并预测技能进度完成闭环切换，实现给定技能序列的连续执行。",
+        "en": "DexStitch extracts manipulation skills and transition demonstrations from human videos, trains a shared diffusion policy through contact-aware human-to-robot conversion, conditions connecting motions on the current and next skills, and predicts skill progression for closed-loop switching through a given sequence."
+      },
+      "evaluation_scope": {
+        "zh": "逐指接触由 RGB 视频估计，同时约束手部重定向和合成画面的手指／物体遮挡。约 240 条长时序人类示范用于合成数据预训练，再混入约 32 条单技能真机示范微调；过渡示范仅来自人类视频。执行顺序由视频分类器或脚本给定，共享策略预测动作与技能进度，非自主任务规划。真机为 RB5-850E 臂＋xHand，实际执行 6 维臂关节及 12 维手关节动作。四项技能各测 5 次，单技能平均成功率 80%；10 次固定四技能序列中的 40 次技能执行平均成功率为 77.5%，不是整条序列全部成功的比例，未验证未见顺序泛化。画面合成采用拇指在前、其余接触指在后的包覆抓取假设。",
+        "en": "RGB-estimated finger contacts guide both retargeting and finger/object occlusion in synthetic frames. Pretraining uses about 240 converted long-horizon human episodes; mixed fine-tuning adds about 32 single-skill robot demonstrations. Transitions are supervised only by human video. A video classifier or script supplies the order; the shared policy predicts actions and skill progression rather than autonomously planning tasks. Hardware is an RB5-850E arm with xHand, executing 6 arm and 12 hand joint commands. Four skills receive five isolated trials each, averaging 80% success. The 77.5% sequence metric averages 40 skill executions across ten fixed four-skill rollouts, not fully successful sequence rollouts. Unseen orderings are untested. Compositing assumes wrap grasps with the thumb in front and other contacting fingers behind the object."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.17789v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.17789v1",
+        "https://arxiv.org/html/2610.17789v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Human-video transfer",
+          "zh": "人类视频迁移"
+        },
+        {
+          "en": "Contact-aware conversion",
+          "zh": "接触感知转换"
+        },
+        {
+          "en": "Skill transitions and composition",
+          "zh": "技能衔接与组合"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-13",
+        "source": "https://arxiv.org/abs/2610.17789v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexStitch｜Human-video transfer · Contact-aware conversion · Skill transitions and composition",
+        "zh": "DexStitch｜人类视频迁移 · 接触感知转换 · 技能衔接与组合"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/skill-composition.md#am-man-dex-policy-skill-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/skill-composition_cn.md#am-man-dex-policy-skill-1"
       },
       "notes_urls": {}
     },
@@ -1716,6 +2057,169 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/whole-body-control/arm-torso-manipulation.md#am-wbc-arm-torso-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/whole-body-control/arm-torso-manipulation_cn.md#am-wbc-arm-torso-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.AGENT.1",
+      "slug": "robodexvlm",
+      "short_name": "RoboDexVLM",
+      "title": "RoboDexVLM: Visual Language Model-Enabled Task Planning and Motion Control for Dexterous Robot Manipulation",
+      "authors": "Haichao Liu, Sikai Guo, Pengfei Mai, Jiahang Cao, Haoang Li, Jun Ma",
+      "year": 2025,
+      "venue": "IROS 2025 / arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.AGENT",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "agent-architecture",
+        "vlm",
+        "task-planning",
+        "skill-composition",
+        "skill-library",
+        "agent-memory",
+        "open-vocabulary",
+        "grasp-generation",
+        "kinematic-retargeting",
+        "failure-recovery",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "RoboDexVLM 用 GPT-4o 将语言任务编排为预定义技能序列，通过运动学映射把两指抓取候选用于灵巧手执行，并将执行失败、当前场景和历史送回 VLM 重排技能，实现长序列操作与失败恢复。",
+        "en": "RoboDexVLM uses GPT-4o to compose predefined skills from language instructions, maps parallel-gripper grasp proposals to a dexterous hand through kinematics, and feeds execution failures, the current scene and history back to the VLM to replan skills for long-horizon manipulation and recovery."
+      },
+      "evaluation_scope": {
+        "zh": "GPT-4o 根据指令、场景、技能清单与记忆输出 8 个原子技能的调用顺序及参数；Grounding DINO＋SAM 定位目标，AnyGrasp 生成抓取候选，经标定映射到多指手，机械臂使用运动学轨迹，手指闭合至设定力阈值。每次技能后用深度变化和手指位置反馈检查结果，错误／图像／历史进入反思提示，从最后成功技能继续，每任务最多恢复三次；反馈修改技能计划与参数，论文未提出新的 RL 或端到端 VLA 动作策略。UR5＋Inspire 五指手＋D435i 真机展示开抽屉取物、容器开盖与水果收纳；代码链接为作者扩展实现。",
+        "en": "GPT-4o receives instructions, scene observations, available skills and memory, and outputs calls and parameters over eight atomic skills. Grounding DINO + SAM localize objects; AnyGrasp proposals are calibrated to the hand, arm motions use kinematic trajectories, and fingers close to a force threshold. Depth changes and finger-position feedback check each skill; errors, images and history prompt replanning from the last successful skill, with at most three recovery attempts per task. Feedback changes skill plans and parameters; no new RL or end-to-end VLA action policy is introduced. UR5 + Inspire five-finger hand + D435i demonstrations include drawer retrieval, lid opening and fruit collection. The linked author repository is an extended implementation."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2503.01616v1",
+        "project": "https://henryhcliu.github.io/robodexvlm/",
+        "code": "https://github.com/henryhcliu/robodex_vlm"
+      },
+      "sources": [
+        "https://arxiv.org/html/2503.01616v1",
+        "https://arxiv.org/abs/2503.01616v1",
+        "https://henryhcliu.github.io/robodexvlm/",
+        "https://github.com/henryhcliu/robodex_vlm"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "VLM Agent",
+          "zh": "VLM Agent"
+        },
+        {
+          "en": "Task planning",
+          "zh": "任务规划"
+        },
+        {
+          "en": "Failure replanning",
+          "zh": "失败重规划"
+        }
+      ],
+      "publication_date": {
+        "value": "2025-03-03",
+        "source": "https://arxiv.org/abs/2503.01616v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "RoboDexVLM｜VLM Agent · Task planning · Failure replanning",
+        "zh": "RoboDexVLM｜VLM Agent · 任务规划 · 失败重规划"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures.md#am-man-dex-agent-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.AGENT.3",
+      "slug": "dexgraspvla",
+      "short_name": "DexGraspVLA",
+      "title": "DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping",
+      "authors": "Yifan Zhong, Xuchuan Huang, Ruochong Li, Ceyao Zhang, Zhang Chen, Tianrui Guan, Fanlian Zeng, Ka Nam Lui, Yuyao Ye, Yitao Liang, Yaodong Yang, Yuanpei Chen",
+      "year": 2025,
+      "venue": "AAAI 2026 Oral / arXiv v5",
+      "kind": "model",
+      "category": "AM.MAN.DEX.AGENT",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "agent-architecture",
+        "vla",
+        "vlm",
+        "task-planning",
+        "visual-grounding",
+        "object-mask-tracking",
+        "domain-invariant-representation",
+        "dinov2",
+        "diffusion-policy",
+        "imitation-learning",
+        "action-chunking",
+        "failure-recovery",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DexGraspVLA 由 VLM 逐步选择抓取目标并输出目标框，经 SAM／Cutie 转为跟踪掩码，与冻结 DINOv2 特征共同引导示范训练的扩散臂手策略；上层检查执行结果并选择下一目标，通过稳定的中间表示提升跨物体、光照和背景的抓取泛化。",
+        "en": "DexGraspVLA uses a VLM to select successive grasp targets and bounding boxes, converts them into tracked masks with SAM/Cutie, and combines these with frozen DINOv2 features to guide a demonstration-trained diffusion arm-hand policy; the planner checks execution and selects the next target, while stable intermediate representations support generalization across objects, lighting and backgrounds."
+      },
+      "evaluation_scope": {
+        "zh": "运行时为高层目标选择／结果监控＋低层闭环动作执行；底层采用模仿学习，不是 RL，反馈更新目标与动作输入，不在线更新模型权重，成功后的放置为脚本。真机为 RealMan RM75-6F 七自由度臂＋PsiBot G0-R 六自由度手，输出 13 维关节目标；标准抓取预测 64 步、执行 6 步后重新预测。训练使用 36 个物体的 2,094 条成功示范；跨物体、光照与背景报告 1,287 次测试。“零样本”指新场景无需微调；非抓持物体抓取扩展另用 1,029 条示范训练。",
+        "en": "Runtime target selection and outcome monitoring coordinate closed-loop execution. The controller uses imitation learning, not RL; feedback changes targets and action inputs, not weights. Successful grasps trigger scripted placing. Hardware: 7-DoF RealMan RM75-6F arm + 6-DoF PsiBot G0-R hand; 13-D joint targets, 64-step predictions with 6 steps executed before replanning in standard grasping. Training uses 2,094 successful demonstrations with 36 objects; 1,287 tests vary objects, lighting and backgrounds. Zero-shot means no fine-tuning for new scenes; the nonprehensile extension uses 1,029 additional demonstrations."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2502.20900v5",
+        "project": "https://dexgraspvla.github.io/",
+        "code": "https://github.com/Psi-Robot/DexGraspVLA"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2502.20900v5",
+        "https://arxiv.org/html/2502.20900v5",
+        "https://dexgraspvla.github.io/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Hierarchical VLA",
+          "zh": "分层VLA"
+        },
+        {
+          "en": "Domain-invariant visual representations",
+          "zh": "域不变视觉表示"
+        },
+        {
+          "en": "Diffusion imitation learning",
+          "zh": "扩散模仿学习"
+        }
+      ],
+      "publication_date": {
+        "value": "2025-02-28",
+        "source": "https://arxiv.org/abs/2502.20900v5",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexGraspVLA｜Hierarchical VLA · Domain-invariant visual representations · Diffusion imitation learning",
+        "zh": "DexGraspVLA｜分层VLA · 域不变视觉表示 · 扩散模仿学习"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures.md#am-man-dex-agent-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-3"
       },
       "notes_urls": {}
     }

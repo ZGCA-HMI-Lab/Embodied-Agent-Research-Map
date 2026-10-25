@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.V2R.3",
+  "slug": "egomatrix",
+  "short_name": "EgoMatrix",
+  "title": "EgoMatrix: Physically Faithful Dexterous Robot Demonstrations from Egocentric Human Videos",
+  "authors": "Ziheng Wang, Yanming Shao, Ting Mao, Kaihan Chen, Yiqun Wang, Xuanye Wu, Yao Mu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "egocentric-video",
+    "human-video",
+    "video-to-robot",
+    "contact-aware-reconstruction",
+    "retargeting",
+    "reinforcement-learning",
+    "ppo",
+    "reference-tracking",
+    "demonstration-synthesis",
+    "paired-observation-action-data",
+    "joint-hand-object-rendering",
+    "background-transfer",
+    "data-augmentation",
+    "open-loop-replay"
+  ],
+  "tldr": {
+    "zh": "EgoMatrix 从第一视角人类视频重建并修正手物接触，经重定向与 PPO 得到可执行双手轨迹，再同步渲染机器人手和物体、迁移兼容背景，生成动作与画面一致的机器人示范数据。",
+    "en": "EgoMatrix reconstructs and refines hand–object contact from egocentric human videos, obtains executable bimanual trajectories through retargeting and PPO, then jointly renders robot hands and objects and transfers compatible backgrounds to generate robot demonstrations with synchronized actions and visual observations."
+  },
+  "evaluation_scope": {
+    "zh": "多起点位姿优化与局部接触优化减少接触间隙和穿透；先独立重定向两手，再在 Isaac Lab 中沿用 ManipTrans 框架、去掉预训练模仿器，用 PPO 训练联合双手跟踪策略，采样成功轨迹生成同步状态、控制记录与画面。背景迁移对整段交互施加统一刚体变换，保持手物相对运动与接触，仅适用于任务兼容场景。TACO、OakInk2 与自采视频共 62 条示范中成功转移 34 条（54.84%），指标为仿真轨迹转移成功率。真机为双 UR5e＋XHand 的轨迹回放；合成视觉数据对下游操作策略训练的收益尚未验证。",
+    "en": "Multi-start pose and local contact refinement reduce contact gaps and penetration. The hands are retargeted independently before a joint bimanual tracking policy is trained with PPO in Isaac Lab using ManipTrans without its pretrained imitator; successful rollouts yield synchronized states, controls and rendered observations. Background transfer applies one rigid transform to the entire interaction, preserving relative motion/contact in task-compatible scenes. Simulation trajectory transfer succeeds for 34/62 demonstrations (54.84%) from TACO, OakInk2 and self-collected videos. Hardware validation replays trajectories on dual UR5e arms with XHand hands. Benefits of synthesized visual observations for downstream manipulation-policy training remain untested."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.18822v1",
+    "project": "https://spikew726.github.io/EgoMatrix/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.18822v1",
+    "https://arxiv.org/html/2610.18822v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Contact-consistent reconstruction",
+      "zh": "接触一致重建"
+    },
+    {
+      "en": "RL manipulation transfer",
+      "zh": "RL操作迁移"
+    },
+    {
+      "en": "Paired action–video generation",
+      "zh": "动作—视频配对生成"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-13",
+    "source": "https://arxiv.org/abs/2610.18822v1",
+    "basis": "source"
+  }
+}

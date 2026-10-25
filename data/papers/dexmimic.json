@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.5",
+  "slug": "dexmimic",
+  "short_name": "DexMimic",
+  "title": "DexMimic: A Generalist Dexterous Hand-Object Tracking Policy via Value-Guided Reset Allocation",
+  "authors": "Zhexi Luo, Zhixuan Xu, Rui Yang, Zeyu Xiao, Yiwen Hou, Lin Shao",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "reinforcement-learning",
+    "ppo",
+    "residual-rl",
+    "reference-conditioned-policy",
+    "hand-object-tracking",
+    "value-guided-reset-allocation",
+    "adaptive-initialization",
+    "multi-trajectory-training",
+    "bimanual",
+    "simulation",
+    "open-loop-replay"
+  ],
+  "tldr": {
+    "zh": "DexMimic 用 PPO 联合学习多条人类手物示范的通用跟踪策略，并以 Critic 动态分配训练起点：优先练尚未掌握的阶段，再从该阶段更能持续跟踪的手物状态开始，提高多轨迹学习效率。",
+    "en": "DexMimic jointly learns a generalist tracking policy across human hand–object demonstrations with PPO, using its critic to allocate training resets: prioritize under-learned phases, then favor hand–object states within each phase that support continued tracking, improving multi-trajectory training efficiency."
+  },
+  "evaluation_scope": {
+    "zh": "最终为参考条件 MLP 残差策略：根据近期手物状态、物体属性与未来参考目标，输出腕部平移／旋转及手指关节残差，叠加重定向参考的基础动作。训练起点分配仅在训练时使用 Critic 估计；难阶段增加采样，并照顾其之前的准备阶段，同阶段优先选高价值缓存状态且保留原始参考起点采样。主实验为 Wuji 手上的仿真跟踪；Wuji、Inspire、Shadow、Allegro 对照各自训练策略，并非同一权重跨四种手。真机为 7 自由度 xArm＋20 自由度 Wuji 右手，初始化物体位姿后开环回放仿真成功轨迹，未验证该 RL 策略在真机在线闭环控制。",
+    "en": "The final reference-conditioned MLP residual policy takes recent hand–object states, object properties and future reference targets, and outputs wrist translation/rotation and finger-joint residuals added to a retargeted-reference base action. Critic-guided reset allocation is training-only: prioritize difficult phases and their preparation, favor high-value buffered states within the selected phase, and retain reference-anchor sampling. Main experiments track references in simulation with Wuji. Comparisons on Wuji, Inspire, Shadow and Allegro train a separate policy for each hand, rather than sharing weights across all four. Hardware uses a 7-DoF xArm and 20-DoF Wuji right hand to replay successful simulated trajectories open-loop after initial object-pose estimation; online closed-loop deployment of the RL policy on hardware is not demonstrated."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.19089v2",
+    "project": "https://zhexiluo.github.io/DexMimic/"
+  },
+  "sources": [
+    "https://arxiv.org/html/2610.19089v2",
+    "https://arxiv.org/abs/2610.19089v2",
+    "https://zhexiluo.github.io/DexMimic/"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "RL trajectory tracking",
+      "zh": "RL轨迹跟踪"
+    },
+    {
+      "en": "Value-guided resets",
+      "zh": "价值引导重置"
+    },
+    {
+      "en": "Multi-trajectory training",
+      "zh": "多轨迹联合训练"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-13",
+    "source": "https://arxiv.org/abs/2610.19089v2",
+    "basis": "source"
+  }
+}

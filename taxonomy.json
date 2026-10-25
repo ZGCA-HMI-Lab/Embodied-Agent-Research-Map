@@ -83,12 +83,21 @@
                   "code": "AM.MAN.DEX.POLICY.LEARNING",
                   "children": [],
                   "catalog_path": "manipulation/dexterous/policies/policy-learning",
-                  "description": "Learn policies that generate robot actions from observations. Record tasks such as in-hand manipulation and methods such as RL, VLA and tactile fusion as visible labels and topics, rather than competing primary categories.",
-                  "description_zh": "学习根据观测生成机器人动作的策略。手内操作等任务，以及 RL、VLA、触觉融合等方法，通过可见标签和主题入口展示，不作为相互竞争的主分类。",
+                  "description": "Learn policies that generate robot actions from observations. When the main contribution is skill structure, transitions or sequential composition, use Skill Learning and Composition. Record tasks such as in-hand manipulation and methods such as RL, VLA and tactile fusion as visible labels and topics, rather than competing primary categories.",
+                  "description_zh": "学习根据观测生成机器人动作的策略。主要贡献是技能结构、技能间过渡与序列组合的工作归入“技能学习与组合”。手内操作等任务，以及 RL、VLA、触觉融合等方法，通过可见标签和主题入口展示，不作为相互竞争的主分类。",
                   "catalog_aliases": [
                     "manipulation/dexterous/in-hand/reinforcement-learning",
                     "manipulation/dexterous/vla/tactile-action-modeling"
                   ]
+                },
+                {
+                  "name": "Skill Learning and Composition",
+                  "name_zh": "技能学习与组合",
+                  "code": "AM.MAN.DEX.POLICY.SKILL",
+                  "children": [],
+                  "catalog_path": "manipulation/dexterous/policies/skill-composition",
+                  "description": "Learn reusable skills, skill structure, inter-skill transitions and sequential composition. Record how the skill order is obtained, how transitions depend on the next skill, and how completion triggers switching. Executing a given sequence does not establish autonomous task planning or generalization to unseen orders; human-video learning remains a method tag.",
+                  "description_zh": "研究可复用技能、技能结构、技能间过渡及序列组合。注明技能顺序如何获得、过渡如何依赖下一技能，以及如何判断完成并切换。执行给定序列不等同于自主任务规划或已验证未见顺序泛化；从人类视频学习作为方法标签。"
                 },
                 {
                   "name": "World Models and Planning-Based Control",
@@ -112,6 +121,15 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "Agent Architectures",
+              "name_zh": "Agent 架构",
+              "code": "AM.MAN.DEX.AGENT",
+              "children": [],
+              "catalog_path": "manipulation/dexterous/agent-architectures",
+              "description": "Runtime architectures connecting high-level agents to dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, execution feedback and recovery, and the actual low-level controller. Task planning, skill composition and recovery are visible tags rather than nested categories.",
+              "description_zh": "运行时连接高层 Agent 与灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、执行反馈和恢复，以及实际底层控制器。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
             },
             {
               "name": "Human Hand Motion and Manipulation Video Modeling",

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.3",
+  "slug": "dexgraspvla",
+  "short_name": "DexGraspVLA",
+  "title": "DexGraspVLA: A Vision-Language-Action Framework Towards General Dexterous Grasping",
+  "authors": "Yifan Zhong, Xuchuan Huang, Ruochong Li, Ceyao Zhang, Zhang Chen, Tianrui Guan, Fanlian Zeng, Ka Nam Lui, Yuyao Ye, Yitao Liang, Yaodong Yang, Yuanpei Chen",
+  "year": 2025,
+  "venue": "AAAI 2026 Oral / arXiv v5",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "agent-architecture",
+    "vla",
+    "vlm",
+    "task-planning",
+    "visual-grounding",
+    "object-mask-tracking",
+    "domain-invariant-representation",
+    "dinov2",
+    "diffusion-policy",
+    "imitation-learning",
+    "action-chunking",
+    "failure-recovery",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DexGraspVLA 由 VLM 逐步选择抓取目标并输出目标框，经 SAM／Cutie 转为跟踪掩码，与冻结 DINOv2 特征共同引导示范训练的扩散臂手策略；上层检查执行结果并选择下一目标，通过稳定的中间表示提升跨物体、光照和背景的抓取泛化。",
+    "en": "DexGraspVLA uses a VLM to select successive grasp targets and bounding boxes, converts them into tracked masks with SAM/Cutie, and combines these with frozen DINOv2 features to guide a demonstration-trained diffusion arm-hand policy; the planner checks execution and selects the next target, while stable intermediate representations support generalization across objects, lighting and backgrounds."
+  },
+  "evaluation_scope": {
+    "zh": "运行时为高层目标选择／结果监控＋低层闭环动作执行；底层采用模仿学习，不是 RL，反馈更新目标与动作输入，不在线更新模型权重，成功后的放置为脚本。真机为 RealMan RM75-6F 七自由度臂＋PsiBot G0-R 六自由度手，输出 13 维关节目标；标准抓取预测 64 步、执行 6 步后重新预测。训练使用 36 个物体的 2,094 条成功示范；跨物体、光照与背景报告 1,287 次测试。“零样本”指新场景无需微调；非抓持物体抓取扩展另用 1,029 条示范训练。",
+    "en": "Runtime target selection and outcome monitoring coordinate closed-loop execution. The controller uses imitation learning, not RL; feedback changes targets and action inputs, not weights. Successful grasps trigger scripted placing. Hardware: 7-DoF RealMan RM75-6F arm + 6-DoF PsiBot G0-R hand; 13-D joint targets, 64-step predictions with 6 steps executed before replanning in standard grasping. Training uses 2,094 successful demonstrations with 36 objects; 1,287 tests vary objects, lighting and backgrounds. Zero-shot means no fine-tuning for new scenes; the nonprehensile extension uses 1,029 additional demonstrations."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2502.20900v5",
+    "project": "https://dexgraspvla.github.io/",
+    "code": "https://github.com/Psi-Robot/DexGraspVLA"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2502.20900v5",
+    "https://arxiv.org/html/2502.20900v5",
+    "https://dexgraspvla.github.io/"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Hierarchical VLA",
+      "zh": "分层VLA"
+    },
+    {
+      "en": "Domain-invariant visual representations",
+      "zh": "域不变视觉表示"
+    },
+    {
+      "en": "Diffusion imitation learning",
+      "zh": "扩散模仿学习"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-02-28",
+    "source": "https://arxiv.org/abs/2502.20900v5",
+    "basis": "source"
+  }
+}

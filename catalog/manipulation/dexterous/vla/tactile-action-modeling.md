@@ -24,6 +24,10 @@
 
 [FACT [AM.MAN.DEX.POLICY.LEARNING.4]](../policies/policy-learning.md#am-man-dex-policy-learning-4)
 
+<a id="am-man-dex-policy-learning-5"></a>
+
+[DexMimic [AM.MAN.DEX.POLICY.LEARNING.5]](../policies/policy-learning.md#am-man-dex-policy-learning-5)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning.md#am-man-dex-vla-tactile-1)

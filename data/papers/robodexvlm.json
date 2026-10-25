@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.1",
+  "slug": "robodexvlm",
+  "short_name": "RoboDexVLM",
+  "title": "RoboDexVLM: Visual Language Model-Enabled Task Planning and Motion Control for Dexterous Robot Manipulation",
+  "authors": "Haichao Liu, Sikai Guo, Pengfei Mai, Jiahang Cao, Haoang Li, Jun Ma",
+  "year": 2025,
+  "venue": "IROS 2025 / arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "agent-architecture",
+    "vlm",
+    "task-planning",
+    "skill-composition",
+    "skill-library",
+    "agent-memory",
+    "open-vocabulary",
+    "grasp-generation",
+    "kinematic-retargeting",
+    "failure-recovery",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "RoboDexVLM 用 GPT-4o 将语言任务编排为预定义技能序列，通过运动学映射把两指抓取候选用于灵巧手执行，并将执行失败、当前场景和历史送回 VLM 重排技能，实现长序列操作与失败恢复。",
+    "en": "RoboDexVLM uses GPT-4o to compose predefined skills from language instructions, maps parallel-gripper grasp proposals to a dexterous hand through kinematics, and feeds execution failures, the current scene and history back to the VLM to replan skills for long-horizon manipulation and recovery."
+  },
+  "evaluation_scope": {
+    "zh": "GPT-4o 根据指令、场景、技能清单与记忆输出 8 个原子技能的调用顺序及参数；Grounding DINO＋SAM 定位目标，AnyGrasp 生成抓取候选，经标定映射到多指手，机械臂使用运动学轨迹，手指闭合至设定力阈值。每次技能后用深度变化和手指位置反馈检查结果，错误／图像／历史进入反思提示，从最后成功技能继续，每任务最多恢复三次；反馈修改技能计划与参数，论文未提出新的 RL 或端到端 VLA 动作策略。UR5＋Inspire 五指手＋D435i 真机展示开抽屉取物、容器开盖与水果收纳；代码链接为作者扩展实现。",
+    "en": "GPT-4o receives instructions, scene observations, available skills and memory, and outputs calls and parameters over eight atomic skills. Grounding DINO + SAM localize objects; AnyGrasp proposals are calibrated to the hand, arm motions use kinematic trajectories, and fingers close to a force threshold. Depth changes and finger-position feedback check each skill; errors, images and history prompt replanning from the last successful skill, with at most three recovery attempts per task. Feedback changes skill plans and parameters; no new RL or end-to-end VLA action policy is introduced. UR5 + Inspire five-finger hand + D435i demonstrations include drawer retrieval, lid opening and fruit collection. The linked author repository is an extended implementation."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2503.01616v1",
+    "project": "https://henryhcliu.github.io/robodexvlm/",
+    "code": "https://github.com/henryhcliu/robodex_vlm"
+  },
+  "sources": [
+    "https://arxiv.org/html/2503.01616v1",
+    "https://arxiv.org/abs/2503.01616v1",
+    "https://henryhcliu.github.io/robodexvlm/",
+    "https://github.com/henryhcliu/robodex_vlm"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLM Agent",
+      "zh": "VLM Agent"
+    },
+    {
+      "en": "Task planning",
+      "zh": "任务规划"
+    },
+    {
+      "en": "Failure replanning",
+      "zh": "失败重规划"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-03-03",
+    "source": "https://arxiv.org/abs/2503.01616v1",
+    "basis": "source"
+  }
+}

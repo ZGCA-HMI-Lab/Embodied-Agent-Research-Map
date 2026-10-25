@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.2",
+  "slug": "adacleargrasp",
+  "short_name": "AdaClearGrasp",
+  "title": "AdaClearGrasp: Learning Adaptive Clearing for Zero-Shot Robust Dexterous Grasping in Densely Cluttered Environments",
+  "authors": "Zixuan Chen, Wenquan Zhang, Jing Fang, Ruiming Zeng, Zhixuan Xu, Yiwen Hou, Xinke Wang, Jieqi Shi, Jing Huo, Yang Gao",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "agent-architecture",
+    "vlm",
+    "task-planning",
+    "adaptive-clearing",
+    "cluttered-grasping",
+    "skill-library",
+    "model-context-protocol",
+    "reinforcement-learning",
+    "ppo",
+    "geometry-aware-policy",
+    "failure-recovery",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "AdaClearGrasp 让 VLM 根据场景和执行反馈决定直接抓取还是先推拉清障，通过 MCP 调用几何规划技能与 PPO 训练的 GeoGrasp 抓取策略，并在失败后重新规划，实现密集杂物中的目标抓取。",
+    "en": "AdaClearGrasp uses a VLM to choose direct grasping or push/pull clearing from the scene and execution feedback, invokes geometric planning skills and a PPO-trained GeoGrasp policy through MCP, and replans after failures to grasp targets in dense clutter."
+  },
+  "evaluation_scope": {
+    "zh": "上层 Qwen3-VL-32B-Instruct 输出工具调用与参数，清障／复位采用几何规划，失败反馈修改后续技能选择。GeoGrasp 为 PPO 训练的 MLP：59 维观测包含 18 个手部关键点到物体最近点的归一化向量、目标高度和末端高度／姿态；输出 19 维关节增量（机械臂 7＋XHand 12），经 PD 执行。在无杂物环境中用 Cube、Cup、Apple 训练，评测未见物体与无需微调的真机迁移；真机为 xArm7＋XHand，几何观测依赖物体模型与 FoundationPose 位姿估计。配套 Clutter-Bench 含 7 个目标×3 个杂乱等级×10 个布局，共 210 个仿真场景；真机报告 18 个场景。",
+    "en": "The Qwen3-VL-32B-Instruct planner emits tool calls and parameters; geometric planners execute clearing/reset skills, and failure reports change subsequent skill selection. GeoGrasp is a PPO-trained MLP with 59-D observations: normalized nearest-point vectors from 18 hand keypoints, target height, and TCP height/orientation. It outputs 19 joint increments (7 arm + 12 XHand) executed by PD control. Training uses Cube, Cup and Apple without clutter; evaluation covers unseen objects and real-robot transfer without fine-tuning. Hardware uses xArm7 + XHand; geometric observations require object meshes and FoundationPose pose estimates. Clutter-Bench contains 7 targets × 3 clutter levels × 10 layouts = 210 simulation scenes; hardware evaluation reports 18 scenes."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2603.10616v1",
+    "project": "https://chenzixuan99.github.io/adaclear-grasp.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2603.10616v1",
+    "https://arxiv.org/html/2603.10616v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Adaptive clearing",
+      "zh": "自适应清障"
+    },
+    {
+      "en": "RL dexterous grasping",
+      "zh": "RL灵巧抓取"
+    },
+    {
+      "en": "Failure replanning",
+      "zh": "失败重规划"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-03-11",
+    "source": "https://arxiv.org/abs/2603.10616v1",
+    "basis": "source"
+  }
+}

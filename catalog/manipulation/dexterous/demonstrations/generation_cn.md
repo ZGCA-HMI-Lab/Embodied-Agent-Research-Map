@@ -8,17 +8,19 @@
 
 从真实或生成视频出发，通过重定向、仿真优化等生成机器人示范轨迹或训练数据。按主要贡献归类：在线操控的重定向控制器归策略与控制；区分轨迹回放与闭环策略部署。
 
-**按主题浏览：** [VLA (5)](../../../topics/vla_cn.md) · [强化学习 (4)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (6)](../../../topics/vla_cn.md) · [强化学习 (7)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
-`AM.MAN.DEX.DEMO` · 2 篇主分类工作
+`AM.MAN.DEX.DEMO` · 3 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
 | [AM.MAN.DEX.DEMO.V2R.1] <a id="am-man-dex-demo-v2r-1"></a> | **Gen2Dex｜视频示范 · 重定向 · RL轨迹优化**<br>[Gen2Dex: Learning Dexterous Manipulation from Simulation-Initialized Generated Video Demonstrations](https://arxiv.org/pdf/2610.24392v1)<br>Xiaowen Qiu et al<br>**标签:** `dexterous` `generated-video` `video-to-robot` `retargeting` [residual-rl](../../../topics/reinforcement-learning_cn.md) `trajectory-optimization` `sim-to-real` | **目标：**将仿真场景初始化的生成视频转为可执行灵巧手示范。<br>**方法：**恢复并对齐手物运动，重定向后用 PPO 残差 RL、倒序课程及物理有效重置状态修正不可靠参考。<br>**输出：**优化后的机器人轨迹；真机展示采用开环回放。<br>**评测范围:** 需已知物体几何、初始位姿和相机参数。Shadow 用于主仿真，Sharpa 用于 ARCTIC 对照；Wuji＋xArm 真机展示 4 个任务，初始物体需人工对齐，未验证通用闭环策略。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.24392v1) | 初读<br>2026-10-21 |
 | [AM.MAN.DEX.DEMO.V2R.2] <a id="am-man-dex-demo-v2r-2"></a> | **DexAgent｜视频示范 · Agent构建仿真 · 数据扩增**<br>[DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library](https://arxiv.org/pdf/2609.35318v2)<br>Youhui Wang et al<br>**标签:** `dexterous` `human-video` `video-to-robot` `human2sim2robot` `agentic-data-generation` `simulation-verification` `trajectory-optimization` `tool-library` `data-augmentation` [vla-fine-tuning](../../../topics/vla_cn.md) `sim-to-real` `bimanual` | **Human2Sim2Robot：**单段人类操作视频＋任务指令 → 拆解子任务、识别物体属性 → 重建仿真场景 → 轨迹优化或代码生成，结合仿真验证找到一条成功的机器人轨迹 → 改变物体与机器人初始状态扩增示范、处理渲染外观 → 用所得数据微调 π₀.₅ → 部署真实灵巧手。<br>**特色：**智能体在各阶段选择或编写工具，根据验证失败反馈反复修正；新工具与验证器保存到库，供后续视频转换复用。“自进化”指工具代码积累，验证反馈作用于数据生成流程。<br>**评测范围:** 双臂 YamBox＋两只 Sharpa 手，11 个任务；每任务一段人类视频，扩增 500 条机器人示范微调 π₀.₅，随机初始物体状态下每任务闭环评测 10 次，平均成功率 63.6%（最强对照 SPIDER 为 18.2%）。另有开环轨迹回放：11/11 表示每任务 10 次至少成功一次，不代表全部试验成功。覆盖刚体、关节物体、绳索及长程任务；通过仿真检查仍可能有 Sim-to-Real 与力敏感交互失败。 | arXiv v2 / 2026 | [论文](https://arxiv.org/pdf/2609.35318v2) · [项目](https://dexagent1.github.io/) | 初读<br>2026-10-23 |
+| [AM.MAN.DEX.DEMO.V2R.3] <a id="am-man-dex-demo-v2r-3"></a> | **EgoMatrix｜接触一致重建 · RL操作迁移 · 动作—视频配对生成**<br>[EgoMatrix: Physically Faithful Dexterous Robot Demonstrations from Egocentric Human Videos](https://arxiv.org/pdf/2610.18822v1)<br>Ziheng Wang, Yanming Shao, Ting Mao, Kaihan Chen, Yiqun Wang, Xuanye Wu, Yao Mu<br>**标签:** `dexterous` `bimanual` `egocentric-video` `human-video` `video-to-robot` `contact-aware-reconstruction` `retargeting` [reinforcement-learning](../../../topics/reinforcement-learning_cn.md) [ppo](../../../topics/reinforcement-learning_cn.md) `reference-tracking` `demonstration-synthesis` `paired-observation-action-data` `joint-hand-object-rendering` `background-transfer` `data-augmentation` `open-loop-replay` | EgoMatrix 从第一视角人类视频重建并修正手物接触，经重定向与 PPO 得到可执行双手轨迹，再同步渲染机器人手和物体、迁移兼容背景，生成动作与画面一致的机器人示范数据。<br>**评测范围:** 多起点位姿优化与局部接触优化减少接触间隙和穿透；先独立重定向两手，再在 Isaac Lab 中沿用 ManipTrans 框架、去掉预训练模仿器，用 PPO 训练联合双手跟踪策略，采样成功轨迹生成同步状态、控制记录与画面。背景迁移对整段交互施加统一刚体变换，保持手物相对运动与接触，仅适用于任务兼容场景。TACO、OakInk2 与自采视频共 62 条示范中成功转移 34 条（54.84%），指标为仿真轨迹转移成功率。真机为双 UR5e＋XHand 的轨迹回放；合成视觉数据对下游操作策略训练的收益尚未验证。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.18822v1) · [项目](https://spikew726.github.io/EgoMatrix/) | 初读<br>2026-10-25 |
 
 ## 相关工作
 
 - [P³-WAM [AM.MAN.DEX.HUMAN.UNIFIED.1]](../human-hand-modeling_cn.md#am-man-dex-human-unified-1)
+- [DexStitch [AM.MAN.DEX.POLICY.SKILL.1]](../policies/skill-composition_cn.md#am-man-dex-policy-skill-1)
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

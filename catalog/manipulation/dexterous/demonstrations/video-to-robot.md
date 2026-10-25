@@ -11,3 +11,7 @@
 <a id="am-man-dex-demo-v2r-2"></a>
 
 [DexAgent [AM.MAN.DEX.DEMO.V2R.2]](generation.md#am-man-dex-demo-v2r-2)
+
+<a id="am-man-dex-demo-v2r-3"></a>
+
+[EgoMatrix [AM.MAN.DEX.DEMO.V2R.3]](generation.md#am-man-dex-demo-v2r-3)

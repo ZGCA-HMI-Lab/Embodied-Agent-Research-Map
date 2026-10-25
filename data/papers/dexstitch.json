@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.SKILL.1",
+  "slug": "dexstitch",
+  "short_name": "DexStitch",
+  "title": "DexStitch: Learning and Composing Dexterous Skills from Human Videos via Contact-Aware Robotic Inpainting",
+  "authors": "Byeonggyeol Choi, Seongmin Jung, Unghui Nam, Youngbo Song, Sunhong Min, MinHyung Lee, Byonghyo Shim, Yongseok Lee",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.SKILL",
+  "related_categories": [
+    "AM.MAN.DEX.DEMO"
+  ],
+  "tags": [
+    "dexterous",
+    "human-video",
+    "egocentric-video",
+    "video-to-robot",
+    "skill-learning",
+    "skill-composition",
+    "transition-skill",
+    "next-skill-conditioning",
+    "closed-loop-skill-switching",
+    "contact-aware-retargeting",
+    "robotic-inpainting",
+    "demonstration-synthesis",
+    "diffusion-policy",
+    "imitation-learning",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DexStitch 从人类视频中提取操作技能及过渡示范，通过接触感知的人机转换训练共享扩散策略，以当前和下一技能指导衔接动作，并预测技能进度完成闭环切换，实现给定技能序列的连续执行。",
+    "en": "DexStitch extracts manipulation skills and transition demonstrations from human videos, trains a shared diffusion policy through contact-aware human-to-robot conversion, conditions connecting motions on the current and next skills, and predicts skill progression for closed-loop switching through a given sequence."
+  },
+  "evaluation_scope": {
+    "zh": "逐指接触由 RGB 视频估计，同时约束手部重定向和合成画面的手指／物体遮挡。约 240 条长时序人类示范用于合成数据预训练，再混入约 32 条单技能真机示范微调；过渡示范仅来自人类视频。执行顺序由视频分类器或脚本给定，共享策略预测动作与技能进度，非自主任务规划。真机为 RB5-850E 臂＋xHand，实际执行 6 维臂关节及 12 维手关节动作。四项技能各测 5 次，单技能平均成功率 80%；10 次固定四技能序列中的 40 次技能执行平均成功率为 77.5%，不是整条序列全部成功的比例，未验证未见顺序泛化。画面合成采用拇指在前、其余接触指在后的包覆抓取假设。",
+    "en": "RGB-estimated finger contacts guide both retargeting and finger/object occlusion in synthetic frames. Pretraining uses about 240 converted long-horizon human episodes; mixed fine-tuning adds about 32 single-skill robot demonstrations. Transitions are supervised only by human video. A video classifier or script supplies the order; the shared policy predicts actions and skill progression rather than autonomously planning tasks. Hardware is an RB5-850E arm with xHand, executing 6 arm and 12 hand joint commands. Four skills receive five isolated trials each, averaging 80% success. The 77.5% sequence metric averages 40 skill executions across ten fixed four-skill rollouts, not fully successful sequence rollouts. Unseen orderings are untested. Compositing assumes wrap grasps with the thumb in front and other contacting fingers behind the object."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.17789v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.17789v1",
+    "https://arxiv.org/html/2610.17789v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Human-video transfer",
+      "zh": "人类视频迁移"
+    },
+    {
+      "en": "Contact-aware conversion",
+      "zh": "接触感知转换"
+    },
+    {
+      "en": "Skill transitions and composition",
+      "zh": "技能衔接与组合"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-13",
+    "source": "https://arxiv.org/abs/2610.17789v1",
+    "basis": "source"
+  }
+}
