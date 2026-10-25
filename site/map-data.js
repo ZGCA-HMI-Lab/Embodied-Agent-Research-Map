@@ -132,8 +132,8 @@ window.RESEARCH_MAP = {
                 "code": "AM.MAN.DEX.AGENT",
                 "children": [],
                 "catalog_path": "manipulation/dexterous/agent-architectures",
-                "description": "Runtime architectures connecting high-level agents to dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, execution feedback and recovery, and the actual low-level controller. Task planning, skill composition and recovery are visible tags rather than nested categories.",
-                "description_zh": "运行时连接高层 Agent 与灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、执行反馈和恢复，以及实际底层控制器。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
+                "description": "Runtime architectures connecting high-level semantic/geometric planning or agents to reusable dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, the actual low-level controller, and whether feedback triggers low-level phase switching or high-level replanning/recovery. Task planning, skill composition and recovery are visible tags rather than nested categories.",
+                "description_zh": "运行时连接高层语义／几何规划或 Agent 与可复用灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、实际底层控制器，并区分反馈仅触发低层阶段切换，还是支持高层重规划与恢复。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
               },
               {
                 "name": "Human Hand Motion and Manipulation Video Modeling",
@@ -309,6 +309,96 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures.md#am-man-dex-agent-2",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.AGENT.4",
+      "slug": "gott",
+      "short_name": "GOTT",
+      "title": "GOTT: Object-centric Dexterous Manipulation with a Reusable Cross-Embodiment Primitive",
+      "authors": "Yulin Liu, Lai Wei, Yen-Jen Wang, Akash Sharma, Pieter Abbeel, Henrik I. Christensen, Haozhi Qi",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.AGENT",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.SKILL",
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "agent-architecture",
+        "vlm",
+        "affordance-reasoning",
+        "future-aware-planning",
+        "object-centric-control",
+        "object-trajectory-interface",
+        "reach-acquire-move",
+        "skill-composition",
+        "reusable-contact-primitive",
+        "cross-embodiment",
+        "cross-hand-transfer",
+        "canonical-link-joint-representation",
+        "reinforcement-learning",
+        "ppo",
+        "contact-estimation",
+        "pose-feedback-tracking",
+        "sim-to-real",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "GOTT 以目标物体轨迹和接近规格为接口，由 VLM 选择任务相关接触区域、规划与 IK 筛选可行接近，再由跨手共享的 PPO 原语闭环建立稳定接触，最后切换到物体位姿反馈控制器跟踪轨迹，使同一接触技能跨任务、机械臂和手型复用。",
+        "en": "GOTT interfaces through desired object trajectories and reach specifications: a VLM selects task-relevant contact regions, planning and IK select feasible approaches, a shared cross-hand PPO primitive establishes stable contact in closed loop, and a pose-feedback tracker executes the object motion, reusing contact skills across tasks, arms and hands."
+      },
+      "evaluation_scope": {
+        "zh": "高层默认用 VLM 选功能部位，并沿整条目标物体轨迹检查候选接近的 IK 可行性；人类示范或外部模型也可提供规格。Acquire 为 PPO 训练的 MLP，基于局部手物几何与本体历史输出腕部／手指增量；接触预测器判断拇指及另一手指持续接触后切换 Move，后者是几何位姿反馈跟踪，不是 RL。21 关键点、26 关节槽及掩码统一不同手，无独立手型编解码器。XHand、Sharpa、Allegro 联合训练；同一检查点在 Franka–Sharpa、Franka–XHand、Tianji–XHand 真机抓取成功率为 90%／90%／96%，各 50 次；Franka–Sharpa 四项轨迹任务各 10 次，整体任务成功率 80%。未见 Allegro 变体的零样本结果来自仿真。高层规划与接触控制顺序执行，低层阶段切换不等于高层反馈重规划；Move 近似固定手物相对变换，严重遮挡和精细手内操作仍受限。",
+        "en": "Default VLM affordance selection and full-trajectory IK checks generate reaches; demonstrations/external models can also supply specifications. Acquire uses a PPO-trained MLP with local hand–object geometry and proprioceptive history to output wrist/finger deltas. A contact predictor triggers Move after sustained thumb-plus-finger contact; Move is geometric pose-feedback tracking, not RL. A 21-keypoint/26-joint-slot representation with masks shares weights without hand-specific codecs. Joint training uses XHand, Sharpa and Allegro. One checkpoint achieves 90%/90%/96% real grasp success on Franka–Sharpa/Franka–XHand/Tianji–XHand (50 trials each). Four Franka–Sharpa trajectory tasks achieve 80% overall success (10 trials each). Unseen-Allegro-variant zero-shot results are simulated. Planning and acquisition run sequentially; phase switching does not establish high-level feedback replanning. Tracking approximates a fixed hand–object transform and remains limited by occlusion and fine in-hand manipulation."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.03861v2",
+        "project": "https://dex-gott.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.03861v2",
+        "https://arxiv.org/html/2610.03861v2",
+        "https://dex-gott.github.io/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Cross-hand contact primitive",
+          "zh": "跨手接触原语"
+        },
+        {
+          "en": "Object-trajectory interface",
+          "zh": "物体轨迹接口"
+        },
+        {
+          "en": "Staged execution",
+          "zh": "分阶段执行"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-02",
+        "source": "https://arxiv.org/abs/2610.03861v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "GOTT｜Cross-hand contact primitive · Object-trajectory interface · Staged execution",
+        "zh": "GOTT｜跨手接触原语 · 物体轨迹接口 · 分阶段执行"
+      },
+      "topics": [
+        "reinforcement-learning",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures.md#am-man-dex-agent-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-4"
       },
       "notes_urls": {}
     },
@@ -599,6 +689,196 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.BENCH.4",
+      "slug": "dexbiolab",
+      "short_name": "DexBioLab",
+      "title": "DexBioLab: Benchmarking Dexterous Manipulation with Dynamic Experimental Phenomena in Realistic Laboratories",
+      "authors": "Xuanye Wu, Yue Shi, Yongcan Yang, Yiqun Wang, Zhaoqi Wan, Dayu Xia, Yanming Shao, Jiezhang Cao, Xiangfei Li, Yao Mu, Guangtao Zhai",
+      "year": 2026,
+      "venue": "arXiv v3",
+      "kind": "benchmark",
+      "category": "AM.MAN.DEX.DATA",
+      "related_categories": [],
+      "tags": [
+        "benchmark",
+        "dexterous",
+        "gripper",
+        "multi-embodiment",
+        "bimanual",
+        "biological-laboratory",
+        "functional-tool-use",
+        "precision-manipulation",
+        "language-grounding",
+        "instrument-operation",
+        "dynamic-visual-effects",
+        "gaussian-splatting",
+        "hybrid-rendering",
+        "mjlab",
+        "parallel-simulation",
+        "scripted-demonstrations",
+        "closed-loop-evaluation",
+        "sim-to-real"
+      ],
+      "benchmark": {
+        "hands": {
+          "zh": "3 种灵巧手：Shadow、Wuji、XHand，另含 Aloha 夹爪平台；“4 种本体”不等于 4 种灵巧手，含单／双臂配置。真机验证为 UR5e＋XHand。",
+          "en": "Three dexterous hands: Shadow, Wuji and XHand, plus an Aloha gripper platform; four embodiments do not mean four dexterous hands. Includes single/bimanual setups; hardware validation uses UR5e + XHand."
+        },
+        "tasks": {
+          "zh": "14 个任务条目，含 Shadow／XHand 两种试管转移配置，覆盖工具使用、精细操作、语言视觉定位和仪器操作；如移液、镊子操作、旋拧试管盖、装吸头、操作本生灯及热循环仪。主模型评测选其中 12 项，每任务 3 个种子×100 回合。",
+          "en": "14 entries, including Shadow/XHand tube-transfer variants, spanning tool use, precision, language grounding and instrument operation, e.g. pipetting, tweezers, caps, tips, burners and thermal cyclers. Main policy evaluation covers 12 tasks with 3 seeds × 100 rollouts each."
+        },
+        "cross_hand": {
+          "zh": "任务按指定本体配置；试管转移明确提供 Shadow 与 XHand 版本，未验证全部 14 项对任意手直接复用，也未报告同一策略权重跨手泛化。",
+          "en": "Tasks use assigned embodiments; tube transfer explicitly has Shadow and XHand variants. Direct reuse of all tasks with arbitrary hands and shared-weight cross-hand transfer are not established."
+        },
+        "release": {
+          "zh": "官方仿真代码公开，README 提供场景下载脚本、PFSM 示范采集、LeRobot 数据渲染及 OpenPI 评测流程；场景资产未下载核验。项目页预生成数据集仍为 Coming soon；截至核验日未找到任务策略 checkpoint 的官方下载入口，评测示例要求自行提供训练权重。",
+          "en": "Simulation code is public with scene-download, PFSM collection, LeRobot rendering and OpenPI evaluation instructions; scene downloads were not tested. The project marks the dataset Coming soon. No official task-policy checkpoint download was found; examples require user-supplied trained weights."
+        },
+        "highlight": {
+          "zh": "将六个真实实验室的 3DGS 背景、可交互仿真前景与可控火焰／蒸汽／气泡结合，检验动态视觉下的精细操作；基于 mjlab 的并行采集与解耦回放渲染支持闭环评测。粒子现象与物理解耦，不是高精度流体、燃烧或化学反应仿真。",
+          "en": "Combines six real-lab 3DGS backgrounds, interactive foregrounds and controllable flame/vapor/bubble visuals for fine manipulation; mjlab parallel collection and decoupled replay rendering support closed-loop evaluation. Particles are visual effects decoupled from physics, not high-fidelity fluid, combustion or chemistry simulation."
+        }
+      },
+      "evaluation_scope": {
+        "zh": "按用户指定 v3 记录，已有 v4。仿真比较 DP、π₀.₅、GR00T-N1.7、Fast-WAM，均经任务数据微调。真机试管转移每条件 20 次，3DGS／普通背景的归一化进度分为 66%／17%，不是任务成功率。v3 正文称使用 10 条真机＋90 条仿真示范，附录另写 100 条真机示范，数据配比有不一致，待作者澄清；不能表述为纯仿真零样本迁移。资源仅核查公开页面，未本地运行。",
+        "en": "Records requested v3; v4 exists. Simulation compares task-fine-tuned DP, π₀.₅, GR00T-N1.7 and Fast-WAM. Real tube-transfer validation uses 20 trials per condition: 3DGS/standard-background normalized progress is 66%/17%, not success rate. The v3 main text states 10 real + 90 simulated demonstrations, but the appendix states 100 real demonstrations; this discrepancy needs clarification. This is not established simulation-only zero-shot transfer. Public resources were inspected, not run locally."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.13643v3",
+        "project": "https://cumulusalpha.github.io/DexBioLabWebPage/",
+        "code": "https://github.com/CumulusAlpha/DexBioLab"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.13643v3",
+        "https://arxiv.org/html/2610.13643v3",
+        "https://cumulusalpha.github.io/DexBioLabWebPage/",
+        "https://github.com/CumulusAlpha/DexBioLab"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Laboratory manipulation benchmark",
+          "zh": "实验室操作基准"
+        },
+        {
+          "en": "Dynamic experiment visuals",
+          "zh": "动态实验视觉"
+        },
+        {
+          "en": "Parallel realistic simulation",
+          "zh": "并行写实仿真"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-09",
+        "source": "https://arxiv.org/abs/2610.13643v3",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexBioLab｜Laboratory manipulation benchmark · Dynamic experiment visuals · Parallel realistic simulation",
+        "zh": "DexBioLab｜实验室操作基准 · 动态实验视觉 · 并行写实仿真"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/benchmarks.md#am-man-dex-bench-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-4"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.DEMO.1",
+      "slug": "dexninja",
+      "short_name": "DexNinja",
+      "title": "DexNinja: Learning Robust Dexterous Cutting Policy with a Real-to-Sim-to-Real Data Engine",
+      "authors": "Haozhe Lou, Runyi Yang, Wanqi Zhong, Caiyun Liu, Yicheng Liu, Wenhao Liu, Wenlong Ma, Jiawei Xia, Kanzhi Wu, Danda Pani Paudel, Luc Van Gool, Hang Zhao, Yiming Li",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.DEX.DEMO",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "real-to-sim-to-real",
+        "teleoperation",
+        "demonstration-synthesis",
+        "data-augmentation",
+        "category-conditioned-asset-generation",
+        "physical-randomization",
+        "differentiable-simulation",
+        "deformable-object-manipulation",
+        "food-cutting",
+        "tactile",
+        "visuotactile",
+        "imitation-learning",
+        "behavior-cloning",
+        "action-chunking",
+        "stage-conditioned-policy",
+        "sim-to-real",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DexNinja 将少量真机切割示范重建为可变形仿真场景，在同类食物内扩增形状与物理参数并修正、筛选切割轨迹，再混合真实与仿真数据训练分阶段的视触觉动作块策略，实现双手稳定食物与持刀切割。",
+        "en": "DexNinja reconstructs deformable simulation scenes from limited real-robot cutting demonstrations, varies shapes and physical parameters within food categories, refines and filters cutting trajectories, then combines real and simulated data to train a stage-conditioned visuotactile action-chunking policy for bimanual food stabilization and knife cutting."
+      },
+      "evaluation_scope": {
+        "zh": "输入是真机遥操作示范；类别约束的资产生成与质量检查扩增食物，改变质量、摩擦和弹性等参数，可微切割仿真修正、筛选轨迹并记录同步观测—动作。最终采用 ACT 风格的监督行为克隆，机械臂负责接近／对齐，手部结合触觉与本体状态调节接触；接近抓取、刀具定位、切割三阶段名义动作块分别为 64／128／16 步。主平台为 DR3／DR5 双臂＋LinkerHand L10；另报告双 Franka＋LinkerBot L20 配置，需更新本体标定、运动学与执行接口，不能据此认定同一权重零样本跨手。主表四类食物（草莓、苹果、香蕉、土豆）每类用 5 条真实＋50 条仿真序列训练，各测 25 次真机切割；混合数据成功率 50%，仅真实 31%，仅仿真 34%。泛化主要是同类未见实例，连续多刀仍有明显性能下降。",
+        "en": "Robot teleoperation seeds category-constrained asset generation, quality checks and physical variation; differentiable cutting simulation refines/filters trajectories and records aligned observations/actions. The final ACT-style policy uses supervised behavior cloning: arms handle approach/alignment, hands regulate contact from touch/proprioception. Nominal approach/grasp, knife-positioning and cutting chunks are 64/128/16 steps. The primary platform is DR3/DR5 arms + LinkerHand L10; dual Franka + LinkerBot L20 requires embodiment-specific calibration, kinematics and execution interfaces, not established zero-shot shared-weight transfer. Main-table training uses 5 real + 50 simulated sequences per food (strawberry, apple, banana, potato), with 25 real trials each. Mixed-data success is 50%, versus 31% real-only and 34% sim-only. Generalization mainly covers unseen within-category instances; repeated cutting remains difficult."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.17208v1",
+        "project": "https://dex-ninja.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.17208v1",
+        "https://arxiv.org/html/2610.17208v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Real2Sim2Real augmentation",
+          "zh": "Real2Sim2Real扩增"
+        },
+        {
+          "en": "Deformable cutting simulation",
+          "zh": "可变形切割仿真"
+        },
+        {
+          "en": "Visuotactile imitation learning",
+          "zh": "视触觉模仿学习"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-12",
+        "source": "https://arxiv.org/abs/2610.17208v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexNinja｜Real2Sim2Real augmentation · Deformable cutting simulation · Visuotactile imitation learning",
+        "zh": "DexNinja｜Real2Sim2Real扩增 · 可变形切割仿真 · 视触觉模仿学习"
+      },
+      "topics": [
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.DEMO.V2R.1",
       "slug": "gen2dex",
       "short_name": "Gen2Dex",
@@ -832,6 +1112,176 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.DEMO.V2R.4",
+      "slug": "egocpt",
+      "short_name": "EgoCPT",
+      "title": "EgoCPT: Learning Dexterous Manipulation from a Single Ego-Centric Video with Contact-Aware Optimization",
+      "authors": "Zhixin Sun, Kairui Shi, Tianao Ren, Ming Yang, Mark Cutkosky, James Jingxi Xu",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.DEX.DEMO",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "human-video",
+        "egocentric-video",
+        "video-to-robot",
+        "physics-aware-retargeting",
+        "contact-aware-optimization",
+        "contact-sampling",
+        "force-allocation",
+        "object-motion-tracking",
+        "reinforcement-learning",
+        "residual-rl",
+        "ppo",
+        "reference-conditioned-policy",
+        "trajectory-generation",
+        "simulation",
+        "open-loop-replay"
+      ],
+      "tldr": {
+        "zh": "EgoCPT 从单段第一视角视频及参考手部轨迹恢复物体运动，通过接触采样、手部姿态优化与受力分配寻找机器人可行的双手交互，再用 PPO 残差策略修正执行，生成可用于真机回放的操作轨迹。",
+        "en": "EgoCPT recovers object motion from a single egocentric video and reference hand trajectories, searches robot-feasible bimanual interactions through contact sampling, hand-pose optimization and force allocation, then uses PPO residual control to refine execution and generate manipulation trajectories for real-robot replay."
+      },
+      "evaluation_scope": {
+        "zh": "输入为 RGB 视频＋带尺度的三维手部参考轨迹；固定示范物体运动，以人手运动为空间先验，搜索符合关节、碰撞、摩擦及执行器限制的机器人接触与受力。PPO 在仿真中根据物体位姿、参考目标及机器人状态输出 56 维双手残差（腕部平移 6＋旋转 6＋手指关节 44），叠加参考动作；优化得到的接触力用于可行性判断与奖励引导，不直接作为策略力矩指令。实验使用 Sharpa 手：五类任务的 52 条 EgoDex 重建序列和 25 条 TACO 序列，成功率分别为 67.3%／92.0%，是真机回放前的仿真轨迹跟踪评测；真机展示为双手轨迹回放，未验证在线闭环部署。当前假设刚体物体，EgoDex 评测排除了物体位姿重建错误的输入。",
+        "en": "Inputs are RGB video and metric 3D reference hand trajectories. Object motion is fixed while human motion guides robot contact/force search under joint, collision, friction and actuator limits. In simulation, PPO outputs 56 bimanual residuals (6 wrist translations + 6 rotations + 44 finger joints) added to reference motions; optimized forces guide feasibility checks and rewards rather than direct policy torque commands. Sharpa-hand evaluations cover five task families: 52 EgoDex and 25 TACO sequences achieve 67.3% and 92.0% simulated trajectory-tracking success. Hardware demonstrates bimanual trajectory replay, not online closed-loop policy deployment. The method assumes rigid objects; EgoDex inputs with incorrect reconstructed object poses are excluded."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.17572v1",
+        "project": "https://ego-cpt.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.17572v1",
+        "https://arxiv.org/html/2610.17572v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Human-video transfer",
+          "zh": "人类视频迁移"
+        },
+        {
+          "en": "Joint contact–force optimization",
+          "zh": "接触—受力联合优化"
+        },
+        {
+          "en": "Residual RL",
+          "zh": "残差RL"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-13",
+        "source": "https://arxiv.org/abs/2610.17572v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "EgoCPT｜Human-video transfer · Joint contact–force optimization · Residual RL",
+        "zh": "EgoCPT｜人类视频迁移 · 接触—受力联合优化 · 残差RL"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-4"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.DEMO.V2R.5",
+      "slug": "hand2robot",
+      "short_name": "Hand2Robot",
+      "title": "Hand2Robot: Object-Centric 4D Hand Reconstruction from Human Demonstrations for Robotics",
+      "authors": "Zetao Du, Weiqing Wang, Hanbing Zhang, Yimiao Zhou, Ye Shi, Liang Wang, Jingya Wang",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.DEX.DEMO",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "human-video",
+        "rgb-d",
+        "video-to-robot",
+        "demonstration-synthesis",
+        "object-centric-reconstruction",
+        "hand-object-reconstruction",
+        "confidence-aware-object-tracking",
+        "viterbi-trajectory-selection",
+        "contact-consistent-refinement",
+        "motion-retargeting",
+        "geort",
+        "vla",
+        "vla-fine-tuning",
+        "human-robot-co-training",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Hand2Robot 从人类 RGB-D 视频中全局筛选稳定的物体位姿轨迹，以物体为参考优化手部图像对齐、接触与时序一致性，再将手部运动重定向为机器人动作标签，混合少量真机示范后训练 π₀.₅，提升目标任务操作成功率。",
+        "en": "Hand2Robot selects globally consistent object-pose trajectories from human RGB-D videos, refines hand motion against object references through image alignment, contact and temporal consistency, retargets it into robot action labels, and mixes these with limited robot demonstrations to post-train π₀.₅ for target-task manipulation."
+      },
+      "evaluation_scope": {
+        "zh": "输入为 RGB-D 视频与相机内参；VLM 分段并标注任务，物体位姿候选结合观测置信度、掩码匹配及帧间运动约束，通过 Viterbi 选择全局轨迹。固定物体几何与运动后，分阶段对齐手部二维观测、稳定物体局部接触并惩罚穿透，经 GeoRT 与坐标对齐生成动作监督。重建评测使用 DexYCB、HO3D-v3；真机为 Franka＋xHand，验证放置花瓶、打开盒子、插入吐司三项任务。每任务 20 条机器人＋100 条人类示范，训练按 1:1 抽样，每任务测试 20 次，平均成功率由仅 20 条机器人示范的 48.3% 升至 80.0%；仅用 100 条人类示范为 8.3%。人机数据采用同一固定侧视角，测试物体初始位置来自训练分布；证据支持目标任务后训练补充数据，不代表无需真机数据或跨视角泛化。",
+        "en": "Inputs are RGB-D videos and camera intrinsics. VLM parsing precedes Viterbi selection of object trajectories using pose confidence, mask agreement and temporal costs. With objects fixed, staged image/contact refinement and penetration penalties improve hand motion before GeoRT and coordinate alignment produce action labels. Reconstruction is evaluated on DexYCB/HO3D-v3. Franka + xHand tests cover Place Vase, Open Box and Insert Toast. Per task, 20 robot + 100 human demonstrations are sampled 1:1 for training and evaluated in 20 trials; mean success rises from 48.3% with 20 robot demonstrations alone to 80.0%, versus 8.3% with human data alone. Human/robot recordings share a fixed side view; test positions follow the training distribution. Evidence supports target-task post-training, not robot-data-free learning or cross-view generalization."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.15769v1",
+        "project": "https://hand2robot.github.io/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.15769v1",
+        "https://arxiv.org/html/2610.15769v1",
+        "https://hand2robot.github.io/"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Human-video transfer",
+          "zh": "人类视频迁移"
+        },
+        {
+          "en": "Object-centric 4D reconstruction",
+          "zh": "物体中心4D重建"
+        },
+        {
+          "en": "VLA post-training",
+          "zh": "VLA后训练"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-11",
+        "source": "https://arxiv.org/abs/2610.15769v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Hand2Robot｜Human-video transfer · Object-centric 4D reconstruction · VLA post-training",
+        "zh": "Hand2Robot｜人类视频迁移 · 物体中心4D重建 · VLA后训练"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-5",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-5"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.HUMAN.UNIFIED.1",
       "slug": "p3-wam",
       "short_name": "P³-WAM",
@@ -970,6 +1420,90 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-inhand-rl-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.FEEDBACK.1",
+      "slug": "fomo-dex",
+      "short_name": "FOMO-Dex",
+      "title": "Force-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation",
+      "authors": "Ying Yuan, David Held, Jitendra Malik, Haozhi Qi",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+      "related_categories": [
+        "AM.MAN.DEX.DEMO"
+      ],
+      "tags": [
+        "dexterous",
+        "execution-feedback",
+        "action-correction",
+        "force-feedback",
+        "tactile",
+        "compliant-control",
+        "admittance-control",
+        "task-frame-control",
+        "direction-selective-compliance",
+        "teleoperation",
+        "demonstration-collection",
+        "post-modulation-action-targets",
+        "imitation-learning",
+        "behavior-cloning",
+        "diffusion-policy",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "FOMO-Dex 按任务与接触几何选择柔顺方向，将机器人力反馈转换为机械臂位姿或手指关节修正，在保留任务运动的同时调节接触，并以修正后指令训练扩散策略，使自主操作学习到力反馈产生的动作调整。",
+        "en": "FOMO-Dex selects compliant directions from task and contact geometry, converts robot force feedback into arm-pose or finger-joint corrections while preserving task motion, and trains a diffusion policy on the corrected commands so autonomous manipulation learns the force-dependent adjustments."
+      },
+      "evaluation_scope": {
+        "zh": "控制层将腕部力／指尖触觉等投影到选定方向，以目标力或力上限计算误差，经导纳控制修正指令；任务方向、目标和反馈规则由配置指定，不在线学习柔顺参数。切纸保留切割方向运动、修正侧向与过大下压力，旋转任务调节指尖载荷而保留旋转。真机为 7 自由度 Tianji Marvin 臂＋22 自由度 Sharpa Wave 手，控制评测覆盖捡卡片、切纸、拧螺母和螺丝刀拧螺丝。行为克隆采用冻结 DINOv2、RGB／本体状态／力观测及扩散策略，每任务—控制器设置用 50 条示范；捡卡片 18 次评测中，拟合修正后动作并以刚性底层执行的抬起成功率为 67%，拟合原始指令再于部署时加柔顺修正为 0%，刚性示范基线为 56%。后两项旋转任务报告每回合圈数，不能当成成功率。",
+        "en": "The controller projects wrist/fingertip force feedback onto configured directions, converts target/limit errors through admittance into command corrections, and does not learn compliance parameters online. Cutting preserves forward motion while relieving lateral/excess normal loading; rotational tasks regulate fingertip loads while retaining rotation. Hardware uses a 7-DoF Tianji Marvin arm and 22-DoF Sharpa Wave hand. Controller tests cover card picking, paper cutting, nut–bolt manipulation and screwdriving. Behavior cloning uses frozen DINOv2, RGB/proprioception/force observations and a diffusion policy with 50 demonstrations per task–controller setting. Across 18 card-picking trials, corrected-action training with stiff execution achieves 67% lift success, versus 0% for raw-command training with deployment-time compliance and 56% for stiff demonstrations. Rotational-policy results measure turns per episode, not success rates."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.17161v1",
+        "project": "https://yingyuan0414.github.io/fomo-dex/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.17161v1",
+        "https://arxiv.org/html/2610.17161v1"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Force-feedback compliance",
+          "zh": "力反馈柔顺控制"
+        },
+        {
+          "en": "Task-direction selection",
+          "zh": "任务方向选择"
+        },
+        {
+          "en": "Corrected-action imitation learning",
+          "zh": "修正动作模仿学习"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-12",
+        "source": "https://arxiv.org/abs/2610.17161v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "FOMO-Dex｜Force-feedback compliance · Task-direction selection · Corrected-action imitation learning",
+        "zh": "FOMO-Dex｜力反馈柔顺控制 · 任务方向选择 · 修正动作模仿学习"
+      },
+      "topics": [
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback.md#am-man-dex-policy-feedback-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-policy-feedback-1"
       },
       "notes_urls": {}
     },
@@ -1362,6 +1896,172 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-5",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-5"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.6",
+      "slug": "xl-vla",
+      "short_name": "XL-VLA",
+      "title": "Cross-Hand Latent Representation for Vision-Language-Action Models",
+      "authors": "Guangqi Jiang, Yutong Liang, Jianglong Ye, Jia-Yang Huang, Changwei Jing, Rocky Duan, Pieter Abbeel, Xiaolong Wang, Xueyan Zou",
+      "year": 2026,
+      "venue": "CVPR 2026 / arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "vla",
+        "cross-hand-transfer",
+        "cross-embodiment",
+        "latent-action-space",
+        "action-representation",
+        "variational-autoencoder",
+        "kinematic-alignment",
+        "multi-embodiment-co-training",
+        "imitation-learning",
+        "held-out-hand-task-combinations",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "XL-VLA 先通过关节重建与跨手指尖几何约束学习各手共享的潜在动作空间，再冻结手型编解码器，用多手示范训练同一个 VLA 预测潜在动作，并由目标手解码执行，实现跨手数据复用与未见手—任务组合迁移。",
+        "en": "XL-VLA learns a shared latent action space through joint reconstruction and cross-hand fingertip geometry constraints, freezes hand-specific encoders/decoders, and trains one VLA on pooled multi-hand demonstrations to predict latent actions decoded for the target hand, enabling data reuse and transfer to unseen hand–task combinations."
+      },
+      "evaluation_scope": {
+        "zh": "潜在自编码器用各手关节限位内随机采样的姿态训练，结合重建、可微正运动学的跨手捏合距离／方向对齐及 KL 正则，无需成对跨手示范。π₀ 基础上的 VLA 输入图像、语言及潜在动作历史；手型仅选择编解码器，不作为显式 VLA token。真机覆盖 Ability、Inspire、X-Hand1、Paxini DexH13 四种手、10 项任务，共 2,000 条遥操作示范（约 200 万状态—动作对），并报告双 xArm 与 G1 混合训练。“零样本”评测留出部分手—任务组合，不等于任意全新手无需适配。官方 DexLatent 仓库公开潜在表示训练／推理代码与预训练检查点，不能据此认定完整 VLA 策略权重已开放。",
+        "en": "The latent autoencoder uses randomly sampled joint-limit poses with reconstruction, differentiable-FK pinch-distance/direction alignment and KL regularization; paired cross-hand demonstrations are unnecessary. The π₀-based VLA consumes images, language and latent action history; hand identity selects codecs rather than an explicit VLA token. Hardware covers Ability, Inspire, X-Hand1 and Paxini DexH13 across 10 tasks and 2,000 teleoperated demonstrations (~2M state–action pairs), with additional dual-xArm/G1 co-training. Zero-shot tests hold out hand–task combinations, not arbitrary unseen hands without adaptation. The official DexLatent repository releases latent-representation training/inference code and a pretrained checkpoint; this does not establish release of full VLA policy weights."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2603.10158v1",
+        "project": "https://xl-vla.github.io/",
+        "code": "https://github.com/EmptyBlueBox/DexLatent"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.10158v1",
+        "https://arxiv.org/html/2603.10158v1",
+        "https://xl-vla.github.io/",
+        "https://github.com/EmptyBlueBox/DexLatent"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Cross-hand transfer",
+          "zh": "跨手迁移"
+        },
+        {
+          "en": "Unified latent action space",
+          "zh": "统一潜在动作空间"
+        },
+        {
+          "en": "VLA",
+          "zh": "VLA"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-03-10",
+        "source": "https://arxiv.org/abs/2603.10158v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "XL-VLA｜Cross-hand transfer · Unified latent action space · VLA",
+        "zh": "XL-VLA｜跨手迁移 · 统一潜在动作空间 · VLA"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-6",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-6"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.7",
+      "slug": "dexcast",
+      "short_name": "DexCast",
+      "title": "DexCast: Learning Real-World Dexterous Control from Human Videos",
+      "authors": "Zihan Gao, Yuhong Zhang, Mengzhe Wang, Kaisheng Liu, Shengpeng Li, Siyao Xiao, Runqing Cheng, Xiao Lin, Zhifang Liu, Haoqian Wang",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [
+        "AM.MAN.DEX.DEMO"
+      ],
+      "tags": [
+        "dexterous",
+        "human-video",
+        "rgb-d",
+        "video-to-robot",
+        "hand-object-reconstruction",
+        "hand-object-point-clouds",
+        "demonstration-synthesis",
+        "residual-rl",
+        "spatial-augmentation",
+        "skeletal-topology",
+        "temporal-motion-encoding",
+        "variational-autoencoder",
+        "motion-pretraining",
+        "diffusion-policy",
+        "sim3-equivariance",
+        "imitation-learning",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DexCast 从人类 RGB-D 视频重建并修正手物交互，生成机器人示范，以训练与真机一致形式的手—物体点云作为几何观测，结合预训练的骨架时序运动编码驱动扩散策略，实现无需真机遥操作示范的操作学习与动作块间闭环执行。",
+        "en": "DexCast reconstructs and refines hand–object interactions from human RGB-D videos to generate robot demonstrations, uses hand/object point clouds in a common training/deployment format as geometric observations, and conditions a diffusion policy on pretrained skeletal-temporal motion features, enabling learning without robot teleoperation demonstrations and closed-loop execution between action chunks."
+      },
+      "evaluation_scope": {
+        "zh": "沿用手物重建与残差 RL 修正生成示范并做空间扩增；训练和部署均从网格采样手／物体完整点云，真机由关节状态与正运动学生成手点云、由 FoundationPose 估计物体位姿更新物体点云。DMPM 在超过 500 万帧重定向运动上预训练 VAE，冻结编码器将最近 32 帧关节位置／速度变成 256 维历史特征，与 SIM(3) 等变几何特征及本体状态共同条件化扩散网络；潜在码是观测条件，不是待预测的跨手动作码。UR5＋12 自由度 XHAND 验证抓取、倾倒、翻正、按压、擦拭、堆叠六任务，每任务从一段人类视频生成 40 条示范并分别训练策略。两视角平均成功率为 87.5%／86.7%；预测的 32 步指令以 8 Hz 全部执行后重新感知，只执行位置目标。当前限刚体物体；换手需重新设计骨架并训练 DMPM。",
+        "en": "Existing HOI reconstruction and residual-RL refinement generate spatially augmented demonstrations. Training/deployment sample complete hand/object mesh point clouds; hardware updates hand geometry from joints/FK and object geometry from FoundationPose tracking. A VAE-based DMPM pretrained on >5M retargeted frames is frozen to encode 32 joint-position/velocity frames into a 256-D history feature, conditioning diffusion alongside SIM(3)-equivariant geometry and proprioception. This latent conditions observations rather than serving as a predicted cross-hand action code. UR5 + 12-DoF XHAND tests grasping, pouring, flipping, pressing, wiping and stacking, with 40 generated demonstrations from one human video per task and separately trained policies. Viewpoint averages are 87.5%/86.7%. All 32 predicted commands execute at 8 Hz before replanning; only position targets are applied. Rigid objects only; new hands require new skeleton design and DMPM training."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.14691v2"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.14691v2",
+        "https://arxiv.org/html/2610.14691v2"
+      ],
+      "verified_on": "2026-10-25",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "HOI geometry transfer",
+          "zh": "HOI几何迁移"
+        },
+        {
+          "en": "Skeletal-temporal motion encoding",
+          "zh": "骨架时序运动编码"
+        },
+        {
+          "en": "3D diffusion policy",
+          "zh": "3D扩散策略"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-10",
+        "source": "https://arxiv.org/abs/2610.14691v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexCast｜HOI geometry transfer · Skeletal-temporal motion encoding · 3D diffusion policy",
+        "zh": "DexCast｜HOI几何迁移 · 骨架时序运动编码 · 3D扩散策略"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-7",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-7"
       },
       "notes_urls": {}
     },

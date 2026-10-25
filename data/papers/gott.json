@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.4",
+  "slug": "gott",
+  "short_name": "GOTT",
+  "title": "GOTT: Object-centric Dexterous Manipulation with a Reusable Cross-Embodiment Primitive",
+  "authors": "Yulin Liu, Lai Wei, Yen-Jen Wang, Akash Sharma, Pieter Abbeel, Henrik I. Christensen, Haozhi Qi",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.SKILL",
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "agent-architecture",
+    "vlm",
+    "affordance-reasoning",
+    "future-aware-planning",
+    "object-centric-control",
+    "object-trajectory-interface",
+    "reach-acquire-move",
+    "skill-composition",
+    "reusable-contact-primitive",
+    "cross-embodiment",
+    "cross-hand-transfer",
+    "canonical-link-joint-representation",
+    "reinforcement-learning",
+    "ppo",
+    "contact-estimation",
+    "pose-feedback-tracking",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "GOTT 以目标物体轨迹和接近规格为接口，由 VLM 选择任务相关接触区域、规划与 IK 筛选可行接近，再由跨手共享的 PPO 原语闭环建立稳定接触，最后切换到物体位姿反馈控制器跟踪轨迹，使同一接触技能跨任务、机械臂和手型复用。",
+    "en": "GOTT interfaces through desired object trajectories and reach specifications: a VLM selects task-relevant contact regions, planning and IK select feasible approaches, a shared cross-hand PPO primitive establishes stable contact in closed loop, and a pose-feedback tracker executes the object motion, reusing contact skills across tasks, arms and hands."
+  },
+  "evaluation_scope": {
+    "zh": "高层默认用 VLM 选功能部位，并沿整条目标物体轨迹检查候选接近的 IK 可行性；人类示范或外部模型也可提供规格。Acquire 为 PPO 训练的 MLP，基于局部手物几何与本体历史输出腕部／手指增量；接触预测器判断拇指及另一手指持续接触后切换 Move，后者是几何位姿反馈跟踪，不是 RL。21 关键点、26 关节槽及掩码统一不同手，无独立手型编解码器。XHand、Sharpa、Allegro 联合训练；同一检查点在 Franka–Sharpa、Franka–XHand、Tianji–XHand 真机抓取成功率为 90%／90%／96%，各 50 次；Franka–Sharpa 四项轨迹任务各 10 次，整体任务成功率 80%。未见 Allegro 变体的零样本结果来自仿真。高层规划与接触控制顺序执行，低层阶段切换不等于高层反馈重规划；Move 近似固定手物相对变换，严重遮挡和精细手内操作仍受限。",
+    "en": "Default VLM affordance selection and full-trajectory IK checks generate reaches; demonstrations/external models can also supply specifications. Acquire uses a PPO-trained MLP with local hand–object geometry and proprioceptive history to output wrist/finger deltas. A contact predictor triggers Move after sustained thumb-plus-finger contact; Move is geometric pose-feedback tracking, not RL. A 21-keypoint/26-joint-slot representation with masks shares weights without hand-specific codecs. Joint training uses XHand, Sharpa and Allegro. One checkpoint achieves 90%/90%/96% real grasp success on Franka–Sharpa/Franka–XHand/Tianji–XHand (50 trials each). Four Franka–Sharpa trajectory tasks achieve 80% overall success (10 trials each). Unseen-Allegro-variant zero-shot results are simulated. Planning and acquisition run sequentially; phase switching does not establish high-level feedback replanning. Tracking approximates a fixed hand–object transform and remains limited by occlusion and fine in-hand manipulation."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.03861v2",
+    "project": "https://dex-gott.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.03861v2",
+    "https://arxiv.org/html/2610.03861v2",
+    "https://dex-gott.github.io/"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Cross-hand contact primitive",
+      "zh": "跨手接触原语"
+    },
+    {
+      "en": "Object-trajectory interface",
+      "zh": "物体轨迹接口"
+    },
+    {
+      "en": "Staged execution",
+      "zh": "分阶段执行"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-02",
+    "source": "https://arxiv.org/abs/2610.03861v2",
+    "basis": "source"
+  }
+}

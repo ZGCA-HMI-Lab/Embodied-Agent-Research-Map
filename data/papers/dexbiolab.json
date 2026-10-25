@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.BENCH.4",
+  "slug": "dexbiolab",
+  "short_name": "DexBioLab",
+  "title": "DexBioLab: Benchmarking Dexterous Manipulation with Dynamic Experimental Phenomena in Realistic Laboratories",
+  "authors": "Xuanye Wu, Yue Shi, Yongcan Yang, Yiqun Wang, Zhaoqi Wan, Dayu Xia, Yanming Shao, Jiezhang Cao, Xiangfei Li, Yao Mu, Guangtao Zhai",
+  "year": 2026,
+  "venue": "arXiv v3",
+  "kind": "benchmark",
+  "category": "AM.MAN.DEX.DATA",
+  "related_categories": [],
+  "tags": [
+    "benchmark",
+    "dexterous",
+    "gripper",
+    "multi-embodiment",
+    "bimanual",
+    "biological-laboratory",
+    "functional-tool-use",
+    "precision-manipulation",
+    "language-grounding",
+    "instrument-operation",
+    "dynamic-visual-effects",
+    "gaussian-splatting",
+    "hybrid-rendering",
+    "mjlab",
+    "parallel-simulation",
+    "scripted-demonstrations",
+    "closed-loop-evaluation",
+    "sim-to-real"
+  ],
+  "benchmark": {
+    "hands": {
+      "zh": "3 种灵巧手：Shadow、Wuji、XHand，另含 Aloha 夹爪平台；“4 种本体”不等于 4 种灵巧手，含单／双臂配置。真机验证为 UR5e＋XHand。",
+      "en": "Three dexterous hands: Shadow, Wuji and XHand, plus an Aloha gripper platform; four embodiments do not mean four dexterous hands. Includes single/bimanual setups; hardware validation uses UR5e + XHand."
+    },
+    "tasks": {
+      "zh": "14 个任务条目，含 Shadow／XHand 两种试管转移配置，覆盖工具使用、精细操作、语言视觉定位和仪器操作；如移液、镊子操作、旋拧试管盖、装吸头、操作本生灯及热循环仪。主模型评测选其中 12 项，每任务 3 个种子×100 回合。",
+      "en": "14 entries, including Shadow/XHand tube-transfer variants, spanning tool use, precision, language grounding and instrument operation, e.g. pipetting, tweezers, caps, tips, burners and thermal cyclers. Main policy evaluation covers 12 tasks with 3 seeds × 100 rollouts each."
+    },
+    "cross_hand": {
+      "zh": "任务按指定本体配置；试管转移明确提供 Shadow 与 XHand 版本，未验证全部 14 项对任意手直接复用，也未报告同一策略权重跨手泛化。",
+      "en": "Tasks use assigned embodiments; tube transfer explicitly has Shadow and XHand variants. Direct reuse of all tasks with arbitrary hands and shared-weight cross-hand transfer are not established."
+    },
+    "release": {
+      "zh": "官方仿真代码公开，README 提供场景下载脚本、PFSM 示范采集、LeRobot 数据渲染及 OpenPI 评测流程；场景资产未下载核验。项目页预生成数据集仍为 Coming soon；截至核验日未找到任务策略 checkpoint 的官方下载入口，评测示例要求自行提供训练权重。",
+      "en": "Simulation code is public with scene-download, PFSM collection, LeRobot rendering and OpenPI evaluation instructions; scene downloads were not tested. The project marks the dataset Coming soon. No official task-policy checkpoint download was found; examples require user-supplied trained weights."
+    },
+    "highlight": {
+      "zh": "将六个真实实验室的 3DGS 背景、可交互仿真前景与可控火焰／蒸汽／气泡结合，检验动态视觉下的精细操作；基于 mjlab 的并行采集与解耦回放渲染支持闭环评测。粒子现象与物理解耦，不是高精度流体、燃烧或化学反应仿真。",
+      "en": "Combines six real-lab 3DGS backgrounds, interactive foregrounds and controllable flame/vapor/bubble visuals for fine manipulation; mjlab parallel collection and decoupled replay rendering support closed-loop evaluation. Particles are visual effects decoupled from physics, not high-fidelity fluid, combustion or chemistry simulation."
+    }
+  },
+  "evaluation_scope": {
+    "zh": "按用户指定 v3 记录，已有 v4。仿真比较 DP、π₀.₅、GR00T-N1.7、Fast-WAM，均经任务数据微调。真机试管转移每条件 20 次，3DGS／普通背景的归一化进度分为 66%／17%，不是任务成功率。v3 正文称使用 10 条真机＋90 条仿真示范，附录另写 100 条真机示范，数据配比有不一致，待作者澄清；不能表述为纯仿真零样本迁移。资源仅核查公开页面，未本地运行。",
+    "en": "Records requested v3; v4 exists. Simulation compares task-fine-tuned DP, π₀.₅, GR00T-N1.7 and Fast-WAM. Real tube-transfer validation uses 20 trials per condition: 3DGS/standard-background normalized progress is 66%/17%, not success rate. The v3 main text states 10 real + 90 simulated demonstrations, but the appendix states 100 real demonstrations; this discrepancy needs clarification. This is not established simulation-only zero-shot transfer. Public resources were inspected, not run locally."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.13643v3",
+    "project": "https://cumulusalpha.github.io/DexBioLabWebPage/",
+    "code": "https://github.com/CumulusAlpha/DexBioLab"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.13643v3",
+    "https://arxiv.org/html/2610.13643v3",
+    "https://cumulusalpha.github.io/DexBioLabWebPage/",
+    "https://github.com/CumulusAlpha/DexBioLab"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Laboratory manipulation benchmark",
+      "zh": "实验室操作基准"
+    },
+    {
+      "en": "Dynamic experiment visuals",
+      "zh": "动态实验视觉"
+    },
+    {
+      "en": "Parallel realistic simulation",
+      "zh": "并行写实仿真"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-09",
+    "source": "https://arxiv.org/abs/2610.13643v3",
+    "basis": "source"
+  }
+}

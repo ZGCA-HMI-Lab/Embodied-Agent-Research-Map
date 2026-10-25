@@ -4,6 +4,10 @@
 
 [Open the current category](../policies/execution-feedback.md)
 
+<a id="am-man-dex-policy-feedback-1"></a>
+
+[FOMO-Dex [AM.MAN.DEX.POLICY.FEEDBACK.1]](../policies/execution-feedback.md#am-man-dex-policy-feedback-1)
+
 <a id="am-man-dex-vla-feedback-1"></a>
 
 [AgenticTactileVLA [AM.MAN.DEX.VLA.FEEDBACK.1]](../policies/execution-feedback.md#am-man-dex-vla-feedback-1)

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.1",
+  "slug": "dexninja",
+  "short_name": "DexNinja",
+  "title": "DexNinja: Learning Robust Dexterous Cutting Policy with a Real-to-Sim-to-Real Data Engine",
+  "authors": "Haozhe Lou, Runyi Yang, Wanqi Zhong, Caiyun Liu, Yicheng Liu, Wenhao Liu, Wenlong Ma, Jiawei Xia, Kanzhi Wu, Danda Pani Paudel, Luc Van Gool, Hang Zhao, Yiming Li",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "real-to-sim-to-real",
+    "teleoperation",
+    "demonstration-synthesis",
+    "data-augmentation",
+    "category-conditioned-asset-generation",
+    "physical-randomization",
+    "differentiable-simulation",
+    "deformable-object-manipulation",
+    "food-cutting",
+    "tactile",
+    "visuotactile",
+    "imitation-learning",
+    "behavior-cloning",
+    "action-chunking",
+    "stage-conditioned-policy",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DexNinja 将少量真机切割示范重建为可变形仿真场景，在同类食物内扩增形状与物理参数并修正、筛选切割轨迹，再混合真实与仿真数据训练分阶段的视触觉动作块策略，实现双手稳定食物与持刀切割。",
+    "en": "DexNinja reconstructs deformable simulation scenes from limited real-robot cutting demonstrations, varies shapes and physical parameters within food categories, refines and filters cutting trajectories, then combines real and simulated data to train a stage-conditioned visuotactile action-chunking policy for bimanual food stabilization and knife cutting."
+  },
+  "evaluation_scope": {
+    "zh": "输入是真机遥操作示范；类别约束的资产生成与质量检查扩增食物，改变质量、摩擦和弹性等参数，可微切割仿真修正、筛选轨迹并记录同步观测—动作。最终采用 ACT 风格的监督行为克隆，机械臂负责接近／对齐，手部结合触觉与本体状态调节接触；接近抓取、刀具定位、切割三阶段名义动作块分别为 64／128／16 步。主平台为 DR3／DR5 双臂＋LinkerHand L10；另报告双 Franka＋LinkerBot L20 配置，需更新本体标定、运动学与执行接口，不能据此认定同一权重零样本跨手。主表四类食物（草莓、苹果、香蕉、土豆）每类用 5 条真实＋50 条仿真序列训练，各测 25 次真机切割；混合数据成功率 50%，仅真实 31%，仅仿真 34%。泛化主要是同类未见实例，连续多刀仍有明显性能下降。",
+    "en": "Robot teleoperation seeds category-constrained asset generation, quality checks and physical variation; differentiable cutting simulation refines/filters trajectories and records aligned observations/actions. The final ACT-style policy uses supervised behavior cloning: arms handle approach/alignment, hands regulate contact from touch/proprioception. Nominal approach/grasp, knife-positioning and cutting chunks are 64/128/16 steps. The primary platform is DR3/DR5 arms + LinkerHand L10; dual Franka + LinkerBot L20 requires embodiment-specific calibration, kinematics and execution interfaces, not established zero-shot shared-weight transfer. Main-table training uses 5 real + 50 simulated sequences per food (strawberry, apple, banana, potato), with 25 real trials each. Mixed-data success is 50%, versus 31% real-only and 34% sim-only. Generalization mainly covers unseen within-category instances; repeated cutting remains difficult."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.17208v1",
+    "project": "https://dex-ninja.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.17208v1",
+    "https://arxiv.org/html/2610.17208v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Real2Sim2Real augmentation",
+      "zh": "Real2Sim2Real扩增"
+    },
+    {
+      "en": "Deformable cutting simulation",
+      "zh": "可变形切割仿真"
+    },
+    {
+      "en": "Visuotactile imitation learning",
+      "zh": "视触觉模仿学习"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-12",
+    "source": "https://arxiv.org/abs/2610.17208v1",
+    "basis": "source"
+  }
+}

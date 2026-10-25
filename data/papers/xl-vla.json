@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.6",
+  "slug": "xl-vla",
+  "short_name": "XL-VLA",
+  "title": "Cross-Hand Latent Representation for Vision-Language-Action Models",
+  "authors": "Guangqi Jiang, Yutong Liang, Jianglong Ye, Jia-Yang Huang, Changwei Jing, Rocky Duan, Pieter Abbeel, Xiaolong Wang, Xueyan Zou",
+  "year": 2026,
+  "venue": "CVPR 2026 / arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "vla",
+    "cross-hand-transfer",
+    "cross-embodiment",
+    "latent-action-space",
+    "action-representation",
+    "variational-autoencoder",
+    "kinematic-alignment",
+    "multi-embodiment-co-training",
+    "imitation-learning",
+    "held-out-hand-task-combinations",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "XL-VLA 先通过关节重建与跨手指尖几何约束学习各手共享的潜在动作空间，再冻结手型编解码器，用多手示范训练同一个 VLA 预测潜在动作，并由目标手解码执行，实现跨手数据复用与未见手—任务组合迁移。",
+    "en": "XL-VLA learns a shared latent action space through joint reconstruction and cross-hand fingertip geometry constraints, freezes hand-specific encoders/decoders, and trains one VLA on pooled multi-hand demonstrations to predict latent actions decoded for the target hand, enabling data reuse and transfer to unseen hand–task combinations."
+  },
+  "evaluation_scope": {
+    "zh": "潜在自编码器用各手关节限位内随机采样的姿态训练，结合重建、可微正运动学的跨手捏合距离／方向对齐及 KL 正则，无需成对跨手示范。π₀ 基础上的 VLA 输入图像、语言及潜在动作历史；手型仅选择编解码器，不作为显式 VLA token。真机覆盖 Ability、Inspire、X-Hand1、Paxini DexH13 四种手、10 项任务，共 2,000 条遥操作示范（约 200 万状态—动作对），并报告双 xArm 与 G1 混合训练。“零样本”评测留出部分手—任务组合，不等于任意全新手无需适配。官方 DexLatent 仓库公开潜在表示训练／推理代码与预训练检查点，不能据此认定完整 VLA 策略权重已开放。",
+    "en": "The latent autoencoder uses randomly sampled joint-limit poses with reconstruction, differentiable-FK pinch-distance/direction alignment and KL regularization; paired cross-hand demonstrations are unnecessary. The π₀-based VLA consumes images, language and latent action history; hand identity selects codecs rather than an explicit VLA token. Hardware covers Ability, Inspire, X-Hand1 and Paxini DexH13 across 10 tasks and 2,000 teleoperated demonstrations (~2M state–action pairs), with additional dual-xArm/G1 co-training. Zero-shot tests hold out hand–task combinations, not arbitrary unseen hands without adaptation. The official DexLatent repository releases latent-representation training/inference code and a pretrained checkpoint; this does not establish release of full VLA policy weights."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2603.10158v1",
+    "project": "https://xl-vla.github.io/",
+    "code": "https://github.com/EmptyBlueBox/DexLatent"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2603.10158v1",
+    "https://arxiv.org/html/2603.10158v1",
+    "https://xl-vla.github.io/",
+    "https://github.com/EmptyBlueBox/DexLatent"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Cross-hand transfer",
+      "zh": "跨手迁移"
+    },
+    {
+      "en": "Unified latent action space",
+      "zh": "统一潜在动作空间"
+    },
+    {
+      "en": "VLA",
+      "zh": "VLA"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-03-10",
+    "source": "https://arxiv.org/abs/2603.10158v1",
+    "basis": "source"
+  }
+}

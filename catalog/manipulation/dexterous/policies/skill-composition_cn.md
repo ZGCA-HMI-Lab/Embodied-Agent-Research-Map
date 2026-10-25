@@ -8,12 +8,16 @@
 
 研究可复用技能、技能结构、技能间过渡及序列组合。注明技能顺序如何获得、过渡如何依赖下一技能，以及如何判断完成并切换。执行给定序列不等同于自主任务规划或已验证未见顺序泛化；从人类视频学习作为方法标签。
 
-**按主题浏览：** [VLA (6)](../../../topics/vla_cn.md) · [强化学习 (7)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (8)](../../../topics/vla_cn.md) · [强化学习 (10)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.POLICY.SKILL` · 1 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
 | [AM.MAN.DEX.POLICY.SKILL.1] <a id="am-man-dex-policy-skill-1"></a> | **DexStitch｜人类视频迁移 · 接触感知转换 · 技能衔接与组合**<br>[DexStitch: Learning and Composing Dexterous Skills from Human Videos via Contact-Aware Robotic Inpainting](https://arxiv.org/pdf/2610.17789v1)<br>Byeonggyeol Choi, Seongmin Jung, Unghui Nam, Youngbo Song, Sunhong Min, MinHyung Lee, Byonghyo Shim, Yongseok Lee<br>**标签:** `dexterous` `human-video` `egocentric-video` `video-to-robot` `skill-learning` `skill-composition` `transition-skill` `next-skill-conditioning` `closed-loop-skill-switching` `contact-aware-retargeting` `robotic-inpainting` `demonstration-synthesis` `diffusion-policy` `imitation-learning` `real-world` | DexStitch 从人类视频中提取操作技能及过渡示范，通过接触感知的人机转换训练共享扩散策略，以当前和下一技能指导衔接动作，并预测技能进度完成闭环切换，实现给定技能序列的连续执行。<br>**评测范围:** 逐指接触由 RGB 视频估计，同时约束手部重定向和合成画面的手指／物体遮挡。约 240 条长时序人类示范用于合成数据预训练，再混入约 32 条单技能真机示范微调；过渡示范仅来自人类视频。执行顺序由视频分类器或脚本给定，共享策略预测动作与技能进度，非自主任务规划。真机为 RB5-850E 臂＋xHand，实际执行 6 维臂关节及 12 维手关节动作。四项技能各测 5 次，单技能平均成功率 80%；10 次固定四技能序列中的 40 次技能执行平均成功率为 77.5%，不是整条序列全部成功的比例，未验证未见顺序泛化。画面合成采用拇指在前、其余接触指在后的包覆抓取假设。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.17789v1) | 初读<br>2026-10-25 |
+
+## 相关工作
+
+- [GOTT [AM.MAN.DEX.AGENT.4]](../agent-architectures_cn.md#am-man-dex-agent-4)
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

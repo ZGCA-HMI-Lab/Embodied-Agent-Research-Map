@@ -4,6 +4,10 @@
 
 [Open the current category](generation.md)
 
+<a id="am-man-dex-demo-1"></a>
+
+[DexNinja [AM.MAN.DEX.DEMO.1]](generation.md#am-man-dex-demo-1)
+
 <a id="am-man-dex-demo-v2r-1"></a>
 
 [Gen2Dex [AM.MAN.DEX.DEMO.V2R.1]](generation.md#am-man-dex-demo-v2r-1)
@@ -15,3 +19,11 @@
 <a id="am-man-dex-demo-v2r-3"></a>
 
 [EgoMatrix [AM.MAN.DEX.DEMO.V2R.3]](generation.md#am-man-dex-demo-v2r-3)
+
+<a id="am-man-dex-demo-v2r-4"></a>
+
+[EgoCPT [AM.MAN.DEX.DEMO.V2R.4]](generation.md#am-man-dex-demo-v2r-4)
+
+<a id="am-man-dex-demo-v2r-5"></a>
+
+[Hand2Robot [AM.MAN.DEX.DEMO.V2R.5]](generation.md#am-man-dex-demo-v2r-5)

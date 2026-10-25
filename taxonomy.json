@@ -128,8 +128,8 @@
               "code": "AM.MAN.DEX.AGENT",
               "children": [],
               "catalog_path": "manipulation/dexterous/agent-architectures",
-              "description": "Runtime architectures connecting high-level agents to dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, execution feedback and recovery, and the actual low-level controller. Task planning, skill composition and recovery are visible tags rather than nested categories.",
-              "description_zh": "运行时连接高层 Agent 与灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、执行反馈和恢复，以及实际底层控制器。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
+              "description": "Runtime architectures connecting high-level semantic/geometric planning or agents to reusable dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, the actual low-level controller, and whether feedback triggers low-level phase switching or high-level replanning/recovery. Task planning, skill composition and recovery are visible tags rather than nested categories.",
+              "description_zh": "运行时连接高层语义／几何规划或 Agent 与可复用灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、实际底层控制器，并区分反馈仅触发低层阶段切换，还是支持高层重规划与恢复。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
             },
             {
               "name": "Human Hand Motion and Manipulation Video Modeling",

@@ -8,12 +8,13 @@
 
 主要贡献是执行监控、动作修正与失败恢复。注明反馈作用于执行指令、后续观测还是模型参数；不能仅因策略使用闭环观测就归入本类。
 
-**按主题浏览：** [VLA (6)](../../../topics/vla_cn.md) · [强化学习 (7)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (8)](../../../topics/vla_cn.md) · [强化学习 (10)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
-`AM.MAN.DEX.POLICY.FEEDBACK` · 1 篇主分类工作
+`AM.MAN.DEX.POLICY.FEEDBACK` · 2 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
+| [AM.MAN.DEX.POLICY.FEEDBACK.1] <a id="am-man-dex-policy-feedback-1"></a> | **FOMO-Dex｜力反馈柔顺控制 · 任务方向选择 · 修正动作模仿学习**<br>[Force-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation](https://arxiv.org/pdf/2610.17161v1)<br>Ying Yuan, David Held, Jitendra Malik, Haozhi Qi<br>**标签:** `dexterous` `execution-feedback` `action-correction` `force-feedback` [tactile](../../../topics/tactile_cn.md) `compliant-control` `admittance-control` `task-frame-control` `direction-selective-compliance` `teleoperation` `demonstration-collection` `post-modulation-action-targets` `imitation-learning` `behavior-cloning` `diffusion-policy` `real-world` | FOMO-Dex 按任务与接触几何选择柔顺方向，将机器人力反馈转换为机械臂位姿或手指关节修正，在保留任务运动的同时调节接触，并以修正后指令训练扩散策略，使自主操作学习到力反馈产生的动作调整。<br>**评测范围:** 控制层将腕部力／指尖触觉等投影到选定方向，以目标力或力上限计算误差，经导纳控制修正指令；任务方向、目标和反馈规则由配置指定，不在线学习柔顺参数。切纸保留切割方向运动、修正侧向与过大下压力，旋转任务调节指尖载荷而保留旋转。真机为 7 自由度 Tianji Marvin 臂＋22 自由度 Sharpa Wave 手，控制评测覆盖捡卡片、切纸、拧螺母和螺丝刀拧螺丝。行为克隆采用冻结 DINOv2、RGB／本体状态／力观测及扩散策略，每任务—控制器设置用 50 条示范；捡卡片 18 次评测中，拟合修正后动作并以刚性底层执行的抬起成功率为 67%，拟合原始指令再于部署时加柔顺修正为 0%，刚性示范基线为 56%。后两项旋转任务报告每回合圈数，不能当成成功率。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.17161v1) · [项目](https://yingyuan0414.github.io/fomo-dex/) | 初读<br>2026-10-25 |
 | [AM.MAN.DEX.VLA.FEEDBACK.1] <a id="am-man-dex-vla-feedback-1"></a> | **AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正**<br>[AgenticTactileVLA: Contact-Guided Execution-Time Supervision for Generalizable Dexterous Manipulation without VLA Retraining](https://arxiv.org/pdf/2610.04391v1)<br>Elizaveta Semenyakina et al<br>**标签:** `dexterous` [vla](../../../topics/vla_cn.md) `execution-feedback` `action-correction` `proprioception` [contact-estimation](../../../topics/tactile_cn.md) `compliant-control` `grasping` `pick-and-place` `real-world` | **反馈与纠错：**在 VLA 闭合手指后，用指令与实际指位的偏差、以及纠正时的电机负载反馈判断接触；抓握不足时暂停后续身体运动指令的推进（保持身体稳定），逐指补闭合至接触，满足支持判据则保持手形继续执行，否则交回 VLA 重试。<br>**作用位置：**外部、无需训练的监督层修改执行指令；修正后的手部状态进入下一轮 VLA 观测，不更新 VLA 参数。基础 VLA 已用遥操作示范微调。<br>**柔顺模式：**闭合前由语言提示或 VLM 选择预设限流控制，减小对易损物体的挤压；无需额外触觉传感器，电机反馈不等于标定接触力。<br>**评测范围:** Unitree G1＋BrainCo Revo2，固定 GR00T-N1.6-3B；5 个训练外物体、每物体 15 次配对试验，共享 60 秒／最多 3 次接近预算，完成率由基础 VLA 的 61.3% 提升到 84.0%（无条件补闭合为 72.0%）。柔顺分支仅验证闭合与保持时的物体完整性，未验证自主搬运；未证明跨手型或跨 VLA 通用。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.04391v1) | 初读<br>2026-10-22 |
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

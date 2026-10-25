@@ -28,6 +28,14 @@
 
 [DexMimic [AM.MAN.DEX.POLICY.LEARNING.5]](../policies/policy-learning_cn.md#am-man-dex-policy-learning-5)
 
+<a id="am-man-dex-policy-learning-6"></a>
+
+[XL-VLA [AM.MAN.DEX.POLICY.LEARNING.6]](../policies/policy-learning_cn.md#am-man-dex-policy-learning-6)
+
+<a id="am-man-dex-policy-learning-7"></a>
+
+[DexCast [AM.MAN.DEX.POLICY.LEARNING.7]](../policies/policy-learning_cn.md#am-man-dex-policy-learning-7)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning_cn.md#am-man-dex-vla-tactile-1)

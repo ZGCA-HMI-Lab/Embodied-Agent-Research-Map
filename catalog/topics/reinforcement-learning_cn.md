@@ -6,16 +6,19 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (6)](vla_cn.md) · [强化学习 (7)](reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](tactile_cn.md) · [手内操作 (2)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (8)](vla_cn.md) · [强化学习 (10)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (2)](in-hand-manipulation_cn.md)
 
-7 篇工作
+10 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
 | [AdaClearGrasp｜自适应清障 · RL灵巧抓取 · 失败重规划](../manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-2) | 操作动作模型 → 多指灵巧手操作研究 → Agent 架构 | `reinforcement-learning` · `ppo` |
+| [GOTT｜跨手接触原语 · 物体轨迹接口 · 分阶段执行](../manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-4) | 操作动作模型 → 多指灵巧手操作研究 → Agent 架构 | `reinforcement-learning` · `ppo` |
 | [Gen2Dex｜视频示范 · 重定向 · RL轨迹优化](../manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | `residual-rl` |
 | [EgoMatrix｜接触一致重建 · RL操作迁移 · 动作—视频配对生成](../manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-3) | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | `reinforcement-learning` · `ppo` |
+| [EgoCPT｜人类视频迁移 · 接触—受力联合优化 · 残差RL](../manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-4) | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | `reinforcement-learning` · `residual-rl` · `ppo` |
 | [No Eyes, No Problem｜手内操作 · RL · 触觉](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `reinforcement-learning` · `ppo` |
 | [HiFun｜分层RL · 臂手协调 · 人在环学习](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-3) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `reinforcement-learning` · `residual-rl` |
 | [DexMimic｜RL轨迹跟踪 · 价值引导重置 · 多轨迹联合训练](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-5) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `reinforcement-learning` · `ppo` · `residual-rl` |
+| [DexCast｜HOI几何迁移 · 骨架时序运动编码 · 3D扩散策略](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-7) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `residual-rl` |
 | [WBD｜RL专家蒸馏 · 扩散策略 · 指令细化](../whole-body-control/arm-torso-manipulation_cn.md#am-wbc-arm-torso-1) | 身体运动与全身控制模型 → 双臂与躯干协同操作 | `reinforcement-learning` · `ppo` |

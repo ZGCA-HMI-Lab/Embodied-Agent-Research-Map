@@ -8,7 +8,7 @@
 
 运行时连接高层 Agent 与世界动作模型的系统架构。重点记录指令接口、规划与记忆的职责分配、事件反馈和失败恢复，同时注明底层模型与已验证本体。
 
-**按主题浏览：** [VLA (6)](../../../topics/vla_cn.md) · [强化学习 (7)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (8)](../../../topics/vla_cn.md) · [强化学习 (10)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (2)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.GRIP.AGENT.WAM` · 1 篇主分类工作
 

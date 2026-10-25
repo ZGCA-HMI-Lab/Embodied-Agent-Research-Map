@@ -8,7 +8,7 @@
 
 通过双臂运动与躯干等上身表面的支撑协同完成抱持、换抱及物体在身体周围的转移。明确学习策略的输出自由度，以及腰腿、平衡或行走由何种独立控制器负责；本类不默认等同于统一全身关节控制。
 
-**按主题浏览：** [VLA (6)](../topics/vla_cn.md) · [强化学习 (7)](../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../topics/tactile_cn.md) · [手内操作 (2)](../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (8)](../topics/vla_cn.md) · [强化学习 (10)](../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../topics/tactile_cn.md) · [手内操作 (2)](../topics/in-hand-manipulation_cn.md)
 
 `AM.WBC.ARM.TORSO` · 1 篇主分类工作
 

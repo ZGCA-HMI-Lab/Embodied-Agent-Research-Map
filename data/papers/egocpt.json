@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.V2R.4",
+  "slug": "egocpt",
+  "short_name": "EgoCPT",
+  "title": "EgoCPT: Learning Dexterous Manipulation from a Single Ego-Centric Video with Contact-Aware Optimization",
+  "authors": "Zhixin Sun, Kairui Shi, Tianao Ren, Ming Yang, Mark Cutkosky, James Jingxi Xu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "human-video",
+    "egocentric-video",
+    "video-to-robot",
+    "physics-aware-retargeting",
+    "contact-aware-optimization",
+    "contact-sampling",
+    "force-allocation",
+    "object-motion-tracking",
+    "reinforcement-learning",
+    "residual-rl",
+    "ppo",
+    "reference-conditioned-policy",
+    "trajectory-generation",
+    "simulation",
+    "open-loop-replay"
+  ],
+  "tldr": {
+    "zh": "EgoCPT 从单段第一视角视频及参考手部轨迹恢复物体运动，通过接触采样、手部姿态优化与受力分配寻找机器人可行的双手交互，再用 PPO 残差策略修正执行，生成可用于真机回放的操作轨迹。",
+    "en": "EgoCPT recovers object motion from a single egocentric video and reference hand trajectories, searches robot-feasible bimanual interactions through contact sampling, hand-pose optimization and force allocation, then uses PPO residual control to refine execution and generate manipulation trajectories for real-robot replay."
+  },
+  "evaluation_scope": {
+    "zh": "输入为 RGB 视频＋带尺度的三维手部参考轨迹；固定示范物体运动，以人手运动为空间先验，搜索符合关节、碰撞、摩擦及执行器限制的机器人接触与受力。PPO 在仿真中根据物体位姿、参考目标及机器人状态输出 56 维双手残差（腕部平移 6＋旋转 6＋手指关节 44），叠加参考动作；优化得到的接触力用于可行性判断与奖励引导，不直接作为策略力矩指令。实验使用 Sharpa 手：五类任务的 52 条 EgoDex 重建序列和 25 条 TACO 序列，成功率分别为 67.3%／92.0%，是真机回放前的仿真轨迹跟踪评测；真机展示为双手轨迹回放，未验证在线闭环部署。当前假设刚体物体，EgoDex 评测排除了物体位姿重建错误的输入。",
+    "en": "Inputs are RGB video and metric 3D reference hand trajectories. Object motion is fixed while human motion guides robot contact/force search under joint, collision, friction and actuator limits. In simulation, PPO outputs 56 bimanual residuals (6 wrist translations + 6 rotations + 44 finger joints) added to reference motions; optimized forces guide feasibility checks and rewards rather than direct policy torque commands. Sharpa-hand evaluations cover five task families: 52 EgoDex and 25 TACO sequences achieve 67.3% and 92.0% simulated trajectory-tracking success. Hardware demonstrates bimanual trajectory replay, not online closed-loop policy deployment. The method assumes rigid objects; EgoDex inputs with incorrect reconstructed object poses are excluded."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.17572v1",
+    "project": "https://ego-cpt.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.17572v1",
+    "https://arxiv.org/html/2610.17572v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Human-video transfer",
+      "zh": "人类视频迁移"
+    },
+    {
+      "en": "Joint contact–force optimization",
+      "zh": "接触—受力联合优化"
+    },
+    {
+      "en": "Residual RL",
+      "zh": "残差RL"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-13",
+    "source": "https://arxiv.org/abs/2610.17572v1",
+    "basis": "source"
+  }
+}

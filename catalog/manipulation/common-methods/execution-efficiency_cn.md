@@ -8,7 +8,7 @@
 
 通过动作节奏、时间粒度与调度提高任务执行效率的操作共性方法。记录已验证基座与本体，区分动作执行加速和模型推理加速。
 
-**按主题浏览：** [VLA (6)](../../topics/vla_cn.md) · [强化学习 (7)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (7)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (8)](../../topics/vla_cn.md) · [强化学习 (10)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.METHOD.EFF` · 1 篇主分类工作
 

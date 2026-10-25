@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.FEEDBACK.1",
+  "slug": "fomo-dex",
+  "short_name": "FOMO-Dex",
+  "title": "Force-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation",
+  "authors": "Ying Yuan, David Held, Jitendra Malik, Haozhi Qi",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+  "related_categories": [
+    "AM.MAN.DEX.DEMO"
+  ],
+  "tags": [
+    "dexterous",
+    "execution-feedback",
+    "action-correction",
+    "force-feedback",
+    "tactile",
+    "compliant-control",
+    "admittance-control",
+    "task-frame-control",
+    "direction-selective-compliance",
+    "teleoperation",
+    "demonstration-collection",
+    "post-modulation-action-targets",
+    "imitation-learning",
+    "behavior-cloning",
+    "diffusion-policy",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "FOMO-Dex 按任务与接触几何选择柔顺方向，将机器人力反馈转换为机械臂位姿或手指关节修正，在保留任务运动的同时调节接触，并以修正后指令训练扩散策略，使自主操作学习到力反馈产生的动作调整。",
+    "en": "FOMO-Dex selects compliant directions from task and contact geometry, converts robot force feedback into arm-pose or finger-joint corrections while preserving task motion, and trains a diffusion policy on the corrected commands so autonomous manipulation learns the force-dependent adjustments."
+  },
+  "evaluation_scope": {
+    "zh": "控制层将腕部力／指尖触觉等投影到选定方向，以目标力或力上限计算误差，经导纳控制修正指令；任务方向、目标和反馈规则由配置指定，不在线学习柔顺参数。切纸保留切割方向运动、修正侧向与过大下压力，旋转任务调节指尖载荷而保留旋转。真机为 7 自由度 Tianji Marvin 臂＋22 自由度 Sharpa Wave 手，控制评测覆盖捡卡片、切纸、拧螺母和螺丝刀拧螺丝。行为克隆采用冻结 DINOv2、RGB／本体状态／力观测及扩散策略，每任务—控制器设置用 50 条示范；捡卡片 18 次评测中，拟合修正后动作并以刚性底层执行的抬起成功率为 67%，拟合原始指令再于部署时加柔顺修正为 0%，刚性示范基线为 56%。后两项旋转任务报告每回合圈数，不能当成成功率。",
+    "en": "The controller projects wrist/fingertip force feedback onto configured directions, converts target/limit errors through admittance into command corrections, and does not learn compliance parameters online. Cutting preserves forward motion while relieving lateral/excess normal loading; rotational tasks regulate fingertip loads while retaining rotation. Hardware uses a 7-DoF Tianji Marvin arm and 22-DoF Sharpa Wave hand. Controller tests cover card picking, paper cutting, nut–bolt manipulation and screwdriving. Behavior cloning uses frozen DINOv2, RGB/proprioception/force observations and a diffusion policy with 50 demonstrations per task–controller setting. Across 18 card-picking trials, corrected-action training with stiff execution achieves 67% lift success, versus 0% for raw-command training with deployment-time compliance and 56% for stiff demonstrations. Rotational-policy results measure turns per episode, not success rates."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.17161v1",
+    "project": "https://yingyuan0414.github.io/fomo-dex/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.17161v1",
+    "https://arxiv.org/html/2610.17161v1"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Force-feedback compliance",
+      "zh": "力反馈柔顺控制"
+    },
+    {
+      "en": "Task-direction selection",
+      "zh": "任务方向选择"
+    },
+    {
+      "en": "Corrected-action imitation learning",
+      "zh": "修正动作模仿学习"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-12",
+    "source": "https://arxiv.org/abs/2610.17161v1",
+    "basis": "source"
+  }
+}

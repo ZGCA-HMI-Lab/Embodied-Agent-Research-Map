@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.V2R.5",
+  "slug": "hand2robot",
+  "short_name": "Hand2Robot",
+  "title": "Hand2Robot: Object-Centric 4D Hand Reconstruction from Human Demonstrations for Robotics",
+  "authors": "Zetao Du, Weiqing Wang, Hanbing Zhang, Yimiao Zhou, Ye Shi, Liang Wang, Jingya Wang",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "human-video",
+    "rgb-d",
+    "video-to-robot",
+    "demonstration-synthesis",
+    "object-centric-reconstruction",
+    "hand-object-reconstruction",
+    "confidence-aware-object-tracking",
+    "viterbi-trajectory-selection",
+    "contact-consistent-refinement",
+    "motion-retargeting",
+    "geort",
+    "vla",
+    "vla-fine-tuning",
+    "human-robot-co-training",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Hand2Robot 从人类 RGB-D 视频中全局筛选稳定的物体位姿轨迹，以物体为参考优化手部图像对齐、接触与时序一致性，再将手部运动重定向为机器人动作标签，混合少量真机示范后训练 π₀.₅，提升目标任务操作成功率。",
+    "en": "Hand2Robot selects globally consistent object-pose trajectories from human RGB-D videos, refines hand motion against object references through image alignment, contact and temporal consistency, retargets it into robot action labels, and mixes these with limited robot demonstrations to post-train π₀.₅ for target-task manipulation."
+  },
+  "evaluation_scope": {
+    "zh": "输入为 RGB-D 视频与相机内参；VLM 分段并标注任务，物体位姿候选结合观测置信度、掩码匹配及帧间运动约束，通过 Viterbi 选择全局轨迹。固定物体几何与运动后，分阶段对齐手部二维观测、稳定物体局部接触并惩罚穿透，经 GeoRT 与坐标对齐生成动作监督。重建评测使用 DexYCB、HO3D-v3；真机为 Franka＋xHand，验证放置花瓶、打开盒子、插入吐司三项任务。每任务 20 条机器人＋100 条人类示范，训练按 1:1 抽样，每任务测试 20 次，平均成功率由仅 20 条机器人示范的 48.3% 升至 80.0%；仅用 100 条人类示范为 8.3%。人机数据采用同一固定侧视角，测试物体初始位置来自训练分布；证据支持目标任务后训练补充数据，不代表无需真机数据或跨视角泛化。",
+    "en": "Inputs are RGB-D videos and camera intrinsics. VLM parsing precedes Viterbi selection of object trajectories using pose confidence, mask agreement and temporal costs. With objects fixed, staged image/contact refinement and penetration penalties improve hand motion before GeoRT and coordinate alignment produce action labels. Reconstruction is evaluated on DexYCB/HO3D-v3. Franka + xHand tests cover Place Vase, Open Box and Insert Toast. Per task, 20 robot + 100 human demonstrations are sampled 1:1 for training and evaluated in 20 trials; mean success rises from 48.3% with 20 robot demonstrations alone to 80.0%, versus 8.3% with human data alone. Human/robot recordings share a fixed side view; test positions follow the training distribution. Evidence supports target-task post-training, not robot-data-free learning or cross-view generalization."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.15769v1",
+    "project": "https://hand2robot.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.15769v1",
+    "https://arxiv.org/html/2610.15769v1",
+    "https://hand2robot.github.io/"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Human-video transfer",
+      "zh": "人类视频迁移"
+    },
+    {
+      "en": "Object-centric 4D reconstruction",
+      "zh": "物体中心4D重建"
+    },
+    {
+      "en": "VLA post-training",
+      "zh": "VLA后训练"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-11",
+    "source": "https://arxiv.org/abs/2610.15769v1",
+    "basis": "source"
+  }
+}

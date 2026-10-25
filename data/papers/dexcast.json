@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.7",
+  "slug": "dexcast",
+  "short_name": "DexCast",
+  "title": "DexCast: Learning Real-World Dexterous Control from Human Videos",
+  "authors": "Zihan Gao, Yuhong Zhang, Mengzhe Wang, Kaisheng Liu, Shengpeng Li, Siyao Xiao, Runqing Cheng, Xiao Lin, Zhifang Liu, Haoqian Wang",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [
+    "AM.MAN.DEX.DEMO"
+  ],
+  "tags": [
+    "dexterous",
+    "human-video",
+    "rgb-d",
+    "video-to-robot",
+    "hand-object-reconstruction",
+    "hand-object-point-clouds",
+    "demonstration-synthesis",
+    "residual-rl",
+    "spatial-augmentation",
+    "skeletal-topology",
+    "temporal-motion-encoding",
+    "variational-autoencoder",
+    "motion-pretraining",
+    "diffusion-policy",
+    "sim3-equivariance",
+    "imitation-learning",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DexCast 从人类 RGB-D 视频重建并修正手物交互，生成机器人示范，以训练与真机一致形式的手—物体点云作为几何观测，结合预训练的骨架时序运动编码驱动扩散策略，实现无需真机遥操作示范的操作学习与动作块间闭环执行。",
+    "en": "DexCast reconstructs and refines hand–object interactions from human RGB-D videos to generate robot demonstrations, uses hand/object point clouds in a common training/deployment format as geometric observations, and conditions a diffusion policy on pretrained skeletal-temporal motion features, enabling learning without robot teleoperation demonstrations and closed-loop execution between action chunks."
+  },
+  "evaluation_scope": {
+    "zh": "沿用手物重建与残差 RL 修正生成示范并做空间扩增；训练和部署均从网格采样手／物体完整点云，真机由关节状态与正运动学生成手点云、由 FoundationPose 估计物体位姿更新物体点云。DMPM 在超过 500 万帧重定向运动上预训练 VAE，冻结编码器将最近 32 帧关节位置／速度变成 256 维历史特征，与 SIM(3) 等变几何特征及本体状态共同条件化扩散网络；潜在码是观测条件，不是待预测的跨手动作码。UR5＋12 自由度 XHAND 验证抓取、倾倒、翻正、按压、擦拭、堆叠六任务，每任务从一段人类视频生成 40 条示范并分别训练策略。两视角平均成功率为 87.5%／86.7%；预测的 32 步指令以 8 Hz 全部执行后重新感知，只执行位置目标。当前限刚体物体；换手需重新设计骨架并训练 DMPM。",
+    "en": "Existing HOI reconstruction and residual-RL refinement generate spatially augmented demonstrations. Training/deployment sample complete hand/object mesh point clouds; hardware updates hand geometry from joints/FK and object geometry from FoundationPose tracking. A VAE-based DMPM pretrained on >5M retargeted frames is frozen to encode 32 joint-position/velocity frames into a 256-D history feature, conditioning diffusion alongside SIM(3)-equivariant geometry and proprioception. This latent conditions observations rather than serving as a predicted cross-hand action code. UR5 + 12-DoF XHAND tests grasping, pouring, flipping, pressing, wiping and stacking, with 40 generated demonstrations from one human video per task and separately trained policies. Viewpoint averages are 87.5%/86.7%. All 32 predicted commands execute at 8 Hz before replanning; only position targets are applied. Rigid objects only; new hands require new skeleton design and DMPM training."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.14691v2"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.14691v2",
+    "https://arxiv.org/html/2610.14691v2"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "HOI geometry transfer",
+      "zh": "HOI几何迁移"
+    },
+    {
+      "en": "Skeletal-temporal motion encoding",
+      "zh": "骨架时序运动编码"
+    },
+    {
+      "en": "3D diffusion policy",
+      "zh": "3D扩散策略"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-10",
+    "source": "https://arxiv.org/abs/2610.14691v2",
+    "basis": "source"
+  }
+}
