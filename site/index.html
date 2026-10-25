@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Explore embodied action research by category, publication time and topic.">
 <title>具身动作模型 · Interactive Map</title>
-<link rel="stylesheet" href="style.css?v=4eff0288d4be7d3b">
-<script defer src="map-data.js?v=4eff0288d4be7d3b"></script>
-<script defer src="map-core.js?v=4eff0288d4be7d3b"></script>
-<script defer src="app.js?v=4eff0288d4be7d3b"></script>
+<link rel="stylesheet" href="style.css?v=5d334fd365aa1def">
+<script defer src="map-data.js?v=5d334fd365aa1def"></script>
+<script defer src="map-core.js?v=5d334fd365aa1def"></script>
+<script defer src="app.js?v=5d334fd365aa1def"></script>
 </head>
 <body>
 <header class="masthead">
@@ -18,26 +18,38 @@
 </header>
 <main>
   <section class="intro" aria-labelledby="title">
-    <div><div class="eyebrow">THE EMBODIED RESEARCH ATLAS</div><h1 id="title">具身动作模型</h1><p id="subtitle">沿时间探索研究方向，从论文看见方法。</p></div>
+    <div><h1 id="title">具身动作模型</h1><p id="subtitle">沿时间探索研究方向，从论文看见方法。</p></div>
     <div class="collection-stat"><strong id="total">—</strong><span id="total-label">篇已收录工作</span></div>
   </section>
   <section class="filters" aria-label="筛选论文" id="filter-panel">
     <div class="filter-top">
       <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="搜索论文、方法、作者…" aria-label="搜索论文"></label>
+      <label class="kind-box category-box"><span id="category-label">研究分类</span><select id="category"></select></label>
       <label class="kind-box"><span id="kind-label">成果类型</span><select id="kind" aria-label="成果类型"></select></label>
       <div class="range" role="group" id="range-buttons" aria-label="时间范围"></div>
     </div>
     <div class="filter-bottom"><div class="topics" id="topics" role="group" aria-label="主题筛选"></div><label class="representatives"><input id="representatives" type="checkbox"><span id="representatives-label">仅代表作</span></label><button id="reset" class="text-button" type="button">重置</button></div>
+    <div id="active-filters" class="active-filters"></div>
     <p class="filter-hint" id="filter-hint">多个主题取交集；时间以全库最新论文为参照。</p>
   </section>
   <section class="map-section" aria-labelledby="map-heading">
-    <div class="map-toolbar"><div><h2 id="map-heading">分类 × 时间</h2><span id="result-count" role="status" aria-live="polite"></span></div><div class="map-actions"><button id="expand" type="button">展开分类</button><button id="collapse" type="button">收起分类</button><span id="time-direction">最新 ← 更早</span></div></div>
+    <div class="map-toolbar">
+      <div class="view-tabs" role="group" aria-label="View"><button id="view-map" data-view="map">分类地图</button><button id="view-list" data-view="list">论文列表</button><span id="result-count" role="status" aria-live="polite"></span></div>
+      <div class="map-actions"><label><span id="sort-label">排序</span> <select id="sort"></select></label><button id="share">分享当前视图</button><button data-export="json">JSON ↓</button><button data-export="csv">CSV ↓</button></div>
+    </div>
+    <div class="category-context"><div><h2 id="map-heading">分类 × 时间</h2><p id="category-description"></p></div><button id="overview">返回总览</button></div>
+    <div id="map-controls" class="map-toolbar compact-toolbar"><div class="map-actions"><button id="expand">展开分类</button><button id="collapse">收起分类</button></div><div class="map-actions"><button id="newer">← 更新</button><button id="earlier">更早 →</button><span id="time-direction">最新 ← 更早</span></div></div>
+    <p id="state-notice" class="notice" hidden></p>
     <div class="timeline" id="timeline" tabindex="0" aria-label="按分类和时间排列的论文"></div>
+    <div id="paper-list" class="paper-list" hidden></div>
+    <button id="load-more" class="load-more" hidden></button>
     <p class="time-note" id="time-note"></p>
   </section>
 </main>
 <footer><span id="footer-note">与分类目录、思维导图使用同一份论文记录。</span><a href="https://github.com/ZGCA-HMI-Lab/Memory-in-World-Models#interactive-map" id="reference">布局参考 ↗</a><a id="repository" href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">GitHub ↗</a></footer>
 <dialog id="detail" aria-labelledby="detail-title"><button type="button" id="close-detail" aria-label="关闭详情">×</button><div id="detail-content"></div></dialog>
+<dialog id="share-dialog" aria-labelledby="share-title"><h2 id="share-title">分享链接</h2><p id="share-help"></p><textarea id="share-value" readonly rows="4"></textarea><button id="close-share">关闭</button></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
 <noscript><p class="empty">交互地图需要 JavaScript。您仍可查看 <a href="mindmap_cn.svg">静态导图</a>。</p></noscript>
 </body>
 </html>

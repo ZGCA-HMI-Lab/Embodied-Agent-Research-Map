@@ -44,3 +44,55 @@ test('text and permitted summary formatting do not inject HTML',()=>{
  assert.ok(!html.includes('<img'));
  assert.ok(M.escape('" onmouseover="x').includes('&quot;'));
 });
+
+const taxonomy={children:[{name:'Manipulation',name_zh:'操作',children:[{name:'Policies',name_zh:'策略',code:'NEW.LEARN'},{name:'Benchmarks',name_zh:'基准',code:'NEW.DATA'}]},{name:'Navigation',name_zh:'导航',code:'EMPTY'}]};
+const collection={...data,taxonomy,repository:'https://example.org',schema_version:1,papers:papers.map((p,i)=>({...p,slug:['touch','vla','bench'][i],links:{paper:`https://example.org/${i}`}}))};
+test('category focus includes descendants and composes with topic intersections',()=>{
+ const parent=M.categoryIndex(taxonomy).find(n=>n.name==='Manipulation');
+ assert.equal(M.filterPapers(collection,{category:parent.key}).length,3);
+ assert.deepEqual(M.filterPapers(collection,{category:'NEW.LEARN',topics:['touch']}).map(p=>p.slug),['touch']);
+ assert.equal(M.filterPapers(collection,{category:'EMPTY'}).length,0);
+});
+test('parent category identity survives sibling reordering and rejects changed membership',()=>{
+ const key=M.categoryIndex(taxonomy)[0].key;
+ const reordered={children:[taxonomy.children[1],{...taxonomy.children[0],children:[...taxonomy.children[0].children].reverse()}]};
+ assert.ok(M.categoryIndex(reordered).some(n=>n.key===key));
+ const changed={children:[{...taxonomy.children[0],children:[taxonomy.children[0].children[0]]}]};
+ assert.ok(!M.categoryIndex(changed).some(n=>n.key===key));
+});
+test('shared state validates values and keeps paper outside the filtered result readable',()=>{
+ const state=M.readState('?view=map&category=NEW.LEARN&topic=rl&topic=missing&paper=bench&lang=en&sort=oldest&range=6',collection,{view:'list'});
+ assert.equal(state.view,'map');assert.equal(state.paper,'bench');assert.deepEqual(state.topics,['rl']);
+ assert.equal(M.filterPapers(collection,state).some(p=>p.slug==='bench'),false);
+ const again=M.readState(M.stateQuery(state),collection);
+ assert.deepEqual(again,state);
+ const bad=M.readState('?category=unknown&view=bad&range=0&paper=missing&sort=bad',collection);
+ assert.equal(bad.category,'');assert.equal(bad.invalidCategory,true);assert.equal(bad.paper,'');assert.equal(bad.range,'12');
+});
+test('compact cell preview reveals exactly three and can reveal the complete cell',()=>{
+ const ps=Array.from({length:7},(_,i)=>({slug:String(i)}));
+ assert.deepEqual(M.preview(ps,false),{shown:ps.slice(0,3),remaining:4});
+ assert.deepEqual(M.preview(ps,true),{shown:ps,remaining:0});
+ assert.deepEqual(M.preview([],false),{shown:[],remaining:0});
+});
+test('sorting remains deterministic without changing imprecise dates',()=>{
+ const ps=[{slug:'a',short_name:'A',year:2026},{slug:'b',short_name:'B',publication_date:{value:'2026-10'}},{slug:'c',short_name:'C',publication_date:{value:'2026-10-13'}}];
+ assert.deepEqual(M.sortPapers(ps,'newest').map(p=>p.slug),['c','b','a']);
+ assert.deepEqual(M.sortPapers(ps,'oldest').map(p=>p.slug),['a','b','c']);
+ assert.deepEqual(M.sortPapers(ps,'name').map(p=>p.slug),['a','b','c']);
+ assert.equal(M.stamp(ps[0]),'2026');
+});
+test('exports include every matching result and preserve bilingual benchmark facts',()=>{
+ const state={category:'NEW.DATA',lang:'zh',range:'all',sort:'newest'};
+ const exported=JSON.parse(M.exportResults(collection,state,'json'));
+ assert.deepEqual(exported.papers,[collection.papers[2]]);
+ assert.deepEqual(exported.taxonomy,taxonomy);
+ const csv=M.exportResults(collection,state,'csv');
+ assert.ok(csv.includes('两种手'));assert.ok(csv.includes('https://example.org/2'));
+});
+test('CSV quotes newlines and separators and neutralizes spreadsheet formulas',()=>{
+ const d={...collection,papers:[{...collection.papers[0],title:'=HYPERLINK("x")',authors:'A, B\nC',tldr:{en:'@danger',zh:'安全'}}]};
+ const csv=M.exportResults(d,{lang:'en',range:'all'},'csv');
+ assert.ok(csv.includes('"\'=HYPERLINK(""x"")"'));
+ assert.ok(csv.includes('"A, B\nC"'));assert.ok(csv.includes('"\'@danger"'));
+});
