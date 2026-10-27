@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1081.92 0 3671.76 2124" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1081.92 0 3671.76 2192" role="img" aria-labelledby="title desc">
 <title id="title">具身动作模型 领域思维导图</title>
 <desc id="desc">由分类数据自动生成的研究地图，显示分类码及已添加的工作名称。</desc>
-<rect x="-1081.92" width="3671.76" height="2124" fill="#ffffff"/>
+<rect x="-1081.92" width="3671.76" height="2192" fill="#ffffff"/>
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M 1800 1062.0 C 1575.0 1062.0, 1575.0 1011.0, 1350 1011.0" stroke="#05a6c7" stroke-width="5"/>
-<path d="M 1190 1011.0 C 1130.0 1011.0, 1130.0 178.0, 1070 178.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 1096.0 C 1575.0 1096.0, 1575.0 1045.0, 1350 1045.0" stroke="#05a6c7" stroke-width="5"/>
+<path d="M 1190 1045.0 C 1130.0 1045.0, 1130.0 178.0, 1070 178.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 910 178.0 C 850.0 178.0, 850.0 110.0, 790 110.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 424.96 110.0 C 364.96 110.0, 364.96 110, 304.96 110" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 910 178.0 C 850.0 178.0, 850.0 195.0, 790 195.0" stroke="#05a6c7" stroke-width="3"/>
@@ -14,14 +14,14 @@
 <path d="M 644.0799999999999 195.0 C 584.0799999999999 195.0, 584.0799999999999 229.0, 524.0799999999999 229.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 6.7999999999999545 229.0 C -53.200000000000045 229.0, -53.200000000000045 212, -113.20000000000005 212" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 6.7999999999999545 229.0 C -53.200000000000045 229.0, -53.200000000000045 246, -113.20000000000005 246" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1190 1011.0 C 1130.0 1011.0, 1130.0 1028.0, 1070 1028.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 1028.0 C 784.0 1028.0, 784.0 348.0, 724 348.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1190 1045.0 C 1130.0 1045.0, 1130.0 1062.0, 1070 1062.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 844 1062.0 C 784.0 1062.0, 784.0 348.0, 724 348.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 298.23999999999995 348.0 C 238.23999999999995 348.0, 238.23999999999995 280, 178.23999999999995 280" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 298.23999999999995 348.0 C 238.23999999999995 348.0, 238.23999999999995 314, 178.23999999999995 314" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 298.23999999999995 348.0 C 238.23999999999995 348.0, 238.23999999999995 348, 178.23999999999995 348" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 298.23999999999995 348.0 C 238.23999999999995 348.0, 238.23999999999995 382, 178.23999999999995 382" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 298.23999999999995 348.0 C 238.23999999999995 348.0, 238.23999999999995 416, 178.23999999999995 416" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 1028.0 C 784.0 1028.0, 784.0 603.0, 724 603.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 844 1062.0 C 784.0 1062.0, 784.0 603.0, 724 603.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 276.23999999999995 603.0 C 216.23999999999995 603.0, 216.23999999999995 450, 156.23999999999995 450" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 276.23999999999995 603.0 C 216.23999999999995 603.0, 216.23999999999995 484, 156.23999999999995 484" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 276.23999999999995 603.0 C 216.23999999999995 603.0, 216.23999999999995 518, 156.23999999999995 518" stroke="#05a6c7" stroke-width="3"/>
@@ -32,7 +32,7 @@
 <path d="M 276.23999999999995 603.0 C 216.23999999999995 603.0, 216.23999999999995 688, 156.23999999999995 688" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 276.23999999999995 603.0 C 216.23999999999995 603.0, 216.23999999999995 722, 156.23999999999995 722" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 276.23999999999995 603.0 C 216.23999999999995 603.0, 216.23999999999995 756, 156.23999999999995 756" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 1028.0 C 784.0 1028.0, 784.0 1130.0, 724 1130.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 844 1062.0 C 784.0 1062.0, 784.0 1130.0, 724 1130.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M 476 1130.0 C 416.0 1130.0, 416.0 1011.0, 356 1011.0" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -161.27999999999997 1011.0 C -221.27999999999997 1011.0, -221.27999999999997 790, -281.28 790" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -161.27999999999997 1011.0 C -221.27999999999997 1011.0, -221.27999999999997 824, -281.28 824" stroke="#05a6c7" stroke-width="3"/>
@@ -58,34 +58,36 @@
 <path d="M -227.2800000000001 1436.0 C -287.2800000000001 1436.0, -287.2800000000001 1402, -347.2800000000001 1402" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -227.2800000000001 1436.0 C -287.2800000000001 1436.0, -287.2800000000001 1436, -347.2800000000001 1436" stroke="#05a6c7" stroke-width="3"/>
 <path d="M -227.2800000000001 1436.0 C -287.2800000000001 1436.0, -287.2800000000001 1470, -347.2800000000001 1470" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 1028.0 C 784.0 1028.0, 784.0 1623.0, 724 1623.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1504, 224.0 1504" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1538, 224.0 1538" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1572, 224.0 1572" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1606, 224.0 1606" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1640, 224.0 1640" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1674, 224.0 1674" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1708, 224.0 1708" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 344.0 1623.0 C 284.0 1623.0, 284.0 1742, 224.0 1742" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 844 1028.0 C 784.0 1028.0, 784.0 1776.0, 724 1776.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 219.91999999999996 1776.0 C 159.91999999999996 1776.0, 159.91999999999996 1776, 99.91999999999996 1776" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1190 1011.0 C 1130.0 1011.0, 1130.0 1861.0, 1070 1861.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 954 1861.0 C 894.0 1861.0, 894.0 1810.0, 834 1810.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 361.5999999999999 1810.0 C 301.5999999999999 1810.0, 301.5999999999999 1810, 241.5999999999999 1810" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 954 1861.0 C 894.0 1861.0, 894.0 1861.0, 834 1861.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 373.91999999999996 1861.0 C 313.91999999999996 1861.0, 313.91999999999996 1844, 253.91999999999996 1844" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 373.91999999999996 1861.0 C 313.91999999999996 1861.0, 313.91999999999996 1878, 253.91999999999996 1878" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 954 1861.0 C 894.0 1861.0, 894.0 1912.0, 834 1912.0" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 380.96 1912.0 C 320.96 1912.0, 320.96 1912, 260.96 1912" stroke="#05a6c7" stroke-width="3"/>
-<path d="M 1800 1062.0 C 2025.0 1062.0, 2025.0 1946, 2250 1946" stroke="#ff7b50" stroke-width="5"/>
-<path d="M 1800 1062.0 C 1575.0 1062.0, 1575.0 1997.0, 1350 1997.0" stroke="#b1c91e" stroke-width="5"/>
-<path d="M 1080 1997.0 C 1020.0 1997.0, 1020.0 1980.0, 960 1980.0" stroke="#b1c91e" stroke-width="3"/>
-<path d="M 499.91999999999996 1980.0 C 439.91999999999996 1980.0, 439.91999999999996 1980, 379.91999999999996 1980" stroke="#b1c91e" stroke-width="3"/>
-<path d="M 1080 1997.0 C 1020.0 1997.0, 1020.0 2014.0, 960 2014.0" stroke="#b1c91e" stroke-width="3"/>
-<path d="M 629.28 2014.0 C 569.28 2014.0, 569.28 2014, 509.28 2014" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 844 1062.0 C 784.0 1062.0, 784.0 1657.0, 724 1657.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1504, 224.0 1504" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1538, 224.0 1538" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1572, 224.0 1572" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1606, 224.0 1606" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1640, 224.0 1640" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1674, 224.0 1674" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1708, 224.0 1708" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1742, 224.0 1742" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1776, 224.0 1776" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 344.0 1657.0 C 284.0 1657.0, 284.0 1810, 224.0 1810" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 844 1062.0 C 784.0 1062.0, 784.0 1844.0, 724 1844.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 219.91999999999996 1844.0 C 159.91999999999996 1844.0, 159.91999999999996 1844, 99.91999999999996 1844" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1190 1045.0 C 1130.0 1045.0, 1130.0 1929.0, 1070 1929.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 954 1929.0 C 894.0 1929.0, 894.0 1878.0, 834 1878.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 361.5999999999999 1878.0 C 301.5999999999999 1878.0, 301.5999999999999 1878, 241.5999999999999 1878" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 954 1929.0 C 894.0 1929.0, 894.0 1929.0, 834 1929.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 373.91999999999996 1929.0 C 313.91999999999996 1929.0, 313.91999999999996 1912, 253.91999999999996 1912" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 373.91999999999996 1929.0 C 313.91999999999996 1929.0, 313.91999999999996 1946, 253.91999999999996 1946" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 954 1929.0 C 894.0 1929.0, 894.0 1980.0, 834 1980.0" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 380.96 1980.0 C 320.96 1980.0, 320.96 1980, 260.96 1980" stroke="#05a6c7" stroke-width="3"/>
+<path d="M 1800 1096.0 C 2025.0 1096.0, 2025.0 2014, 2250 2014" stroke="#ff7b50" stroke-width="5"/>
+<path d="M 1800 1096.0 C 1575.0 1096.0, 1575.0 2065.0, 1350 2065.0" stroke="#b1c91e" stroke-width="5"/>
+<path d="M 1080 2065.0 C 1020.0 2065.0, 1020.0 2048.0, 960 2048.0" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 499.91999999999996 2048.0 C 439.91999999999996 2048.0, 439.91999999999996 2048, 379.91999999999996 2048" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 1080 2065.0 C 1020.0 2065.0, 1020.0 2082.0, 960 2082.0" stroke="#b1c91e" stroke-width="3"/>
+<path d="M 629.28 2082.0 C 569.28 2082.0, 569.28 2082, 509.28 2082" stroke="#b1c91e" stroke-width="3"/>
 </g>
-<circle cx="1350" cy="1011.0" r="5" fill="#05a6c7"/>
-<text x="1334" y="1018.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">操作动作模型</text>
+<circle cx="1350" cy="1045.0" r="5" fill="#05a6c7"/>
+<text x="1334" y="1052.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">操作动作模型</text>
 <circle cx="1070" cy="178.0" r="5" fill="#05a6c7"/>
 <text x="1054" y="185.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">夹爪操作模型</text>
 <circle cx="790" cy="110.0" r="5" fill="#05a6c7"/>
@@ -106,8 +108,8 @@
 <text x="-129.20000000000005" y="219" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AR-WAM｜WAM执行 · 事件反馈 · 失败恢复</text>
 <circle cx="-113.20000000000005" cy="246" r="4" fill="#05a6c7"/>
 <text x="-129.20000000000005" y="253" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AW-0｜<tspan font-weight="700">Agent＋WAM</tspan> · 代码—视频—动作联合生成 · 混合执行</text>
-<circle cx="1070" cy="1028.0" r="5" fill="#05a6c7"/>
-<text x="1054" y="1035.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">多指灵巧手操作研究</text>
+<circle cx="1070" cy="1062.0" r="5" fill="#05a6c7"/>
+<text x="1054" y="1069.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">多指灵巧手操作研究</text>
 <circle cx="724" cy="348.0" r="5" fill="#05a6c7"/>
 <text x="708" y="355.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">数据集与评测基准<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.DATA]</tspan></text>
 <circle cx="178.23999999999995" cy="280" r="4" fill="#05a6c7"/>
@@ -194,8 +196,8 @@
 <text x="-363.2800000000001" y="1443" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">TouchWorld｜<tspan font-weight="700">Agent＋VLA</tspan> · 触觉世界模型 · 触觉残差修正</text>
 <circle cx="-347.2800000000001" cy="1470" r="4" fill="#05a6c7"/>
 <text x="-363.2800000000001" y="1477" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正</text>
-<circle cx="724" cy="1623.0" r="5" fill="#05a6c7"/>
-<text x="708" y="1630.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Agent 架构<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.AGENT]</tspan></text>
+<circle cx="724" cy="1657.0" r="5" fill="#05a6c7"/>
+<text x="708" y="1664.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Agent 架构<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.AGENT]</tspan></text>
 <circle cx="224.0" cy="1504" r="4" fill="#05a6c7"/>
 <text x="208.0" y="1511" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AdaClearGrasp｜自适应清障 · RL灵巧抓取 · 失败重规划</text>
 <circle cx="224.0" cy="1538" r="4" fill="#05a6c7"/>
@@ -205,45 +207,49 @@
 <circle cx="224.0" cy="1606" r="4" fill="#05a6c7"/>
 <text x="208.0" y="1613" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">LUCID｜闭环意图预测 · 人类视频学习 · 通用臂手控制</text>
 <circle cx="224.0" cy="1640" r="4" fill="#05a6c7"/>
-<text x="208.0" y="1647" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">RoboDexVLM｜VLM Agent · 任务规划 · 失败重规划</text>
+<text x="208.0" y="1647" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">BLaDA｜<tspan font-weight="700">Agent语义约束规划</tspan> · 3DGS功能定位 · 三点几何动作映射</text>
 <circle cx="224.0" cy="1674" r="4" fill="#05a6c7"/>
-<text x="208.0" y="1681" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexGraspVLA｜分层VLA · 域不变视觉表示 · 扩散模仿学习</text>
+<text x="208.0" y="1681" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">AdaRoboVLG｜<tspan font-weight="700">Agent可组合先验</tspan> · 跨手抓姿生成 · 接触几何稳定性评估</text>
 <circle cx="224.0" cy="1708" r="4" fill="#05a6c7"/>
-<text x="208.0" y="1715" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">VLM Scaffolding｜关键点轨迹规划 · 残差RL · 仿真到现实</text>
+<text x="208.0" y="1715" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">RoboDexVLM｜VLM Agent · 任务规划 · 失败重规划</text>
 <circle cx="224.0" cy="1742" r="4" fill="#05a6c7"/>
-<text x="208.0" y="1749" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">OmniDexVLG｜<tspan font-weight="700">多Agent语义理解与标注</tspan> · VLG抓姿生成 · 细粒度抓取控制</text>
-<circle cx="724" cy="1776.0" r="5" fill="#05a6c7"/>
-<text x="708" y="1783.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">人手动作与操作视频建模<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.HUMAN]</tspan></text>
-<circle cx="99.91999999999996" cy="1776" r="4" fill="#05a6c7"/>
-<text x="83.91999999999996" y="1783" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">P³-WAM｜统一感知、预测与规划</text>
-<circle cx="1070" cy="1861.0" r="5" fill="#05a6c7"/>
-<text x="1054" y="1868.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">共性方法</text>
-<circle cx="834" cy="1810.0" r="5" fill="#05a6c7"/>
-<text x="818" y="1817.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">执行效率与时序控制<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
-<circle cx="241.5999999999999" cy="1810" r="4" fill="#05a6c7"/>
-<text x="225.5999999999999" y="1817" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA｜VLA · 执行加速 · 动作时间粒度</text>
-<circle cx="834" cy="1861.0" r="5" fill="#05a6c7"/>
-<text x="818" y="1868.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">强化学习训练与探索<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.RL]</tspan></text>
-<circle cx="253.91999999999996" cy="1844" r="4" fill="#05a6c7"/>
-<text x="237.91999999999996" y="1851" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">SGS｜RL · 成功率引导采样 · 训练起点调度</text>
-<circle cx="253.91999999999996" cy="1878" r="4" fill="#05a6c7"/>
-<text x="237.91999999999996" y="1885" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">HARBOR｜<tspan font-weight="700">Agent自动化RL训练</tspan> · 分阶段检查与修复 · 并行调参与经验复用</text>
-<circle cx="834" cy="1912.0" r="5" fill="#05a6c7"/>
-<text x="818" y="1919.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">跨平台评测基准<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.BENCH]</tspan></text>
-<circle cx="260.96" cy="1912" r="4" fill="#05a6c7"/>
-<text x="244.95999999999998" y="1919" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EmbodiedSWE｜<tspan font-weight="700">Coding Agent评测</tspan> · 长时序操作 · 示范生成</text>
-<circle cx="2250" cy="1946" r="4" fill="#ff7b50"/>
-<text x="2266" y="1953" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">导航动作模型<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
-<circle cx="1350" cy="1997.0" r="5" fill="#b1c91e"/>
-<text x="1334" y="2004.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">身体运动与全身控制模型</text>
-<circle cx="960" cy="1980.0" r="5" fill="#b1c91e"/>
-<text x="944" y="1987.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">双臂与躯干协同操作<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC.ARM.TORSO]</tspan></text>
-<circle cx="379.91999999999996" cy="1980" r="4" fill="#b1c91e"/>
-<text x="363.91999999999996" y="1987" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">WBD｜RL专家蒸馏 · 扩散策略 · 指令细化</text>
-<circle cx="960" cy="2014.0" r="5" fill="#b1c91e"/>
-<text x="944" y="2021.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Agent 架构<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC.AGENT]</tspan></text>
-<circle cx="509.28" cy="2014" r="4" fill="#b1c91e"/>
-<text x="493.28" y="2021" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Being-0｜<tspan font-weight="700">Agent全身任务规划</tspan> · Connector技能落地 · 导航—操作协同</text>
-<rect x="1620.0" y="1008.0" width="360" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
-<text x="1800" y="1071.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">具身动作模型</text>
+<text x="208.0" y="1749" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">DexGraspVLA｜分层VLA · 域不变视觉表示 · 扩散模仿学习</text>
+<circle cx="224.0" cy="1776" r="4" fill="#05a6c7"/>
+<text x="208.0" y="1783" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">VLM Scaffolding｜关键点轨迹规划 · 残差RL · 仿真到现实</text>
+<circle cx="224.0" cy="1810" r="4" fill="#05a6c7"/>
+<text x="208.0" y="1817" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">OmniDexVLG｜<tspan font-weight="700">多Agent语义理解与标注</tspan> · VLG抓姿生成 · 细粒度抓取控制</text>
+<circle cx="724" cy="1844.0" r="5" fill="#05a6c7"/>
+<text x="708" y="1851.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">人手动作与操作视频建模<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.DEX.HUMAN]</tspan></text>
+<circle cx="99.91999999999996" cy="1844" r="4" fill="#05a6c7"/>
+<text x="83.91999999999996" y="1851" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">P³-WAM｜统一感知、预测与规划</text>
+<circle cx="1070" cy="1929.0" r="5" fill="#05a6c7"/>
+<text x="1054" y="1936.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">共性方法</text>
+<circle cx="834" cy="1878.0" r="5" fill="#05a6c7"/>
+<text x="818" y="1885.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">执行效率与时序控制<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.EFF]</tspan></text>
+<circle cx="241.5999999999999" cy="1878" r="4" fill="#05a6c7"/>
+<text x="225.5999999999999" y="1885" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">PaceVLA｜VLA · 执行加速 · 动作时间粒度</text>
+<circle cx="834" cy="1929.0" r="5" fill="#05a6c7"/>
+<text x="818" y="1936.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">强化学习训练与探索<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.RL]</tspan></text>
+<circle cx="253.91999999999996" cy="1912" r="4" fill="#05a6c7"/>
+<text x="237.91999999999996" y="1919" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">SGS｜RL · 成功率引导采样 · 训练起点调度</text>
+<circle cx="253.91999999999996" cy="1946" r="4" fill="#05a6c7"/>
+<text x="237.91999999999996" y="1953" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">HARBOR｜<tspan font-weight="700">Agent自动化RL训练</tspan> · 分阶段检查与修复 · 并行调参与经验复用</text>
+<circle cx="834" cy="1980.0" r="5" fill="#05a6c7"/>
+<text x="818" y="1987.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">跨平台评测基准<tspan dx="6" fill="#05a6c7" font-weight="650">[AM.MAN.METHOD.BENCH]</tspan></text>
+<circle cx="260.96" cy="1980" r="4" fill="#05a6c7"/>
+<text x="244.95999999999998" y="1987" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">EmbodiedSWE｜<tspan font-weight="700">Coding Agent评测</tspan> · 长时序操作 · 示范生成</text>
+<circle cx="2250" cy="2014" r="4" fill="#ff7b50"/>
+<text x="2266" y="2021" text-anchor="start" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">导航动作模型<tspan dx="6" fill="#ff7b50" font-weight="650">[AM.NAV]</tspan></text>
+<circle cx="1350" cy="2065.0" r="5" fill="#b1c91e"/>
+<text x="1334" y="2072.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">身体运动与全身控制模型</text>
+<circle cx="960" cy="2048.0" r="5" fill="#b1c91e"/>
+<text x="944" y="2055.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">双臂与躯干协同操作<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC.ARM.TORSO]</tspan></text>
+<circle cx="379.91999999999996" cy="2048" r="4" fill="#b1c91e"/>
+<text x="363.91999999999996" y="2055" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">WBD｜RL专家蒸馏 · 扩散策略 · 指令细化</text>
+<circle cx="960" cy="2082.0" r="5" fill="#b1c91e"/>
+<text x="944" y="2089.0" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="22" font-weight="650" fill="#242424">Agent 架构<tspan dx="6" fill="#b1c91e" font-weight="650">[AM.WBC.AGENT]</tspan></text>
+<circle cx="509.28" cy="2082" r="4" fill="#b1c91e"/>
+<text x="493.28" y="2089" text-anchor="end" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#242424">Being-0｜<tspan font-weight="700">Agent全身任务规划</tspan> · Connector技能落地 · 导航—操作协同</text>
+<rect x="1620.0" y="1042.0" width="360" height="108" rx="54" fill="#ffffff" stroke="#ff6674" stroke-width="5"/>
+<text x="1800" y="1105.0" text-anchor="middle" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="700" fill="#171717">具身动作模型</text>
 </svg>

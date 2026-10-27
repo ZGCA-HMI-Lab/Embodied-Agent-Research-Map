@@ -20,5 +20,6 @@ Agents provide subtasks, goals or operation conditions to learned action policie
 ## Related records
 
 - [LUCID [AM.MAN.DEX.AGENT.7]](../../dexterous/agent-architectures.md#am-man-dex-agent-7)
+- [AdaRoboVLG [AM.MAN.DEX.AGENT.10]](../../dexterous/agent-architectures.md#am-man-dex-agent-10)
 
 Records are generated from canonical data; detailed reading notes are optional. Release status is dated, and unreported or unverified claims remain explicit.

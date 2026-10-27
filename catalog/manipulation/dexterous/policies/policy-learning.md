@@ -34,6 +34,7 @@ Learn policies that generate robot actions from observations. When the main cont
 - [AdaClearGrasp [AM.MAN.DEX.AGENT.2]](../agent-architectures.md#am-man-dex-agent-2)
 - [GOTT [AM.MAN.DEX.AGENT.4]](../agent-architectures.md#am-man-dex-agent-4)
 - [LUCID [AM.MAN.DEX.AGENT.7]](../agent-architectures.md#am-man-dex-agent-7)
+- [AdaRoboVLG [AM.MAN.DEX.AGENT.10]](../agent-architectures.md#am-man-dex-agent-10)
 - [DexNinja [AM.MAN.DEX.DEMO.1]](../demonstrations/generation.md#am-man-dex-demo-1)
 - [Human2Dex [AM.MAN.DEX.DEMO.2]](../demonstrations/generation.md#am-man-dex-demo-2)
 - [GNR [AM.MAN.DEX.DEMO.3]](../demonstrations/generation.md#am-man-dex-demo-3)

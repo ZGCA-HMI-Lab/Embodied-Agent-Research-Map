@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.10",
+  "slug": "adarobovlg",
+  "short_name": "AdaRoboVLG",
+  "title": "Adaptive Vision-Language Grasping via Composable Foundation Priors and Generalizable Grasp Synthesis",
+  "authors": "Sixu Yan, Shikang Wang, Binhua Huang, Xuanlai Tang, Guohua Fan, Fan Huang, Haoxuan Li, Yongkang Li, Yuhan Li, Bencheng Liao, Zeyu Zhang, Wenyu Liu, Hangxin Liu, Xinggang Wang",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING",
+    "AM.MAN.GRIP.AGENT.WAM"
+  ],
+  "tags": [
+    "dexterous",
+    "parallel-jaw-gripper",
+    "agent",
+    "agent-architecture",
+    "composable-foundation-priors",
+    "structured-grasp-interface",
+    "task-understanding-control-separation",
+    "cross-hand-generalization",
+    "contact-grasp-representation",
+    "hand-object-interaction-representation",
+    "contact-geometry",
+    "force-closure-stability",
+    "supervised-grasp-evaluation",
+    "point-transformer",
+    "kinematic-lookup-table",
+    "functional-grasping",
+    "cluttered-grasping",
+    "dynamic-grasping",
+    "rigid-object-tracking",
+    "retrieval-augmented-generation",
+    "chain-of-thought",
+    "seed-1-8",
+    "dinov3",
+    "sam3",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "AdaRoboVLG 将空间感知、Agent 功能推理和动态跟踪组合为统一抓取接口，再通过各手的运动学映射生成抓姿候选、用共享接触几何网络评分，实现无需重训底层模块的场景适配与跨手抓取。",
+    "en": "AdaRoboVLG combines spatial perception, Agent functional reasoning and temporal tracking through a shared grasp interface, generates candidates with hand-specific kinematic mappings, and ranks them with a shared contact-geometry network for contextual adaptation and cross-hand grasping without base-policy retraining."
+  },
+  "evaluation_scope": {
+    "zh": "接口为物体几何、接触抓取描述 CGR（接触点、接近／闭合方向、宽度等）和目标手可用抓型。空间模块用 DINOv3 与训练后的 Contact-GraspNet 提供候选；Seed-1.8 Agent 结合抓型知识检索及分步推理选择目标、部位和抓型，再由 SAM3 落实三维区域。底层按手型查表做运动学映射，输出腕部位姿和关节角候选；PointTransformer 以接触点及法向预测稳定性，使用仿真成功／失败标签和 BCE 监督训练，无 RL。训练数据含 DH3、Allegro、Inspire 的 440 万次试验；共享评分器仍需各手预计算映射，不能概括为任意新手免适配。动态实现以估计的刚体变换更新初始腕姿、保持关节构型，绕过重新评分，非逐帧 Agent 重规划。真机使用 ROHand 和平行夹爪；ROHand 静态功能抓取为 102 个物体、510 次试验，成功率 83.3%，动态场景在线更新 5 Hz。主要验证单步功能抓取，未含完整后续工具操作或触觉纠错。代码、训练数据及预训练权重开放状态未核实。",
+    "en": "The interface contains object geometry, CGR contact/approach/closing/width descriptors and feasible grasp types. DINOv3 and trained Contact-GraspNet supply candidates; a Seed-1.8 Agent uses taxonomy retrieval and stepwise reasoning, with SAM3 grounding objects/parts. Hand-specific lookup/kinematics yields wrist poses and joints; a shared PointTransformer scores contact points/normals using BCE on simulated outcomes, without RL. Its 4.4 million training trials cover DH3, Allegro and Inspire; new hands still need mapping tables. Dynamic execution rigidly transforms the initial wrist pose, retaining joints and bypassing renewed scoring, rather than invoking per-frame Agent replanning. Hardware includes ROHand and parallel grippers. Static ROHand functional grasping achieves 83.3% over 510 trials on 102 objects; dynamic updates run at 5 Hz. Validation concerns single-step functional grasping, without complete subsequent tool use or tactile correction. Code, training-data and pretrained-weight availability remains unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.04096v2",
+    "project": "https://adarobovlg.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.04096v2",
+    "https://arxiv.org/html/2609.04096v2",
+    "https://adarobovlg.github.io/"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent composable priors",
+      "zh": "Agent可组合先验",
+      "bold": true
+    },
+    {
+      "en": "Cross-hand grasp generation",
+      "zh": "跨手抓姿生成"
+    },
+    {
+      "en": "Contact-geometry stability evaluation",
+      "zh": "接触几何稳定性评估"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-03",
+    "source": "https://arxiv.org/abs/2609.04096v2",
+    "basis": "source"
+  }
+}

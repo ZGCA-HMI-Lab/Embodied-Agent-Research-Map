@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.9",
+  "slug": "blada",
+  "short_name": "BLaDA",
+  "title": "BLaDA: Bridging Language to Functional Dexterous Actions within 3DGS Fields",
+  "authors": "Fan Yang, Wenrui Chen, Guorun Yan, Ruize Liao, Wanjun Jia, Dongsheng Luo, Jiacheng Lin, Kailun Yang, Zhiyong Li, Yaonan Wang",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "agent",
+    "agent-architecture",
+    "language-guided-manipulation",
+    "knowledge-guided-language-parsing",
+    "structured-semantic-constraints",
+    "knowledge-graph",
+    "functional-grasping",
+    "finger-role-assignment",
+    "force-level-command",
+    "3d-gaussian-splatting",
+    "hierarchical-semantic-features",
+    "functional-keypoint-localization",
+    "task-topology-coordinate-frame",
+    "geometric-grasp-mapping",
+    "predefined-grasp-templates",
+    "zero-shot-semantic-grounding",
+    "inspire-hand",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "BLaDA 用语言 Agent 将指令解析为部位、手指角色、抓型和力度等约束，在语义 3DGS 中定位并构建三点接触结构，再通过几何变换与抓握模板生成手腕位姿、手指关节和施力指令。",
+    "en": "BLaDA uses a language Agent to parse instructions into region, finger-role, grasp-type and force constraints, localizes a three-point contact structure in semantic 3DGS, then maps geometry and grasp templates to wrist poses, finger joints and force commands."
+  },
+  "evaluation_scope": {
+    "zh": "KLP 结合 F2F 知识及上下文示例输出六元组：抓取区域、手指角色、抓型、力度、工具拓扑和任务意图。TriLocation 用多视角重建的物体／部件语义高斯场定位功能点，并以任务—拓扑局部坐标系对齐三点手模板；KGT3D+ 由三点计算腕部位姿，F2F 库将抓型和力度映射为关节配置及期望手指力分布。底层采用几何变换和预定义抓握库，未训练 RL 动作策略；未展示高层反馈重规划。零样本指无需任务专用动作策略训练，场景重建、特征蒸馏及定位模块仍涉及优化／训练。真机为 Franka＋6 自由度 Inspire Hand、RealSense D435i；覆盖四类意图 Hold／Press／Open／Click。图 8 注明除手指施力外，抓后运动由示教完成；期望力度不是触觉闭环，论文将触觉反馈列为后续工作。官方已公开代码及安装、训练和静态场景使用说明；数据与预训练权重下载尚未核实。",
+    "en": "KLP combines F2F knowledge and examples into six fields: region, finger role, grasp type, force, tool topology and intent. TriLocation locates a functional anchor in multiview object/part semantic Gaussians and aligns a three-point hand template using task/topology frames. KGT3D+ computes wrist pose; F2F supplies joint configurations and desired finger forces. Execution uses geometry/templates without RL action-policy training or demonstrated high-level replanning. Zero-shot excludes task-specific policy training, not scene/feature optimization or localization learning. Hardware uses Franka, a 6-DoF Inspire Hand and D435i, covering Hold/Press/Open/Click. Figure 8 identifies post-grasp motions other than finger-force actuation as demonstrated; force commands do not establish tactile feedback. Official code and installation/training/static-scene instructions are public; dataset and pretrained-weight downloads remain unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2604.08410v2",
+    "code": "https://github.com/PopeyePxx/BLaDA"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2604.08410v2",
+    "https://arxiv.org/html/2604.08410v2",
+    "https://github.com/PopeyePxx/BLaDA"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent semantic constraint planning",
+      "zh": "Agent语义约束规划",
+      "bold": true
+    },
+    {
+      "en": "3DGS functional localization",
+      "zh": "3DGS功能定位"
+    },
+    {
+      "en": "Three-point geometric action mapping",
+      "zh": "三点几何动作映射"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-04-09",
+    "source": "https://arxiv.org/abs/2604.08410v2",
+    "basis": "source"
+  }
+}

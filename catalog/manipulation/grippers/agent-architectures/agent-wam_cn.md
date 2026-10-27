@@ -20,5 +20,6 @@ Agent 提供子任务、目标或操作条件，由 VLA、WAM、扩散策略或 
 ## 相关工作
 
 - [LUCID [AM.MAN.DEX.AGENT.7]](../../dexterous/agent-architectures_cn.md#am-man-dex-agent-7)
+- [AdaRoboVLG [AM.MAN.DEX.AGENT.10]](../../dexterous/agent-architectures_cn.md#am-man-dex-agent-10)
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。
