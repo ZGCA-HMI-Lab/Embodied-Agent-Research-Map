@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Generate robot demonstration trajectories or training data from real or generated videos, retargeting and simulation optimization. Classify by the main contribution: online retargeting controllers belong under policy/control. Distinguish replay from closed-loop deployment.
 
-**Browse by topic：** [VLA (10)](../../../topics/vla.md) · [Reinforcement learning (15)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../../topics/tactile.md) · [In-hand manipulation (3)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (13)](../../../topics/vla.md) · [Reinforcement learning (20)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (12)](../../../topics/tactile.md) · [In-hand manipulation (4)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.DEMO` · 10 primary records
 
@@ -30,6 +30,8 @@ Generate robot demonstration trajectories or training data from real or generate
 - [P³-WAM [AM.MAN.DEX.HUMAN.UNIFIED.1]](../human-hand-modeling.md#am-man-dex-human-unified-1)
 - [FOMO-Dex [AM.MAN.DEX.POLICY.FEEDBACK.1]](../policies/execution-feedback.md#am-man-dex-policy-feedback-1)
 - [DexCast [AM.MAN.DEX.POLICY.LEARNING.7]](../policies/policy-learning.md#am-man-dex-policy-learning-7)
+- [CHORD [AM.MAN.DEX.POLICY.LEARNING.12]](../policies/policy-learning.md#am-man-dex-policy-learning-12)
 - [DexStitch [AM.MAN.DEX.POLICY.SKILL.1]](../policies/skill-composition.md#am-man-dex-policy-skill-1)
+- [OmniDexVLG [AM.MAN.DEX.AGENT.8]](../agent-architectures.md#am-man-dex-agent-8)
 
 Records are generated from canonical data; detailed reading notes are optional. Release status is dated, and unreported or unverified claims remain explicit.

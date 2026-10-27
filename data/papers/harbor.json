@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.METHOD.RL.2",
+  "slug": "harbor",
+  "short_name": "HARBOR",
+  "title": "HARBOR: A Harness Framework for Agentic Robot Reinforcement Learning",
+  "authors": "Zechu Li, Yufeng Jin, Xiaoyang Liu, Puze Liu, Vignesh Prasad, Carlo D’Eramo, Georgia Chalvatzaki",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.METHOD.RL",
+  "related_categories": [],
+  "tags": [
+    "agent",
+    "training-time-agent",
+    "agentic-rl",
+    "harness-engineering",
+    "reinforcement-learning",
+    "llm-reward-design",
+    "executable-gates",
+    "parallel-tuning",
+    "experience-reuse",
+    "domain-randomization",
+    "ppo",
+    "sac",
+    "td3",
+    "cross-embodiment",
+    "gripper",
+    "dexterous",
+    "bimanual",
+    "locomotion",
+    "sim-to-real"
+  ],
+  "tldr": {
+    "zh": "HARBOR 用主控与专门 Agent 协作完成任务搭建、奖励设计和 RL 训练调参，通过可执行检查反馈修复错误，并利用并行试验与经验复用，产出可运行的训练工程和机器人策略。",
+    "en": "HARBOR coordinates specialized Agents for task construction, reward design and RL training/tuning, using executable checks for repairs, parallel trials and reusable experience to produce runnable training projects and robot policies."
+  },
+  "evaluation_scope": {
+    "zh": "输入为仿真代码库与任务要求；主控调度分阶段 Agent，持久化代码、配置和实验产物，检查失败则反馈修复，超出重试预算需人工介入。经验复用保存外部知识，不更新 LLM 权重。Agent 服务训练开发，PPO／SAC／TD3 学习动作；部署策略不在线调用 Agent。覆盖六个仿真基准、共十六项任务，含操作、运动与双手灵巧控制；真机为双 Franka＋平行夹爪及 xArm UF850＋Allegro V4。真机策略 20 Hz 输出末端位姿增量或关节位置增量。跨平台分别训练，不是统一跨本体策略；真机接口、真实轨迹和人工反馈仍需人提供。公开代码、数据与 checkpoint 下载尚未核实。",
+    "en": "Simulator code and task specifications enter a staged workflow with persistent artifacts, repair feedback and human intervention after exhausted retries. Experience is external memory, not LLM weight updates. Agents develop training; PPO/SAC/TD3 learn actions, with no online Agent at deployment. Evaluation covers six simulation benchmarks and sixteen tasks spanning manipulation, locomotion and bimanual dexterity. Hardware uses dual Frankas with parallel grippers and xArm UF850 with Allegro V4; 20 Hz policies output end-effector pose or joint-position increments. Platforms train separately. Real-robot interfaces, trajectories and feedback still require humans. Public code, data and checkpoint downloads remain unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2606.08610v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2606.08610v1",
+    "https://arxiv.org/html/2606.08610v1"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent-automated RL training",
+      "zh": "Agent自动化RL训练",
+      "bold": true
+    },
+    {
+      "en": "Staged validation and repair",
+      "zh": "分阶段检查与修复"
+    },
+    {
+      "en": "Parallel tuning and experience reuse",
+      "zh": "并行调参与经验复用"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-06-07",
+    "source": "https://arxiv.org/abs/2606.08610v1",
+    "basis": "source"
+  }
+}

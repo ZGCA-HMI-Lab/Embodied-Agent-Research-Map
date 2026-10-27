@@ -8,10 +8,14 @@ Navigation Action Models
 
 Includes point-goal, object-goal, and language-guided navigation, exploration, and navigation trajectory generation. The focus is reaching or finding a target using environmental observations; locomotion execution can be linked as a related area.
 
-**Browse by topic：** [VLA (10)](topics/vla.md) · [Reinforcement learning (15)](topics/reinforcement-learning.md) · [Touch and contact feedback (10)](topics/tactile.md) · [In-hand manipulation (3)](topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (13)](topics/vla.md) · [Reinforcement learning (20)](topics/reinforcement-learning.md) · [Touch and contact feedback (12)](topics/tactile.md) · [In-hand manipulation (4)](topics/in-hand-manipulation.md)
 
 `AM.NAV` · 0 primary records
 
 No records yet.
+
+## Related records
+
+- [Being-0 [AM.WBC.AGENT.1]](whole-body-control/agent-architectures.md#am-wbc-agent-1)
 
 Records are generated from canonical data; detailed reading notes are optional. Release status is dated, and unreported or unverified claims remain explicit.

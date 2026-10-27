@@ -8,10 +8,14 @@
 
 包括点目标导航、物体目标导航、语言导航、探索与导航轨迹生成。重点是利用环境观测到达或找到目标；涉及行走执行时，可关联身体运动与全身控制板块。
 
-**按主题浏览：** [VLA (10)](topics/vla_cn.md) · [强化学习 (15)](topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](topics/tactile_cn.md) · [手内操作 (3)](topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (13)](topics/vla_cn.md) · [强化学习 (20)](topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](topics/tactile_cn.md) · [手内操作 (4)](topics/in-hand-manipulation_cn.md)
 
 `AM.NAV` · 0 篇主分类工作
 
 尚未收录工作。
+
+## 相关工作
+
+- [Being-0 [AM.WBC.AGENT.1]](whole-body-control/agent-architectures_cn.md#am-wbc-agent-1)
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

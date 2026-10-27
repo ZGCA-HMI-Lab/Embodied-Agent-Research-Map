@@ -6,19 +6,22 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (10)](vla.md) · [Reinforcement learning (15)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (3)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (13)](vla.md) · [Reinforcement learning (20)](reinforcement-learning.md) · [Touch and contact feedback (12)](tactile.md) · [In-hand manipulation (4)](in-hand-manipulation.md)
 
-10 records
+13 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
 | [DexHoldem｜**Agent closed-loop evaluation** · Scene preservation · Real-world dexterous manipulation](../manipulation/dexterous/benchmarks.md#am-man-dex-bench-5) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Datasets and Benchmarks | `vla` |
 | [DexAgent｜**Agent-built simulation** · Video demonstrations · Data augmentation](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `vla-fine-tuning` |
 | [Hand2Robot｜Human-video transfer · Object-centric 4D reconstruction · VLA post-training](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-5) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `vla` · `vla-fine-tuning` |
+| [TouchWorld｜**Agent + VLA** · Tactile world model · Tactile residual refinement](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-policy-feedback-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `vla` |
 | [Coordi-π｜VLA · AE action representation · Bimanual coordination](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [XL-VLA｜Cross-hand transfer · Unified latent action space · VLA](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-6) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [AFCE｜VLA · Joint action–effect representation · Bimanual coordination](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-8) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
+| [DextER｜Contact reasoning · Language-conditioned grasp generation · Autoregressive VLA](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-10) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [AgenticTactileVLA｜VLA · Contact feedback · Online action correction](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `vla` |
 | [TTP｜VLA · Tactile fusion · Joint action/touch prediction](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
+| [EmbodiedSWE｜**Coding Agent evaluation** · Long-horizon manipulation · Demonstration generation](../manipulation/common-methods/cross-platform-benchmarks.md#am-man-method-bench-1) | Manipulation Action Models → Common Methods → Cross-Platform Benchmarks | `vla` |
 | [PaceVLA｜VLA · Execution speedup · Temporal action granularity](../manipulation/common-methods/execution-efficiency.md#am-man-method-eff-1) | Manipulation Action Models → Common Methods → Execution Efficiency and Temporal Control | `vla` |
 | [DexGraspVLA｜Hierarchical VLA · Domain-invariant visual representations · Diffusion imitation learning](../manipulation/dexterous/agent-architectures.md#am-man-dex-agent-3) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Agent Architectures | `vla` |

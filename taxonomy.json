@@ -128,8 +128,8 @@
               "code": "AM.MAN.DEX.AGENT",
               "children": [],
               "catalog_path": "manipulation/dexterous/agent-architectures",
-              "description": "Runtime architectures connecting high-level semantic/geometric planning or agents to reusable dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, the actual low-level controller, and whether feedback triggers low-level phase switching or high-level replanning/recovery. Task planning, skill composition and recovery are visible tags rather than nested categories.",
-              "description_zh": "运行时连接高层语义／几何规划或 Agent 与可复用灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、实际底层控制器，并区分反馈仅触发低层阶段切换，还是支持高层重规划与恢复。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
+              "description": "Architectures organizing Agents for dexterous semantic understanding/data annotation or runtime planning and execution. Specify the Agent stage, inter-module interfaces, reasoning/memory responsibilities and actual grasp generator or controller. Distinguish annotation from online control and low-level switching from high-level replanning. Agent collaboration must be a substantive contribution; incidental Agent use does not determine placement. Task planning, skill composition and recovery remain visible tags.",
+              "description_zh": "组织 Agent 完成灵巧手语义理解／数据标注或运行时规划执行的架构。注明 Agent 作用阶段、模块接口、推理与记忆职责及实际抓姿生成器或控制器；区分数据标注与在线控制、低层切换与高层重规划。Agent 协作组织须是实质贡献，不能仅因附带使用 Agent 就归入本类。任务规划、技能编排和失败恢复仍作为可见标签。"
             },
             {
               "name": "Human Hand Motion and Manipulation Video Modeling",
@@ -164,8 +164,17 @@
               "code": "AM.MAN.METHOD.RL",
               "children": [],
               "catalog_path": "manipulation/common-methods/rl-training-exploration",
-              "description": "Reusable RL training mechanisms such as curriculum learning, task/reset sampling and exploration allocation. Record what training distribution changes, how configurations are supplied, the underlying policy optimizer, evaluated embodiments and deployment policy. Distinguish a general training contribution from a task-specific policy that uses RL; sampling existing resets does not generate new configurations.",
-              "description_zh": "可复用的强化学习训练机制，包括课程学习、任务／重置采样与探索资源分配。注明改变哪部分训练分布、配置如何提供、底层策略优化器、验证本体及部署策略；区分共性训练贡献与使用 RL 的具体任务策略，从已有重置池采样不等同于生成新配置。"
+              "description": "Reusable RL training mechanisms and workflow automation, including curriculum learning, task/reset sampling, exploration allocation and Agent-driven training development. Record training changes, configuration sources, policy optimizers, evaluated embodiments and deployment policies. Distinguish training-time Agents from runtime control architectures; sampling existing resets does not generate new configurations.",
+              "description_zh": "可复用的强化学习训练机制与流程自动化，包括课程学习、任务／重置采样、探索资源分配及 Agent 驱动的训练开发。注明训练改动、配置来源、策略优化器、验证本体及部署策略；区分训练阶段 Agent 与执行阶段控制架构，从已有重置池采样不等同于生成新配置。"
+            },
+            {
+              "name": "Cross-Platform Benchmarks",
+              "name_zh": "跨平台评测基准",
+              "code": "AM.MAN.METHOD.BENCH",
+              "children": [],
+              "catalog_path": "manipulation/common-methods/cross-platform-benchmarks",
+              "description": "Benchmarks whose main contribution is reusable evaluation across manipulation platforms, including coding agents and long-horizon execution. Record the evaluated systems, tasks, controller access, grading and budgets; distinguish paper evaluations from later platform support and cross-arm transfer from cross-hand transfer. Data generation and policy training remain secondary contributions within one record.",
+              "description_zh": "主要贡献是服务不同操作平台的可复用评测体系，包括 Coding Agent 与长时序执行基准。记录评测对象、任务、控制接口、评分和预算；区分论文实际评测与后续平台支持，以及跨机械臂与跨手型迁移。附带的数据生成与策略训练在同一条目中说明，不重复收录。"
             }
           ]
         }
@@ -195,6 +204,15 @@
           ],
           "description": "Manipulate objects through coordinated arm motions and support from the torso or other upper-body surfaces, including holding, regrasping and on-body object transfer. Record the learned policy outputs and the independent controllers used for the waist, legs, balance or locomotion; placement here does not imply unified whole-body actuation.",
           "description_zh": "通过双臂运动与躯干等上身表面的支撑协同完成抱持、换抱及物体在身体周围的转移。明确学习策略的输出自由度，以及腰腿、平衡或行走由何种独立控制器负责；本类不默认等同于统一全身关节控制。"
+        },
+        {
+          "name": "Agent Architectures",
+          "name_zh": "Agent 架构",
+          "code": "AM.WBC.AGENT",
+          "children": [],
+          "catalog_path": "whole-body-control/agent-architectures",
+          "description": "Agent architectures for whole-body task planning and skill coordination across locomotion, stance adjustment, active perception and manipulation. Record high-level plans, intermediate skill grounding, feedback and the input/output interfaces of separate low-level policies. Whole-body task coordination does not establish unified joint-level motion planning or a single whole-body action policy; hand hardware alone does not determine primary placement.",
+          "description_zh": "面向全身机器人的任务规划与技能协调架构，组织行走、站位调整、主动感知和操作。注明高层计划、中层技能落地、反馈及各低层策略的输入输出；全身任务协调不等于统一关节运动规划或单一全身动作策略，也不因配备灵巧手就归入灵巧手主分类。"
         }
       ]
     }

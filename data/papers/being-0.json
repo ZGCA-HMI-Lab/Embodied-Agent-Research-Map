@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "AM.WBC.AGENT.1",
+  "slug": "being-0",
+  "short_name": "Being-0",
+  "title": "Being-0: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills",
+  "authors": "Haoqi Yuan, Yu Bai, Yuhui Fu, Bohan Zhou, Yicheng Feng, Xinrun Xu, Yi Zhan, Börje F. Karlsson, Zongqing Lu",
+  "year": 2025,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.WBC.AGENT",
+  "related_categories": [
+    "AM.NAV",
+    "AM.MAN.DEX.AGENT"
+  ],
+  "tags": [
+    "agent-architecture",
+    "humanoid",
+    "whole-body-task-planning",
+    "task-planning",
+    "navigation-manipulation-coordination",
+    "embodied-connector",
+    "skill-grounding",
+    "skill-library",
+    "stance-adjustment",
+    "active-vision",
+    "act",
+    "imitation-learning",
+    "reinforcement-learning",
+    "locomotion-policy",
+    "dexterous",
+    "inspire-hand",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Being-0 通过云端任务规划器与机载 VLM Connector，将长任务分解并落实为导航、站位调整和操作技能，协调 RL 行走策略与 ACT 双手操作策略完成全身机器人的连续任务。",
+    "en": "Being-0 combines a cloud task planner with an onboard VLM Connector to decompose long-horizon tasks and ground them into navigation, stance-adjustment and manipulation skills, coordinating RL locomotion and ACT bimanual manipulation policies for continuous humanoid task execution."
+  },
+  "evaluation_scope": {
+    "zh": "核心是全身任务规划与技能协调。云端 GPT-4o 根据任务、图像和执行历史判断进度、选择子任务；机载 Connector 根据语言计划与当前画面选择技能、检测目标，并结合双目深度和复合导航例程调整站位，例如先走到桌边再抓杯。Connector 采用 VideoLLaMA2 架构，经通用视觉定位数据和室内视觉理解／技能预测数据监督微调。低层行走为仿真 RL 策略，输入速度指令与本体状态，50 Hz 输出下半身关节目标；操作为逐技能遥操作训练的 ACT，输入双目图像和上身／头部关节状态，输出臂、手及头部动作块，训练／部署块长为 30／10。执行反馈调整技能计划、调用和站位，未提出在线权重更新或统一全身关节策略。Unitree H1-2＋双 Inspire 手＋主动 ZED-mini 相机在 20×20 米办公场景验证五项长任务。84.4% 是子步骤完成比例汇总后的平均任务完成度，不是整条任务成功率：取瓶的到桌 5/5、抓取 4/5 被汇总为 90%。截至核验日，官方仓库仍写代码待发布，未见完整实现、训练数据与权重下载。",
+    "en": "The contribution is whole-body task planning and skill coordination. Cloud GPT-4o uses tasks, images and execution history to assess progress and select subtasks; the onboard Connector grounds language plans in current images, detects targets and combines binocular depth with composite navigation routines to adjust stance, e.g. reaching the table before grasping a cup. The VideoLLaMA2-based Connector is supervised-finetuned on general visual grounding and indoor visual-understanding/skill-prediction data. A simulation-trained RL locomotion policy reads velocity commands and proprioception and outputs lower-body joint targets at 50 Hz. Separate teleoperation-trained ACT skills take binocular images and upper-body/head joint state and output arm, hand and head action chunks (30 training steps, 10 deployment steps). Feedback revises plans, skill calls and stance; no online weight updates or unified whole-body joint policy are introduced. Unitree H1-2 with two Inspire hands and an active ZED-mini camera evaluates five long tasks in a 20-by-20-metre office. The reported 84.4% averages substep completion, not fully successful task rollouts: fetching scores 90% from 5/5 navigation and 4/5 grasping. As of verification, the official repository still promises code release; complete implementation, training-data and weight downloads were not found."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2503.12533v2",
+    "project": "https://beingbeyond.github.io/Being-0/",
+    "code": "https://github.com/BeingBeyond/Being-0"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2503.12533v2",
+    "https://arxiv.org/html/2503.12533v2",
+    "https://beingbeyond.github.io/Being-0/",
+    "https://github.com/BeingBeyond/Being-0"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent whole-body task planning",
+      "zh": "Agent全身任务规划",
+      "bold": true
+    },
+    {
+      "en": "Connector skill grounding",
+      "zh": "Connector技能落地"
+    },
+    {
+      "en": "Navigation–manipulation coordination",
+      "zh": "导航—操作协同"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-03-16",
+    "source": "https://arxiv.org/abs/2503.12533v2",
+    "basis": "source"
+  }
+}

@@ -8,13 +8,14 @@
 
 研究可复用技能、技能结构、技能间过渡及序列组合。注明技能顺序如何获得、过渡如何依赖下一技能，以及如何判断完成并切换。执行给定序列不等同于自主任务规划或已验证未见顺序泛化；从人类视频学习作为方法标签。
 
-**按主题浏览：** [VLA (10)](../../../topics/vla_cn.md) · [强化学习 (15)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (3)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (13)](../../../topics/vla_cn.md) · [强化学习 (20)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../../topics/tactile_cn.md) · [手内操作 (4)](../../../topics/in-hand-manipulation_cn.md)
 
-`AM.MAN.DEX.POLICY.SKILL` · 1 篇主分类工作
+`AM.MAN.DEX.POLICY.SKILL` · 2 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
 | [AM.MAN.DEX.POLICY.SKILL.1] <a id="am-man-dex-policy-skill-1"></a> | **DexStitch｜人类视频迁移 · 接触感知转换 · 技能衔接与组合**<br>[DexStitch: Learning and Composing Dexterous Skills from Human Videos via Contact-Aware Robotic Inpainting](https://arxiv.org/pdf/2610.17789v1)<br>Byeonggyeol Choi, Seongmin Jung, Unghui Nam, Youngbo Song, Sunhong Min, MinHyung Lee, Byonghyo Shim, Yongseok Lee<br>**标签:** `dexterous` `human-video` `egocentric-video` `video-to-robot` `skill-learning` `skill-composition` `transition-skill` `next-skill-conditioning` `closed-loop-skill-switching` `contact-aware-retargeting` `robotic-inpainting` `demonstration-synthesis` `diffusion-policy` `imitation-learning` `real-world` | DexStitch 从人类视频中提取操作技能及过渡示范，通过接触感知的人机转换训练共享扩散策略，以当前和下一技能指导衔接动作，并预测技能进度完成闭环切换，实现给定技能序列的连续执行。<br>**评测范围:** 逐指接触由 RGB 视频估计，同时约束手部重定向和合成画面的手指／物体遮挡。约 240 条长时序人类示范用于合成数据预训练，再混入约 32 条单技能真机示范微调；过渡示范仅来自人类视频。执行顺序由视频分类器或脚本给定，共享策略预测动作与技能进度，非自主任务规划。真机为 RB5-850E 臂＋xHand，实际执行 6 维臂关节及 12 维手关节动作。四项技能各测 5 次，单技能平均成功率 80%；10 次固定四技能序列中的 40 次技能执行平均成功率为 77.5%，不是整条序列全部成功的比例，未验证未见顺序泛化。画面合成采用拇指在前、其余接触指在后的包覆抓取假设。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.17789v1) | 初读<br>2026-10-25 |
+| [AM.MAN.DEX.POLICY.SKILL.2] <a id="am-man-dex-policy-skill-2"></a> | **DexCompose｜技能组合 · 手指控制权分配 · 残差RL**<br>[DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand](https://arxiv.org/pdf/2606.28323v1)<br>Dihong Huang, Zhenyu Wei, Zhuxiu Xu, Yunchao Yao, Sikai Li, Mingyu Ding<br>**标签:** `dexterous` `skill-composition` `pretrained-policy-reuse` `finger-action-ownership` `action-masking` `release-test` [residual-rl](../../../topics/reinforcement-learning_cn.md) [ppo](../../../topics/reinforcement-learning_cn.md) `diffusion-policy` `imitation-learning` `agent` `llm-finger-allocation` `grasp-preservation` `shadow-hand` `simulation` | DexCompose 通过松指测试与 LLM 选择手指分工，冻结已有技能策略，用两套 PPO 残差分别维持抓握和适配下游动作，再按手指控制权拼接指令，实现单手抓物与另一项交互的组合。<br>**评测范围:** 每个基础技能由 50 条示范训练扩散策略；输入两步低维本体／任务几何状态，预测 32 步、每步 28 维浮动 Shadow Hand 指令（6 维手腕＋22 维手指目标）。A 完成后保存抓握构型，松指测试统计保留与脱离接触情况；LLM Agent 按任务对预先选择固定掩码，不逐步生成动作。组合时 A 侧为“保存构型＋有界残差”，只控制保留手指；B 侧为“冻结扩散策略＋有界残差”，只控制手腕和释放手指。两残差均为 PPO 训练的 MLP：A 侧依据物体／手指／接触状态稳定抓握，B 侧额外读取基准动作和掩码。A 稳定器先按持物技能训练，B 残差仍按任务对训练，可选小学习率联合调整 A 残差；基础策略始终冻结，不能称为完整零训练组合。Isaac Lab 中四种持物技能（GraspBall、PourMug、PickCan、PickStick）与开门、按按钮、开微波炉、拨开关形成 16 个组合，每对评测 32×8 次；持物须全过程保持且 B 成功，均值为 77.43%，去除 A 残差降为 9.13%。仅验证单手仿真与双技能组合，未报告真机验证。官方公开训练／评测代码，数据及 checkpoint 下载尚未核实。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2606.28323v1) · [项目](https://devon018.github.io/DexCompose-Webpage/) · [代码](https://github.com/Devon018/DexCompose) | 初读<br>2026-10-27 |
 
 ## 相关工作
 

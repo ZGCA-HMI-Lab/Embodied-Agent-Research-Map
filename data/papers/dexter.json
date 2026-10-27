@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.10",
+  "slug": "dexter",
+  "short_name": "DextER",
+  "title": "DextER: Language-driven Dexterous Grasp Generation with Embodied Reasoning",
+  "authors": "Junha Lee, Eunha Park, Minsu Cho",
+  "year": 2026,
+  "venue": "CVPR 2026 / arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "contact-reasoning",
+    "language-conditioned-grasp-generation",
+    "autoregressive-generation",
+    "vla",
+    "embodied-chain-of-thought",
+    "contact-guided-steering",
+    "point-cloud",
+    "shadow-hand",
+    "supervised-learning",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "DextER 根据物体点云和语言指令，在同一自回归模型中先预测“哪些手指连杆接触物体哪里”，再以接触序列为条件生成手腕位姿与手指关节角，并支持通过指定部分接触点控制抓姿。",
+    "en": "Given an object point cloud and a language instruction, DextER first predicts which finger links contact where on the object, then conditions wrist-pose and finger-joint generation on this contact sequence within one autoregressive model; users can steer grasps by specifying partial contacts."
+  },
+  "evaluation_scope": {
+    "zh": "PartField 点云编码器经 MLP 接入 Qwen2.5-0.5B；接触 token 编码连杆身份及三维位置，作为后续抓姿 token 的前缀条件，输出 Shadow Hand 抓取构型。利用 MuJoCo 为 DexGYS／Dexonomy 抓姿提取接触标签，采用 next-token 监督微调全部组件，无 RL；接触位置 dropout 保留连杆身份、随机移除坐标。两数据集分别训练模型，Dexonomy 检验未见物体／抓握类型。DexGYS 仿真成功率为 67.14%，去除接触推理为 62.37%；该成功率采用至少一个重力方向稳定的基准条件，不能当作真机成功率。部分接触前缀引导不需更新模型权重；预测接触并非触觉反馈，输出不含完整闭环操作轨迹，未报告真机验证。官方已发布训练／评测代码、预处理数据，并列出 DexGYS／Dexonomy 两套 checkpoint 下载入口，尚未在本仓库复现。",
+    "en": "An MLP connects PartField point-cloud features to Qwen2.5-0.5B. Contact tokens encode link identities and 3D positions, prefixing grasp tokens that specify a Shadow Hand configuration. MuJoCo supplies contact labels for DexGYS/Dexonomy; all components are finetuned by supervised next-token prediction without RL. Contact-position dropout removes coordinates while retaining link identities. Separate models are trained on the two datasets; Dexonomy tests unseen objects/grasp types. DexGYS simulation success is 67.14%, versus 62.37% without contact reasoning, using a benchmark criterion requiring stability under at least one gravity direction, not hardware success. Partial-contact prefixes steer generation without weight updates. Predicted contacts are not tactile feedback; outputs are not full closed-loop manipulation trajectories, and no hardware validation is reported. Official resources release training/evaluation code and preprocessed data, and list separate DexGYS/Dexonomy checkpoint downloads; not reproduced in this repository."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2601.16046v2",
+    "project": "https://junha-l.github.io/dexter/",
+    "code": "https://github.com/junha-l/dexter",
+    "data": "https://huggingface.co/datasets/EunhaPark/project_dexter",
+    "assets": "https://huggingface.co/junhalee/dexter-qwen2.5-0.5B-dexgys"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2601.16046v2",
+    "https://arxiv.org/html/2601.16046v2",
+    "https://junha-l.github.io/dexter/",
+    "https://github.com/junha-l/dexter",
+    "https://huggingface.co/datasets/EunhaPark/project_dexter"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Contact reasoning",
+      "zh": "接触推理"
+    },
+    {
+      "en": "Language-conditioned grasp generation",
+      "zh": "语言条件抓姿生成"
+    },
+    {
+      "en": "Autoregressive VLA",
+      "zh": "自回归VLA"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-01-22",
+    "source": "https://arxiv.org/abs/2601.16046v2",
+    "basis": "source"
+  }
+}

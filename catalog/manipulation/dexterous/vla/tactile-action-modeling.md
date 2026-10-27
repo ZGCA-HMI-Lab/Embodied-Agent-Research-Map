@@ -40,6 +40,14 @@
 
 [AFCE [AM.MAN.DEX.POLICY.LEARNING.8]](../policies/policy-learning.md#am-man-dex-policy-learning-8)
 
+<a id="am-man-dex-policy-learning-10"></a>
+
+[DextER [AM.MAN.DEX.POLICY.LEARNING.10]](../policies/policy-learning.md#am-man-dex-policy-learning-10)
+
+<a id="am-man-dex-policy-learning-12"></a>
+
+[CHORD [AM.MAN.DEX.POLICY.LEARNING.12]](../policies/policy-learning.md#am-man-dex-policy-learning-12)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning.md#am-man-dex-vla-tactile-1)
@@ -47,3 +55,7 @@
 <a id="am-man-dex-policy-learning-9"></a>
 
 [DexMachina [AM.MAN.DEX.POLICY.LEARNING.9]](../policies/policy-learning.md#am-man-dex-policy-learning-9)
+
+<a id="am-man-dex-policy-learning-11"></a>
+
+[Text2Touch [AM.MAN.DEX.POLICY.LEARNING.11]](../policies/policy-learning.md#am-man-dex-policy-learning-11)

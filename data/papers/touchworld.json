@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.FEEDBACK.2",
+  "slug": "touchworld",
+  "short_name": "TouchWorld",
+  "title": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
+  "authors": "Jianyi Zhou, Feiyang Hong, Yunhao Li, Yicheng Zhao, Yongjue Cen, Zirui Liu, Jiakang Huang, Zirui Chen, Ruiyang Zhang, Weizhuo Zhu, Xuhua Song, Shuo Yang",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+  "related_categories": [
+    "AM.MAN.DEX.AGENT"
+  ],
+  "tags": [
+    "dexterous",
+    "agent",
+    "vla",
+    "tactile",
+    "tactile-world-model",
+    "predictive-tactile-subgoals",
+    "tactile-residual-refinement",
+    "multi-rate-control",
+    "subtask-planning",
+    "memory-augmented-planning",
+    "flow-matching",
+    "imitation-learning",
+    "human-tactile-pretraining",
+    "wuji-hand",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "TouchWorld 由高层 Agent 选择子任务，触觉世界模型预测未来接触子目标，VLA 据此生成动作块，再由触觉残差 Transformer 根据实时触觉与本体反馈，反复修正腕部和手指动作。",
+    "en": "TouchWorld uses a high-level Agent to select subtasks and a tactile world model to predict future contact subgoals for VLA action-chunk generation; a tactile residual Transformer repeatedly corrects wrist and finger actions using fresh tactile and proprioceptive feedback."
+  },
+  "evaluation_scope": {
+    "zh": "高层 Qwen3-VL-4B 根据任务、当前图像和执行记忆输出子任务；Wan2.2-TI2V-5B 预测视觉—触觉子目标，在子任务或重要状态变化时刷新。流匹配 VLA 输入总任务＋子任务、RGB、触觉图、本体状态及预测目标，输出 32 步／每步 120 维基准动作和上下文 token；120 维含双侧各 48 维臂手表示、9 维头部和 15 维预留量，不等于 120 个实际关节。TRT 读取 16 步基准动作窗口、近期触觉／本体历史及上下文，只修正 58 维腕部与选定手关节子空间，执行前 4 步后刷新。分阶段监督训练：规划器 SFT、世界模型人类触觉预训练后用 10 小时机器人数据微调、VLA 模仿＋流匹配；残差阶段冻结 VLA，以示范动作－基准动作为目标训练 TRT，无 RL，部署反馈修改动作而非权重。Wuji 手＋JQ-Industries 触觉手套在浇花、清桌、套杯、插电源、擦锅、抽纸六项真机任务上，正常／人为扰动平均成功率为 65.0%／53.7%。未验证跨手迁移或全身运动控制；截至核验日，项目页提供演示，未找到明确的代码、数据或 checkpoint 下载入口。",
+    "en": "Qwen3-VL-4B selects subtasks from instructions, images and execution memory; Wan2.2-TI2V-5B predicts visual-tactile subgoals refreshed on meaningful phase changes. A flow-matching VLA reads task/subtask text, RGB, tactile images, proprioception and predicted goals, outputting context and 32-step, 120-D nominal actions: two 48-D arm-hand representations, 9 head dimensions and 15 reserved dimensions, not 120 physical joints. TRT reads 16-step nominal windows, recent tactile/proprioceptive histories and context, adds residuals only in a 58-D wrist/selected-finger subspace, and refreshes after four executed steps. Staged supervision uses planner SFT, human tactile pretraining plus 10 hours of robot data for the world model, and imitation/flow matching for VLA. Residual training freezes VLA and fits demonstration-minus-nominal actions, without RL; deployment changes actions, not weights. Wuji hands with JQ-Industries tactile gloves achieve 65.0%/53.7% average clean/perturbed success across watering, clearing, cup insertion, plug insertion, pot wiping and tissue pulling. Cross-hand transfer and whole-body locomotion control are not validated. The project provides demonstrations; no explicit code, data or checkpoint download was found as of verification."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2607.07287v2",
+    "project": "https://phanes-lab.github.io/TouchWorld-website/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2607.07287v2",
+    "https://arxiv.org/html/2607.07287v2",
+    "https://phanes-lab.github.io/TouchWorld-website/"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent + VLA",
+      "zh": "Agent＋VLA",
+      "bold": true
+    },
+    {
+      "en": "Tactile world model",
+      "zh": "触觉世界模型"
+    },
+    {
+      "en": "Tactile residual refinement",
+      "zh": "触觉残差修正"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-07-08",
+    "source": "https://arxiv.org/abs/2607.07287v2",
+    "basis": "source"
+  }
+}

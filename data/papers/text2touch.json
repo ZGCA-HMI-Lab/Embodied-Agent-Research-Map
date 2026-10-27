@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.11",
+  "slug": "text2touch",
+  "short_name": "Text2Touch",
+  "title": "Text2Touch: Tactile In-Hand Manipulation with LLM-Designed Reward Functions",
+  "authors": "Harrison Field, Max Yang, Yijiong Lin, Efi Psomopoulou, David A.W. Barton, Nathan F. Lepora",
+  "year": 2025,
+  "venue": "CoRL 2025 / arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "agent",
+    "training-time-agent",
+    "llm-reward-design",
+    "reward-reflection",
+    "eureka",
+    "reinforcement-learning",
+    "ppo",
+    "tactile",
+    "in-hand-manipulation",
+    "multi-axis-rotation",
+    "teacher-student-distillation",
+    "temporal-convolutional-network",
+    "sim-to-real",
+    "allegro-hand",
+    "tactip",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Text2Touch 让奖励设计 Agent 根据任务、环境变量和 PPO 训练反馈反复编写与修改奖励代码，训练灵巧手旋转教师策略，再蒸馏为仅依赖触觉与本体信息的真机操作策略。",
+    "en": "Text2Touch uses a reward-design Agent to iteratively write and revise reward code from task descriptions, environment variables and PPO training feedback, then trains an in-hand rotation teacher and distils it into a hardware policy using only tactile and proprioceptive information."
+  },
+  "evaluation_scope": {
+    "zh": "Agent 作用于训练阶段：生成候选奖励→PPO 短训→按环境预设的旋转子目标成绩选择并反思→修改奖励。两项提示改进为显式列出七十多个环境变量的名称／类型，以及允许 LLM 缩放环境提供的成功奖励与提前终止惩罚；成功判据和课程仍由人预设。选定奖励后，教师用物体位姿／速度等特权状态训练，学生以动作均方误差模仿教师，采用 TCN 历史编码器＋MLP 策略。真机只输入关节位置／速度及触觉观测，20 Hz 输出手指控制动作，无需在线调用 LLM 或继续调奖励。实测限于 Allegro 四指手＋TacTip 的悬空手内旋转，覆盖十种物体、三个轴、掌心朝上／朝下；未验证夹爪或跨手型迁移，因此主分类保留在灵巧手策略学习。教师—学生与部署流程沿用 AnyRotate。DeepSeek 奖励对应学生真机平均旋转 1.37 圈／回合、持续 25.1 秒，人工基线为 0.99 圈、20.0 秒，论文报告约提升 38%／25%，不是任务成功率。代码含奖励生成、PPO 训练及蒸馏流程，训练好的 checkpoint 下载尚未核实。",
+    "en": "The Agent operates during training: generate reward candidates, run short PPO training, select/refine them using environment-defined rotation-subgoal scores and reward reflection. Prompt improvements explicitly expose the names/types of over 70 environment variables and let the LLM scale supplied success bonuses and early-termination penalties; success criteria and curriculum remain human-defined. The chosen reward trains a teacher using privileged object pose/velocity; a student imitates teacher actions by MSE with a TCN history encoder and MLP policy. Hardware uses joint positions/velocities and tactile observations to generate finger-control actions at 20 Hz, without online LLM calls or continued reward tuning. Validation is limited to aloft in-hand rotation with a four-finger Allegro Hand and TacTip, ten objects, three axes and palm-up/down configurations, without gripper or cross-hand transfer tests; primary placement is dexterous policy learning. Teacher–student transfer and deployment follow AnyRotate. The DeepSeek-derived student averages 1.37 rotations/episode and 25.1 seconds on hardware versus 0.99 rotations and 20.0 seconds for the human-reward baseline, reported as approximately 38%/25% improvements, not task success rates. Public code covers reward generation, PPO and distillation; pretrained checkpoint downloads remain unverified."
+  },
+  "links": {
+    "paper": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/field25a/field25a.pdf",
+    "project": "https://hpfield.github.io/text2touch-website/",
+    "code": "https://github.com/hpfield/Text2Touch"
+  },
+  "sources": [
+    "https://proceedings.mlr.press/v305/field25a.html",
+    "https://arxiv.org/abs/2509.07445v1",
+    "https://arxiv.org/html/2509.07445v1",
+    "https://openreview.net/forum?id=U9zcbQVDGa",
+    "https://hpfield.github.io/text2touch-website/",
+    "https://github.com/hpfield/Text2Touch"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent reward design",
+      "zh": "Agent奖励设计",
+      "bold": true
+    },
+    {
+      "en": "Tactile in-hand manipulation",
+      "zh": "触觉手内操作"
+    },
+    {
+      "en": "RL and policy distillation",
+      "zh": "RL与策略蒸馏"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-09-09",
+    "source": "https://arxiv.org/abs/2509.07445v1",
+    "basis": "source"
+  }
+}

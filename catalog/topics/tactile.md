@@ -6,9 +6,9 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (10)](vla.md) · [Reinforcement learning (15)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (3)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (13)](vla.md) · [Reinforcement learning (20)](reinforcement-learning.md) · [Touch and contact feedback (12)](tactile.md) · [In-hand manipulation (4)](in-hand-manipulation.md)
 
-10 records
+12 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
@@ -17,8 +17,10 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [DexNinja｜Real2Sim2Real augmentation · Deformable cutting simulation · Visuotactile imitation learning](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `tactile` |
 | [No Eyes, No Problem｜In-hand manipulation · RL · Tactile](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-inhand-rl-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `tactile` |
 | [FOMO-Dex｜Force-feedback compliance · Task-direction selection · Corrected-action imitation learning](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-policy-feedback-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `tactile` |
+| [TouchWorld｜**Agent + VLA** · Tactile world model · Tactile residual refinement](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-policy-feedback-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `tactile` |
 | [HiFun｜Hierarchical RL · Arm–hand coordination · Human-in-the-loop learning](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-3) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `tactile` |
 | [FACT｜WAM · Joint force–action prediction · Tactile closed-loop refinement](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-4) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `tactile` |
 | [AgenticTactileVLA｜VLA · Contact feedback · Online action correction](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `contact-estimation` |
 | [TTP｜VLA · Tactile fusion · Joint action/touch prediction](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `tactile` |
 | [TacClaw-Infinity｜Gripper demonstrations · Tactile dataset](../manipulation/grippers/datasets.md#am-man-grip-1) | Manipulation Action Models → Gripper Manipulation Models → Datasets | `tactile` |
+| [Text2Touch｜**Agent reward design** · Tactile in-hand manipulation · RL and policy distillation](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-11) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `tactile` |

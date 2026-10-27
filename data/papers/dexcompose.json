@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.SKILL.2",
+  "slug": "dexcompose",
+  "short_name": "DexCompose",
+  "title": "DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand",
+  "authors": "Dihong Huang, Zhenyu Wei, Zhuxiu Xu, Yunchao Yao, Sikai Li, Mingyu Ding",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.SKILL",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "skill-composition",
+    "pretrained-policy-reuse",
+    "finger-action-ownership",
+    "action-masking",
+    "release-test",
+    "residual-rl",
+    "ppo",
+    "diffusion-policy",
+    "imitation-learning",
+    "agent",
+    "llm-finger-allocation",
+    "grasp-preservation",
+    "shadow-hand",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "DexCompose 通过松指测试与 LLM 选择手指分工，冻结已有技能策略，用两套 PPO 残差分别维持抓握和适配下游动作，再按手指控制权拼接指令，实现单手抓物与另一项交互的组合。",
+    "en": "DexCompose selects finger ownership through release tests and an LLM, keeps pretrained skill policies frozen, and learns two PPO residuals for grasp preservation and downstream-action adaptation; masked action assembly lets one hand retain an object while performing another interaction."
+  },
+  "evaluation_scope": {
+    "zh": "每个基础技能由 50 条示范训练扩散策略；输入两步低维本体／任务几何状态，预测 32 步、每步 28 维浮动 Shadow Hand 指令（6 维手腕＋22 维手指目标）。A 完成后保存抓握构型，松指测试统计保留与脱离接触情况；LLM Agent 按任务对预先选择固定掩码，不逐步生成动作。组合时 A 侧为“保存构型＋有界残差”，只控制保留手指；B 侧为“冻结扩散策略＋有界残差”，只控制手腕和释放手指。两残差均为 PPO 训练的 MLP：A 侧依据物体／手指／接触状态稳定抓握，B 侧额外读取基准动作和掩码。A 稳定器先按持物技能训练，B 残差仍按任务对训练，可选小学习率联合调整 A 残差；基础策略始终冻结，不能称为完整零训练组合。Isaac Lab 中四种持物技能（GraspBall、PourMug、PickCan、PickStick）与开门、按按钮、开微波炉、拨开关形成 16 个组合，每对评测 32×8 次；持物须全过程保持且 B 成功，均值为 77.43%，去除 A 残差降为 9.13%。仅验证单手仿真与双技能组合，未报告真机验证。官方公开训练／评测代码，数据及 checkpoint 下载尚未核实。",
+    "en": "Each primitive diffusion policy learns from 50 demonstrations, reads two low-dimensional proprioceptive/task-geometric observations and predicts 32 steps of 28-D Floating Shadow Hand commands (6 wrist plus 22 finger targets). After A succeeds, its grasp configuration is stored. Release tests measure retention and clean disengagement; an LLM Agent selects a fixed mask per task pair before execution, not stepwise actions. Preserved fingers receive the stored reference plus an A residual; the wrist and released fingers receive frozen B-policy actions plus a B residual. Both residuals are PPO-trained MLPs: A uses object/finger/contact state, while B additionally reads nominal actions and the mask. A stabilizers are first learned per retention skill; B residuals still require pair-specific training, optionally fine-tuning the A residual at a lower rate. Base policies stay frozen; the full method is not training-free composition. Isaac Lab combines four retention skills (GraspBall, PourMug, PickCan, PickStick) with door opening, button pressing, microwave opening and switch actuation into 16 pairs, evaluated with 32 rollouts across eight seeds per pair. Continuous A retention and B completion are both required: mean success is 77.43%, falling to 9.13% without the A residual. Validation covers single-hand simulation and two-skill compositions, without reported hardware tests. Training/evaluation code is public; data and checkpoint downloads remain unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2606.28323v1",
+    "project": "https://devon018.github.io/DexCompose-Webpage/",
+    "code": "https://github.com/Devon018/DexCompose"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2606.28323v1",
+    "https://arxiv.org/html/2606.28323v1",
+    "https://devon018.github.io/DexCompose-Webpage/",
+    "https://github.com/Devon018/DexCompose"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Skill composition",
+      "zh": "技能组合"
+    },
+    {
+      "en": "Finger action ownership",
+      "zh": "手指控制权分配"
+    },
+    {
+      "en": "Residual RL",
+      "zh": "残差RL"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-06-26",
+    "source": "https://arxiv.org/abs/2606.28323v1",
+    "basis": "source"
+  }
+}

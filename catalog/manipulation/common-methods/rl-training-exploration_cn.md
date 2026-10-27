@@ -6,14 +6,15 @@
 
 操作动作模型 → 共性方法 → 强化学习训练与探索
 
-可复用的强化学习训练机制，包括课程学习、任务／重置采样与探索资源分配。注明改变哪部分训练分布、配置如何提供、底层策略优化器、验证本体及部署策略；区分共性训练贡献与使用 RL 的具体任务策略，从已有重置池采样不等同于生成新配置。
+可复用的强化学习训练机制与流程自动化，包括课程学习、任务／重置采样、探索资源分配及 Agent 驱动的训练开发。注明训练改动、配置来源、策略优化器、验证本体及部署策略；区分训练阶段 Agent 与执行阶段控制架构，从已有重置池采样不等同于生成新配置。
 
-**按主题浏览：** [VLA (10)](../../topics/vla_cn.md) · [强化学习 (15)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (3)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (13)](../../topics/vla_cn.md) · [强化学习 (20)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../topics/tactile_cn.md) · [手内操作 (4)](../../topics/in-hand-manipulation_cn.md)
 
-`AM.MAN.METHOD.RL` · 1 篇主分类工作
+`AM.MAN.METHOD.RL` · 2 篇主分类工作
 
 | 编号 | 工作 | TL;DR／关键信息 | 发表 | 资源 | 阅读／核验 |
 |---|---|---|---|---|---|
 | [AM.MAN.METHOD.RL.1] <a id="am-man-method-rl-1"></a> | **SGS｜RL · 成功率引导采样 · 训练起点调度**<br>[A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control](https://arxiv.org/pdf/2610.12465v1)<br>Octi Zhang, Mateo Guaman Castro, Patrick Yin, Ignacio Dagnino, Abhishek Gupta, Rosario Scalise, Byron Boots<br>**标签:** `manipulation` `gripper` [reinforcement-learning](../../topics/reinforcement-learning_cn.md) [ppo](../../topics/reinforcement-learning_cn.md) `success-guided-sampling` `adaptive-curriculum` `reset-distribution` `training-start-scheduling` `massively-parallel-simulation` `contact-rich-assembly` `quadruped-locomotion` `teacher-student-distillation` `dagger` `rgb-policy` `sim-to-real` | SGS 根据各任务配置近期成功率，动态提高“尚未掌握但已有成功机会”的训练起点采样概率，让 PPO 将更多并行交互用于当前可学习的部分，提升大规模机器人强化学习的训练效率与任务能力。<br>**评测范围:** 从固定配置池按近期成功率的 Beta 形状权重抽样，低／高成功率配置仍保留非零概率；配置包括初始状态、目标及环境，操作起点覆盖接近、稳定抓取、接近目标三类，池覆盖依赖外部重置构建。SGS 只用于训练采样，PPO 学习动作。仿真验证 13 类四足地形、UR5e＋Robotiq 2F-85 的六项装配及 Franka＋平行夹爪的螺母旋入；运动为一个多地形策略，操作每任务分别训练。百万并行环境下 Franka 螺母旋入成功率约 70%，均匀采样约 6%；简单任务在足够规模下收益较小。UR5e 点云教师经 DAgger 蒸馏为双视角 RGB＋机器人状态学生，学生真机闭环输出末端平移／旋转增量和夹爪开合，无真机数据微调；螺母旋入 18/48、圆杆插入 30/49、齿轮装配 47/50。不是多指手验证或统一跨平台策略；代码在核验时仍标注待发布。 | CoRL 2026 / arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2610.12465v1) · [项目](https://sgs-rl.github.io/) | 初读<br>2026-10-25 |
+| [AM.MAN.METHOD.RL.2] <a id="am-man-method-rl-2"></a> | **HARBOR｜Agent自动化RL训练 · 分阶段检查与修复 · 并行调参与经验复用**<br>[HARBOR: A Harness Framework for Agentic Robot Reinforcement Learning](https://arxiv.org/pdf/2606.08610v1)<br>Zechu Li, Yufeng Jin, Xiaoyang Liu, Puze Liu, Vignesh Prasad, Carlo D’Eramo, Georgia Chalvatzaki<br>**标签:** `agent` `training-time-agent` `agentic-rl` `harness-engineering` [reinforcement-learning](../../topics/reinforcement-learning_cn.md) `llm-reward-design` `executable-gates` `parallel-tuning` `experience-reuse` `domain-randomization` [ppo](../../topics/reinforcement-learning_cn.md) `sac` `td3` `cross-embodiment` `gripper` `dexterous` `bimanual` `locomotion` `sim-to-real` | HARBOR 用主控与专门 Agent 协作完成任务搭建、奖励设计和 RL 训练调参，通过可执行检查反馈修复错误，并利用并行试验与经验复用，产出可运行的训练工程和机器人策略。<br>**评测范围:** 输入为仿真代码库与任务要求；主控调度分阶段 Agent，持久化代码、配置和实验产物，检查失败则反馈修复，超出重试预算需人工介入。经验复用保存外部知识，不更新 LLM 权重。Agent 服务训练开发，PPO／SAC／TD3 学习动作；部署策略不在线调用 Agent。覆盖六个仿真基准、共十六项任务，含操作、运动与双手灵巧控制；真机为双 Franka＋平行夹爪及 xArm UF850＋Allegro V4。真机策略 20 Hz 输出末端位姿增量或关节位置增量。跨平台分别训练，不是统一跨本体策略；真机接口、真实轨迹和人工反馈仍需人提供。公开代码、数据与 checkpoint 下载尚未核实。 | arXiv v1 / 2026 | [论文](https://arxiv.org/pdf/2606.08610v1) | 初读<br>2026-10-27 |
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

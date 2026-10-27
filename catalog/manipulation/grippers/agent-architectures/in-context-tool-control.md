@@ -8,7 +8,7 @@ Manipulation Action Models → Gripper Manipulation Models → Agent Architectur
 
 Agents write programs or call tools to specify motion targets, with IK, trajectory generation and controllers executing them. Record runtime programming, context and experience reuse, feedback and recovery, and whether model weights change. Learned perception alone does not make the action executor a learned policy; retain the historical category code and catalog path.
 
-**Browse by topic：** [VLA (10)](../../../topics/vla.md) · [Reinforcement learning (15)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../../topics/tactile.md) · [In-hand manipulation (3)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (13)](../../../topics/vla.md) · [Reinforcement learning (20)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (12)](../../../topics/tactile.md) · [In-hand manipulation (4)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.GRIP.AGENT.ICL` · 2 primary records
 

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.WAM.2",
+  "slug": "aw-0",
+  "short_name": "AW-0",
+  "title": "Agentic World Action Models",
+  "authors": "Zhuoyang Liu, Dantong Niu, Botong Zhang, Boning Shao, Jing Wang, Ruijie Zheng, Yuvan Sharma, Runyu Lu, Jiaming Liu, Renrui Zhang, Roei Herzig, Yutong Bai, Ken Goldberg, Danfei Xu, Yuke Zhu, Guanzhi Wang, Linxi \"Jim\" Fan, Trevor Darrell",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.WAM",
+  "related_categories": [
+    "AM.MAN.DEX.AGENT"
+  ],
+  "tags": [
+    "agent-architecture",
+    "wam",
+    "gripper",
+    "dexterous",
+    "bimanual",
+    "code-expert",
+    "code-conditioned-generation",
+    "mixture-of-transformers",
+    "joint-code-video-action-generation",
+    "joint-denoising",
+    "masked-code-diffusion",
+    "flow-matching",
+    "skill-library",
+    "program-memory",
+    "hybrid-execution",
+    "code-as-policies",
+    "agentic-code-annotation",
+    "human-video-pretraining",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "AW-0 在 WAM 中加入代码专家，将技能程序、未来视频和动作块联合去噪生成，让代码计划同时引导视觉预测与动作生成，并支持按检查结果切换代码技能执行和模型动作执行。",
+    "en": "AW-0 adds a code expert to a WAM and jointly denoises skill programs, future video and action chunks, letting code plans guide both visual prediction and action generation; an optional checked hybrid mode switches between programmatic skills and model-generated actions."
+  },
+  "evaluation_scope": {
+    "zh": "输入当前三视角 RGB、指令、本体状态及历史代码记忆；三个专家在同一去噪循环中生成，跨专家注意力按代码→视频→动作组织，动作同时读取代码和视频。默认代码仅为计划条件，执行动作专家的 32 步动作块；真机统一 64 维表示为每侧 9 维末端位姿、22 手关节和 1 夹爪宽度，未用分量置零，动作使用末端相对位姿及绝对夹爪／手指目标。混合模式仅在阶段、依赖、语法、白名单等检查通过时执行代码；若已尝试代码执行，即使报错也丢弃同轮动作块，下轮重新观察规划。Agent 为机器人／人类示范标注代码并整理技能库，代码用掩码交叉熵、视频与动作用流匹配监督训练；约 2000 小时机器人＋1000 小时人类数据预训练后仍需任务微调，无 RL。YAM 双夹爪和 Tianji–Sharpa 双 22-DoF 手各测四任务，每任务 100 条示范、3×16 次评测；71.1% 是八任务平均评分，不是完整任务成功率。RoboTwin 默认 clean／random 成功率为 80.8%／20.6%；混合模式为 63.1%／29.2%，但仿真混合配置另用 CaP 生成示范，不能将差异全部归因于执行切换。真机混合模式另在叠毛巾验证。代码和混合数据预训练 checkpoint 已公开，预训练语料及初始化 Cosmos 视频权重未随附；下游任务权重开放情况未核实。",
+    "en": "Inputs are current three-view RGB, instructions, proprioception and program-history memory. Three experts share one denoising loop with code-to-video-to-action attention; actions read both code and video. Default code is a planning condition; the action expert executes 32-step chunks. The real-world 64-D space contains, per side, 9 end-effector pose dimensions, 22 finger joints and one gripper width, zeroing unused blocks; actions use relative end-effector poses and absolute gripper/finger targets. Hybrid execution requires stage, dependency, syntax and whitelist checks. Once code execution is attempted, its same-pass action chunk is discarded even on error; the next iteration observes and replans. Agents annotate robot/human demonstrations and curate skills; code uses masked cross-entropy and video/actions use supervised flow matching, without RL. Approximately 2,000 robot and 1,000 human hours precede task fine-tuning. YAM dual grippers and Tianji–Sharpa dual 22-DoF hands each evaluate four tasks with 100 demonstrations and 3-by-16 trials per task. The 71.1% eight-task mean is a rubric score, not full-task success. RoboTwin clean/random success is 80.8%/20.6% by default and 63.1%/29.2% in hybrid mode, but hybrid simulation uses separate CaP-generated demonstrations, preventing attribution solely to execution switching. Hardware hybrid execution is additionally tested on towel folding/stacking. Code and a mixed-data pretrained checkpoint are public; pretraining corpora and the initializing Cosmos video checkpoint are not included. Downstream-task weight releases remain unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.30136v1",
+    "project": "https://agentic-wam.github.io/",
+    "code": "https://github.com/ZhuoyangLiu2005/agentic-wam",
+    "assets": "https://huggingface.co/miniFranka/agentic-wam-pretrain-yamego3k-soup-e1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.30136v1",
+    "https://arxiv.org/html/2610.30136v1",
+    "https://agentic-wam.github.io/",
+    "https://github.com/ZhuoyangLiu2005/agentic-wam",
+    "https://huggingface.co/miniFranka/agentic-wam-pretrain-yamego3k-soup-e1"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent + WAM",
+      "zh": "Agent＋WAM",
+      "bold": true
+    },
+    {
+      "en": "Joint code–video–action generation",
+      "zh": "代码—视频—动作联合生成"
+    },
+    {
+      "en": "Hybrid execution",
+      "zh": "混合执行"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-21",
+    "source": "https://arxiv.org/abs/2610.30136v1",
+    "basis": "source"
+  }
+}

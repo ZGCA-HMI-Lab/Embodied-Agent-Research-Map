@@ -8,6 +8,10 @@
 
 [FOMO-Dex [AM.MAN.DEX.POLICY.FEEDBACK.1]](../policies/execution-feedback_cn.md#am-man-dex-policy-feedback-1)
 
+<a id="am-man-dex-policy-feedback-2"></a>
+
+[TouchWorld [AM.MAN.DEX.POLICY.FEEDBACK.2]](../policies/execution-feedback_cn.md#am-man-dex-policy-feedback-2)
+
 <a id="am-man-dex-vla-feedback-1"></a>
 
 [AgenticTactileVLA [AM.MAN.DEX.VLA.FEEDBACK.1]](../policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1)

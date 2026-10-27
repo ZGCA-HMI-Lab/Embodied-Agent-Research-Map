@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.8",
+  "slug": "omnidexvlg",
+  "short_name": "OmniDexVLG",
+  "title": "OmniDexVLG: Learning Dexterous Grasp Generation from Vision Language Model-Guided Grasp Semantics, Taxonomy and Functional Affordance",
+  "authors": "Lei Zhang, Diwen Zheng, Kaixin Bai, Zhenshan Bing, Zoltán-Csaba Márton, Zhaopeng Chen, Alois Christian Knoll, Jianwei Zhang",
+  "year": 2025,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING",
+    "AM.MAN.DEX.DEMO"
+  ],
+  "tags": [
+    "dexterous",
+    "agent",
+    "agent-architecture",
+    "multi-agent",
+    "training-data-annotation",
+    "semantic-reasoning",
+    "retrieval-augmented-generation",
+    "chain-of-thought",
+    "grasp-taxonomy",
+    "contact-semantics",
+    "functional-affordance",
+    "language-conditioned-grasping",
+    "vision-language-grasping",
+    "conditional-diffusion",
+    "partial-point-cloud",
+    "synthetic-grasp-data",
+    "differentiable-force-closure",
+    "leap-hand",
+    "dlr-hit-ii",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "OmniDexVLG 用多 Agent 协作理解手物接触、推断抓型并生成语言标注，再训练点云—语言条件扩散模型，实现对抓取部位、参与手指和抓型的精细控制。",
+    "en": "OmniDexVLG uses collaborating Agents to interpret hand–object contacts, infer grasp types and generate language annotations, then trains point-cloud/language-conditioned diffusion to control grasp regions, participating fingers and grasp types."
+  },
+  "evaluation_scope": {
+    "zh": "DataGen 按抓型、指节接触区域及物体功能部位采样，优化并经物理仿真筛选抓姿；Reasoner 结合多视图、手配置与接触信息，通过多 Agent、知识检索及分步推理生成语义标注；GraspNet 以局部点云和指令为条件生成目标抓姿。三模块不等于三个 Agent，Agent 贡献集中于语义理解与数据标注，未展示在线 Agent 反馈重规划；动作生成不使用 RL。真机由 PyRoki 规划轨迹、阻抗控制执行。数据生成和语义理解涉及 LEAP 与 DLR-HIT II，最终网络仅用 LEAP 做仿真与 Diana 机械臂真机验证；不代表统一跨手模型。输出抓姿而非连续操作轨迹。项目页可访问，代码、数据及预训练权重下载尚未核实。",
+    "en": "DataGen samples and physically validates taxonomy/contact/affordance-aware grasps. Reasoner combines multiview images, hand configurations and contacts with multi-Agent reasoning, retrieval and stepwise inference to annotate data. GraspNet generates target poses from partial point clouds and instructions. The three modules are not three Agents: Agent contributions concern semantic understanding/annotation, without demonstrated online Agent replanning or RL action learning. PyRoki plans hardware trajectories for impedance control. Data generation/reasoning involve LEAP and DLR-HIT II; the final generator is evaluated only with LEAP in simulation and on a Diana arm, not as a unified cross-hand model. Outputs are poses, not continuous manipulation trajectories. Project access is verified; code, data and pretrained downloads are not."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2512.03874v1",
+    "project": "https://sites.google.com/view/omnidexvlg"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2512.03874v1",
+    "https://arxiv.org/html/2512.03874v1",
+    "https://sites.google.com/view/omnidexvlg"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Multi-Agent semantic understanding and annotation",
+      "zh": "多Agent语义理解与标注",
+      "bold": true
+    },
+    {
+      "en": "VLG grasp generation",
+      "zh": "VLG抓姿生成"
+    },
+    {
+      "en": "Fine-grained grasp control",
+      "zh": "细粒度抓取控制"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-12-03",
+    "source": "https://arxiv.org/abs/2512.03874v1",
+    "basis": "source"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.12",
+  "slug": "chord",
+  "short_name": "CHORD",
+  "title": "Learning Dexterous Manipulation Using Contact Wrench Guidance From Human Demonstration",
+  "authors": "Xinghao Zhu, Zixi Liu, Shalin Jain, Chenran Li, Milad Noori, Michael Andres Lin, Huihua Zhao, John Welsh, Mrinal Verghese, Wei Liu, Tingwu Wang, Xingye Da, Zhengyi Luo, Vishal Kulkarni, Naema Bhatti, Yuke Zhu, Linxi Fan, Bowen Wen, Danfei Xu, Soha Pouya, Yan Chang",
+  "year": 2026,
+  "venue": "CoRL 2026 / arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [
+    "AM.MAN.DEX.DEMO",
+    "AM.MAN.DEX.DATA"
+  ],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "human-demonstration",
+    "human-to-robot-transfer",
+    "contact-wrench-guidance",
+    "contact-aware-reward",
+    "reinforcement-learning",
+    "residual-rl",
+    "flash-sac",
+    "motion-retargeting",
+    "object-motion-tracking",
+    "virtual-object-controller",
+    "long-horizon-manipulation",
+    "articulated-object-manipulation",
+    "multi-object-manipulation",
+    "benchmark",
+    "sharpa-hand",
+    "dex3-hand",
+    "whole-body-manipulation",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "CHORD 将人类示范中的接触位置、法向与摩擦约束转成力／力矩作用能力奖励，引导残差 RL 修正重定向动作，学习以机器人可实现的接触方式复现示范中的物体运动。",
+    "en": "CHORD converts demonstrated contact locations, normals and friction constraints into rewards for force/torque-generation capability, guiding residual RL to correct retargeted actions and reproduce object motion through robot-feasible contacts."
+  },
+  "evaluation_scope": {
+    "zh": "力旋量表示接触可能产生的力／力矩方向，不是从视频测得的真实接触力；比较沿采样方向的支撑值构成奖励。FlashSAC 训练轻量 MLP，每条示范分别训练；输入机器人／物体状态、参考目标差、动作历史及接触信息，输出双手腕部平移／旋转和手指关节残差。训练结合物体跟踪、动作模仿及逐渐撤除的虚拟物体辅助控制；接触重建噪声大时改用较弱的力闭合目标。基准共 4,739 项，实评 1,831 项，平均成功率 82.12%；不代表统一多任务策略。双手主实验使用 Sharpa，全身 G1＋Dex3 扩展在预训练全身控制器输出上叠加关节残差。真机为 Dexmate＋双 Sharpa，20 Hz 策略经 IK 落地；躯干固定，头和移动底盘不参与。展示开环执行和 Vicon 状态反馈闭环，均跟踪固定参考而非在线重规划。官方代码含 Isaac Lab 与加速 FlashCHORD 实现及 Sharpa／G1 示例；完整原始数据需按各源许可获取，全部 4,739 项可下载包及预训练 checkpoint 下载尚未核实。",
+    "en": "Wrench supports describe feasible force/torque directions, not measured video contact forces. FlashSAC trains a lightweight MLP per demonstration: robot/object state, reference deltas, action history and contacts produce wrist translation/rotation and finger-joint residuals. Training combines object tracking, imitation and annealed virtual-object assistance; noisy contacts use reduced force-closure guidance. The benchmark contains 4,739 tasks, with 1,831 evaluated at 82.12% average success, not one multitask policy. Sharpa is the main hand; G1/Dex3 extends the method through residuals on a pretrained whole-body controller. Dexmate with dual Sharpa runs at 20 Hz with IK, a fixed torso and inactive head/mobile base. Open-loop and Vicon-feedback deployments track fixed references without replanning. Official code includes Isaac Lab, accelerated FlashCHORD and Sharpa/G1 examples. Original corpora require source-specific access; a complete downloadable 4,739-task package and pretrained checkpoints remain unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2607.00033v2",
+    "project": "https://nvidia-isaac.github.io/video_to_data/chord/",
+    "code": "https://github.com/nvidia-isaac/video_to_data/tree/main/robotic_grounding"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2607.00033v2",
+    "https://arxiv.org/html/2607.00033v2",
+    "https://nvidia-isaac.github.io/video_to_data/chord/",
+    "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/main/robotic_grounding/README.md",
+    "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/main/robotic_grounding/flash_chord/README.md"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Contact wrench guidance",
+      "zh": "接触力旋量引导"
+    },
+    {
+      "en": "Human demonstration transfer",
+      "zh": "人类示范迁移"
+    },
+    {
+      "en": "Residual RL",
+      "zh": "残差RL"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-06-22",
+    "source": "https://arxiv.org/abs/2607.00033v2",
+    "basis": "source"
+  }
+}

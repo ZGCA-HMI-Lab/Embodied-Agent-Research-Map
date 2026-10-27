@@ -8,7 +8,7 @@
 
 从真实或生成视频出发，通过重定向、仿真优化等生成机器人示范轨迹或训练数据。按主要贡献归类：在线操控的重定向控制器归策略与控制；区分轨迹回放与闭环策略部署。
 
-**按主题浏览：** [VLA (10)](../../../topics/vla_cn.md) · [强化学习 (15)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../../topics/tactile_cn.md) · [手内操作 (3)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (13)](../../../topics/vla_cn.md) · [强化学习 (20)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../../topics/tactile_cn.md) · [手内操作 (4)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.DEMO` · 10 篇主分类工作
 
@@ -30,6 +30,8 @@
 - [P³-WAM [AM.MAN.DEX.HUMAN.UNIFIED.1]](../human-hand-modeling_cn.md#am-man-dex-human-unified-1)
 - [FOMO-Dex [AM.MAN.DEX.POLICY.FEEDBACK.1]](../policies/execution-feedback_cn.md#am-man-dex-policy-feedback-1)
 - [DexCast [AM.MAN.DEX.POLICY.LEARNING.7]](../policies/policy-learning_cn.md#am-man-dex-policy-learning-7)
+- [CHORD [AM.MAN.DEX.POLICY.LEARNING.12]](../policies/policy-learning_cn.md#am-man-dex-policy-learning-12)
 - [DexStitch [AM.MAN.DEX.POLICY.SKILL.1]](../policies/skill-composition_cn.md#am-man-dex-policy-skill-1)
+- [OmniDexVLG [AM.MAN.DEX.AGENT.8]](../agent-architectures_cn.md#am-man-dex-agent-8)
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

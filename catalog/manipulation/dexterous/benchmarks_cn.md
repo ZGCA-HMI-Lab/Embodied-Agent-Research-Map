@@ -8,7 +8,7 @@
 
 可复用的灵巧手数据集、任务、环境与评测协议。区分论文声明、公开资产和实际评测配置。
 
-**按主题浏览：** [VLA (10)](../../topics/vla_cn.md) · [强化学习 (15)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (3)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (13)](../../topics/vla_cn.md) · [强化学习 (20)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../topics/tactile_cn.md) · [手内操作 (4)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.DATA` · 5 篇主分类工作
 
@@ -22,6 +22,7 @@
 
 ## 相关工作
 
+- [CHORD [AM.MAN.DEX.POLICY.LEARNING.12]](policies/policy-learning_cn.md#am-man-dex-policy-learning-12)
 - [HumanoidGen [AM.MAN.DEX.DEMO.5]](demonstrations/generation_cn.md#am-man-dex-demo-5)
 
 条目由统一数据源生成；详细阅读记录见可选笔记。开放状态以核验日期为准，未报告或未验证的内容须明确保留。

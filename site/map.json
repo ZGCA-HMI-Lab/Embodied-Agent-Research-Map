@@ -131,8 +131,8 @@
                 "code": "AM.MAN.DEX.AGENT",
                 "children": [],
                 "catalog_path": "manipulation/dexterous/agent-architectures",
-                "description": "Runtime architectures connecting high-level semantic/geometric planning or agents to reusable dexterous-hand execution backends. Record skill interfaces, planning and memory responsibilities, the actual low-level controller, and whether feedback triggers low-level phase switching or high-level replanning/recovery. Task planning, skill composition and recovery are visible tags rather than nested categories.",
-                "description_zh": "运行时连接高层语义／几何规划或 Agent 与可复用灵巧手执行器的系统架构。记录技能接口、规划与记忆职责、实际底层控制器，并区分反馈仅触发低层阶段切换，还是支持高层重规划与恢复。任务规划、技能编排和失败恢复作为可见标签，不单独设置下级分类。"
+                "description": "Architectures organizing Agents for dexterous semantic understanding/data annotation or runtime planning and execution. Specify the Agent stage, inter-module interfaces, reasoning/memory responsibilities and actual grasp generator or controller. Distinguish annotation from online control and low-level switching from high-level replanning. Agent collaboration must be a substantive contribution; incidental Agent use does not determine placement. Task planning, skill composition and recovery remain visible tags.",
+                "description_zh": "组织 Agent 完成灵巧手语义理解／数据标注或运行时规划执行的架构。注明 Agent 作用阶段、模块接口、推理与记忆职责及实际抓姿生成器或控制器；区分数据标注与在线控制、低层切换与高层重规划。Agent 协作组织须是实质贡献，不能仅因附带使用 Agent 就归入本类。任务规划、技能编排和失败恢复仍作为可见标签。"
               },
               {
                 "name": "Human Hand Motion and Manipulation Video Modeling",
@@ -167,8 +167,17 @@
                 "code": "AM.MAN.METHOD.RL",
                 "children": [],
                 "catalog_path": "manipulation/common-methods/rl-training-exploration",
-                "description": "Reusable RL training mechanisms such as curriculum learning, task/reset sampling and exploration allocation. Record what training distribution changes, how configurations are supplied, the underlying policy optimizer, evaluated embodiments and deployment policy. Distinguish a general training contribution from a task-specific policy that uses RL; sampling existing resets does not generate new configurations.",
-                "description_zh": "可复用的强化学习训练机制，包括课程学习、任务／重置采样与探索资源分配。注明改变哪部分训练分布、配置如何提供、底层策略优化器、验证本体及部署策略；区分共性训练贡献与使用 RL 的具体任务策略，从已有重置池采样不等同于生成新配置。"
+                "description": "Reusable RL training mechanisms and workflow automation, including curriculum learning, task/reset sampling, exploration allocation and Agent-driven training development. Record training changes, configuration sources, policy optimizers, evaluated embodiments and deployment policies. Distinguish training-time Agents from runtime control architectures; sampling existing resets does not generate new configurations.",
+                "description_zh": "可复用的强化学习训练机制与流程自动化，包括课程学习、任务／重置采样、探索资源分配及 Agent 驱动的训练开发。注明训练改动、配置来源、策略优化器、验证本体及部署策略；区分训练阶段 Agent 与执行阶段控制架构，从已有重置池采样不等同于生成新配置。"
+              },
+              {
+                "name": "Cross-Platform Benchmarks",
+                "name_zh": "跨平台评测基准",
+                "code": "AM.MAN.METHOD.BENCH",
+                "children": [],
+                "catalog_path": "manipulation/common-methods/cross-platform-benchmarks",
+                "description": "Benchmarks whose main contribution is reusable evaluation across manipulation platforms, including coding agents and long-horizon execution. Record the evaluated systems, tasks, controller access, grading and budgets; distinguish paper evaluations from later platform support and cross-arm transfer from cross-hand transfer. Data generation and policy training remain secondary contributions within one record.",
+                "description_zh": "主要贡献是服务不同操作平台的可复用评测体系，包括 Coding Agent 与长时序执行基准。记录评测对象、任务、控制接口、评分和预算；区分论文实际评测与后续平台支持，以及跨机械臂与跨手型迁移。附带的数据生成与策略训练在同一条目中说明，不重复收录。"
               }
             ]
           }
@@ -198,6 +207,15 @@
             ],
             "description": "Manipulate objects through coordinated arm motions and support from the torso or other upper-body surfaces, including holding, regrasping and on-body object transfer. Record the learned policy outputs and the independent controllers used for the waist, legs, balance or locomotion; placement here does not imply unified whole-body actuation.",
             "description_zh": "通过双臂运动与躯干等上身表面的支撑协同完成抱持、换抱及物体在身体周围的转移。明确学习策略的输出自由度，以及腰腿、平衡或行走由何种独立控制器负责；本类不默认等同于统一全身关节控制。"
+          },
+          {
+            "name": "Agent Architectures",
+            "name_zh": "Agent 架构",
+            "code": "AM.WBC.AGENT",
+            "children": [],
+            "catalog_path": "whole-body-control/agent-architectures",
+            "description": "Agent architectures for whole-body task planning and skill coordination across locomotion, stance adjustment, active perception and manipulation. Record high-level plans, intermediate skill grounding, feedback and the input/output interfaces of separate low-level policies. Whole-body task coordination does not establish unified joint-level motion planning or a single whole-body action policy; hand hardware alone does not determine primary placement.",
+            "description_zh": "面向全身机器人的任务规划与技能协调架构，组织行走、站位调整、主动感知和操作。注明高层计划、中层技能落地、反馈及各低层策略的输入输出；全身任务协调不等于统一关节运动规划或单一全身动作策略，也不因配备灵巧手就归入灵巧手主分类。"
           }
         ]
       }
@@ -1962,6 +1980,92 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.FEEDBACK.2",
+      "slug": "touchworld",
+      "short_name": "TouchWorld",
+      "title": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
+      "authors": "Jianyi Zhou, Feiyang Hong, Yunhao Li, Yicheng Zhao, Yongjue Cen, Zirui Liu, Jiakang Huang, Zirui Chen, Ruiyang Zhang, Weizhuo Zhu, Xuhua Song, Shuo Yang",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+      "related_categories": [
+        "AM.MAN.DEX.AGENT"
+      ],
+      "tags": [
+        "dexterous",
+        "agent",
+        "vla",
+        "tactile",
+        "tactile-world-model",
+        "predictive-tactile-subgoals",
+        "tactile-residual-refinement",
+        "multi-rate-control",
+        "subtask-planning",
+        "memory-augmented-planning",
+        "flow-matching",
+        "imitation-learning",
+        "human-tactile-pretraining",
+        "wuji-hand",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "TouchWorld 由高层 Agent 选择子任务，触觉世界模型预测未来接触子目标，VLA 据此生成动作块，再由触觉残差 Transformer 根据实时触觉与本体反馈，反复修正腕部和手指动作。",
+        "en": "TouchWorld uses a high-level Agent to select subtasks and a tactile world model to predict future contact subgoals for VLA action-chunk generation; a tactile residual Transformer repeatedly corrects wrist and finger actions using fresh tactile and proprioceptive feedback."
+      },
+      "evaluation_scope": {
+        "zh": "高层 Qwen3-VL-4B 根据任务、当前图像和执行记忆输出子任务；Wan2.2-TI2V-5B 预测视觉—触觉子目标，在子任务或重要状态变化时刷新。流匹配 VLA 输入总任务＋子任务、RGB、触觉图、本体状态及预测目标，输出 32 步／每步 120 维基准动作和上下文 token；120 维含双侧各 48 维臂手表示、9 维头部和 15 维预留量，不等于 120 个实际关节。TRT 读取 16 步基准动作窗口、近期触觉／本体历史及上下文，只修正 58 维腕部与选定手关节子空间，执行前 4 步后刷新。分阶段监督训练：规划器 SFT、世界模型人类触觉预训练后用 10 小时机器人数据微调、VLA 模仿＋流匹配；残差阶段冻结 VLA，以示范动作－基准动作为目标训练 TRT，无 RL，部署反馈修改动作而非权重。Wuji 手＋JQ-Industries 触觉手套在浇花、清桌、套杯、插电源、擦锅、抽纸六项真机任务上，正常／人为扰动平均成功率为 65.0%／53.7%。未验证跨手迁移或全身运动控制；截至核验日，项目页提供演示，未找到明确的代码、数据或 checkpoint 下载入口。",
+        "en": "Qwen3-VL-4B selects subtasks from instructions, images and execution memory; Wan2.2-TI2V-5B predicts visual-tactile subgoals refreshed on meaningful phase changes. A flow-matching VLA reads task/subtask text, RGB, tactile images, proprioception and predicted goals, outputting context and 32-step, 120-D nominal actions: two 48-D arm-hand representations, 9 head dimensions and 15 reserved dimensions, not 120 physical joints. TRT reads 16-step nominal windows, recent tactile/proprioceptive histories and context, adds residuals only in a 58-D wrist/selected-finger subspace, and refreshes after four executed steps. Staged supervision uses planner SFT, human tactile pretraining plus 10 hours of robot data for the world model, and imitation/flow matching for VLA. Residual training freezes VLA and fits demonstration-minus-nominal actions, without RL; deployment changes actions, not weights. Wuji hands with JQ-Industries tactile gloves achieve 65.0%/53.7% average clean/perturbed success across watering, clearing, cup insertion, plug insertion, pot wiping and tissue pulling. Cross-hand transfer and whole-body locomotion control are not validated. The project provides demonstrations; no explicit code, data or checkpoint download was found as of verification."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2607.07287v2",
+        "project": "https://phanes-lab.github.io/TouchWorld-website/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.07287v2",
+        "https://arxiv.org/html/2607.07287v2",
+        "https://phanes-lab.github.io/TouchWorld-website/"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent + VLA",
+          "zh": "Agent＋VLA",
+          "bold": true
+        },
+        {
+          "en": "Tactile world model",
+          "zh": "触觉世界模型"
+        },
+        {
+          "en": "Tactile residual refinement",
+          "zh": "触觉残差修正"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-07-08",
+        "source": "https://arxiv.org/abs/2607.07287v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "TouchWorld｜Agent + VLA · Tactile world model · Tactile residual refinement",
+        "zh": "TouchWorld｜Agent＋VLA · 触觉世界模型 · 触觉残差修正"
+      },
+      "topics": [
+        "vla",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback.md#am-man-dex-policy-feedback-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-policy-feedback-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.LEARNING.1",
       "slug": "egojepa",
       "short_name": "EgoJEPA",
@@ -2601,6 +2705,183 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.10",
+      "slug": "dexter",
+      "short_name": "DextER",
+      "title": "DextER: Language-driven Dexterous Grasp Generation with Embodied Reasoning",
+      "authors": "Junha Lee, Eunha Park, Minsu Cho",
+      "year": 2026,
+      "venue": "CVPR 2026 / arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "contact-reasoning",
+        "language-conditioned-grasp-generation",
+        "autoregressive-generation",
+        "vla",
+        "embodied-chain-of-thought",
+        "contact-guided-steering",
+        "point-cloud",
+        "shadow-hand",
+        "supervised-learning",
+        "simulation"
+      ],
+      "tldr": {
+        "zh": "DextER 根据物体点云和语言指令，在同一自回归模型中先预测“哪些手指连杆接触物体哪里”，再以接触序列为条件生成手腕位姿与手指关节角，并支持通过指定部分接触点控制抓姿。",
+        "en": "Given an object point cloud and a language instruction, DextER first predicts which finger links contact where on the object, then conditions wrist-pose and finger-joint generation on this contact sequence within one autoregressive model; users can steer grasps by specifying partial contacts."
+      },
+      "evaluation_scope": {
+        "zh": "PartField 点云编码器经 MLP 接入 Qwen2.5-0.5B；接触 token 编码连杆身份及三维位置，作为后续抓姿 token 的前缀条件，输出 Shadow Hand 抓取构型。利用 MuJoCo 为 DexGYS／Dexonomy 抓姿提取接触标签，采用 next-token 监督微调全部组件，无 RL；接触位置 dropout 保留连杆身份、随机移除坐标。两数据集分别训练模型，Dexonomy 检验未见物体／抓握类型。DexGYS 仿真成功率为 67.14%，去除接触推理为 62.37%；该成功率采用至少一个重力方向稳定的基准条件，不能当作真机成功率。部分接触前缀引导不需更新模型权重；预测接触并非触觉反馈，输出不含完整闭环操作轨迹，未报告真机验证。官方已发布训练／评测代码、预处理数据，并列出 DexGYS／Dexonomy 两套 checkpoint 下载入口，尚未在本仓库复现。",
+        "en": "An MLP connects PartField point-cloud features to Qwen2.5-0.5B. Contact tokens encode link identities and 3D positions, prefixing grasp tokens that specify a Shadow Hand configuration. MuJoCo supplies contact labels for DexGYS/Dexonomy; all components are finetuned by supervised next-token prediction without RL. Contact-position dropout removes coordinates while retaining link identities. Separate models are trained on the two datasets; Dexonomy tests unseen objects/grasp types. DexGYS simulation success is 67.14%, versus 62.37% without contact reasoning, using a benchmark criterion requiring stability under at least one gravity direction, not hardware success. Partial-contact prefixes steer generation without weight updates. Predicted contacts are not tactile feedback; outputs are not full closed-loop manipulation trajectories, and no hardware validation is reported. Official resources release training/evaluation code and preprocessed data, and list separate DexGYS/Dexonomy checkpoint downloads; not reproduced in this repository."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2601.16046v2",
+        "project": "https://junha-l.github.io/dexter/",
+        "code": "https://github.com/junha-l/dexter",
+        "data": "https://huggingface.co/datasets/EunhaPark/project_dexter",
+        "assets": "https://huggingface.co/junhalee/dexter-qwen2.5-0.5B-dexgys"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.16046v2",
+        "https://arxiv.org/html/2601.16046v2",
+        "https://junha-l.github.io/dexter/",
+        "https://github.com/junha-l/dexter",
+        "https://huggingface.co/datasets/EunhaPark/project_dexter"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Contact reasoning",
+          "zh": "接触推理"
+        },
+        {
+          "en": "Language-conditioned grasp generation",
+          "zh": "语言条件抓姿生成"
+        },
+        {
+          "en": "Autoregressive VLA",
+          "zh": "自回归VLA"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-01-22",
+        "source": "https://arxiv.org/abs/2601.16046v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DextER｜Contact reasoning · Language-conditioned grasp generation · Autoregressive VLA",
+        "zh": "DextER｜接触推理 · 语言条件抓姿生成 · 自回归VLA"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-10",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-10"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.12",
+      "slug": "chord",
+      "short_name": "CHORD",
+      "title": "Learning Dexterous Manipulation Using Contact Wrench Guidance From Human Demonstration",
+      "authors": "Xinghao Zhu, Zixi Liu, Shalin Jain, Chenran Li, Milad Noori, Michael Andres Lin, Huihua Zhao, John Welsh, Mrinal Verghese, Wei Liu, Tingwu Wang, Xingye Da, Zhengyi Luo, Vishal Kulkarni, Naema Bhatti, Yuke Zhu, Linxi Fan, Bowen Wen, Danfei Xu, Soha Pouya, Yan Chang",
+      "year": 2026,
+      "venue": "CoRL 2026 / arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [
+        "AM.MAN.DEX.DEMO",
+        "AM.MAN.DEX.DATA"
+      ],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "human-demonstration",
+        "human-to-robot-transfer",
+        "contact-wrench-guidance",
+        "contact-aware-reward",
+        "reinforcement-learning",
+        "residual-rl",
+        "flash-sac",
+        "motion-retargeting",
+        "object-motion-tracking",
+        "virtual-object-controller",
+        "long-horizon-manipulation",
+        "articulated-object-manipulation",
+        "multi-object-manipulation",
+        "benchmark",
+        "sharpa-hand",
+        "dex3-hand",
+        "whole-body-manipulation",
+        "sim-to-real",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "CHORD 将人类示范中的接触位置、法向与摩擦约束转成力／力矩作用能力奖励，引导残差 RL 修正重定向动作，学习以机器人可实现的接触方式复现示范中的物体运动。",
+        "en": "CHORD converts demonstrated contact locations, normals and friction constraints into rewards for force/torque-generation capability, guiding residual RL to correct retargeted actions and reproduce object motion through robot-feasible contacts."
+      },
+      "evaluation_scope": {
+        "zh": "力旋量表示接触可能产生的力／力矩方向，不是从视频测得的真实接触力；比较沿采样方向的支撑值构成奖励。FlashSAC 训练轻量 MLP，每条示范分别训练；输入机器人／物体状态、参考目标差、动作历史及接触信息，输出双手腕部平移／旋转和手指关节残差。训练结合物体跟踪、动作模仿及逐渐撤除的虚拟物体辅助控制；接触重建噪声大时改用较弱的力闭合目标。基准共 4,739 项，实评 1,831 项，平均成功率 82.12%；不代表统一多任务策略。双手主实验使用 Sharpa，全身 G1＋Dex3 扩展在预训练全身控制器输出上叠加关节残差。真机为 Dexmate＋双 Sharpa，20 Hz 策略经 IK 落地；躯干固定，头和移动底盘不参与。展示开环执行和 Vicon 状态反馈闭环，均跟踪固定参考而非在线重规划。官方代码含 Isaac Lab 与加速 FlashCHORD 实现及 Sharpa／G1 示例；完整原始数据需按各源许可获取，全部 4,739 项可下载包及预训练 checkpoint 下载尚未核实。",
+        "en": "Wrench supports describe feasible force/torque directions, not measured video contact forces. FlashSAC trains a lightweight MLP per demonstration: robot/object state, reference deltas, action history and contacts produce wrist translation/rotation and finger-joint residuals. Training combines object tracking, imitation and annealed virtual-object assistance; noisy contacts use reduced force-closure guidance. The benchmark contains 4,739 tasks, with 1,831 evaluated at 82.12% average success, not one multitask policy. Sharpa is the main hand; G1/Dex3 extends the method through residuals on a pretrained whole-body controller. Dexmate with dual Sharpa runs at 20 Hz with IK, a fixed torso and inactive head/mobile base. Open-loop and Vicon-feedback deployments track fixed references without replanning. Official code includes Isaac Lab, accelerated FlashCHORD and Sharpa/G1 examples. Original corpora require source-specific access; a complete downloadable 4,739-task package and pretrained checkpoints remain unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2607.00033v2",
+        "project": "https://nvidia-isaac.github.io/video_to_data/chord/",
+        "code": "https://github.com/nvidia-isaac/video_to_data/tree/main/robotic_grounding"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.00033v2",
+        "https://arxiv.org/html/2607.00033v2",
+        "https://nvidia-isaac.github.io/video_to_data/chord/",
+        "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/main/robotic_grounding/README.md",
+        "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/main/robotic_grounding/flash_chord/README.md"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Contact wrench guidance",
+          "zh": "接触力旋量引导"
+        },
+        {
+          "en": "Human demonstration transfer",
+          "zh": "人类示范迁移"
+        },
+        {
+          "en": "Residual RL",
+          "zh": "残差RL"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-06-22",
+        "source": "https://arxiv.org/abs/2607.00033v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "CHORD｜Contact wrench guidance · Human demonstration transfer · Residual RL",
+        "zh": "CHORD｜接触力旋量引导 · 人类示范迁移 · 残差RL"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-12",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-12"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.PLANNING.1",
       "slug": "dsp",
       "short_name": "DSP",
@@ -2754,6 +3035,90 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/skill-composition.md#am-man-dex-policy-skill-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/skill-composition_cn.md#am-man-dex-policy-skill-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.SKILL.2",
+      "slug": "dexcompose",
+      "short_name": "DexCompose",
+      "title": "DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand",
+      "authors": "Dihong Huang, Zhenyu Wei, Zhuxiu Xu, Yunchao Yao, Sikai Li, Mingyu Ding",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.SKILL",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "skill-composition",
+        "pretrained-policy-reuse",
+        "finger-action-ownership",
+        "action-masking",
+        "release-test",
+        "residual-rl",
+        "ppo",
+        "diffusion-policy",
+        "imitation-learning",
+        "agent",
+        "llm-finger-allocation",
+        "grasp-preservation",
+        "shadow-hand",
+        "simulation"
+      ],
+      "tldr": {
+        "zh": "DexCompose 通过松指测试与 LLM 选择手指分工，冻结已有技能策略，用两套 PPO 残差分别维持抓握和适配下游动作，再按手指控制权拼接指令，实现单手抓物与另一项交互的组合。",
+        "en": "DexCompose selects finger ownership through release tests and an LLM, keeps pretrained skill policies frozen, and learns two PPO residuals for grasp preservation and downstream-action adaptation; masked action assembly lets one hand retain an object while performing another interaction."
+      },
+      "evaluation_scope": {
+        "zh": "每个基础技能由 50 条示范训练扩散策略；输入两步低维本体／任务几何状态，预测 32 步、每步 28 维浮动 Shadow Hand 指令（6 维手腕＋22 维手指目标）。A 完成后保存抓握构型，松指测试统计保留与脱离接触情况；LLM Agent 按任务对预先选择固定掩码，不逐步生成动作。组合时 A 侧为“保存构型＋有界残差”，只控制保留手指；B 侧为“冻结扩散策略＋有界残差”，只控制手腕和释放手指。两残差均为 PPO 训练的 MLP：A 侧依据物体／手指／接触状态稳定抓握，B 侧额外读取基准动作和掩码。A 稳定器先按持物技能训练，B 残差仍按任务对训练，可选小学习率联合调整 A 残差；基础策略始终冻结，不能称为完整零训练组合。Isaac Lab 中四种持物技能（GraspBall、PourMug、PickCan、PickStick）与开门、按按钮、开微波炉、拨开关形成 16 个组合，每对评测 32×8 次；持物须全过程保持且 B 成功，均值为 77.43%，去除 A 残差降为 9.13%。仅验证单手仿真与双技能组合，未报告真机验证。官方公开训练／评测代码，数据及 checkpoint 下载尚未核实。",
+        "en": "Each primitive diffusion policy learns from 50 demonstrations, reads two low-dimensional proprioceptive/task-geometric observations and predicts 32 steps of 28-D Floating Shadow Hand commands (6 wrist plus 22 finger targets). After A succeeds, its grasp configuration is stored. Release tests measure retention and clean disengagement; an LLM Agent selects a fixed mask per task pair before execution, not stepwise actions. Preserved fingers receive the stored reference plus an A residual; the wrist and released fingers receive frozen B-policy actions plus a B residual. Both residuals are PPO-trained MLPs: A uses object/finger/contact state, while B additionally reads nominal actions and the mask. A stabilizers are first learned per retention skill; B residuals still require pair-specific training, optionally fine-tuning the A residual at a lower rate. Base policies stay frozen; the full method is not training-free composition. Isaac Lab combines four retention skills (GraspBall, PourMug, PickCan, PickStick) with door opening, button pressing, microwave opening and switch actuation into 16 pairs, evaluated with 32 rollouts across eight seeds per pair. Continuous A retention and B completion are both required: mean success is 77.43%, falling to 9.13% without the A residual. Validation covers single-hand simulation and two-skill compositions, without reported hardware tests. Training/evaluation code is public; data and checkpoint downloads remain unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2606.28323v1",
+        "project": "https://devon018.github.io/DexCompose-Webpage/",
+        "code": "https://github.com/Devon018/DexCompose"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.28323v1",
+        "https://arxiv.org/html/2606.28323v1",
+        "https://devon018.github.io/DexCompose-Webpage/",
+        "https://github.com/Devon018/DexCompose"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Skill composition",
+          "zh": "技能组合"
+        },
+        {
+          "en": "Finger action ownership",
+          "zh": "手指控制权分配"
+        },
+        {
+          "en": "Residual RL",
+          "zh": "残差RL"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-06-26",
+        "source": "https://arxiv.org/abs/2606.28323v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexCompose｜Skill composition · Finger action ownership · Residual RL",
+        "zh": "DexCompose｜技能组合 · 手指控制权分配 · 残差RL"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/skill-composition.md#am-man-dex-policy-skill-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/skill-composition_cn.md#am-man-dex-policy-skill-2"
       },
       "notes_urls": {}
     },
@@ -3236,6 +3601,203 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.GRIP.AGENT.WAM.2",
+      "slug": "aw-0",
+      "short_name": "AW-0",
+      "title": "Agentic World Action Models",
+      "authors": "Zhuoyang Liu, Dantong Niu, Botong Zhang, Boning Shao, Jing Wang, Ruijie Zheng, Yuvan Sharma, Runyu Lu, Jiaming Liu, Renrui Zhang, Roei Herzig, Yutong Bai, Ken Goldberg, Danfei Xu, Yuke Zhu, Guanzhi Wang, Linxi \"Jim\" Fan, Trevor Darrell",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.GRIP.AGENT.WAM",
+      "related_categories": [
+        "AM.MAN.DEX.AGENT"
+      ],
+      "tags": [
+        "agent-architecture",
+        "wam",
+        "gripper",
+        "dexterous",
+        "bimanual",
+        "code-expert",
+        "code-conditioned-generation",
+        "mixture-of-transformers",
+        "joint-code-video-action-generation",
+        "joint-denoising",
+        "masked-code-diffusion",
+        "flow-matching",
+        "skill-library",
+        "program-memory",
+        "hybrid-execution",
+        "code-as-policies",
+        "agentic-code-annotation",
+        "human-video-pretraining",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "AW-0 在 WAM 中加入代码专家，将技能程序、未来视频和动作块联合去噪生成，让代码计划同时引导视觉预测与动作生成，并支持按检查结果切换代码技能执行和模型动作执行。",
+        "en": "AW-0 adds a code expert to a WAM and jointly denoises skill programs, future video and action chunks, letting code plans guide both visual prediction and action generation; an optional checked hybrid mode switches between programmatic skills and model-generated actions."
+      },
+      "evaluation_scope": {
+        "zh": "输入当前三视角 RGB、指令、本体状态及历史代码记忆；三个专家在同一去噪循环中生成，跨专家注意力按代码→视频→动作组织，动作同时读取代码和视频。默认代码仅为计划条件，执行动作专家的 32 步动作块；真机统一 64 维表示为每侧 9 维末端位姿、22 手关节和 1 夹爪宽度，未用分量置零，动作使用末端相对位姿及绝对夹爪／手指目标。混合模式仅在阶段、依赖、语法、白名单等检查通过时执行代码；若已尝试代码执行，即使报错也丢弃同轮动作块，下轮重新观察规划。Agent 为机器人／人类示范标注代码并整理技能库，代码用掩码交叉熵、视频与动作用流匹配监督训练；约 2000 小时机器人＋1000 小时人类数据预训练后仍需任务微调，无 RL。YAM 双夹爪和 Tianji–Sharpa 双 22-DoF 手各测四任务，每任务 100 条示范、3×16 次评测；71.1% 是八任务平均评分，不是完整任务成功率。RoboTwin 默认 clean／random 成功率为 80.8%／20.6%；混合模式为 63.1%／29.2%，但仿真混合配置另用 CaP 生成示范，不能将差异全部归因于执行切换。真机混合模式另在叠毛巾验证。代码和混合数据预训练 checkpoint 已公开，预训练语料及初始化 Cosmos 视频权重未随附；下游任务权重开放情况未核实。",
+        "en": "Inputs are current three-view RGB, instructions, proprioception and program-history memory. Three experts share one denoising loop with code-to-video-to-action attention; actions read both code and video. Default code is a planning condition; the action expert executes 32-step chunks. The real-world 64-D space contains, per side, 9 end-effector pose dimensions, 22 finger joints and one gripper width, zeroing unused blocks; actions use relative end-effector poses and absolute gripper/finger targets. Hybrid execution requires stage, dependency, syntax and whitelist checks. Once code execution is attempted, its same-pass action chunk is discarded even on error; the next iteration observes and replans. Agents annotate robot/human demonstrations and curate skills; code uses masked cross-entropy and video/actions use supervised flow matching, without RL. Approximately 2,000 robot and 1,000 human hours precede task fine-tuning. YAM dual grippers and Tianji–Sharpa dual 22-DoF hands each evaluate four tasks with 100 demonstrations and 3-by-16 trials per task. The 71.1% eight-task mean is a rubric score, not full-task success. RoboTwin clean/random success is 80.8%/20.6% by default and 63.1%/29.2% in hybrid mode, but hybrid simulation uses separate CaP-generated demonstrations, preventing attribution solely to execution switching. Hardware hybrid execution is additionally tested on towel folding/stacking. Code and a mixed-data pretrained checkpoint are public; pretraining corpora and the initializing Cosmos video checkpoint are not included. Downstream-task weight releases remain unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.30136v1",
+        "project": "https://agentic-wam.github.io/",
+        "code": "https://github.com/ZhuoyangLiu2005/agentic-wam",
+        "assets": "https://huggingface.co/miniFranka/agentic-wam-pretrain-yamego3k-soup-e1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.30136v1",
+        "https://arxiv.org/html/2610.30136v1",
+        "https://agentic-wam.github.io/",
+        "https://github.com/ZhuoyangLiu2005/agentic-wam",
+        "https://huggingface.co/miniFranka/agentic-wam-pretrain-yamego3k-soup-e1"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent + WAM",
+          "zh": "Agent＋WAM",
+          "bold": true
+        },
+        {
+          "en": "Joint code–video–action generation",
+          "zh": "代码—视频—动作联合生成"
+        },
+        {
+          "en": "Hybrid execution",
+          "zh": "混合执行"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-21",
+        "source": "https://arxiv.org/abs/2610.30136v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "AW-0｜Agent + WAM · Joint code–video–action generation · Hybrid execution",
+        "zh": "AW-0｜Agent＋WAM · 代码—视频—动作联合生成 · 混合执行"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/agent-wam.md#am-man-grip-agent-wam-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/agent-wam_cn.md#am-man-grip-agent-wam-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.METHOD.BENCH.1",
+      "slug": "embodiedswe",
+      "short_name": "EmbodiedSWE",
+      "title": "EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics",
+      "authors": "Zeyu Shen, Haoxiang You, Yilang Liu, Zhicheng Zheng, Lihan Zha, Kashu Yamazaki, Mingtong Zhang, Suning Huang, Jiankai Sun, Qianzhong Chen, Lucy He, Kaiyuan Liu, Haoran Chang, Katerina Fragkiadaki, Dhruv Shah, Mac Schwager, Peter Henderson, Ian Abraham, Canwen Xu",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "benchmark",
+      "category": "AM.MAN.METHOD.BENCH",
+      "related_categories": [],
+      "tags": [
+        "benchmark",
+        "agent-benchmark",
+        "coding-agent",
+        "long-horizon-evaluation",
+        "cross-embodiment",
+        "cross-arm-transfer",
+        "simulation",
+        "isaac-lab",
+        "programmatic-policy",
+        "demonstration-generation",
+        "verified-trajectory-generation",
+        "agent-aided-diversification",
+        "vla",
+        "imitation-learning",
+        "sim-to-real",
+        "coding-agent-rl"
+      ],
+      "benchmark": {
+        "hands": {
+          "zh": "论文 v2 列五种本体：Franka 两指平行夹爪、xArm7 连杆夹爪或 Panda 夹爪、Kinova Gen3＋Panda 夹爪、双 Franka 平行夹爪、G1 双三指手。真机 VLA 为 Franka＋Robotiq 2F-85；当前项目页宣称支持 17 种本体，不等于论文五种配置之外均已完成同等评测。",
+          "en": "Paper v2 lists five embodiments: Franka with a two-finger parallel gripper, xArm7 with a linkage or Panda gripper, Kinova Gen3 with a Panda gripper, bimanual Franka with parallel grippers, and G1 with two three-finger hands. Hardware VLA uses Franka with Robotiq 2F-85. The current project advertises 17 embodiments; this does not establish equivalent paper evaluation of all later additions."
+        },
+        "tasks": {
+          "zh": "28 项任务：装配 9、收纳 4、益智 6、形变物／液体 4、切割 2、移动操作 3；单次物理执行可达约半小时。Agent 需提交 solve(env) 程序，主比较每任务给 4 小时开发预算，按独立隐藏评分及成功率、耗时、成本评测；不是 28×全部本体的完整组合。",
+          "en": "Twenty-eight tasks cover assembly (9), packing (4), puzzles (6), deformables/liquids (4), cutting (2) and loco-manipulation (3), with physical execution horizons up to about 30 minutes. Agents submit solve(env) programs under a four-hour development budget per task in the main comparison, evaluated through independent hidden grading, success, time and cost. The benchmark is not a full 28-task-by-all-embodiment evaluation matrix."
+        },
+        "cross_hand": {
+          "zh": "六项任务把已验证的 Franka 程序作为提示，迁移到 Kinova Gen3 和 xArm7；三者共用 Panda 夹爪，主要验证跨机械臂代码适配，不是跨手型策略共享。G1 等其他末端有任务支持，但未报告同一策略在所有手型上的配对零样本验证。",
+          "en": "On six tasks, verified Franka programs serve as hints for Kinova Gen3 and xArm7. All three carry the Panda gripper, testing cross-arm program adaptation rather than cross-hand policy sharing. Other effectors such as G1 hands have task support, but matched zero-shot shared-policy validation across all hand morphologies is not reported."
+        },
+        "release": {
+          "zh": "官方 GitHub 已公开基准、Agent 评测、EmbodiedSWE-Gen 与 VLA 训练／评测代码，Hugging Face 已公开任务和场景仿真资产；支持基于 Isaac Lab 的运行，形变物套件使用 Newton。完整生成示范集及训练好的 VLA／Agent checkpoint 下载尚未核实；资产包不等于示范数据集。",
+          "en": "Official GitHub releases the benchmark, agent evaluation, EmbodiedSWE-Gen and VLA training/evaluation code; Hugging Face provides task and scene simulation assets. Execution is based on Isaac Lab, with Newton for the deformable suite. Downloads of complete generated demonstration datasets and trained VLA/agent checkpoints remain unverified; the asset collection is not a demonstration dataset."
+        },
+        "highlight": {
+          "zh": "EmbodiedSWE 构建包含 28 项长时序机器人操作任务的仿真基准，评测 Coding Agent 编程求解及跨任务、跨本体迁移能力，并将成功程序扩增为示范数据训练 VLA；以独立评分和回放检查连接“程序求解评测→可验证训练数据”。",
+          "en": "EmbodiedSWE benchmarks coding-agent program synthesis and cross-task/cross-embodiment transfer on 28 long-horizon simulated robotics tasks, then expands successful programs into VLA demonstrations, linking program-solving evaluation to verified training data through independent grading and replay checks."
+        }
+      },
+      "evaluation_scope": {
+        "zh": "求解 Agent 可读取完整仿真状态并调试程序，使用通用 IK／操作空间等控制器；独立评分环境禁用物体状态写入，不能把特权状态求解成绩当作纯视觉策略成绩。Gen 从成功解扩增场景、策略、中间阶段、动力学和视觉，筛选成功且可回放的轨迹。仿真 SmolVLA 实验限六项子任务，输入多视角 RGB、指令及 8 维关节／夹爪状态，输出关节目标；部分任务放宽了原始基准成功条件，不能与完整 28 项 Agent 成绩直接比较。真机用 500 条仿真示范微调 π₀.₅-DROID 拆台灯，无真机示范参与微调；十次试验最终旋出并取下灯泡为 20%，checkpoint 按真机表现选择。另有合成 400 个环境对 Coding Agent 做 PPO 后训练，未完成未见任务评测；该 RL 不等于主线 VLA 动作策略训练。",
+        "en": "Solver agents inspect full simulator state and debug programs using generic IK/operational-space controllers; independent graders disable object-state writes. Privileged-state solver results are not vision-only policy results. Gen diversifies scenes, strategies, intermediate phases, dynamics and appearance, retaining successful replay-verified trajectories. Simulated SmolVLA experiments cover only six tasks, taking multi-view RGB, instructions and 8-D joint/gripper state to joint targets. Some success criteria are relaxed relative to the original benchmark, precluding direct comparison with full 28-task agent results. Hardware lamp disassembly finetunes π₀.₅-DROID on 500 simulation demonstrations without real demonstrations for finetuning; final bulb unscrewing/extraction succeeds in 20% of ten trials, with checkpoint selection based on hardware performance. A separate study PPO-post-trains a coding agent on 400 generated environments without completed held-out evaluation; this RL is not the main VLA action-learning procedure."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.27308v2",
+        "project": "https://embodiedswe.github.io/",
+        "code": "https://github.com/EmbodiedSWE/EmbodiedSWE",
+        "assets": "https://huggingface.co/datasets/EmbodiedSWE/robobench-assets"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.27308v2",
+        "https://arxiv.org/html/2609.27308v2",
+        "https://embodiedswe.github.io/",
+        "https://github.com/EmbodiedSWE/EmbodiedSWE",
+        "https://huggingface.co/datasets/EmbodiedSWE/robobench-assets/tree/main"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Coding Agent evaluation",
+          "zh": "Coding Agent评测",
+          "bold": true
+        },
+        {
+          "en": "Long-horizon manipulation",
+          "zh": "长时序操作"
+        },
+        {
+          "en": "Demonstration generation",
+          "zh": "示范生成"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-23",
+        "source": "https://arxiv.org/abs/2609.27308v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "EmbodiedSWE｜Coding Agent evaluation · Long-horizon manipulation · Demonstration generation",
+        "zh": "EmbodiedSWE｜Coding Agent评测 · 长时序操作 · 示范生成"
+      },
+      "topics": [
+        "vla"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/cross-platform-benchmarks.md#am-man-method-bench-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/cross-platform-benchmarks_cn.md#am-man-method-bench-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.METHOD.EFF.1",
       "slug": "pacevla",
       "short_name": "PaceVLA",
@@ -3385,6 +3947,91 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/rl-training-exploration_cn.md#am-man-method-rl-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.METHOD.RL.2",
+      "slug": "harbor",
+      "short_name": "HARBOR",
+      "title": "HARBOR: A Harness Framework for Agentic Robot Reinforcement Learning",
+      "authors": "Zechu Li, Yufeng Jin, Xiaoyang Liu, Puze Liu, Vignesh Prasad, Carlo D’Eramo, Georgia Chalvatzaki",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "tool",
+      "category": "AM.MAN.METHOD.RL",
+      "related_categories": [],
+      "tags": [
+        "agent",
+        "training-time-agent",
+        "agentic-rl",
+        "harness-engineering",
+        "reinforcement-learning",
+        "llm-reward-design",
+        "executable-gates",
+        "parallel-tuning",
+        "experience-reuse",
+        "domain-randomization",
+        "ppo",
+        "sac",
+        "td3",
+        "cross-embodiment",
+        "gripper",
+        "dexterous",
+        "bimanual",
+        "locomotion",
+        "sim-to-real"
+      ],
+      "tldr": {
+        "zh": "HARBOR 用主控与专门 Agent 协作完成任务搭建、奖励设计和 RL 训练调参，通过可执行检查反馈修复错误，并利用并行试验与经验复用，产出可运行的训练工程和机器人策略。",
+        "en": "HARBOR coordinates specialized Agents for task construction, reward design and RL training/tuning, using executable checks for repairs, parallel trials and reusable experience to produce runnable training projects and robot policies."
+      },
+      "evaluation_scope": {
+        "zh": "输入为仿真代码库与任务要求；主控调度分阶段 Agent，持久化代码、配置和实验产物，检查失败则反馈修复，超出重试预算需人工介入。经验复用保存外部知识，不更新 LLM 权重。Agent 服务训练开发，PPO／SAC／TD3 学习动作；部署策略不在线调用 Agent。覆盖六个仿真基准、共十六项任务，含操作、运动与双手灵巧控制；真机为双 Franka＋平行夹爪及 xArm UF850＋Allegro V4。真机策略 20 Hz 输出末端位姿增量或关节位置增量。跨平台分别训练，不是统一跨本体策略；真机接口、真实轨迹和人工反馈仍需人提供。公开代码、数据与 checkpoint 下载尚未核实。",
+        "en": "Simulator code and task specifications enter a staged workflow with persistent artifacts, repair feedback and human intervention after exhausted retries. Experience is external memory, not LLM weight updates. Agents develop training; PPO/SAC/TD3 learn actions, with no online Agent at deployment. Evaluation covers six simulation benchmarks and sixteen tasks spanning manipulation, locomotion and bimanual dexterity. Hardware uses dual Frankas with parallel grippers and xArm UF850 with Allegro V4; 20 Hz policies output end-effector pose or joint-position increments. Platforms train separately. Real-robot interfaces, trajectories and feedback still require humans. Public code, data and checkpoint downloads remain unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2606.08610v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.08610v1",
+        "https://arxiv.org/html/2606.08610v1"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent-automated RL training",
+          "zh": "Agent自动化RL训练",
+          "bold": true
+        },
+        {
+          "en": "Staged validation and repair",
+          "zh": "分阶段检查与修复"
+        },
+        {
+          "en": "Parallel tuning and experience reuse",
+          "zh": "并行调参与经验复用"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-06-07",
+        "source": "https://arxiv.org/abs/2606.08610v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "HARBOR｜Agent-automated RL training · Staged validation and repair · Parallel tuning and experience reuse",
+        "zh": "HARBOR｜Agent自动化RL训练 · 分阶段检查与修复 · 并行调参与经验复用"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/common-methods/rl-training-exploration_cn.md#am-man-method-rl-2"
       },
       "notes_urls": {}
     },
@@ -3718,6 +4365,95 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.AGENT.8",
+      "slug": "omnidexvlg",
+      "short_name": "OmniDexVLG",
+      "title": "OmniDexVLG: Learning Dexterous Grasp Generation from Vision Language Model-Guided Grasp Semantics, Taxonomy and Functional Affordance",
+      "authors": "Lei Zhang, Diwen Zheng, Kaixin Bai, Zhenshan Bing, Zoltán-Csaba Márton, Zhaopeng Chen, Alois Christian Knoll, Jianwei Zhang",
+      "year": 2025,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.AGENT",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING",
+        "AM.MAN.DEX.DEMO"
+      ],
+      "tags": [
+        "dexterous",
+        "agent",
+        "agent-architecture",
+        "multi-agent",
+        "training-data-annotation",
+        "semantic-reasoning",
+        "retrieval-augmented-generation",
+        "chain-of-thought",
+        "grasp-taxonomy",
+        "contact-semantics",
+        "functional-affordance",
+        "language-conditioned-grasping",
+        "vision-language-grasping",
+        "conditional-diffusion",
+        "partial-point-cloud",
+        "synthetic-grasp-data",
+        "differentiable-force-closure",
+        "leap-hand",
+        "dlr-hit-ii",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "OmniDexVLG 用多 Agent 协作理解手物接触、推断抓型并生成语言标注，再训练点云—语言条件扩散模型，实现对抓取部位、参与手指和抓型的精细控制。",
+        "en": "OmniDexVLG uses collaborating Agents to interpret hand–object contacts, infer grasp types and generate language annotations, then trains point-cloud/language-conditioned diffusion to control grasp regions, participating fingers and grasp types."
+      },
+      "evaluation_scope": {
+        "zh": "DataGen 按抓型、指节接触区域及物体功能部位采样，优化并经物理仿真筛选抓姿；Reasoner 结合多视图、手配置与接触信息，通过多 Agent、知识检索及分步推理生成语义标注；GraspNet 以局部点云和指令为条件生成目标抓姿。三模块不等于三个 Agent，Agent 贡献集中于语义理解与数据标注，未展示在线 Agent 反馈重规划；动作生成不使用 RL。真机由 PyRoki 规划轨迹、阻抗控制执行。数据生成和语义理解涉及 LEAP 与 DLR-HIT II，最终网络仅用 LEAP 做仿真与 Diana 机械臂真机验证；不代表统一跨手模型。输出抓姿而非连续操作轨迹。项目页可访问，代码、数据及预训练权重下载尚未核实。",
+        "en": "DataGen samples and physically validates taxonomy/contact/affordance-aware grasps. Reasoner combines multiview images, hand configurations and contacts with multi-Agent reasoning, retrieval and stepwise inference to annotate data. GraspNet generates target poses from partial point clouds and instructions. The three modules are not three Agents: Agent contributions concern semantic understanding/annotation, without demonstrated online Agent replanning or RL action learning. PyRoki plans hardware trajectories for impedance control. Data generation/reasoning involve LEAP and DLR-HIT II; the final generator is evaluated only with LEAP in simulation and on a Diana arm, not as a unified cross-hand model. Outputs are poses, not continuous manipulation trajectories. Project access is verified; code, data and pretrained downloads are not."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2512.03874v1",
+        "project": "https://sites.google.com/view/omnidexvlg"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.03874v1",
+        "https://arxiv.org/html/2512.03874v1",
+        "https://sites.google.com/view/omnidexvlg"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Multi-Agent semantic understanding and annotation",
+          "zh": "多Agent语义理解与标注",
+          "bold": true
+        },
+        {
+          "en": "VLG grasp generation",
+          "zh": "VLG抓姿生成"
+        },
+        {
+          "en": "Fine-grained grasp control",
+          "zh": "细粒度抓取控制"
+        }
+      ],
+      "publication_date": {
+        "value": "2025-12-03",
+        "source": "https://arxiv.org/abs/2512.03874v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "OmniDexVLG｜Multi-Agent semantic understanding and annotation · VLG grasp generation · Fine-grained grasp control",
+        "zh": "OmniDexVLG｜多Agent语义理解与标注 · VLG抓姿生成 · 细粒度抓取控制"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures.md#am-man-dex-agent-8",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/agent-architectures_cn.md#am-man-dex-agent-8"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.DEMO.4",
       "slug": "gendexhand",
       "short_name": "GenDexHand",
@@ -3980,6 +4716,97 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.11",
+      "slug": "text2touch",
+      "short_name": "Text2Touch",
+      "title": "Text2Touch: Tactile In-Hand Manipulation with LLM-Designed Reward Functions",
+      "authors": "Harrison Field, Max Yang, Yijiong Lin, Efi Psomopoulou, David A.W. Barton, Nathan F. Lepora",
+      "year": 2025,
+      "venue": "CoRL 2025 / arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "agent",
+        "training-time-agent",
+        "llm-reward-design",
+        "reward-reflection",
+        "eureka",
+        "reinforcement-learning",
+        "ppo",
+        "tactile",
+        "in-hand-manipulation",
+        "multi-axis-rotation",
+        "teacher-student-distillation",
+        "temporal-convolutional-network",
+        "sim-to-real",
+        "allegro-hand",
+        "tactip",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Text2Touch 让奖励设计 Agent 根据任务、环境变量和 PPO 训练反馈反复编写与修改奖励代码，训练灵巧手旋转教师策略，再蒸馏为仅依赖触觉与本体信息的真机操作策略。",
+        "en": "Text2Touch uses a reward-design Agent to iteratively write and revise reward code from task descriptions, environment variables and PPO training feedback, then trains an in-hand rotation teacher and distils it into a hardware policy using only tactile and proprioceptive information."
+      },
+      "evaluation_scope": {
+        "zh": "Agent 作用于训练阶段：生成候选奖励→PPO 短训→按环境预设的旋转子目标成绩选择并反思→修改奖励。两项提示改进为显式列出七十多个环境变量的名称／类型，以及允许 LLM 缩放环境提供的成功奖励与提前终止惩罚；成功判据和课程仍由人预设。选定奖励后，教师用物体位姿／速度等特权状态训练，学生以动作均方误差模仿教师，采用 TCN 历史编码器＋MLP 策略。真机只输入关节位置／速度及触觉观测，20 Hz 输出手指控制动作，无需在线调用 LLM 或继续调奖励。实测限于 Allegro 四指手＋TacTip 的悬空手内旋转，覆盖十种物体、三个轴、掌心朝上／朝下；未验证夹爪或跨手型迁移，因此主分类保留在灵巧手策略学习。教师—学生与部署流程沿用 AnyRotate。DeepSeek 奖励对应学生真机平均旋转 1.37 圈／回合、持续 25.1 秒，人工基线为 0.99 圈、20.0 秒，论文报告约提升 38%／25%，不是任务成功率。代码含奖励生成、PPO 训练及蒸馏流程，训练好的 checkpoint 下载尚未核实。",
+        "en": "The Agent operates during training: generate reward candidates, run short PPO training, select/refine them using environment-defined rotation-subgoal scores and reward reflection. Prompt improvements explicitly expose the names/types of over 70 environment variables and let the LLM scale supplied success bonuses and early-termination penalties; success criteria and curriculum remain human-defined. The chosen reward trains a teacher using privileged object pose/velocity; a student imitates teacher actions by MSE with a TCN history encoder and MLP policy. Hardware uses joint positions/velocities and tactile observations to generate finger-control actions at 20 Hz, without online LLM calls or continued reward tuning. Validation is limited to aloft in-hand rotation with a four-finger Allegro Hand and TacTip, ten objects, three axes and palm-up/down configurations, without gripper or cross-hand transfer tests; primary placement is dexterous policy learning. Teacher–student transfer and deployment follow AnyRotate. The DeepSeek-derived student averages 1.37 rotations/episode and 25.1 seconds on hardware versus 0.99 rotations and 20.0 seconds for the human-reward baseline, reported as approximately 38%/25% improvements, not task success rates. Public code covers reward generation, PPO and distillation; pretrained checkpoint downloads remain unverified."
+      },
+      "links": {
+        "paper": "https://raw.githubusercontent.com/mlresearch/v305/main/assets/field25a/field25a.pdf",
+        "project": "https://hpfield.github.io/text2touch-website/",
+        "code": "https://github.com/hpfield/Text2Touch"
+      },
+      "sources": [
+        "https://proceedings.mlr.press/v305/field25a.html",
+        "https://arxiv.org/abs/2509.07445v1",
+        "https://arxiv.org/html/2509.07445v1",
+        "https://openreview.net/forum?id=U9zcbQVDGa",
+        "https://hpfield.github.io/text2touch-website/",
+        "https://github.com/hpfield/Text2Touch"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent reward design",
+          "zh": "Agent奖励设计",
+          "bold": true
+        },
+        {
+          "en": "Tactile in-hand manipulation",
+          "zh": "触觉手内操作"
+        },
+        {
+          "en": "RL and policy distillation",
+          "zh": "RL与策略蒸馏"
+        }
+      ],
+      "publication_date": {
+        "value": "2025-09-09",
+        "source": "https://arxiv.org/abs/2509.07445v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Text2Touch｜Agent reward design · Tactile in-hand manipulation · RL and policy distillation",
+        "zh": "Text2Touch｜Agent奖励设计 · 触觉手内操作 · RL与策略蒸馏"
+      },
+      "topics": [
+        "reinforcement-learning",
+        "tactile",
+        "in-hand-manipulation"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-11",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-11"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.PLANNING.2",
       "slug": "dexhanddiff",
       "short_name": "DexHandDiff",
@@ -4059,6 +4886,96 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-2",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.WBC.AGENT.1",
+      "slug": "being-0",
+      "short_name": "Being-0",
+      "title": "Being-0: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills",
+      "authors": "Haoqi Yuan, Yu Bai, Yuhui Fu, Bohan Zhou, Yicheng Feng, Xinrun Xu, Yi Zhan, Börje F. Karlsson, Zongqing Lu",
+      "year": 2025,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.WBC.AGENT",
+      "related_categories": [
+        "AM.NAV",
+        "AM.MAN.DEX.AGENT"
+      ],
+      "tags": [
+        "agent-architecture",
+        "humanoid",
+        "whole-body-task-planning",
+        "task-planning",
+        "navigation-manipulation-coordination",
+        "embodied-connector",
+        "skill-grounding",
+        "skill-library",
+        "stance-adjustment",
+        "active-vision",
+        "act",
+        "imitation-learning",
+        "reinforcement-learning",
+        "locomotion-policy",
+        "dexterous",
+        "inspire-hand",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Being-0 通过云端任务规划器与机载 VLM Connector，将长任务分解并落实为导航、站位调整和操作技能，协调 RL 行走策略与 ACT 双手操作策略完成全身机器人的连续任务。",
+        "en": "Being-0 combines a cloud task planner with an onboard VLM Connector to decompose long-horizon tasks and ground them into navigation, stance-adjustment and manipulation skills, coordinating RL locomotion and ACT bimanual manipulation policies for continuous humanoid task execution."
+      },
+      "evaluation_scope": {
+        "zh": "核心是全身任务规划与技能协调。云端 GPT-4o 根据任务、图像和执行历史判断进度、选择子任务；机载 Connector 根据语言计划与当前画面选择技能、检测目标，并结合双目深度和复合导航例程调整站位，例如先走到桌边再抓杯。Connector 采用 VideoLLaMA2 架构，经通用视觉定位数据和室内视觉理解／技能预测数据监督微调。低层行走为仿真 RL 策略，输入速度指令与本体状态，50 Hz 输出下半身关节目标；操作为逐技能遥操作训练的 ACT，输入双目图像和上身／头部关节状态，输出臂、手及头部动作块，训练／部署块长为 30／10。执行反馈调整技能计划、调用和站位，未提出在线权重更新或统一全身关节策略。Unitree H1-2＋双 Inspire 手＋主动 ZED-mini 相机在 20×20 米办公场景验证五项长任务。84.4% 是子步骤完成比例汇总后的平均任务完成度，不是整条任务成功率：取瓶的到桌 5/5、抓取 4/5 被汇总为 90%。截至核验日，官方仓库仍写代码待发布，未见完整实现、训练数据与权重下载。",
+        "en": "The contribution is whole-body task planning and skill coordination. Cloud GPT-4o uses tasks, images and execution history to assess progress and select subtasks; the onboard Connector grounds language plans in current images, detects targets and combines binocular depth with composite navigation routines to adjust stance, e.g. reaching the table before grasping a cup. The VideoLLaMA2-based Connector is supervised-finetuned on general visual grounding and indoor visual-understanding/skill-prediction data. A simulation-trained RL locomotion policy reads velocity commands and proprioception and outputs lower-body joint targets at 50 Hz. Separate teleoperation-trained ACT skills take binocular images and upper-body/head joint state and output arm, hand and head action chunks (30 training steps, 10 deployment steps). Feedback revises plans, skill calls and stance; no online weight updates or unified whole-body joint policy are introduced. Unitree H1-2 with two Inspire hands and an active ZED-mini camera evaluates five long tasks in a 20-by-20-metre office. The reported 84.4% averages substep completion, not fully successful task rollouts: fetching scores 90% from 5/5 navigation and 4/5 grasping. As of verification, the official repository still promises code release; complete implementation, training-data and weight downloads were not found."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2503.12533v2",
+        "project": "https://beingbeyond.github.io/Being-0/",
+        "code": "https://github.com/BeingBeyond/Being-0"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2503.12533v2",
+        "https://arxiv.org/html/2503.12533v2",
+        "https://beingbeyond.github.io/Being-0/",
+        "https://github.com/BeingBeyond/Being-0"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent whole-body task planning",
+          "zh": "Agent全身任务规划",
+          "bold": true
+        },
+        {
+          "en": "Connector skill grounding",
+          "zh": "Connector技能落地"
+        },
+        {
+          "en": "Navigation–manipulation coordination",
+          "zh": "导航—操作协同"
+        }
+      ],
+      "publication_date": {
+        "value": "2025-03-16",
+        "source": "https://arxiv.org/abs/2503.12533v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Being-0｜Agent whole-body task planning · Connector skill grounding · Navigation–manipulation coordination",
+        "zh": "Being-0｜Agent全身任务规划 · Connector技能落地 · 导航—操作协同"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/whole-body-control/agent-architectures.md#am-wbc-agent-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/whole-body-control/agent-architectures_cn.md#am-wbc-agent-1"
       },
       "notes_urls": {}
     }
