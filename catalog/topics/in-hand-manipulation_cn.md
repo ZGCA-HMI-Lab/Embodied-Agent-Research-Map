@@ -6,11 +6,12 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (9)](vla_cn.md) · [强化学习 (11)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (2)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (10)](vla_cn.md) · [强化学习 (15)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (3)](in-hand-manipulation_cn.md)
 
-2 篇工作
+3 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
 | [No Eyes, No Problem｜手内操作 · RL · 触觉](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-inhand-rl-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `in-hand-manipulation` |
 | [DSP｜手内操作 · 自主交互采集 · 世界模型＋MPC](../manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 世界模型与规划控制 | `in-hand-manipulation` |
+| [DexHandDiff｜新目标适配 · 扩散规划 · 交互感知引导](../manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-2) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 世界模型与规划控制 | `in-hand-manipulation` |

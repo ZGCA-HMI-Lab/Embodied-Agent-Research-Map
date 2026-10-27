@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.3",
+  "slug": "gnr",
+  "short_name": "GNR",
+  "title": "Generative Neural Retargeting for Human-to-Robot Dexterous Manipulation",
+  "authors": "Dechen Gao, Yue Yang, Ben Abbatematteo, Nathan Godwin, Pengcheng Wang, Roger Boldu, Steven Man, Zhiyang Dou, Chuan Qin, Sho Nakagome, Eric Whitmire",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "human-demonstrations",
+    "generative-retargeting",
+    "physics-based-retargeting",
+    "motion-retargeting",
+    "flow-matching",
+    "residual-control-generation",
+    "mpc-seed-supervision",
+    "mpc-warm-start",
+    "test-time-scaling",
+    "simulation-filtering",
+    "real-to-sim",
+    "demonstration-synthesis",
+    "contact-force-labels",
+    "behavior-cloning",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "GNR 用 MPC 成功重定向轨迹训练条件流匹配模型，学习对 IK 参考控制的残差修正，再对新的人类示范批量生成候选、经仿真筛选或 MPC 细化，以更低采样成本规模化生成可行的灵巧手示范。",
+    "en": "GNR trains a conditional flow-matching model on successful MPC retargeting trajectories to learn residual corrections to IK reference controls, then generates candidates for new human demonstrations and filters them in simulation or refines them with MPC, scaling feasible dexterous demonstration generation at lower sampling cost."
+  },
+  "evaluation_scope": {
+    "zh": "输入为人手运动、物体位姿与网格，经 real-to-sim 和 IK 得到机器人参考；DIAL-MPC 生成种子成功控制，模型以参考运动及物体几何／位姿为条件，生成加回 IK 控制的残差。推理多次采样后仿真回放验证，或为 MPC 提供初始化；pass@S 表示 S 个候选至少一条通过，不是单次在线策略成功率。主实验使用 SuperDex 与 Tesollo DG-5F，ShapeFilter／NIST 加装 Franka FR3；HOT3D 生成约 22.3 万条轨迹、覆盖约 3,300 种几何，附仿真接触力标签，另报告两项精细长时序任务约 3,400 条轨迹。NIST 纯 GNR 在 S=256 时为 4.7%，GNR 初始化 MPC 后用 2,296 次采样达 92.2%，说明复杂任务仍需细化。下游行为克隆仅在仿真验证，真机迁移留待后续；数据规模为论文生成量，代码、完整数据与权重开放状态未核实。",
+    "en": "Human hand motion, object poses and meshes are transferred to simulation and IK references. DIAL-MPC provides successful seed controls; the model conditions on reference motion and object geometry/pose to generate residuals added to IK controls. Multiple samples undergo simulated replay, or initialize MPC; pass@S means at least one of S candidates passes, not single-rollout online policy success. Main experiments use SuperDex and Tesollo DG-5F, with Franka FR3 for ShapeFilter/NIST. HOT3D generation yields about 223k trajectories over 3.3k geometries with simulated contact-force labels, plus about 3.4k trajectories for two precise long-horizon tasks. On NIST, pure GNR achieves 4.7% at S=256; GNR-initialized MPC reaches 92.2% with 2,296 samples, showing the need for refinement on difficult tasks. Downstream behavior cloning is validated only in simulation; sim-to-real remains future work. Counts describe generated data; code, full-dataset and weight release status is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.12440v1",
+    "project": "https://yy-gx.github.io/GNR/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.12440v1",
+    "https://arxiv.org/html/2610.12440v1"
+  ],
+  "verified_on": "2026-10-26",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Generative retargeting",
+      "zh": "生成式重定向"
+    },
+    {
+      "en": "Flow matching",
+      "zh": "流匹配"
+    },
+    {
+      "en": "Test-time sampling scaling",
+      "zh": "推理时采样扩展"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-08",
+    "source": "https://arxiv.org/abs/2610.12440v1",
+    "basis": "source"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.6",
+  "slug": "vlm-scaffolding",
+  "short_name": "VLM Scaffolding",
+  "title": "Scaffolding Dexterous Manipulation with Vision-Language Models",
+  "authors": "Vincent de Bakker, Joey Hejna, Tyler Ga Wei Lum, Onur Celik, Aleksandar Taranovic, Denis Blessing, Gerhard Neumann, Jeannette Bohg, Dorsa Sadigh",
+  "year": 2025,
+  "venue": "arXiv v3",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "agent-architecture",
+    "vlm",
+    "hierarchical-planning-control",
+    "keypoint-trajectory-planning",
+    "semantic-keypoints",
+    "trajectory-scaffolding",
+    "task-planning",
+    "reinforcement-learning",
+    "ppo",
+    "residual-rl",
+    "plan-conditioned-policy",
+    "keypoint-tracking-reward",
+    "demonstration-free",
+    "in-context-learning",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "VLM Scaffolding 根据图像与指令生成物体关键点和腕部粗轨迹，分别作为奖励目标与动作参考，在仿真中训练残差 RL 策略，再由该策略依据实时关键点反馈修正腕部并控制手指完成操作。",
+    "en": "VLM Scaffolding generates coarse object-keypoint and wrist trajectories from images and instructions, using them as reward targets and action references to train a residual RL policy in simulation; the policy then corrects wrist motion and controls fingers using live keypoint feedback."
+  },
+  "evaluation_scope": {
+    "zh": "高层 Gemini 2.5 Flash Thinking 检测二维语义关键点，经 RGB-D／标定恢复三维位置，再生成关键点及腕部路点并插值。每任务采样 100 组初始状态与计划，用 PPO 训练三层 MLP；奖励结合物体关键点跟踪与接触数量，腕部不设跟踪奖励，而以计划为基础加有界残差。测试为初始场景生成新计划，冻结低层依据本体状态、当前关键点与未来计划闭环执行；真机由 FoundationPose 跟踪物体恢复关键点，主要反馈作用在低层，成功计划通过上下文示例改善后续生成，不在线更新权重。无需人类示范，但需要任务提示、仿真场景及统一跟踪／接触奖励。Allegro 上评测八项仿真任务；多数任务仅整手开合，剪刀／钳子为每指一个控制量，并非独立关节控制。KUKA LBR iiwa 14＋16DoF Allegro 上三项真机任务各 20 次（四份计划各重复五次），成功率为放瓶 90%、推盒 85%、敲击三次 65%；依赖数字孪生及域随机化。官方已开放计划生成、RL 训练和真机运行代码，预训练策略权重开放状态未核实。",
+    "en": "Gemini 2.5 Flash Thinking detects semantic 2D points, lifts them using calibrated RGB-D, and generates interpolated keypoint/wrist plans. Each task uses 100 initial-state/plan pairs to train a three-layer MLP with PPO. Rewards combine object-keypoint tracking and contact count; wrist plans instead serve as bounded-residual action references. Test-time plans condition a frozen policy on proprioception, tracked keypoints and future plans. FoundationPose supplies hardware keypoints; execution feedback acts at the low level, while successful plans improve subsequent VLM prompts without online weight updates. Human demonstrations are unnecessary, but task prompts, simulation scenes and generic tracking/contact rewards remain. Eight Allegro simulation tasks mostly use whole-hand opening/closing; scissors/pliers use one control per finger, not per joint. KUKA LBR iiwa 14 + 16-DoF Allegro hardware achieves 90% bottle placement, 85% box pushing and 65% triple hammering over 20 trials per task (four plans repeated five times), using digital twins and domain randomization. Official plan-generation, RL-training and hardware code is public; pretrained-policy weight availability is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2506.19212v3",
+    "project": "https://sites.google.com/view/vlm-scaffolding/home",
+    "code": "https://github.com/vdebakker/vlm-scaffolding"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2506.19212v3",
+    "https://arxiv.org/html/2506.19212v3",
+    "https://sites.google.com/view/vlm-scaffolding/home",
+    "https://github.com/vdebakker/vlm-scaffolding"
+  ],
+  "verified_on": "2026-10-26",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Keypoint trajectory planning",
+      "zh": "关键点轨迹规划"
+    },
+    {
+      "en": "Residual RL",
+      "zh": "残差RL"
+    },
+    {
+      "en": "Sim-to-real",
+      "zh": "仿真到现实"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-06-24",
+    "source": "https://arxiv.org/abs/2506.19212v3",
+    "basis": "source"
+  }
+}

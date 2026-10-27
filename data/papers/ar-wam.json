@@ -46,8 +46,8 @@
   "show_on_map": true,
   "display_tags": [
     {
-      "en": "Agent + WAM",
-      "zh": "Agent＋WAM"
+      "en": "WAM execution",
+      "zh": "WAM执行"
     },
     {
       "en": "Event feedback",

@@ -8,7 +8,7 @@
 
 服务于夹爪操作学习的数据集，包括单臂和双臂采集。采集硬件与处理方法随数据集记录，区分论文报告规模和实际公开范围。
 
-**按主题浏览：** [VLA (9)](../../topics/vla_cn.md) · [强化学习 (11)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (10)](../../topics/vla_cn.md) · [强化学习 (15)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (3)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.GRIP.DATASET` · 1 篇主分类工作
 

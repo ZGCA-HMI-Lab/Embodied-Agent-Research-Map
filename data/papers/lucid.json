@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.7",
+  "slug": "lucid",
+  "short_name": "LUCID",
+  "title": "LUCID: Learning Embodiment-Agnostic Intent Models from Unstructured Human Videos for Scalable Dexterous Robot Skill Acquisition",
+  "authors": "Harsh Gupta, Guanya Shi, Wenzhen Yuan",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING",
+    "AM.MAN.GRIP.AGENT.WAM"
+  ],
+  "tags": [
+    "dexterous",
+    "parallel-jaw-gripper",
+    "agent-architecture",
+    "intent-control-separation",
+    "closed-loop-intent-prediction",
+    "human-video-learning",
+    "object-flow",
+    "palm-pose-reference",
+    "goal-conditioned-policy",
+    "task-agnostic-controller",
+    "cross-embodiment",
+    "reinforcement-learning",
+    "ppo",
+    "teacher-student-distillation",
+    "procedural-reference-generation",
+    "eigen-grasps",
+    "per-joint-hand-residuals",
+    "wrist-depth",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "LUCID 从人类视频学习闭环预测物体三维点轨迹与掌心位姿，再由程序化仿真训练的通用臂手策略结合实时观测，将这些参考转为机械臂关节增量和“抓握协同＋手指残差”，并通过共享意图接口连接不同机器人本体。",
+    "en": "LUCID learns closed-loop object-point and palm-pose trajectory prediction from human video, then uses a generalist arm–hand policy trained in procedural simulation to turn these references and live observations into arm-joint increments and coordinated grasp motions plus finger residuals, linking different embodiments through a shared intent interface."
+  },
+  "evaluation_scope": {
+    "zh": "接口：高层以最近两帧 RGB-D、物体上 16 个当前三维查询点及当前掌心位姿为输入，每秒预测未来一秒八个时刻的物体点轨迹与掌心位姿，形成参考 R。低层：学生策略以 R、实时物体点、腕部深度及本体／动作历史为输入，将点轨迹与深度编码为 tokens，通过本体状态查询的注意力及 MLP，以 50Hz 输出 27 维动作：6 维机械臂关节增量、5 维抓握协同系数、16 维手指残差；手指增量为 E×协同系数＋残差，E 是人类抓握重定向数据的五维 PCA 基底。臂手增量累加到上一关节目标，经平滑限位交给 PD；掌心参考作为网络条件，非直接相加的腕部基础动作。训练：意图模型按任务用人类视频监督；低层独立用程序生成物体与参考训练 PPO 教师，再以 PPO＋动作蒸馏训练可部署学生，教师额外读取仿真状态，学生使用相机与本体观测。部署更新参考与动作，不在线更新权重；同一本体复用通用控制器，跨本体共享意图模型但分别训练低层。验证：LEAP 手上搅拌、擦拭、归箱各使用约两万网络视频片段；Push-T 与线缆布置各用一小时手机视频，并在手／夹爪两种本体上评测。搅拌仍需外部停止，遮挡与不稳定抓握会导致失败。项目页提供方法与示例，代码、数据及预训练权重开放状态未核实。",
+    "en": "Interface: two recent RGB-D frames, 16 current 3D object query points and current palm pose produce an eight-step, one-second object-point/palm reference R at 1 Hz. The student consumes R, live points, wrist depth and proprioceptive/action history; point/depth tokens are read by proprioception-conditioned attention and an MLP. Its 50-Hz, 27-D output comprises six arm-joint increments, five grasp coefficients and 16 finger residuals. Hand increments are E times coefficients plus residuals, with E a five-component PCA basis of retargeted human grasps. Increments accumulate on previous joint targets and undergo smoothing/clipping before PD control; palm references condition the network rather than being added as wrist base actions. Intent models train per task on human video. Independently, procedural objects/references train a PPO teacher with privileged state, then a deployable student with PPO plus action distillation and camera/proprioceptive observations. Deployment updates references/actions without weight updates. A task-agnostic controller is reused within each embodiment; intent transfers across embodiments while controllers train separately. LEAP stirring, wiping and binning each use about 20k web clips; Push-T and cable routing each use one hour of smartphone video and are evaluated with hand/gripper controllers. Stirring needs an external stop; occlusion and unstable grasps remain failure modes. The project presents methods/examples; code, data and pretrained-weight availability is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2606.11628v1",
+    "project": "https://lucid-robot.github.io/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2606.11628v1",
+    "https://arxiv.org/html/2606.11628v1",
+    "https://lucid-robot.github.io/"
+  ],
+  "verified_on": "2026-10-26",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Closed-loop intent prediction",
+      "zh": "闭环意图预测"
+    },
+    {
+      "en": "Human video learning",
+      "zh": "人类视频学习"
+    },
+    {
+      "en": "Generalist arm-hand control",
+      "zh": "通用臂手控制"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-06-10",
+    "source": "https://arxiv.org/abs/2606.11628v1",
+    "basis": "source"
+  }
+}

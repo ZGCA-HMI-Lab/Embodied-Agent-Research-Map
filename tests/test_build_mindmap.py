@@ -225,6 +225,24 @@ class CatalogTests(unittest.TestCase):
                 self.root / f"mindmap{suffix}.svg"]).findall("{http://www.w3.org/2000/svg}text")]
             self.assertIn(label, labels)
 
+    def test_bold_display_tag_preserves_plain_text_and_syncs_formatted_views(self):
+        self.paper["display_tags"] = [
+            {"en": "Agent-built simulation", "zh": "Agent构建仿真", "bold": True},
+            {"en": "Video", "zh": "视频", "bold": False}]
+        self.write_paper(self.paper)
+        outputs = build_outputs(self.root)
+        exported = json.loads(outputs[self.root / "site/map.json"])["papers"][0]
+        self.assertEqual(exported["labels"]["en"], "Work One｜Agent-built simulation · Video")
+        self.assertTrue(exported["display_tags"][0]["bold"])
+        for suffix, label in [("", "Agent-built simulation"), ("_cn", "Agent构建仿真")]:
+            self.assertIn(f"**{label}**", outputs[self.root / f"README{suffix}.md"])
+            svg = ET.fromstring(outputs[self.root / f"mindmap{suffix}.svg"])
+            bold = [span.text for span in svg.findall(".//{http://www.w3.org/2000/svg}tspan")
+                    if span.get("font-weight") == "700"]
+            self.assertEqual(bold, [label])
+            texts = ["".join(node.itertext()) for node in svg.findall("{http://www.w3.org/2000/svg}text")]
+            self.assertIn(exported["labels"]["zh" if suffix else "en"], texts)
+
     def test_topics_include_hidden_papers_once_and_link_to_current_category(self):
         (self.root / "data/topics.json").write_text(json.dumps({
             "reinforcement-learning": {"en": "Reinforcement learning", "zh": "强化学习",
@@ -249,7 +267,10 @@ class CatalogTests(unittest.TestCase):
 
     def test_invalid_display_labels_are_rejected(self):
         for value in ("RL", [{"zh": "触觉"}], [{"en": "", "zh": "触觉"}],
-                      [{"en": "RL", "zh": "RL"}] * 4):
+                      [{"en": "RL", "zh": "RL"}] * 4,
+                      [{"en": "Agent", "zh": "Agent", "bold": "true"}],
+                      [{"en": "Agent", "zh": "Agent", "bold": 1}],
+                      [{"en": "Agent", "zh": "Agent", "unknown": True}]):
             with self.subTest(value=value):
                 self.paper["display_tags"] = value
                 self.write_paper(self.paper)

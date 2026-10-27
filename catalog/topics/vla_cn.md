@@ -6,13 +6,14 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (9)](vla_cn.md) · [强化学习 (11)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (2)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (10)](vla_cn.md) · [强化学习 (15)](reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](tactile_cn.md) · [手内操作 (3)](in-hand-manipulation_cn.md)
 
-9 篇工作
+10 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
-| [DexAgent｜视频示范 · Agent构建仿真 · 数据扩增](../manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-2) | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | `vla-fine-tuning` |
+| [DexHoldem｜**Agent闭环评测** · 场景保持 · 真机灵巧操作](../manipulation/dexterous/benchmarks_cn.md#am-man-dex-bench-5) | 操作动作模型 → 多指灵巧手操作研究 → 数据集与评测基准 | `vla` |
+| [DexAgent｜**Agent构建仿真** · 视频示范 · 数据扩增](../manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-2) | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | `vla-fine-tuning` |
 | [Hand2Robot｜人类视频迁移 · 物体中心4D重建 · VLA后训练](../manipulation/dexterous/demonstrations/generation_cn.md#am-man-dex-demo-v2r-5) | 操作动作模型 → 多指灵巧手操作研究 → 机器人示范数据生成 | `vla` · `vla-fine-tuning` |
 | [Coordi-π｜VLA · AE动作表示 · 双手协同](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-2) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `vla` |
 | [XL-VLA｜跨手迁移 · 统一潜在动作空间 · VLA](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-6) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `vla` |

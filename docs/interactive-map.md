@@ -69,6 +69,8 @@ git diff --check
 
 `site/map.json` 顶层为 `schema_version: 1`、`repository`、`taxonomy`、`topics`、`papers`。`site/map-data.js` 将完全相同的数据赋给 `window.RESEARCH_MAP`，用于离线打开；不是第二份人工数据源。
 
+`display_tags` 的每个双语标签可包含可选 `bold` 布尔字段；缺省为 false。该兼容性扩展保留 schema v1，原样导出并在地图／列表标签中加粗显示。`labels.en / zh` 始终为无格式标记的纯文本，搜索及分享不变。禁止在标签文本中嵌入 HTML 或 Markdown 来控制样式。
+
 论文保留全部原始事实字段，导出时补充：
 
 | 字段 | 含义 |

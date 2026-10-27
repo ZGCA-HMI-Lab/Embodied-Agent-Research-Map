@@ -47,16 +47,16 @@
   "show_on_map": true,
   "display_tags": [
     {
-      "en": "VLM Agent",
-      "zh": "VLM Agent"
+      "en": "Tool calls",
+      "zh": "工具调用"
     },
     {
       "en": "In-context learning",
       "zh": "上下文学习"
     },
     {
-      "en": "Closed-loop tool control",
-      "zh": "工具闭环控制"
+      "en": "Visual feedback",
+      "zh": "视觉反馈"
     }
   ],
   "publication_date": {

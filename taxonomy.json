@@ -27,22 +27,22 @@
               "name_zh": "Agent 架构",
               "children": [
                 {
-                  "name": "Agent + WAM",
-                  "name_zh": "Agent＋WAM",
-                  "code": "AM.MAN.GRIP.AGENT.WAM",
-                  "catalog_path": "manipulation/grippers/agent-architectures/agent-wam",
-                  "description": "Runtime architectures connecting high-level agents to world action models. Focus on command interfaces, responsibility for planning and memory, event feedback and failure recovery; record the low-level model and evaluated embodiments explicitly.",
-                  "description_zh": "运行时连接高层 Agent 与世界动作模型的系统架构。重点记录指令接口、规划与记忆的职责分配、事件反馈和失败恢复，同时注明底层模型与已验证本体。",
-                  "children": []
-                },
-                {
-                  "name": "In-Context Learning and Tool-Based Control",
-                  "name_zh": "上下文学习与工具控制",
+                  "name": "Agent + Code and Tools",
+                  "name_zh": "Agent＋代码与工具",
                   "code": "AM.MAN.GRIP.AGENT.ICL",
                   "children": [],
                   "catalog_path": "manipulation/grippers/agent-architectures/in-context-tool-control",
-                  "description": "Agent architectures that use demonstrations, goals and interaction history as context to select parameterized robot-tool actions. Specify context construction, fixed versus updated weights, motion execution and returned feedback; distinguish numerical tool control from a learned WAM executor.",
-                  "description_zh": "通过示范、目标与交互历史等上下文选择参数化机器人动作工具的 Agent 架构。注明上下文组织、模型权重是否更新、运动执行及反馈内容，区分数值工具控制和学习式 WAM 执行器。"
+                  "description": "Agents write programs or call tools to specify motion targets, with IK, trajectory generation and controllers executing them. Record runtime programming, context and experience reuse, feedback and recovery, and whether model weights change. Learned perception alone does not make the action executor a learned policy; retain the historical category code and catalog path.",
+                  "description_zh": "Agent 编写程序或调用工具明确指定运动目标，由 IK、轨迹生成与控制器执行。记录运行时编程、上下文与经验复用、反馈纠错及权重是否变化；仅感知使用学习模型不等于动作由学习式策略生成。保留历史分类码与目录路径。"
+                },
+                {
+                  "name": "Agent + Learned Policies",
+                  "name_zh": "Agent＋学习式策略",
+                  "code": "AM.MAN.GRIP.AGENT.WAM",
+                  "catalog_path": "manipulation/grippers/agent-architectures/agent-wam",
+                  "description": "Agents provide subtasks, goals or operation conditions to learned action policies such as VLA, WAM, diffusion or RL policies. Record the actual action generator, training/adaptation requirements, responsibility for planning and memory, feedback and recovery. Model families are visible tags; retain the historical category code and catalog path.",
+                  "description_zh": "Agent 提供子任务、目标或操作条件，由 VLA、WAM、扩散策略或 RL 策略等学习式执行器生成动作。记录实际动作模型、训练与适配要求、规划与记忆职责、反馈及失败恢复；模型类型作为可见标签，保留历史分类码与目录路径。",
+                  "children": []
                 }
               ]
             }

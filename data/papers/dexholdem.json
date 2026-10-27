@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.BENCH.5",
+  "slug": "dexholdem",
+  "short_name": "DexHoldem",
+  "title": "DexHoldem: An Agentic Robotics Benchmark for Dexterous Manipulation in Texas Hold'em",
+  "authors": "Feng Chen, Tianzhe Chu, Li Sun, Pei Zhou, Zhuxiu Xu, Shenghua Gao, Yuexiang Zhai, Yanchao Yang, Yi Ma",
+  "year": 2026,
+  "venue": "arXiv v3",
+  "kind": "benchmark",
+  "category": "AM.MAN.DEX.DATA",
+  "related_categories": [
+    "AM.MAN.DEX.AGENT"
+  ],
+  "tags": [
+    "agent-benchmark",
+    "benchmark",
+    "dexterous",
+    "shadowhand",
+    "real-world",
+    "teleoperation-dataset",
+    "instruction-conditioned-policy",
+    "imitation-learning",
+    "vla",
+    "multi-view",
+    "scene-preservation",
+    "structured-state-perception",
+    "rule-based-routing",
+    "closed-loop-verification",
+    "primitive-retry",
+    "long-horizon-evaluation"
+  ],
+  "benchmark": {
+    "hands": {
+      "zh": "一种手型：单只 ShadowHand＋UR10e；统一关节位置接口为机械臂 6 维＋手部 24 维，共 30 维。左右标签指牌位，不是双手配置。",
+      "en": "One hand type: a single ShadowHand on UR10e, using a shared 30-D joint-position interface (six arm and 24 hand channels). Left/right labels refer to card positions, not a bimanual setup."
+    },
+    "tasks": {
+      "zh": "十四类原语：左右拿牌、放牌、亮牌各两类，四种面额筹码的推／拉共八类；1470 条真机遥操作示范，每类 100 条训练＋5 条验证。另有 36 个状态感知问题，按八类字段评分。",
+      "en": "Fourteen primitives: two each for card pickup, placement and revealing, plus push/pull for four chip denominations. There are 1,470 real teleoperated trajectories, with 100 training and five validation examples per primitive, plus 36 state-perception problems scored over eight field categories."
+    },
+    "cross_hand": {
+      "zh": "同一原语与接口用于比较不同策略模型；实测限于 ShadowHand，未提供不同手型在同一任务上的对照或共享策略跨手验证。",
+      "en": "The same primitives/interface compare policy models, but physical evaluation is limited to ShadowHand; matched cross-hand evaluation and shared-policy transfer to other hands are not demonstrated."
+    },
+    "release": {
+      "zh": "Hugging Face 已公开三视角 RGB-D／关节状态数据；官方有策略训练／部署及 Agent 运行／感知评测代码，策略仓库提供六套公开训练配方。论文仿真部分仅为 real-to-sim 重建与开环回放检查，不是量化策略基准；完整仿真资产与训练好的任务策略权重开放状态未核实。",
+      "en": "Hugging Face releases three-view RGB-D/joint-state data. Official repositories provide policy training/deployment and agent runtime/perception evaluation, with six public policy-training recipes. The paper's simulation component documents real-to-sim reconstruction and open-loop replay, not quantitative policy evaluation; complete simulation-asset and trained task-policy weight availability is unverified."
+    },
+    "highlight": {
+      "zh": "DexHoldem 基于 ShadowHand 真机的十四类牌桌操作与 1470 条示范，联合评测低层动作、Agent 状态感知及闭环执行，并通过“任务完成＋场景保持”双指标揭示局部操作成功与多步系统可靠性之间的差距。",
+      "en": "DexHoldem combines fourteen real ShadowHand tabletop primitives and 1,470 demonstrations with policy, agent-perception and closed-loop evaluation, separating task completion from scene preservation to expose the gap between isolated skill success and multi-step system reliability."
+    }
+  },
+  "evaluation_scope": {
+    "zh": "Agent 专用相机观测转为结构化牌桌记忆，规则路由处理等待、验证与恢复，在决策状态调用 Agent 选择高层动作，再翻译为低层原语。低层以三视角图像、本体状态及原语条件输出 30 维关节目标片段；示范训练／微调后执行，反馈改变状态与后续调用，不在线更新权重。拿牌后须先验证并识别牌面再放回；无破坏失败可逐原语重试，场景破坏转人工帮助。九种策略各 80 次真机试验，共 720 次；π₀.₅ 动作完成率 61.2%，π₀.₅／π₀ 场景保持成功率均 47.5%。系统评测仅 GPT-5.5＋π₀ 一个组合：33 局完成 4 局，其中 1 局含人工帮助、3 局未请求人工，只有 1 局既无重试也无人工帮助；12/34 次重试恢复原语。感知基准使用标注历史上下文，不等于自主长期记忆评测；固定任务词表结果不证明未见语言泛化。",
+    "en": "A dedicated agent camera feeds structured tabletop memory; deterministic routing handles waiting, verification and recovery, querying the agent at decision states and translating high-level choices into low-level primitives. A demonstration-trained/fine-tuned policy maps three-view images, proprioception and primitive conditions to 30-D joint-target chunks; feedback changes state and dispatch, not weights online. Pickup is verified and the held card read before replacement; harmless failures may retry per primitive, while disrupted scenes request human help. Nine policies receive 80 physical trials each (720 total). Pi-0.5 reaches 61.2% task completion; pi-0.5/pi-0 tie at 47.5% scene-preserving success. System evaluation covers only GPT-5.5 + pi-0: four of 33 hands complete, including one with human assistance and three without a help request; only one needs neither retries nor help. Twelve of 34 retry dispatches restore their primitive. Perception problems supply annotated predecessor context, rather than testing autonomous long-term memory; fixed-vocabulary execution does not establish unseen-language generalization."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2605.18727v3",
+    "code": "https://github.com/DexHoldem/Dexholdem-Policy",
+    "data": "https://huggingface.co/datasets/Winniechen2002/TexasPokerRobot",
+    "assets": "https://github.com/DexHoldem/DexHoldemSKills"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2605.18727v3",
+    "https://arxiv.org/html/2605.18727v3",
+    "https://huggingface.co/datasets/Winniechen2002/TexasPokerRobot",
+    "https://github.com/DexHoldem/Dexholdem-Policy",
+    "https://github.com/DexHoldem/DexHoldemSKills"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent closed-loop evaluation",
+      "zh": "Agent闭环评测",
+      "bold": true
+    },
+    {
+      "en": "Scene preservation",
+      "zh": "场景保持"
+    },
+    {
+      "en": "Real-world dexterous manipulation",
+      "zh": "真机灵巧操作"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-05-18",
+    "source": "https://arxiv.org/abs/2605.18727v3",
+    "basis": "source"
+  }
+}

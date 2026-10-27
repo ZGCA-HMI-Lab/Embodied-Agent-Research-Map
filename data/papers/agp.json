@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.ICL.2",
+  "slug": "agp",
+  "short_name": "AGP",
+  "title": "Agent as Policy for Robotic Manipulation",
+  "authors": "Mengzhao Jia, Yang Lin, Xixin Zhang, Zhihan Zhang, Xiaobai Liu, Meng Jiang",
+  "year": 2026,
+  "venue": "arXiv v3",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.ICL",
+  "related_categories": [
+    "AM.MAN.DEX.AGENT"
+  ],
+  "tags": [
+    "gripper",
+    "bimanual",
+    "agent-architecture",
+    "runtime-programming",
+    "code-generation",
+    "tool-use",
+    "task-planning",
+    "execution-feedback",
+    "failure-recovery",
+    "experience-reuse",
+    "persistent-memory",
+    "in-context-learning",
+    "training-free",
+    "video-instruction",
+    "goal-image",
+    "inverse-kinematics",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "AGP 让权重固定的通用 Agent 根据视觉、机器人状态和物理反馈，在运行时编写感知与动作程序，通过机器人控制接口执行并修正操作，同时保存脚本和经验供后续任务复用，实现无需任务训练的闭环操作。",
+    "en": "AGP uses a fixed-weight general-purpose agent to write perception and action programs during execution from visual observations, robot state and physical feedback, execute and revise motions through robot interfaces, and save scripts and experience for reuse, enabling closed-loop manipulation without task-specific training."
+  },
+  "evaluation_scope": {
+    "zh": "准备 Agent 整理视频／图像／语言任务与接口说明，执行 Agent 按需观测、编程计算几何与运动目标并纠错。接口接受末端位姿、关节目标和夹爪开合，Mink IK、轨迹生成及电机反馈由独立执行层负责；经验文件更新上下文，不更新模型权重。主实验为 YAM 六关节机械臂＋平行夹爪，叠毛巾使用双臂；八配置含四对装配、三种积木搭建、翻骰子、投掷及两种叠毛巾。GPT-6 Astra 主表中七配置成功率至少 80%，同步折叠为 3/5；每配置 5 或 10 次，任务各自从预设场景开始并设定时间／请求预算。平均时间约 17.71–50.8 分钟，除投掷统计全部会话外仅统计成功试验，不能视作实时动作生成。P7＋RealHand L6 抓瓶举起仅为定性跨本体展示。官方提供代码及视频、逐步观测、关节轨迹和 Agent 执行记录；这些资源不代表学习式动作策略权重。",
+    "en": "A preparation agent organizes video/image/language references and interface documentation; the execution agent requests observations, programs geometric estimates and motion targets, and revises actions. Interfaces accept end-effector poses, joint targets and gripper commands; an independent layer handles Mink IK, trajectories and motor feedback. Experience files update context, not weights. Main hardware uses six-joint YAM arms with parallel grippers, including dual-arm folding. Eight configurations cover four-pair assembly, three block structures, dice flipping, throwing and two folding variants. With GPT-6 Astra, seven score at least 80%; simultaneous folding is 3/5. Each has 5 or 10 trials from predefined scenes under time/request budgets. Mean times span 17.71–50.8 minutes, success-only except throwing's all-session accounting, not real-time action generation. P7 + RealHand L6 bottle lifting is qualitative cross-embodiment evidence only. Official resources include code, videos, step observations, joint trajectories and agent traces, not learned action-policy weights."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.12541v3",
+    "project": "https://agent-as-policy-2026.github.io/",
+    "code": "https://github.com/agent-as-policy-2026/agent-as-policy",
+    "data": "https://huggingface.co/datasets/Agent-as-Policy/agent-as-policy"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.12541v3",
+    "https://arxiv.org/html/2609.12541v3",
+    "https://agent-as-policy-2026.github.io/",
+    "https://github.com/agent-as-policy-2026/agent-as-policy",
+    "https://huggingface.co/datasets/Agent-as-Policy/agent-as-policy"
+  ],
+  "verified_on": "2026-10-26",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Runtime programming",
+      "zh": "运行时编程"
+    },
+    {
+      "en": "Feedback-driven correction",
+      "zh": "反馈纠错"
+    },
+    {
+      "en": "Experience reuse",
+      "zh": "经验复用"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-11",
+    "source": "https://arxiv.org/abs/2609.12541v3",
+    "basis": "source"
+  }
+}

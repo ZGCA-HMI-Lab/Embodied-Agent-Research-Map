@@ -98,6 +98,10 @@ def svg_document(title, tree, language="en"):
 
     def draw_nodes(node, color):
         name = html.escape(node["name"])
+        if node.get("label_parts"):
+            name = "".join(f'<tspan font-weight="700">{html.escape(part["text"])}</tspan>'
+                           if part["bold"] else html.escape(part["text"])
+                           for part in node["label_parts"])
         side = node["side"]
         is_leaf = not node["children"]
         code = f'<tspan dx="6" fill="{color}" font-weight="650">[{html.escape(node["code"])}]</tspan>' if node["code"] else ""

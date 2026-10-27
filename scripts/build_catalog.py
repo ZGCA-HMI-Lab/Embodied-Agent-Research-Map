@@ -101,7 +101,7 @@ def navigation(root, taxonomy, papers, page, language, topics=None):
         count = sum(p["category"] == code for p in papers)
         name = paths[code]
         target = relative(catalog_file(root, category, language), page)
-        selected = "<br>".join(link(paper_label(p, language), target + "#" + anchor(p))
+        selected = "<br>".join(link(paper_label(p, language, markdown=True), target + "#" + anchor(p))
                                 for p in papers if p["category"] == code and p["show_on_map"])
         lines.append(f"| {cell(name)} | {count} | {link('查看' if language == 'zh' else 'Open', target)} | {selected or '—'} |")
     return "\n".join(lines)
@@ -190,7 +190,7 @@ def topic_page(root, taxonomy, topics, slug, papers, language):
     for paper in matches:
         target = relative(catalog_file(root, known[paper["category"]], language), page) + "#" + anchor(paper)
         matched = " · ".join(f"`{tag}`" for tag in paper["tags"] if tag in topic["tags"])
-        lines.append(f"| {link(paper_label(paper, language), target)} | {cell(paths[paper['category']])} | {matched} |")
+        lines.append(f"| {link(paper_label(paper, language, markdown=True), target)} | {cell(paths[paper['category']])} | {matched} |")
     return "\n".join(lines) + "\n"
 
 

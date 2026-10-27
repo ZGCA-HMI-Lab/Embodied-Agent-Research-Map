@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.9",
+  "slug": "dexmachina",
+  "short_name": "DexMachina",
+  "title": "DexMachina: Functional Retargeting for Bimanual Dexterous Manipulation",
+  "authors": "Zhao Mandi, Yifan Hou, Dieter Fox, Yashraj Narang, Ajay Mandlekar, Shuran Song",
+  "year": 2025,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "reinforcement-learning",
+    "ppo",
+    "curriculum-learning",
+    "virtual-object-controllers",
+    "assistance-decay",
+    "functional-retargeting",
+    "human-demonstrations",
+    "motion-retargeting",
+    "motion-and-contact-guidance",
+    "object-trajectory-tracking",
+    "articulated-objects",
+    "cross-embodiment",
+    "state-based-policy",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "DexMachina 用逐步衰减的虚拟物体控制力构建课程，结合人类示范的动作与接触引导训练双手 PPO 策略，使机器人逐渐独立完成物体轨迹跟踪，并根据手型调整操作方式。",
+    "en": "DexMachina trains a bimanual PPO policy with a curriculum of gradually fading virtual object-control forces and human motion/contact guidance, letting the robot progressively take over object-trajectory tracking and adapt its manipulation strategy to its hand embodiment."
+  },
+  "evaluation_scope": {
+    "zh": "从 ARCTIC 示范提取物体轨迹、碰撞处理后的重定向手姿及近似接触。虚拟 PD 控制器直接辅助物体运动；近期任务、关键点模仿、关节参考与接触奖励均达阈值后，衰减增益直至归零。最终为同时控制双手的状态输入策略：根据物体状态、关节目标、手指—物体距离及接触力，输出腕部相对参考的 6DoF 残差和手指绝对关节目标。Genesis 基准含五个关节物体、七段示范和六种手；Inspire、Allegro、XHand、Schunk 用于七段示范对照，Ability、DexRobot 补充长时序评测。同一示范可跨手使用，但须准备资产／映射并分别训练策略，不是共享权重。主实验为浮动腕部，依赖精确示范与仿真状态，尚无真机策略验证。官方已开放代码、所用手型／ARCTIC 资产与 RL 训练示例；README 仍列评估代码为待办，预训练策略权重开放状态未核实。",
+    "en": "ARCTIC demonstrations provide object trajectories, collision-aware retargeted hand references and approximate contacts. Virtual PD assistance acts directly on the object; gains decay to zero when recent task, keypoint-imitation, joint-reference and contact rewards all exceed thresholds. The state-based policy jointly controls both hands, mapping object states, joint targets, finger–object distances and contact forces to 6-DoF wrist residuals relative to references and absolute finger-joint targets. The Genesis benchmark contains five articulated objects, seven clips and six hands: Inspire, Allegro, XHand and Schunk are compared on all seven clips; Ability and DexRobot supplement long-horizon evaluation. Cross-hand demonstration reuse requires curated assets/mappings and separate policy training, not shared weights. Main experiments use floating wrists and require accurate demonstrations and simulator states; hardware policy deployment is not demonstrated. Official code, hand/ARCTIC assets and an RL training example are released; evaluation code remains a README TODO, and pretrained-policy weight availability is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2505.24853v1",
+    "project": "https://project-dexmachina.github.io/",
+    "code": "https://github.com/MandiZhao/dexmachina"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2505.24853v1",
+    "https://arxiv.org/html/2505.24853v1",
+    "https://github.com/MandiZhao/dexmachina"
+  ],
+  "verified_on": "2026-10-26",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Assistance-decay curriculum",
+      "zh": "辅助力课程学习"
+    },
+    {
+      "en": "Functional retargeting",
+      "zh": "功能重定向"
+    },
+    {
+      "en": "Bimanual RL",
+      "zh": "双手RL"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-05-30",
+    "source": "https://arxiv.org/abs/2505.24853v1",
+    "basis": "source"
+  }
+}

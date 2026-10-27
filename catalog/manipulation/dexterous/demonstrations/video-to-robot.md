@@ -12,6 +12,10 @@
 
 [Human2Dex [AM.MAN.DEX.DEMO.2]](generation.md#am-man-dex-demo-2)
 
+<a id="am-man-dex-demo-3"></a>
+
+[GNR [AM.MAN.DEX.DEMO.3]](generation.md#am-man-dex-demo-3)
+
 <a id="am-man-dex-demo-v2r-1"></a>
 
 [Gen2Dex [AM.MAN.DEX.DEMO.V2R.1]](generation.md#am-man-dex-demo-v2r-1)
@@ -31,3 +35,11 @@
 <a id="am-man-dex-demo-v2r-5"></a>
 
 [Hand2Robot [AM.MAN.DEX.DEMO.V2R.5]](generation.md#am-man-dex-demo-v2r-5)
+
+<a id="am-man-dex-demo-4"></a>
+
+[GenDexHand [AM.MAN.DEX.DEMO.4]](generation.md#am-man-dex-demo-4)
+
+<a id="am-man-dex-demo-5"></a>
+
+[HumanoidGen [AM.MAN.DEX.DEMO.5]](generation.md#am-man-dex-demo-5)

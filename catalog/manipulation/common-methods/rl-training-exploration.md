@@ -8,7 +8,7 @@ Manipulation Action Models → Common Methods → RL Training and Exploration
 
 Reusable RL training mechanisms such as curriculum learning, task/reset sampling and exploration allocation. Record what training distribution changes, how configurations are supplied, the underlying policy optimizer, evaluated embodiments and deployment policy. Distinguish a general training contribution from a task-specific policy that uses RL; sampling existing resets does not generate new configurations.
 
-**Browse by topic：** [VLA (9)](../../topics/vla.md) · [Reinforcement learning (11)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (2)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (10)](../../topics/vla.md) · [Reinforcement learning (15)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (10)](../../topics/tactile.md) · [In-hand manipulation (3)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.METHOD.RL` · 1 primary records
 

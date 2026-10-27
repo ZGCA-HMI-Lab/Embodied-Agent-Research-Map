@@ -6,13 +6,14 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (9)](vla.md) · [Reinforcement learning (11)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (10)](vla.md) · [Reinforcement learning (15)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (3)](in-hand-manipulation.md)
 
-9 records
+10 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
-| [DexAgent｜Video demonstrations · Agent-built simulation · Data augmentation](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `vla-fine-tuning` |
+| [DexHoldem｜**Agent closed-loop evaluation** · Scene preservation · Real-world dexterous manipulation](../manipulation/dexterous/benchmarks.md#am-man-dex-bench-5) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Datasets and Benchmarks | `vla` |
+| [DexAgent｜**Agent-built simulation** · Video demonstrations · Data augmentation](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `vla-fine-tuning` |
 | [Hand2Robot｜Human-video transfer · Object-centric 4D reconstruction · VLA post-training](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-5) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `vla` · `vla-fine-tuning` |
 | [Coordi-π｜VLA · AE action representation · Bimanual coordination](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [XL-VLA｜Cross-hand transfer · Unified latent action space · VLA](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-6) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |

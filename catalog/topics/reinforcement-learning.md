@@ -6,14 +6,15 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (9)](vla.md) · [Reinforcement learning (11)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (10)](vla.md) · [Reinforcement learning (15)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (3)](in-hand-manipulation.md)
 
-11 records
+15 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
 | [AdaClearGrasp｜Adaptive clearing · RL dexterous grasping · Failure replanning](../manipulation/dexterous/agent-architectures.md#am-man-dex-agent-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Agent Architectures | `reinforcement-learning` · `ppo` |
 | [GOTT｜Cross-hand contact primitive · Object-trajectory interface · Staged execution](../manipulation/dexterous/agent-architectures.md#am-man-dex-agent-4) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Agent Architectures | `reinforcement-learning` · `ppo` |
+| [LUCID｜Closed-loop intent prediction · Human video learning · Generalist arm-hand control](../manipulation/dexterous/agent-architectures.md#am-man-dex-agent-7) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Agent Architectures | `reinforcement-learning` · `ppo` |
 | [Gen2Dex｜Video demonstrations · Retargeting · RL trajectory optimization](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `residual-rl` |
 | [EgoMatrix｜Contact-consistent reconstruction · RL manipulation transfer · Paired action–video generation](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-3) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `reinforcement-learning` · `ppo` |
 | [EgoCPT｜Human-video transfer · Joint contact–force optimization · Residual RL](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-v2r-4) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `reinforcement-learning` · `residual-rl` · `ppo` |
@@ -23,3 +24,6 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [DexCast｜HOI geometry transfer · Skeletal-temporal motion encoding · 3D diffusion policy](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-7) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `residual-rl` |
 | [SGS｜RL · Success-guided sampling · Training-reset scheduling](../manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-1) | Manipulation Action Models → Common Methods → RL Training and Exploration | `reinforcement-learning` · `ppo` |
 | [WBD｜RL expert distillation · Diffusion policy · Command refinement](../whole-body-control/arm-torso-manipulation.md#am-wbc-arm-torso-1) | Body Motion and Whole-Body Control Models → Bimanual and Torso-Assisted Manipulation | `reinforcement-learning` · `ppo` |
+| [VLM Scaffolding｜Keypoint trajectory planning · Residual RL · Sim-to-real](../manipulation/dexterous/agent-architectures.md#am-man-dex-agent-6) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Agent Architectures | `reinforcement-learning` · `ppo` · `residual-rl` |
+| [GenDexHand｜**Agent-driven generative simulation** · VLM scene refinement · Planning + RL](../manipulation/dexterous/demonstrations/generation.md#am-man-dex-demo-4) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Demonstration Data Generation | `reinforcement-learning` · `ppo` |
+| [DexMachina｜Assistance-decay curriculum · Functional retargeting · Bimanual RL](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-9) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `ppo` |

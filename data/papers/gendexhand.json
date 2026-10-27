@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.4",
+  "slug": "gendexhand",
+  "short_name": "GenDexHand",
+  "title": "GenDexHand: Generative Simulation for Dexterous Hands",
+  "authors": "Feng Chen, Zhuxiu Xu, Tianzhe Chu, Xunzhe Zhou, Li Sun, Zewen Wu, Shenghua Gao, Zhongyu Li, Yanchao Yang, Yi Ma",
+  "year": 2025,
+  "venue": "arXiv v1",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.AGENT"
+  ],
+  "tags": [
+    "agentic-data-generation",
+    "dexterous",
+    "generative-simulation",
+    "llm-task-generation",
+    "vlm-scene-refinement",
+    "subtask-decomposition",
+    "controller-selection",
+    "dof-constraints",
+    "motion-planning",
+    "reinforcement-learning",
+    "ppo",
+    "reward-code-generation",
+    "successful-trajectory-collection",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "GenDexHand 以 LLM Agent 编排任务与仿真场景生成，借助 VLM 验证并修正场景，再拆解任务、选择规划器或 PPO 子策略并约束活动关节，自动收集成功操作轨迹。",
+    "en": "GenDexHand uses an LLM agent to orchestrate task and simulation-scene generation, a VLM to verify and refine scenes, and subtask decomposition, planner/PPO selection and active-joint constraints to collect successful manipulation trajectories."
+  },
+  "evaluation_scope": {
+    "zh": "Claude Sonnet 4.0 根据机器人与物体资产生成任务及场景配置；Gemini 2.5 Pro 检查三视角渲染，输出物体缩放、平移与旋转指令，由程序修改配置。该视觉闭环作用在场景生成。轨迹阶段，Agent 为子任务选择运动规划或 RL，并指定活动关节；接近／搬运用规划器，接触操作用生成奖励、成败判定和额外观测代码训练的 PPO MLP 子策略（隐藏层 1024／1024／512），阶段间冻结无关自由度。产出为成功轨迹及对应任务环境，不是一个共享多任务动作模型。SAPIEN 仿真、UR10e＋ShadowHand，1024 并行环境、20Hz 控制；策略量化对照集中在开柜门、抓瓶子、放苹果入碗三项任务，以收集 1000 条成功轨迹所需步数评估效率，场景展示不等于所有任务均完成大规模策略评测。尚无真机策略验证；跨手资产与任务适配仍需人工，附录的代码修正提示包含人工反馈。官方仓库当前仅 README，标注代码待发布；完整生成数据及策略权重未核实开放。",
+    "en": "Claude Sonnet 4.0 generates tasks/configurations from robot/object assets; Gemini 2.5 Pro checks three-view renders and issues scale/translation/rotation edits applied to scene configurations. This visual loop refines environment generation. An agent assigns planners or RL and active joints per subtask: planners handle reaching/transport; PPO MLP subpolicies (hidden widths 1024/1024/512) learn contact operations from generated reward, evaluation and extra-observation code, with irrelevant DoFs frozen. Outputs are successful trajectories and task environments, rather than one shared multitask policy. SAPIEN experiments use UR10e + ShadowHand, 1,024 parallel environments and 20-Hz control. Quantitative policy comparisons focus on cabinet opening, bottle pickup and apple-to-bowl placement, measuring steps to collect 1,000 successful trajectories; scene showcases do not establish broad policy evaluation. Hardware policy transfer is not demonstrated; cross-hand adaptation needs human expertise, and appendix code-refinement prompts include human feedback. The official repository contains only a README marking code as forthcoming; full generated-data and policy-weight availability is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2511.01791v1",
+    "project": "https://winniechen2002.github.io/GenDexHand/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2511.01791v1",
+    "https://arxiv.org/html/2511.01791v1",
+    "https://winniechen2002.github.io/GenDexHand/",
+    "https://github.com/Winniechen2002/GenDexHand_code"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent-driven generative simulation",
+      "zh": "Agent生成式仿真",
+      "bold": true
+    },
+    {
+      "en": "VLM scene refinement",
+      "zh": "VLM场景修正"
+    },
+    {
+      "en": "Planning + RL",
+      "zh": "规划＋RL"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-11-03",
+    "source": "https://arxiv.org/abs/2511.01791v1",
+    "basis": "source"
+  }
+}

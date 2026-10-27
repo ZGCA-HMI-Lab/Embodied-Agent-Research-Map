@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.DEMO.5",
+  "slug": "humanoidgen",
+  "short_name": "HumanoidGen",
+  "title": "HumanoidGen: Data Generation for Bimanual Dexterous Manipulation via LLM Reasoning",
+  "authors": "Zhi Jing, Siyuan Yang, Jicong Ao, Ting Xiao, Yu-Gang Jiang, Chenjia Bai",
+  "year": 2025,
+  "venue": "NeurIPS 2025 / arXiv v2",
+  "kind": "tool",
+  "category": "AM.MAN.DEX.DEMO",
+  "related_categories": [
+    "AM.MAN.DEX.AGENT",
+    "AM.MAN.DEX.DATA"
+  ],
+  "tags": [
+    "agentic-data-generation",
+    "dexterous",
+    "bimanual",
+    "llm-planning",
+    "code-generation",
+    "spatial-point-axis-annotations",
+    "relational-action-constraints",
+    "hand-atomic-operations",
+    "constrained-motion-planning",
+    "trajectory-optimization",
+    "mcts",
+    "simulation-feedback",
+    "successful-prefix-reuse",
+    "scene-augmentation",
+    "diffusion-policy",
+    "imitation-learning",
+    "sim-to-real",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "HumanoidGen 让 LLM Agent 根据手—物点轴标注生成双手原子动作与空间约束程序，通过仿真反馈和 MCTS 保留成功前缀、修复失败计划，再由约束求解器执行并收集可用于训练扩散策略的操作示范。",
+    "en": "HumanoidGen uses an LLM agent to generate bimanual hand-primitive and spatial-constraint programs from hand/object point-axis annotations, uses simulation feedback and MCTS to retain successful prefixes and repair failed plans, and executes constraint-solved motions to collect demonstrations for diffusion-policy training."
+  },
+  "evaluation_scope": {
+    "zh": "Agent 输入任务、场景与手—物点轴标注，输出左右手步骤、抓握／捏取等原子动作及目标／路径约束；SNOPT 求终点关节配置，mplib 求满足约束的运动路径，手指执行预定义动作。MCTS 的 STCR 将程序分段、在失败处截断、合并成功操作并保存代码／错误／场景状态，以便恢复后续搜索；反馈更新计划和搜索统计，不训练 RL 动作策略。生成数据后分别训练 RGB＋本体观测的 DP 或点云条件 DP3；二者输入三步历史、预测八步动作片段。HGen-Bench 为 H1-2＋双 Inspire 手的二十项桌面任务，每臂 7DoF、每手 6DoF，共 26 维动作；六视角 RGB-D，场景扩展至 120 余种。主要验证一种手型，未展示同一策略跨手部署；资产标注与手部动作库仍需准备，同类资产可自动迁移标注。v2 真机两项任务为双瓶抓取与合笔记本，各采集 25 条真机轨迹；100 条仿真＋5 条真机数据的 DP 分别为 13/20、14/20，不是纯仿真零样本部署。官方公开生成／评测代码、仿真资产与数据，以及分任务 DP／DP3 模型；模型仓库作为资源链接提供，未在本机复现。",
+    "en": "Task, scene and hand/object point-axis annotations become bilateral steps, hand primitives and goal/path constraints. SNOPT solves terminal joint configurations, mplib plans constrained paths, and fingers execute predefined primitives. MCTS/STCR segments code, truncates at failures, combines successful operations and stores code/error/scene state to resume search; feedback updates plans/search statistics, not an RL action policy. Collected data trains RGB/proprioceptive DP or point-cloud DP3 using three past observations and eight-step action predictions. HGen-Bench contains 20 tabletop tasks on H1-2 with two Inspire hands: seven DoFs per arm and six per hand, giving 26-D actions, six RGB-D views and over 120 augmented scenes. One hand type is primarily validated; shared-weight cross-hand deployment is not shown. Asset annotations and hand primitives need preparation, with annotation transfer available for similar assets. Two v2 hardware tasks, dual-bottle pickup and laptop closing, each collect 25 real trajectories; DP with 100 simulated plus five real trajectories achieves 13/20 and 14/20, rather than simulation-only zero-shot deployment. Official generation/evaluation code, simulation assets/data and task-specific DP/DP3 models are public; model resources are linked but not locally reproduced."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2507.00833v2",
+    "project": "https://openhumanoidgen.github.io/",
+    "code": "https://github.com/TeleHuman/HumanoidGen",
+    "data": "https://huggingface.co/datasets/TeleEmbodied/humanoidgen_dataset",
+    "assets": "https://huggingface.co/TeleEmbodied/humanoidgen_model"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2507.00833v2",
+    "https://arxiv.org/html/2507.00833v2",
+    "https://openhumanoidgen.github.io/",
+    "https://github.com/TeleHuman/HumanoidGen",
+    "https://huggingface.co/datasets/TeleEmbodied/humanoidgen_dataset/tree/main/task_datasets",
+    "https://huggingface.co/TeleEmbodied/humanoidgen_model/tree/main"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent constraint planning",
+      "zh": "Agent约束规划",
+      "bold": true
+    },
+    {
+      "en": "MCTS plan repair",
+      "zh": "MCTS搜索修复"
+    },
+    {
+      "en": "Bimanual demonstration generation",
+      "zh": "双手示范生成"
+    }
+  ],
+  "publication_date": {
+    "value": "2025-07-01",
+    "source": "https://arxiv.org/abs/2507.00833v2",
+    "basis": "source"
+  }
+}

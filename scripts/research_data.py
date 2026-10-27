@@ -76,8 +76,9 @@ def load_topics(root):
     return topics
 
 
-def paper_label(paper, language):
-    labels = [tag[language] for tag in paper.get("display_tags", [])]
+def paper_label(paper, language, markdown=False):
+    labels = [f"**{tag[language]}**" if markdown and tag.get("bold", False) else tag[language]
+              for tag in paper.get("display_tags", [])]
     return paper["short_name"] + ("｜" + " · ".join(labels) if labels else "")
 
 
@@ -201,7 +202,12 @@ def load_papers(root, taxonomy):
         if not isinstance(display_tags, list) or len(display_tags) > 3:
             raise ValueError(f"{slug}: display_tags must contain at most three bilingual labels")
         for tag in display_tags:
-            localized(tag, f"{slug}.display_tags")
+            if not isinstance(tag, dict) or set(tag) - {"en", "zh", "bold"}:
+                raise ValueError(f"{slug}: invalid display tag fields")
+            localized({key: value for key, value in tag.items() if key != "bold"},
+                      f"{slug}.display_tags")
+            if "bold" in tag and not isinstance(tag["bold"], bool):
+                raise ValueError(f"{slug}: display tag bold must be boolean")
         if record["kind"] not in ("benchmark", "model", "dataset", "tool", "survey"):
             raise ValueError(f"{slug}: invalid kind")
         if record["kind"] == "benchmark":
@@ -259,8 +265,15 @@ def render_tree(taxonomy, records, language):
             if code:
                 for paper in records:
                     if paper["category"] == code and paper["show_on_map"]:
-                        children.append({"name": paper_label(paper, language), "code": None, "paper_id": paper["id"],
-                                         "depth": depth + 1, "children": []})
+                        entry = {"name": paper_label(paper, language), "code": None, "paper_id": paper["id"],
+                                 "depth": depth + 1, "children": []}
+                        if any(tag.get("bold", False) for tag in paper.get("display_tags", [])):
+                            entry["label_parts"] = [{"text": paper["short_name"] + "｜", "bold": False}]
+                            for index, tag in enumerate(paper["display_tags"]):
+                                if index:
+                                    entry["label_parts"].append({"text": " · ", "bold": False})
+                                entry["label_parts"].append({"text": tag[language], "bold": tag.get("bold", False)})
+                        children.append(entry)
             rendered.append({"name": node["name" if language == "en" else "name_zh"],
                              "code": code, "depth": depth, "children": children})
         return rendered

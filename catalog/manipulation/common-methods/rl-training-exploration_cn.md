@@ -8,7 +8,7 @@
 
 可复用的强化学习训练机制，包括课程学习、任务／重置采样与探索资源分配。注明改变哪部分训练分布、配置如何提供、底层策略优化器、验证本体及部署策略；区分共性训练贡献与使用 RL 的具体任务策略，从已有重置池采样不等同于生成新配置。
 
-**按主题浏览：** [VLA (9)](../../topics/vla_cn.md) · [强化学习 (11)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (2)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (10)](../../topics/vla_cn.md) · [强化学习 (15)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (10)](../../topics/tactile_cn.md) · [手内操作 (3)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.METHOD.RL` · 1 篇主分类工作
 

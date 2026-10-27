@@ -81,7 +81,7 @@
     state.topics.forEach(k=>add('topic:'+k,local(data.topics[k])));if(state.representatives)add('representatives',t.representatives);
     $('active-filters').innerHTML=chips.join('');
   }
-  function tags(p){return (p.display_tags||[]).map(tag=>`<span>${e(local(tag))}</span>`).join('');}
+  function tags(p){return (p.display_tags||[]).map(tag=>`<span>${tag.bold===true?`<strong>${e(local(tag))}</strong>`:e(local(tag))}</span>`).join('');}
   function chip(p){return `<article class="paper"><div class="paper-top"><a class="paper-name" href="${e(p.links.paper)}" target="_blank" rel="noopener noreferrer">${e(p.short_name)} ↗</a><button class="paper-details" data-paper="${e(p.slug)}" data-focus="paper-${e(p.slug)}" aria-label="${e(p.short_name)}: ${w().details}">ⓘ</button></div><div class="paper-tags">${tags(p)}</div></article>`;}
   function emptyHtml(){
     const focused=cat(state.category), total=focused?data.papers.filter(p=>focused.codes.includes(p.category)).length:data.papers.length;

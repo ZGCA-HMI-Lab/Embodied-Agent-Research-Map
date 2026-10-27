@@ -6,11 +6,12 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (9)](vla.md) · [Reinforcement learning (11)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (2)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (10)](vla.md) · [Reinforcement learning (15)](reinforcement-learning.md) · [Touch and contact feedback (10)](tactile.md) · [In-hand manipulation (3)](in-hand-manipulation.md)
 
-2 records
+3 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
 | [No Eyes, No Problem｜In-hand manipulation · RL · Tactile](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-inhand-rl-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `in-hand-manipulation` |
 | [DSP｜In-hand manipulation · Autonomous interaction collection · World model + MPC](../manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → World Models and Planning-Based Control | `in-hand-manipulation` |
+| [DexHandDiff｜New-goal adaptation · Diffusion planning · Interaction-aware guidance](../manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → World Models and Planning-Based Control | `in-hand-manipulation` |

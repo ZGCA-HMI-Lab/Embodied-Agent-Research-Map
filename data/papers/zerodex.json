@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.AGENT.5",
+  "slug": "zerodex",
+  "short_name": "ZeroDex",
+  "title": "ZeroDex: Zero-Shot Long-Horizon Dexterous Manipulation via Multi-View 3D-Grounded VLM Reasoning",
+  "authors": "Jisoo Kim, Sangwon Baik, Taeksoo Kim, Sungjoo Kim, Junyoung Lee, Mingi Choi, Hanbyul Joo",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.AGENT",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "agent-architecture",
+    "vlm",
+    "multi-view-3d-grounding",
+    "robust-triangulation",
+    "reference-view-ray-voting",
+    "affordance-grounding",
+    "tool-use",
+    "object-centric-atomic-actions",
+    "tool-trajectory-alignment",
+    "grasp-optimization",
+    "inverse-kinematics",
+    "collision-aware-motion-planning",
+    "task-planning",
+    "closed-loop-verification",
+    "failure-replanning",
+    "zero-shot-manipulation",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "ZeroDex 用多视角三角化与射线投票，将 VLM 标注的二维操作功能点恢复为三维位置，据此对齐已有工具轨迹、优化抓姿并规划臂手动作，再通过视觉验证与重规划完成零样本长时序操作。",
+    "en": "ZeroDex lifts VLM-grounded 2D functional keypoints into 3D using multi-view triangulation and reference-ray voting, aligns stored tool trajectories, optimizes grasps and plans arm–hand motions, then uses visual verification and replanning for zero-shot long-horizon manipulation."
+  },
+  "evaluation_scope": {
+    "zh": "VLM 拆解任务并标注抓取、交互及终止位置；跨视角三角化一致性不足时，沿参考视线采样深度候选，由其他视图的 VLM 投票定位。按技能类别检索离线示范／生成的 6D 工具轨迹并对齐当前场景，功能区域约束抓姿，运动规划器筛查整条轨迹的 IK 与碰撞可行性；执行后可继续、重新定位重试或替换子任务计划。无需任务级策略训练，但依赖预训练感知、离线技能库和运动规划；不是 VLA 动作生成。真机为 xArm＋Inspire 手、4–6 个已标定 RGB 相机，另用 FoundationStereo 深度和 FoundationPose 位姿。长时序整理 4/6、烹饪 1/3，包含重试预算 4 内的恢复；其他任务多为 5 或 10 次试验，不代表普遍可靠的长时序成功。当前不支持手内转物等操作。项目页有演示，代码在核验时仍标注待发布。",
+    "en": "A VLM decomposes tasks and identifies grasp, interaction and terminal points. When cross-view triangulation lacks consensus, other views vote over depth candidates on the reference ray. Skill-category retrieval supplies offline recorded/generated 6D tool trajectories aligned to the scene; affordance-constrained grasps and motion planning undergo full-trajectory IK/collision checks. Post-execution decisions continue, re-ground and retry, or replace the subtask plan. No task-specific policy training is required, but pretrained perception, an offline skill library and motion planning are used, rather than VLA action generation. Hardware uses xArm + Inspire with 4–6 calibrated RGB cameras, FoundationStereo depth and FoundationPose poses. Long-horizon organization scores 4/6 and cooking 1/3, including recovery within a retry budget of four; other tasks typically have 5 or 10 trials, not broad evidence of reliable long-horizon performance. In-hand reorientation is unsupported. The project provides demonstrations; code remains marked coming soon at verification."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2606.19340v2",
+    "project": "https://jlogkim.github.io/zerodex/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2606.19340v2",
+    "https://arxiv.org/html/2606.19340v2",
+    "https://jlogkim.github.io/zerodex/"
+  ],
+  "verified_on": "2026-10-26",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Multi-view 3D grounding",
+      "zh": "多视角3D定位"
+    },
+    {
+      "en": "Tool trajectory transfer",
+      "zh": "工具轨迹迁移"
+    },
+    {
+      "en": "Closed-loop replanning",
+      "zh": "闭环重规划"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-06-17",
+    "source": "https://arxiv.org/abs/2606.19340v2",
+    "basis": "source"
+  }
+}

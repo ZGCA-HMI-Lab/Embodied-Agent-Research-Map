@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.PLANNING.2",
+  "slug": "dexhanddiff",
+  "short_name": "DexHandDiff",
+  "title": "DexHandDiff: Interaction-aware Diffusion Planning for Adaptive Dexterous Manipulation",
+  "authors": "Zhixuan Liang, Yao Mu, Yixiao Wang, Tianxing Chen, Wenqi Shao, Wei Zhan, Masayoshi Tomizuka, Ping Luo, Mingyu Ding",
+  "year": 2025,
+  "venue": "CVPR 2025 / arXiv v6 camera-ready",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.PLANNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "new-goal-adaptation",
+    "diffusion-planning",
+    "interaction-aware-guidance",
+    "gradient-guidance",
+    "contact-phase-guidance",
+    "joint-state-action-diffusion",
+    "dynamics-consistency",
+    "dynamics-model",
+    "llm-guidance-generation",
+    "in-hand-manipulation",
+    "receding-horizon-control",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "DexHandDiff 为灵巧手扩散规划设计交互感知引导：接触前引导手对齐交互点，接触后联合目标与动力学约束调整状态—动作轨迹，通过修改采样引导适配示范之外的操作目标。",
+    "en": "DexHandDiff designs interaction-aware guidance for dexterous diffusion planning: align the hand with an interaction point before contact, then guide state–action trajectories with goal and dynamics constraints, adapting to goals beyond the demonstrations by changing sampling guidance."
+  },
+  "evaluation_scope": {
+    "zh": "从示范逐任务训练联合状态—动作扩散模型及独立动力学模型；目标适配主要在去噪采样中调整引导，不为每个新目标重训策略。开门／用锤等按手掌与交互点距离切换对齐和目标引导；手内操作使用目标、手指运动和动力学等单阶段引导。状态—动作一致性约束减少物体无接触自行移动的 ghost states；动作分量用于执行并滚动重规划。LLM 根据环境说明生成引导函数代码，主要成绩使用人工引导。仿真覆盖 Adroit／Shadow Hand 的开门、转笔、锤钉、搬移、方块转向，未报告真机验证。仅 90° 开门示范训练后，六种开／关门目标均值为 59.2%（引导采样 Diffuser 为 29.5%）；四种开门角度消融中，联合建模＋动力学引导为 31.7%，完整交互机制为 67.5%，不是全任务均值。官方公开部分实现及 Adroit Door 预训练权重；首次预印本于 2024-11-27 公开，条目按 CVPR 2025／v6 阅读。",
+    "en": "Task-specific joint state–action diffusion and separate dynamics models are learned from demonstrations. New goals primarily change denoising guidance without per-goal policy retraining. Door/tool tasks switch alignment and goal guidance using palm-to-interaction-point distance; in-hand tasks use single-phase goal, finger-motion and dynamics guidance. Consistency constraints reduce ghost object motion; generated actions execute with receding-horizon replanning. An LLM generates guidance code from environment descriptions; main scores use handcrafted guidance. Adroit/Shadow Hand simulation covers door, pen, hammer, relocation and block tasks, without reported hardware validation. Training only on 90° opening yields 59.2% across six opening/closing goals versus 29.5% for guided Diffuser. On four door angles, joint modeling plus dynamics guidance scores 31.7%, versus 67.5% for the complete interaction mechanism; these are not all-task means. Official resources provide partial implementation and an Adroit Door checkpoint. The first preprint appeared on 2024-11-27; this entry follows CVPR 2025/v6."
+  },
+  "links": {
+    "paper": "https://openaccess.thecvf.com/content/CVPR2025/papers/Liang_DexHandDiff_Interaction-aware_Diffusion_Planning_for_Adaptive_Dexterous_Manipulation_CVPR_2025_paper.pdf",
+    "project": "https://dexdiffuser.github.io/",
+    "code": "https://github.com/Liang-ZX/DexHandDiff"
+  },
+  "sources": [
+    "https://openaccess.thecvf.com/content/CVPR2025/html/Liang_DexHandDiff_Interaction-aware_Diffusion_Planning_for_Adaptive_Dexterous_Manipulation_CVPR_2025_paper.html",
+    "https://arxiv.org/abs/2411.18562v6",
+    "https://arxiv.org/html/2411.18562v6",
+    "https://dexdiffuser.github.io/",
+    "https://github.com/Liang-ZX/DexHandDiff",
+    "https://github.com/Liang-ZX/DexHandDiff/blob/main/scripts/plan_guided.py"
+  ],
+  "verified_on": "2026-10-25",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "New-goal adaptation",
+      "zh": "新目标适配"
+    },
+    {
+      "en": "Diffusion planning",
+      "zh": "扩散规划"
+    },
+    {
+      "en": "Interaction-aware guidance",
+      "zh": "交互感知引导"
+    }
+  ],
+  "publication_date": {
+    "value": "2024-11-27",
+    "source": "https://arxiv.org/abs/2411.18562v6",
+    "basis": "source"
+  }
+}
