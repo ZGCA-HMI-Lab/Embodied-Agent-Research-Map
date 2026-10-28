@@ -8,7 +8,7 @@
 
 研究可复用技能、技能结构、技能间过渡及序列组合。注明技能顺序如何获得、过渡如何依赖下一技能，以及如何判断完成并切换。执行给定序列不等同于自主任务规划或已验证未见顺序泛化；从人类视频学习作为方法标签。
 
-**按主题浏览：** [VLA (13)](../../../topics/vla_cn.md) · [强化学习 (20)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../../topics/tactile_cn.md) · [手内操作 (4)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../../../topics/vla_cn.md) · [强化学习 (21)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.POLICY.SKILL` · 2 篇主分类工作
 

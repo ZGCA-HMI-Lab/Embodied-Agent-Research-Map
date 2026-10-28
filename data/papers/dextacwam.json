@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.14",
+  "slug": "dextacwam",
+  "short_name": "DexTacWAM",
+  "title": "DexTacWAM: A Visuo-Tactile World-Action Model for Dexterous Manipulation",
+  "authors": "Haoran Yuan, Zekai Wang, Boning Shao, Haoran Lu, Trevor Darrell, Ismini Lourentzou, Wei Zhan",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "wam",
+    "tactile",
+    "visuo-tactile-world-model",
+    "future-tactile-prediction",
+    "contact-dynamics",
+    "finger-and-pose-aware-compression",
+    "predictive-feature-action-generation",
+    "modality-wise-kv-normalization",
+    "continual-vision-to-touch-learning",
+    "flow-matching",
+    "imitation-learning",
+    "action-chunking",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DexTacWAM 将十指触觉压缩为双手潜变量，与视觉联合预测接触演化，再让动作专家读取预测性视触觉特征，生成机械臂相对位姿与手部动作。",
+    "en": "DexTacWAM compresses ten fingertip streams into two hand latents, jointly models visual and tactile contact evolution, and conditions an action expert on predictive visuo-tactile features to generate relative arm poses and hand actions."
+  },
+  "evaluation_scope": {
+    "zh": "逐指复用冻结视觉 VAE，结合手指身份、手部姿态与时序，将每手五路触觉压为一路；动作专家对视觉／触觉 K/V 分别归一化后交叉注意。训练依次为 488 条多样交互适配触觉编码器、每任务约 100 条示范微调视触觉世界模型、同批示范联合训练世界模型和新动作专家，无 RL；约四小时指采集数据量，不是训练耗时。部署由世界模型单次前向提供预测特征，无需完整生成未来视频或搜索候选轨迹。194 维训练目标含臂手动作、逐指力与下一本体状态预测，不等于 194 个关节；力仅作训练监督，非部署力输入或已验证的直接力控制。双 Sharpa Wave 手平台六项真机任务：遮挡放块、双手交接、双手擦拭、夹具夹番茄、拆叠碗、拧瓶盖，各方法每项 20 次；70.6 为含分阶段计分的平均任务得分。四任务控制消融移除触觉世界预测后，得分从 74.7 降至 26.6。世界模型与动作专家按任务训练，未验证跨手迁移。官方仓库提供训练／部署代码、488 条语料及六任务数据和触觉编码器权重，明确未发布任务专用世界模型与动作专家权重。",
+    "en": "A frozen visual VAE encodes each fingertip; finger identity, hand pose and temporal refinement compress five streams per hand into one latent. The action expert separately normalizes visual/tactile K/V before cross-attention. Training adapts the tactile encoder on 488 interactions, finetunes the world model on about 100 demonstrations per task, then jointly trains it and a new action expert on those demonstrations, without RL. Roughly four hours refers to recorded data, not training time. Deployment uses one world-model forward pass for predictive features, without fully rendering futures or searching trajectories. The 194-D target includes arm/hand actions, finger-force and next-proprioception predictions, not 194 joints; forces are training supervision, not deployment inputs or demonstrated direct force control. Six real-robot tasks on a dual-Sharpa-Wave platform cover occluded cube placement, handover, wiping, tongs/tomato transfer, bowl unstacking and cap unscrewing, with 20 trials per method/task. The 70.6 average mixes binary and staged scores. Removing tactile world prediction drops the controlled four-task mean from 74.7 to 26.6. Models are trained per task; cross-hand transfer is untested. The official repository provides training/deployment code, the 488-episode corpus, six task datasets and tactile-encoder weights, explicitly excluding task-specific world-model and action-expert checkpoints."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.24976v1",
+    "project": "https://dextacwam.github.io/",
+    "code": "https://github.com/dextacwam/DexTacWAM",
+    "data": "https://huggingface.co/collections/JensenYuan/dextacwam",
+    "assets": "https://huggingface.co/JensenYuan/DexTacWAM_multi_finger_tactile_encoder"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.24976v1",
+    "https://arxiv.org/html/2609.24976v1",
+    "https://dextacwam.github.io/",
+    "https://github.com/dextacwam/DexTacWAM",
+    "https://huggingface.co/collections/JensenYuan/dextacwam",
+    "https://huggingface.co/JensenYuan/DexTacWAM_multi_finger_tactile_encoder"
+  ],
+  "verified_on": "2026-10-28",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Visuo-tactile WAM",
+      "zh": "视触觉WAM"
+    },
+    {
+      "en": "Multi-finger tactile compression",
+      "zh": "多指触觉压缩"
+    },
+    {
+      "en": "Contact evolution prediction",
+      "zh": "接触演化预测"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-21",
+    "source": "https://arxiv.org/abs/2609.24976v1",
+    "basis": "source"
+  }
+}

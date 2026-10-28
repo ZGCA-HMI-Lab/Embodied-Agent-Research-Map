@@ -8,7 +8,7 @@ Manipulation Action Models → Gripper Manipulation Models → Agent Architectur
 
 Agents provide subtasks, goals or operation conditions to learned action policies such as VLA, WAM, diffusion or RL policies. Record the actual action generator, training/adaptation requirements, responsibility for planning and memory, feedback and recovery. Model families are visible tags; retain the historical category code and catalog path.
 
-**Browse by topic：** [VLA (13)](../../../topics/vla.md) · [Reinforcement learning (20)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (12)](../../../topics/tactile.md) · [In-hand manipulation (4)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../../../topics/vla.md) · [Reinforcement learning (21)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.GRIP.AGENT.WAM` · 2 primary records
 

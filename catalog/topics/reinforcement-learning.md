@@ -6,9 +6,9 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (13)](vla.md) · [Reinforcement learning (20)](reinforcement-learning.md) · [Touch and contact feedback (12)](tactile.md) · [In-hand manipulation (4)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](vla.md) · [Reinforcement learning (21)](reinforcement-learning.md) · [Touch and contact feedback (13)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
 
-20 records
+21 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
@@ -23,6 +23,7 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [DexMimic｜RL trajectory tracking · Value-guided resets · Multi-trajectory training](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-5) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `ppo` · `residual-rl` |
 | [DexCast｜HOI geometry transfer · Skeletal-temporal motion encoding · 3D diffusion policy](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-7) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `residual-rl` |
 | [CHORD｜Contact wrench guidance · Human demonstration transfer · Residual RL](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-12) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `residual-rl` |
+| [High-DoF VLA Post-Training｜**VLA post-training** · Low-dimensional hand-action codec · Latent residual RL](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-15) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `residual-rl` |
 | [DexCompose｜Skill composition · Finger action ownership · Residual RL](../manipulation/dexterous/policies/skill-composition.md#am-man-dex-policy-skill-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Skill Learning and Composition | `residual-rl` · `ppo` |
 | [SGS｜RL · Success-guided sampling · Training-reset scheduling](../manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-1) | Manipulation Action Models → Common Methods → RL Training and Exploration | `reinforcement-learning` · `ppo` |
 | [HARBOR｜**Agent-automated RL training** · Staged validation and repair · Parallel tuning and experience reuse](../manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-2) | Manipulation Action Models → Common Methods → RL Training and Exploration | `reinforcement-learning` · `ppo` |

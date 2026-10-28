@@ -8,7 +8,7 @@
 
 主要贡献是服务不同操作平台的可复用评测体系，包括 Coding Agent 与长时序执行基准。记录评测对象、任务、控制接口、评分和预算；区分论文实际评测与后续平台支持，以及跨机械臂与跨手型迁移。附带的数据生成与策略训练在同一条目中说明，不重复收录。
 
-**按主题浏览：** [VLA (13)](../../topics/vla_cn.md) · [强化学习 (20)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../topics/tactile_cn.md) · [手内操作 (4)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../../topics/vla_cn.md) · [强化学习 (21)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.METHOD.BENCH` · 1 篇主分类工作
 

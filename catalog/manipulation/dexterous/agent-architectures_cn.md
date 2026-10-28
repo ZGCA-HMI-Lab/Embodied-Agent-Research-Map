@@ -8,7 +8,7 @@
 
 组织 Agent 完成灵巧手语义理解／数据标注或运行时规划执行的架构。注明 Agent 作用阶段、模块接口、推理与记忆职责及实际抓姿生成器或控制器；区分数据标注与在线控制、低层切换与高层重规划。Agent 协作组织须是实质贡献，不能仅因附带使用 Agent 就归入本类。任务规划、技能编排和失败恢复仍作为可见标签。
 
-**按主题浏览：** [VLA (13)](../../topics/vla_cn.md) · [强化学习 (20)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../topics/tactile_cn.md) · [手内操作 (4)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../../topics/vla_cn.md) · [强化学习 (21)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.AGENT` · 10 篇主分类工作
 

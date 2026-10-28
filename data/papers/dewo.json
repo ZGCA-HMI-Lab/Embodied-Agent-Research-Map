@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.FEEDBACK.3",
+  "slug": "dewo",
+  "short_name": "DEWO",
+  "title": "Direct Experience World-Model Optimization: Learning the World Beyond Action Imitation",
+  "authors": "Xiangcheng Zhan, Zirui Chen, Yicheng Zhao, Ziteng Gao, Shuo Yang",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.LEARNING"
+  ],
+  "tags": [
+    "dexterous",
+    "wam",
+    "post-deployment-learning",
+    "execution-feedback",
+    "action-guidance",
+    "interaction-turning-points",
+    "replay-exploration",
+    "matched-continuations",
+    "success-failure-visual-supervision",
+    "outcome-conditioned-world-model",
+    "successful-action-imitation",
+    "classifier-free-guidance",
+    "progress-gating",
+    "discounted-success-regression",
+    "low-rank-adaptation",
+    "fastwam",
+    "fact",
+    "joint-video-action-modeling",
+    "wuji-hand",
+    "sharpa-hand",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "DEWO 用执行转折点附近的成功／失败视频与成功动作继续训练 WAM，再根据进度反馈，在停滞时触发成功条件引导，调整动作生成。",
+    "en": "DEWO continues WAM training on successful/failed visual futures and successful actions near interaction turning points, then uses progress feedback to activate success-conditioned action guidance when execution stalls."
+  },
+  "evaluation_scope": {
+    "zh": "沿失败轨迹恢复状态并采样后续执行，定位仍有成功机会到采样无成功的边界；有限采样无成功不等于物理不可恢复。真机由人检查失败、恢复可比配置并采样，不是全自动精确回溯。成功片段监督视频与动作，失败片段只监督视频／价值，屏蔽失败动作；按结果加成功／失败条件，不使用成对排序损失。FastWAM 后训练冻结骨干，更新文本交叉注意力 K/V 低秩适配器和价值头；DEWO-S 从视频／动作预训练组件构建 Joint WAM、训练全模型。进度头读取当前观测的分离梯度视频特征，回归折扣成功值；停滞时在生成过程组合普通／成功条件的动作预测场，非 Actor–Critic 更新或生成后关节角残差。FastWAM 仿真预测 32 步、执行 24 步后刷新；执行阶段不更新权重。五项 DexJoCo 任务上 FACT 为 64.5%→81.2%、FastWAM 为 80.7%→82.3%。Wuji／Sharpa 各四物体的真机 R0–R2 共 2,160 次评测，全网格为 20.6%→28.9%；51.0%→71.7% 仅为初始非零的 29 个位置，初始零成功的 43 个位置始终为零。代码、数据及预训练权重开放状态未核实。",
+    "en": "Replay locates sampled recoverability boundaries; zero sampled successes do not prove irrecoverability. Hardware matching requires human diagnosis/restoration. Successes supervise video/actions; failures supervise video/value with action targets masked, without pairwise ranking. FastWAM adaptation freezes the backbone and trains text-attention K/V adapters plus a value head; DEWO-S trains a full Joint WAM from pretrained components. The head regresses discounted success from detached current-observation video features. Stalls trigger base/success-conditioned action-field guidance, not actor–critic updates or post-generation joint residuals. FastWAM simulation predicts 32 actions and executes 24 per replan; execution does not update weights. Five DexJoCo tasks improve FACT from 64.5% to 81.2% and FastWAM from 80.7% to 82.3%. Wuji/Sharpa hardware evaluation covers four objects and 2,160 R0–R2 trials. Full-grid success rises 20.6% to 28.9%; 51.0% to 71.7% applies only to 29 initially nonzero cells, while all 43 initially zero cells remain zero. Code/data/pretrained availability is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.37398v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.37398v1",
+    "https://arxiv.org/html/2609.37398v1"
+  ],
+  "verified_on": "2026-10-27",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Post-deployment WAM learning",
+      "zh": "WAM部署后学习"
+    },
+    {
+      "en": "Success/failure visual supervision",
+      "zh": "成败视觉经验监督"
+    },
+    {
+      "en": "Progress-gated action guidance",
+      "zh": "进度触发动作引导"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-29",
+    "source": "https://arxiv.org/abs/2609.37398v1",
+    "basis": "source"
+  }
+}

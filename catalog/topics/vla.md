@@ -6,9 +6,9 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (13)](vla.md) · [Reinforcement learning (20)](reinforcement-learning.md) · [Touch and contact feedback (12)](tactile.md) · [In-hand manipulation (4)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](vla.md) · [Reinforcement learning (21)](reinforcement-learning.md) · [Touch and contact feedback (13)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
 
-13 records
+14 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
@@ -20,6 +20,7 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [XL-VLA｜Cross-hand transfer · Unified latent action space · VLA](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-6) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [AFCE｜VLA · Joint action–effect representation · Bimanual coordination](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-8) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [DextER｜Contact reasoning · Language-conditioned grasp generation · Autoregressive VLA](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-10) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
+| [High-DoF VLA Post-Training｜**VLA post-training** · Low-dimensional hand-action codec · Latent residual RL](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-15) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` · `vla-fine-tuning` |
 | [AgenticTactileVLA｜VLA · Contact feedback · Online action correction](../manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Execution Feedback and Action Correction | `vla` |
 | [TTP｜VLA · Tactile fusion · Joint action/touch prediction](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `vla` |
 | [EmbodiedSWE｜**Coding Agent evaluation** · Long-horizon manipulation · Demonstration generation](../manipulation/common-methods/cross-platform-benchmarks.md#am-man-method-bench-1) | Manipulation Action Models → Common Methods → Cross-Platform Benchmarks | `vla` |

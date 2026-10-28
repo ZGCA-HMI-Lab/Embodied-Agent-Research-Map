@@ -6,9 +6,9 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (13)](vla_cn.md) · [强化学习 (20)](reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](tactile_cn.md) · [手内操作 (4)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](vla_cn.md) · [强化学习 (21)](reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
 
-12 篇工作
+13 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
@@ -20,6 +20,7 @@
 | [TouchWorld｜**Agent＋VLA** · 触觉世界模型 · 触觉残差修正](../manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-policy-feedback-2) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | `tactile` |
 | [HiFun｜分层RL · 臂手协调 · 人在环学习](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-3) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |
 | [FACT｜WAM · 力—动作联合预测 · 触觉闭环修正](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-4) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |
+| [DexTacWAM｜视触觉WAM · 多指触觉压缩 · 接触演化预测](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-14) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |
 | [AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正](../manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | `contact-estimation` |
 | [TTP｜VLA · 触觉融合 · 动作与触觉联合预测](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |
 | [TacClaw-Infinity｜夹爪示范 · 触觉数据集](../manipulation/grippers/datasets_cn.md#am-man-grip-1) | 操作动作模型 → 夹爪操作模型 → 数据集 | `tactile` |

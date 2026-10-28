@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.15",
+  "slug": "high-dof-vla-post-training",
+  "short_name": "High-DoF VLA Post-Training",
+  "title": "Towards High-DoF Dexterous Manipulation through VLA Post-Training",
+  "authors": "Junlei Zhu, Shenzhe Yao, Chaogui Huang, Wenkai Zhu, Jingwei Peng, Guanqi He, Sören Schwertfeger, Jiahao Chen, Yide Liu",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [
+    "AM.MAN.DEX.POLICY.FEEDBACK"
+  ],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "vla",
+    "vla-post-training",
+    "vla-fine-tuning",
+    "pi-0-5",
+    "temporal-hand-action-codec",
+    "variational-autoencoder",
+    "latent-action-space",
+    "imitation-learning",
+    "dagger",
+    "human-in-the-loop",
+    "smooth-takeover",
+    "residual-rl",
+    "latent-residual-rl",
+    "td3",
+    "rl-token",
+    "frozen-reference-policy",
+    "action-chunking",
+    "in-hand-manipulation",
+    "wuji-hand",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "将手部关节动作编码为低维潜变量，依次进行 VLA 示范微调与平滑人工纠错，再冻结 VLA，通过真机残差 RL 在解码前修正动作，提高灵巧操作可靠性。",
+    "en": "Encode hand motions into low-dimensional latents for VLA demonstration fine-tuning and smooth human corrections, then freeze the VLA and learn real-world RL residuals before decoding to improve dexterous execution."
+  },
+  "evaluation_scope": {
+    "zh": "时序 VAE 将每手 20 维动作压为 9 维，双臂 14 维不压缩，形成 32 维接口；编码器与解码器训练后冻结。π₀.₅ 输入三视角 RGB、指令及本体状态，输出 32 步动作块，解码为 54 维关节命令，执行前 25 步后刷新。DAgger 用 5 秒缓冲回退、接管前姿态对齐和 2 秒命令融合收集纠错数据，再训练 VLA。RL 阶段冻结 VLA、解码器及预训练 RL-token 读出器；TD3 残差网络读取 VLA 特征摘要、关节状态和原动作块，在解码前添加有界修正。人工标记成败，在线更新残差与价值网络，不更新 VLA。双 Tianji 七自由度臂＋双 Wuji 二十自由度手完成拾笔、双手交接、手内转笔、拔笔帽和写字，最终各 20 次评测全成功；仅交接和转笔使用 RL，前者 70%→100%、后者 50%→100%，各用 3,000 个动作块交互，非所有任务均走完四阶段。任务专用策略及局部变化评测，不代表统一五任务策略、跨手或大范围场景泛化。代码、数据及权重开放状态未核实。",
+    "en": "A temporal VAE compresses each hand from 20 to 9 action dimensions while retaining 14 arm dimensions, giving a 32-D interface; the codec is then frozen. π₀.₅ reads three RGB views, instructions and proprioception, predicts 32 frames, decodes 54-D joint commands and executes 25 frames per query. DAgger combines five-second buffered rollback, pose alignment and two-second command blending to collect corrections for VLA retraining. During RL, the VLA, decoder and pretrained RL-token readout remain frozen. A TD3 actor reads summarized VLA features, joint state and the reference chunk to add bounded pre-decoding residuals. Human outcome labels train the actor/critics, not VLA weights. Two 7-DoF Tianji arms with two 20-DoF Wuji hands perform marker pickup, transfer, rotation, uncapping and writing; each final policy succeeds in 20/20 trials. Only transfer and rotation use RL, improving 70%/50% to 100% within 3,000 chunk transitions each; not every task uses every stage. These are task-specific policies with local evaluation variations, not demonstrated unified multi-task, cross-hand or broad scene generalization. Code/data/checkpoint release is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.19666v1",
+    "project": "https://wuji.tech/blog/post-training-0"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.19666v1",
+    "https://arxiv.org/html/2609.19666v1"
+  ],
+  "verified_on": "2026-10-28",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLA post-training",
+      "zh": "VLA后训练",
+      "bold": true
+    },
+    {
+      "en": "Low-dimensional hand-action codec",
+      "zh": "低维手部动作编码"
+    },
+    {
+      "en": "Latent residual RL",
+      "zh": "潜空间残差RL"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-17",
+    "source": "https://arxiv.org/abs/2609.19666v1",
+    "basis": "source"
+  }
+}

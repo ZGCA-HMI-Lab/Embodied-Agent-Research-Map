@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Learn reusable skills, skill structure, inter-skill transitions and sequential composition. Record how the skill order is obtained, how transitions depend on the next skill, and how completion triggers switching. Executing a given sequence does not establish autonomous task planning or generalization to unseen orders; human-video learning remains a method tag.
 
-**Browse by topic：** [VLA (13)](../../../topics/vla.md) · [Reinforcement learning (20)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (12)](../../../topics/tactile.md) · [In-hand manipulation (4)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../../../topics/vla.md) · [Reinforcement learning (21)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.POLICY.SKILL` · 2 primary records
 

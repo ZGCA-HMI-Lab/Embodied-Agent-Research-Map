@@ -2246,6 +2246,92 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.FEEDBACK.3",
+      "slug": "dewo",
+      "short_name": "DEWO",
+      "title": "Direct Experience World-Model Optimization: Learning the World Beyond Action Imitation",
+      "authors": "Xiangcheng Zhan, Zirui Chen, Yicheng Zhao, Ziteng Gao, Shuo Yang",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.LEARNING"
+      ],
+      "tags": [
+        "dexterous",
+        "wam",
+        "post-deployment-learning",
+        "execution-feedback",
+        "action-guidance",
+        "interaction-turning-points",
+        "replay-exploration",
+        "matched-continuations",
+        "success-failure-visual-supervision",
+        "outcome-conditioned-world-model",
+        "successful-action-imitation",
+        "classifier-free-guidance",
+        "progress-gating",
+        "discounted-success-regression",
+        "low-rank-adaptation",
+        "fastwam",
+        "fact",
+        "joint-video-action-modeling",
+        "wuji-hand",
+        "sharpa-hand",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DEWO 用执行转折点附近的成功／失败视频与成功动作继续训练 WAM，再根据进度反馈，在停滞时触发成功条件引导，调整动作生成。",
+        "en": "DEWO continues WAM training on successful/failed visual futures and successful actions near interaction turning points, then uses progress feedback to activate success-conditioned action guidance when execution stalls."
+      },
+      "evaluation_scope": {
+        "zh": "沿失败轨迹恢复状态并采样后续执行，定位仍有成功机会到采样无成功的边界；有限采样无成功不等于物理不可恢复。真机由人检查失败、恢复可比配置并采样，不是全自动精确回溯。成功片段监督视频与动作，失败片段只监督视频／价值，屏蔽失败动作；按结果加成功／失败条件，不使用成对排序损失。FastWAM 后训练冻结骨干，更新文本交叉注意力 K/V 低秩适配器和价值头；DEWO-S 从视频／动作预训练组件构建 Joint WAM、训练全模型。进度头读取当前观测的分离梯度视频特征，回归折扣成功值；停滞时在生成过程组合普通／成功条件的动作预测场，非 Actor–Critic 更新或生成后关节角残差。FastWAM 仿真预测 32 步、执行 24 步后刷新；执行阶段不更新权重。五项 DexJoCo 任务上 FACT 为 64.5%→81.2%、FastWAM 为 80.7%→82.3%。Wuji／Sharpa 各四物体的真机 R0–R2 共 2,160 次评测，全网格为 20.6%→28.9%；51.0%→71.7% 仅为初始非零的 29 个位置，初始零成功的 43 个位置始终为零。代码、数据及预训练权重开放状态未核实。",
+        "en": "Replay locates sampled recoverability boundaries; zero sampled successes do not prove irrecoverability. Hardware matching requires human diagnosis/restoration. Successes supervise video/actions; failures supervise video/value with action targets masked, without pairwise ranking. FastWAM adaptation freezes the backbone and trains text-attention K/V adapters plus a value head; DEWO-S trains a full Joint WAM from pretrained components. The head regresses discounted success from detached current-observation video features. Stalls trigger base/success-conditioned action-field guidance, not actor–critic updates or post-generation joint residuals. FastWAM simulation predicts 32 actions and executes 24 per replan; execution does not update weights. Five DexJoCo tasks improve FACT from 64.5% to 81.2% and FastWAM from 80.7% to 82.3%. Wuji/Sharpa hardware evaluation covers four objects and 2,160 R0–R2 trials. Full-grid success rises 20.6% to 28.9%; 51.0% to 71.7% applies only to 29 initially nonzero cells, while all 43 initially zero cells remain zero. Code/data/pretrained availability is unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.37398v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.37398v1",
+        "https://arxiv.org/html/2609.37398v1"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Post-deployment WAM learning",
+          "zh": "WAM部署后学习"
+        },
+        {
+          "en": "Success/failure visual supervision",
+          "zh": "成败视觉经验监督"
+        },
+        {
+          "en": "Progress-gated action guidance",
+          "zh": "进度触发动作引导"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-29",
+        "source": "https://arxiv.org/abs/2609.37398v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DEWO｜Post-deployment WAM learning · Success/failure visual supervision · Progress-gated action guidance",
+        "zh": "DEWO｜WAM部署后学习 · 成败视觉经验监督 · 进度触发动作引导"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback.md#am-man-dex-policy-feedback-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-policy-feedback-3"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.LEARNING.1",
       "slug": "egojepa",
       "short_name": "EgoJEPA",
@@ -3057,6 +3143,275 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-12",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-12"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.13",
+      "slug": "lima",
+      "short_name": "LiMA",
+      "title": "LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion",
+      "authors": "Ning Chen, Yankai Fu, Junkai Zhao, Qianpu Sun, Guocai Yao, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.FEEDBACK"
+      ],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "wam",
+        "asynchronous-dual-system",
+        "multi-rate-generation",
+        "future-visual-intent",
+        "coarse-action-prior",
+        "latent-schrodinger-bridge",
+        "i2sb",
+        "spatiotemporal-adaptive-modulation",
+        "observation-conditioned-action-refinement",
+        "joint-video-action-generation",
+        "diffusion-transformer",
+        "supervised-imitation-learning",
+        "boundary-noise-injection",
+        "action-chunking",
+        "long-horizon-manipulation",
+        "cosmos-predict2",
+        "sharpa-wave",
+        "ur5",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "LiMA 用慢速世界动作模型预测未来视觉与粗动作，再以其潜变量作为快速扩散模型的起点，结合最新观测细化双臂双手动作，并通过不同刷新频率减少长程预测对执行的等待。",
+        "en": "LiMA uses a slow world-action model to predict future visuals and coarse actions, initializes fast diffusion refinement from these latents, and incorporates fresh observations to generate arm–hand actions while refreshing long-horizon foresight less frequently."
+      },
+      "evaluation_scope": {
+        "zh": "慢层 Future Dreamer 由 Cosmos-Predict2-2B 微调，输入三视角图像和指令，输出未来多视角视觉潜变量及粗动作先验；快层 Motion Refiner 是从头训练的 1B Transformer，读取先验、最新视觉和关节状态，输出近期动作块与主视角未来潜变量。I2SB 以慢层先验和示范执行潜变量为桥两端，训练快层恢复干净执行潜变量；未来视觉还通过仿射调制作用于实时视觉。两层联合监督训练，加边界噪声增强，无 RL；细化发生在生成潜空间，非独立失败检测或直接叠加关节残差。每四次快层更新刷新一次慢层，其间复用缓存并更新观测；不能把频率解耦等同于已实现多 GPU 并行。双 UR5＋双 22 自由度 SharpaWave、三台 D435；六项任务各 100 条遥操作示范、20 次主评测，平均任务成功率 70.8%。H100 上 325 ms 是生成 32 步动作块的摊销延迟，含慢层开销，较 Cosmos-Policy 的 600 ms 降低 45.8%，不是单步控制延迟。未验证跨手迁移或触觉闭环；代码、数据及预训练权重开放状态未核实。",
+        "en": "Cosmos-Predict2-2B initializes the slow Dreamer: three camera views/instructions yield future visual latents and coarse actions. A scratch-trained 1B Refiner consumes these priors plus fresh vision/joint state to generate near-term action chunks and future ego-view latents. I2SB bridges intent and demonstrated execution latents; imagined visuals also modulate live features. Joint supervised training uses boundary-noise injection, without RL. Refinement is generative, not separate failure detection or additive joint residuals. The Dreamer refreshes every four Refiner updates; cached priors do not establish multi-GPU parallelism. Dual UR5s, two 22-DoF SharpaWave hands and three D435s support six tasks, each with 100 teleoperation demonstrations and 20 main evaluation trials; average success is 70.8%. H100 latency of 325 ms amortizes Dreamer overhead per 32-action chunk, 45.8% below Cosmos-Policy's 600 ms, not per-action latency. Cross-hand transfer, tactile feedback and code/data/pretrained releases are unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.28431v1",
+        "project": "https://ccdcs.github.io/LiMA_repo/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.28431v1",
+        "https://arxiv.org/html/2609.28431v1",
+        "https://ccdcs.github.io/LiMA_repo/"
+      ],
+      "verified_on": "2026-10-27",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Asynchronous dual-system WAM",
+          "zh": "异步双系统WAM"
+        },
+        {
+          "en": "Latent diffusion bridge",
+          "zh": "潜空间扩散桥"
+        },
+        {
+          "en": "Live-observation action refinement",
+          "zh": "实时观测动作细化"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-23",
+        "source": "https://arxiv.org/abs/2609.28431v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "LiMA｜Asynchronous dual-system WAM · Latent diffusion bridge · Live-observation action refinement",
+        "zh": "LiMA｜异步双系统WAM · 潜空间扩散桥 · 实时观测动作细化"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-13",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-13"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.14",
+      "slug": "dextacwam",
+      "short_name": "DexTacWAM",
+      "title": "DexTacWAM: A Visuo-Tactile World-Action Model for Dexterous Manipulation",
+      "authors": "Haoran Yuan, Zekai Wang, Boning Shao, Haoran Lu, Trevor Darrell, Ismini Lourentzou, Wei Zhan",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "wam",
+        "tactile",
+        "visuo-tactile-world-model",
+        "future-tactile-prediction",
+        "contact-dynamics",
+        "finger-and-pose-aware-compression",
+        "predictive-feature-action-generation",
+        "modality-wise-kv-normalization",
+        "continual-vision-to-touch-learning",
+        "flow-matching",
+        "imitation-learning",
+        "action-chunking",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "DexTacWAM 将十指触觉压缩为双手潜变量，与视觉联合预测接触演化，再让动作专家读取预测性视触觉特征，生成机械臂相对位姿与手部动作。",
+        "en": "DexTacWAM compresses ten fingertip streams into two hand latents, jointly models visual and tactile contact evolution, and conditions an action expert on predictive visuo-tactile features to generate relative arm poses and hand actions."
+      },
+      "evaluation_scope": {
+        "zh": "逐指复用冻结视觉 VAE，结合手指身份、手部姿态与时序，将每手五路触觉压为一路；动作专家对视觉／触觉 K/V 分别归一化后交叉注意。训练依次为 488 条多样交互适配触觉编码器、每任务约 100 条示范微调视触觉世界模型、同批示范联合训练世界模型和新动作专家，无 RL；约四小时指采集数据量，不是训练耗时。部署由世界模型单次前向提供预测特征，无需完整生成未来视频或搜索候选轨迹。194 维训练目标含臂手动作、逐指力与下一本体状态预测，不等于 194 个关节；力仅作训练监督，非部署力输入或已验证的直接力控制。双 Sharpa Wave 手平台六项真机任务：遮挡放块、双手交接、双手擦拭、夹具夹番茄、拆叠碗、拧瓶盖，各方法每项 20 次；70.6 为含分阶段计分的平均任务得分。四任务控制消融移除触觉世界预测后，得分从 74.7 降至 26.6。世界模型与动作专家按任务训练，未验证跨手迁移。官方仓库提供训练／部署代码、488 条语料及六任务数据和触觉编码器权重，明确未发布任务专用世界模型与动作专家权重。",
+        "en": "A frozen visual VAE encodes each fingertip; finger identity, hand pose and temporal refinement compress five streams per hand into one latent. The action expert separately normalizes visual/tactile K/V before cross-attention. Training adapts the tactile encoder on 488 interactions, finetunes the world model on about 100 demonstrations per task, then jointly trains it and a new action expert on those demonstrations, without RL. Roughly four hours refers to recorded data, not training time. Deployment uses one world-model forward pass for predictive features, without fully rendering futures or searching trajectories. The 194-D target includes arm/hand actions, finger-force and next-proprioception predictions, not 194 joints; forces are training supervision, not deployment inputs or demonstrated direct force control. Six real-robot tasks on a dual-Sharpa-Wave platform cover occluded cube placement, handover, wiping, tongs/tomato transfer, bowl unstacking and cap unscrewing, with 20 trials per method/task. The 70.6 average mixes binary and staged scores. Removing tactile world prediction drops the controlled four-task mean from 74.7 to 26.6. Models are trained per task; cross-hand transfer is untested. The official repository provides training/deployment code, the 488-episode corpus, six task datasets and tactile-encoder weights, explicitly excluding task-specific world-model and action-expert checkpoints."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.24976v1",
+        "project": "https://dextacwam.github.io/",
+        "code": "https://github.com/dextacwam/DexTacWAM",
+        "data": "https://huggingface.co/collections/JensenYuan/dextacwam",
+        "assets": "https://huggingface.co/JensenYuan/DexTacWAM_multi_finger_tactile_encoder"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.24976v1",
+        "https://arxiv.org/html/2609.24976v1",
+        "https://dextacwam.github.io/",
+        "https://github.com/dextacwam/DexTacWAM",
+        "https://huggingface.co/collections/JensenYuan/dextacwam",
+        "https://huggingface.co/JensenYuan/DexTacWAM_multi_finger_tactile_encoder"
+      ],
+      "verified_on": "2026-10-28",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Visuo-tactile WAM",
+          "zh": "视触觉WAM"
+        },
+        {
+          "en": "Multi-finger tactile compression",
+          "zh": "多指触觉压缩"
+        },
+        {
+          "en": "Contact evolution prediction",
+          "zh": "接触演化预测"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-21",
+        "source": "https://arxiv.org/abs/2609.24976v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexTacWAM｜Visuo-tactile WAM · Multi-finger tactile compression · Contact evolution prediction",
+        "zh": "DexTacWAM｜视触觉WAM · 多指触觉压缩 · 接触演化预测"
+      },
+      "topics": [
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-14",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-14"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.15",
+      "slug": "high-dof-vla-post-training",
+      "short_name": "High-DoF VLA Post-Training",
+      "title": "Towards High-DoF Dexterous Manipulation through VLA Post-Training",
+      "authors": "Junlei Zhu, Shenzhe Yao, Chaogui Huang, Wenkai Zhu, Jingwei Peng, Guanqi He, Sören Schwertfeger, Jiahao Chen, Yide Liu",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [
+        "AM.MAN.DEX.POLICY.FEEDBACK"
+      ],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "vla",
+        "vla-post-training",
+        "vla-fine-tuning",
+        "pi-0-5",
+        "temporal-hand-action-codec",
+        "variational-autoencoder",
+        "latent-action-space",
+        "imitation-learning",
+        "dagger",
+        "human-in-the-loop",
+        "smooth-takeover",
+        "residual-rl",
+        "latent-residual-rl",
+        "td3",
+        "rl-token",
+        "frozen-reference-policy",
+        "action-chunking",
+        "in-hand-manipulation",
+        "wuji-hand",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "将手部关节动作编码为低维潜变量，依次进行 VLA 示范微调与平滑人工纠错，再冻结 VLA，通过真机残差 RL 在解码前修正动作，提高灵巧操作可靠性。",
+        "en": "Encode hand motions into low-dimensional latents for VLA demonstration fine-tuning and smooth human corrections, then freeze the VLA and learn real-world RL residuals before decoding to improve dexterous execution."
+      },
+      "evaluation_scope": {
+        "zh": "时序 VAE 将每手 20 维动作压为 9 维，双臂 14 维不压缩，形成 32 维接口；编码器与解码器训练后冻结。π₀.₅ 输入三视角 RGB、指令及本体状态，输出 32 步动作块，解码为 54 维关节命令，执行前 25 步后刷新。DAgger 用 5 秒缓冲回退、接管前姿态对齐和 2 秒命令融合收集纠错数据，再训练 VLA。RL 阶段冻结 VLA、解码器及预训练 RL-token 读出器；TD3 残差网络读取 VLA 特征摘要、关节状态和原动作块，在解码前添加有界修正。人工标记成败，在线更新残差与价值网络，不更新 VLA。双 Tianji 七自由度臂＋双 Wuji 二十自由度手完成拾笔、双手交接、手内转笔、拔笔帽和写字，最终各 20 次评测全成功；仅交接和转笔使用 RL，前者 70%→100%、后者 50%→100%，各用 3,000 个动作块交互，非所有任务均走完四阶段。任务专用策略及局部变化评测，不代表统一五任务策略、跨手或大范围场景泛化。代码、数据及权重开放状态未核实。",
+        "en": "A temporal VAE compresses each hand from 20 to 9 action dimensions while retaining 14 arm dimensions, giving a 32-D interface; the codec is then frozen. π₀.₅ reads three RGB views, instructions and proprioception, predicts 32 frames, decodes 54-D joint commands and executes 25 frames per query. DAgger combines five-second buffered rollback, pose alignment and two-second command blending to collect corrections for VLA retraining. During RL, the VLA, decoder and pretrained RL-token readout remain frozen. A TD3 actor reads summarized VLA features, joint state and the reference chunk to add bounded pre-decoding residuals. Human outcome labels train the actor/critics, not VLA weights. Two 7-DoF Tianji arms with two 20-DoF Wuji hands perform marker pickup, transfer, rotation, uncapping and writing; each final policy succeeds in 20/20 trials. Only transfer and rotation use RL, improving 70%/50% to 100% within 3,000 chunk transitions each; not every task uses every stage. These are task-specific policies with local evaluation variations, not demonstrated unified multi-task, cross-hand or broad scene generalization. Code/data/checkpoint release is unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.19666v1",
+        "project": "https://wuji.tech/blog/post-training-0"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.19666v1",
+        "https://arxiv.org/html/2609.19666v1"
+      ],
+      "verified_on": "2026-10-28",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "VLA post-training",
+          "zh": "VLA后训练",
+          "bold": true
+        },
+        {
+          "en": "Low-dimensional hand-action codec",
+          "zh": "低维手部动作编码"
+        },
+        {
+          "en": "Latent residual RL",
+          "zh": "潜空间残差RL"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-17",
+        "source": "https://arxiv.org/abs/2609.19666v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "High-DoF VLA Post-Training｜VLA post-training · Low-dimensional hand-action codec · Latent residual RL",
+        "zh": "High-DoF VLA Post-Training｜VLA后训练 · 低维手部动作编码 · 潜空间残差RL"
+      },
+      "topics": [
+        "vla",
+        "reinforcement-learning",
+        "in-hand-manipulation"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-15",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-15"
       },
       "notes_urls": {}
     },

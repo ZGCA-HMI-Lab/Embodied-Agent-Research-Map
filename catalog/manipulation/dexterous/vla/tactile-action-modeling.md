@@ -48,6 +48,18 @@
 
 [CHORD [AM.MAN.DEX.POLICY.LEARNING.12]](../policies/policy-learning.md#am-man-dex-policy-learning-12)
 
+<a id="am-man-dex-policy-learning-13"></a>
+
+[LiMA [AM.MAN.DEX.POLICY.LEARNING.13]](../policies/policy-learning.md#am-man-dex-policy-learning-13)
+
+<a id="am-man-dex-policy-learning-14"></a>
+
+[DexTacWAM [AM.MAN.DEX.POLICY.LEARNING.14]](../policies/policy-learning.md#am-man-dex-policy-learning-14)
+
+<a id="am-man-dex-policy-learning-15"></a>
+
+[High-DoF VLA Post-Training [AM.MAN.DEX.POLICY.LEARNING.15]](../policies/policy-learning.md#am-man-dex-policy-learning-15)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning.md#am-man-dex-vla-tactile-1)

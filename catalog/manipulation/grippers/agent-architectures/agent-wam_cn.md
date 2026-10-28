@@ -8,7 +8,7 @@
 
 Agent 提供子任务、目标或操作条件，由 VLA、WAM、扩散策略或 RL 策略等学习式执行器生成动作。记录实际动作模型、训练与适配要求、规划与记忆职责、反馈及失败恢复；模型类型作为可见标签，保留历史分类码与目录路径。
 
-**按主题浏览：** [VLA (13)](../../../topics/vla_cn.md) · [强化学习 (20)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (12)](../../../topics/tactile_cn.md) · [手内操作 (4)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../../../topics/vla_cn.md) · [强化学习 (21)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.GRIP.AGENT.WAM` · 2 篇主分类工作
 

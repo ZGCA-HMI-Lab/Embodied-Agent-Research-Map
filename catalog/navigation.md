@@ -8,7 +8,7 @@ Navigation Action Models
 
 Includes point-goal, object-goal, and language-guided navigation, exploration, and navigation trajectory generation. The focus is reaching or finding a target using environmental observations; locomotion execution can be linked as a related area.
 
-**Browse by topic：** [VLA (13)](topics/vla.md) · [Reinforcement learning (20)](topics/reinforcement-learning.md) · [Touch and contact feedback (12)](topics/tactile.md) · [In-hand manipulation (4)](topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](topics/vla.md) · [Reinforcement learning (21)](topics/reinforcement-learning.md) · [Touch and contact feedback (13)](topics/tactile.md) · [In-hand manipulation (5)](topics/in-hand-manipulation.md)
 
 `AM.NAV` · 0 primary records
 

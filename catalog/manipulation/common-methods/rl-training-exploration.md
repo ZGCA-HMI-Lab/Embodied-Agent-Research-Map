@@ -8,7 +8,7 @@ Manipulation Action Models → Common Methods → RL Training and Exploration
 
 Reusable RL training mechanisms and workflow automation, including curriculum learning, task/reset sampling, exploration allocation and Agent-driven training development. Record training changes, configuration sources, policy optimizers, evaluated embodiments and deployment policies. Distinguish training-time Agents from runtime control architectures; sampling existing resets does not generate new configurations.
 
-**Browse by topic：** [VLA (13)](../../topics/vla.md) · [Reinforcement learning (20)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (12)](../../topics/tactile.md) · [In-hand manipulation (4)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (21)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.METHOD.RL` · 2 primary records
 

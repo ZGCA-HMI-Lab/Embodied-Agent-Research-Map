@@ -8,7 +8,7 @@ Manipulation Action Models → Common Methods → Cross-Platform Benchmarks
 
 Benchmarks whose main contribution is reusable evaluation across manipulation platforms, including coding agents and long-horizon execution. Record the evaluated systems, tasks, controller access, grading and budgets; distinguish paper evaluations from later platform support and cross-arm transfer from cross-hand transfer. Data generation and policy training remain secondary contributions within one record.
 
-**Browse by topic：** [VLA (13)](../../topics/vla.md) · [Reinforcement learning (20)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (12)](../../topics/tactile.md) · [In-hand manipulation (4)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (21)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.METHOD.BENCH` · 1 primary records
 
