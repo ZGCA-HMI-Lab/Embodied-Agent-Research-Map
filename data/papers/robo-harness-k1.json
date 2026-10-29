@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.ICL.5",
+  "slug": "robo-harness-k1",
+  "short_name": "Robo-Harness K1",
+  "title": "Robo-Harness K1: Harnessing Robot-Use Agents via Perception Augmentation",
+  "authors": "Zexi Li, Yehang Zhang, Wenqian Li, Haojian Huang, Chenxu Wang, Shiyuan Deng, Yangkai Wei, Tianyi Zhang, Binghui Xie, Bohan Zhou, Yifan Chang, Kaiwen Zhou, Ying-Cong Chen, James Cheng, Yinchuan Li",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.ICL",
+  "related_categories": [],
+  "tags": [
+    "gripper",
+    "agent-architecture",
+    "vlm",
+    "tool-use",
+    "perception-augmentation",
+    "rgb-d",
+    "metric-spatial-measurement",
+    "persistent-visual-anchors",
+    "grasp-hypotheses",
+    "execution-feedback",
+    "failure-recovery",
+    "cross-arm-transfer",
+    "bimanual",
+    "tool-call-distillation",
+    "supervised-fine-tuning",
+    "lora",
+    "simulation",
+    "libero-pro",
+    "robosuite",
+    "robotwin"
+  ],
+  "tldr": {
+    "zh": "Robo-Harness K1 将目标分割、标定深度测量、锚点跟踪和候选抓姿封装成可查询工具，让 VLM 根据返回的三维证据选择运动与夹爪指令，并用教师工具调用轨迹训练小模型。",
+    "en": "Robo-Harness K1 packages target segmentation, calibrated depth measurements, anchor tracking and grasp hypotheses as queryable tools; a VLM uses the returned 3D evidence to select motions and gripper commands, while teacher tool-call traces train a smaller model."
+  },
+  "evaluation_scope": {
+    "zh": "Agent 输入指令、RGB、末端／夹爪状态和交互历史，输出一个工具名及参数。SAM3 提供区域，标定深度提供三维测量，TAPNext++ 跟踪锚点，GraspGen 提供候选夹爪位姿；结果以图像标注和结构化记录返回，无需修改 VLM 架构或训练深度编码器，候选抓姿不保证无碰撞或抓取成功。感知查询不推进仿真；运动工具通过原生控制器执行相对位移、目标位姿或夹爪开合，并返回实际运动／残差及新图像。前沿模型执行时冻结权重，反馈改变上下文与后续调用。小模型 Qwen3.5-9B 冻结视觉编码器，以 rank-16 语言 LoRA 监督学习工具调用及简短决策说明；107 条教师成功轨迹、43 个条件，过滤后 2,482 个训练目标，无 RL 或专用动作头，部署仍依赖工具。实验均为仿真 LIBERO-PRO、RoboSuite、RoboTwin，无真机；RoboSuite 的 Panda／UR5e／IIWA 均用 PandaGripper（擦拭任务附加海绵），属于跨机械臂，未验证灵巧手。LIBERO-PRO 完整评测 139/180＝77.2%；77.8%／88.9% 对比 RGB 的 61.1% 来自仅 18 例匹配子集，感知、记忆、运动和完成接口同时变化，不能归因于深度单项。学生新初态 19/43＝44.2%，留出任务条件 5/36＝13.9%，不等同于全新技能。官方 MIT 仓库公开代码、配置和训练接口，支持 LIBERO-Pro／RoboSuite；未包含数据集、教师轨迹、训练权重或第三方仿真器，需另备数据、基座与依赖。",
+    "en": "The agent reads instructions, RGB, TCP/gripper state and history, emitting one tool name with arguments. SAM3 supplies regions, calibrated depth metric geometry, TAPNext++ tracked anchors and GraspGen grasp hypotheses. Overlays and structured receipts expose evidence without VLM architecture changes or a trained depth encoder; grasp proposals guarantee neither collision-free motion nor success. Perception queries do not advance simulation. Motion tools execute relative displacements, target poses or gripper commands through native controllers, returning actual motion/residuals and fresh images. Frozen frontier models update context and calls, not weights. Qwen3.5-9B freezes vision and uses rank-16 language LoRA to supervise tool calls and short decision notes: 107 successful teacher episodes, 43 conditions and 2,482 filtered targets; no RL or dedicated action head, and deployment still needs tools. All experiments use simulated LIBERO-PRO, RoboSuite and RoboTwin, without real robots. RoboSuite Panda/UR5e/IIWA share PandaGripper, with an attached sponge for wiping: cross-arm transfer, not dexterous-hand validation. Full LIBERO-PRO achieves 139/180 (77.2%). Headline 77.8%/88.9% versus RGB-only 61.1% covers only 18 matched cases and jointly changes perception, memory, motion and completion interfaces, not depth alone. Student results are 19/43 (44.2%) on new states and 5/36 (13.9%) on held-out task conditions, not necessarily new skills. The MIT release provides code, configurations and training interfaces for LIBERO-Pro/RoboSuite; datasets, teacher recordings, trained weights and third-party simulators are not included and require separate inputs/dependencies."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.29389v1",
+    "project": "https://robo-harness.github.io/k1/",
+    "code": "https://github.com/Robo-Harness/k1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.29389v1",
+    "https://arxiv.org/html/2609.29389v1",
+    "https://robo-harness.github.io/k1/",
+    "https://github.com/Robo-Harness/k1"
+  ],
+  "verified_on": "2026-10-29",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent + perception tools",
+      "zh": "Agent＋感知工具",
+      "bold": true
+    },
+    {
+      "en": "3D measurement and anchors",
+      "zh": "三维测量与锚点"
+    },
+    {
+      "en": "Tool-call distillation",
+      "zh": "工具调用蒸馏"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-24",
+    "source": "https://arxiv.org/abs/2609.29389v1",
+    "basis": "source"
+  }
+}

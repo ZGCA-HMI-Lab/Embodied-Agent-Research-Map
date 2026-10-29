@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.ICL.3",
+  "slug": "vlcp",
+  "short_name": "VLCP",
+  "title": "VLCP: Vision Language Control Policy Closed-Loop Code Replanning for Robot Manipulation",
+  "authors": "Dhia Naouali, Minghan Wu, Claudia Wong, Abhinav Puthran, Omar G. Younis",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.ICL",
+  "related_categories": [],
+  "tags": [
+    "gripper",
+    "agent-architecture",
+    "coding-agent",
+    "code-as-policy",
+    "runtime-programming",
+    "within-episode-code-rewriting",
+    "execution-feedback",
+    "failure-recovery",
+    "dual-loop-feedback",
+    "multi-view-visual-feedback",
+    "state-delta-conditioning",
+    "jacobian-based-control",
+    "joint-position-control",
+    "persistent-skill-library",
+    "prompt-caching",
+    "training-free",
+    "privileged-object-poses",
+    "franka-panda",
+    "simulation"
+  ],
+  "tldr": {
+    "zh": "VLCP 让固定权重的 VLM 每 50 步根据前后图像、状态变化和执行记录重写控制函数，再由该函数逐步生成关节目标，在同一次执行中修正抓取与运动错误。",
+    "en": "VLCP re-queries a frozen VLM every 50 steps to rewrite a control function from before/after images, state changes and execution traces; the function generates joint targets step by step to correct grasping and motion errors within the same episode."
+  },
+  "evaluation_scope": {
+    "zh": "慢层 GPT-5.5 读取双视角 RGB、本体状态、仿真物体位姿及上轮代码／动作记录，生成下一段 control(obs, J)；快层每步读取新状态和解析雅可比，输出关节位置目标，由 PD 控制器执行。反馈改写程序，不更新模型权重，无 RL 或示范微调；提示仍包含接口与 3 个控制代码示例。MuJoCo／RoboVerse 中的 Franka Panda 七自由度臂＋平行夹爪，57 项任务（10 物体拾取、30 厨房、17 客厅）各跑一次、每次最多 500 步；定期重写为 20/57（35.1%），仅首次生成代码为 2/57（3.5%），后者的固定代码仍逐步接收状态，不能称为完全无反馈。额外日志中，55 次出现失败抓取的回合有 15 次后来重新抓起物体（27.3%），不等于完整任务恢复成功率。辅助模块可跨回合保存并回填提示，但主对照每任务清空技能库，未据此验证跨任务累积收益。重规划中位耗时 18.8 秒，未验证真机、跨手或无特权位姿的视觉部署；代码、数据和权重开放状态未核实。",
+    "en": "Slow GPT-5.5 reads two RGB views, proprioception, simulator object poses and previous code/action traces to generate control(obs, J). The fast loop reads fresh state and an analytic Jacobian each step, emitting joint-position targets for PD execution. Feedback changes code, not model weights; no RL or demonstration fine-tuning, but prompts include APIs and three control-code examples. MuJoCo/RoboVerse Franka Panda with a parallel gripper runs 57 tasks once each: 10 object picks, 30 kitchen and 17 living-room tasks, with 500-step horizons. Rewriting yields 20/57 (35.1%) versus 2/57 (3.5%) for one-time code generation; the latter still receives per-step state feedback. In additional logs, 15 of 55 episodes containing failed grasps later lift the object (27.3%), not necessarily complete the task. Helpers persist across episodes, but the main comparison resets the library per task and does not establish cumulative transfer gains. Median replanning latency is 18.8 seconds. Real robots, cross-hand transfer and deployment without privileged poses are untested; code/data/weight release is unverified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2608.16978v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2608.16978v1",
+    "https://arxiv.org/html/2608.16978v1"
+  ],
+  "verified_on": "2026-10-28",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent + code control",
+      "zh": "Agent＋代码控制",
+      "bold": true
+    },
+    {
+      "en": "Within-episode code rewriting",
+      "zh": "执行中重写控制代码"
+    },
+    {
+      "en": "Dual feedback loops",
+      "zh": "双层反馈循环"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-08-17",
+    "source": "https://arxiv.org/abs/2608.16978v1",
+    "basis": "source"
+  }
+}

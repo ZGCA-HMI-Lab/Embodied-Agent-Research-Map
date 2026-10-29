@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Architectures organizing Agents for dexterous semantic understanding/data annotation or runtime planning and execution. Specify the Agent stage, inter-module interfaces, reasoning/memory responsibilities and actual grasp generator or controller. Distinguish annotation from online control and low-level switching from high-level replanning. Agent collaboration must be a substantive contribution; incidental Agent use does not determine placement. Task planning, skill composition and recovery remain visible tags.
 
-**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (21)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (22)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.AGENT` · 10 primary records
 

@@ -7,3 +7,7 @@
 <a id="am-man-grip-1"></a>
 
 [TacClaw-Infinity [AM.MAN.GRIP.1]](grippers/datasets_cn.md#am-man-grip-1)
+
+<a id="am-man-grip-bench-1"></a>
+
+[CaP-X [AM.MAN.GRIP.BENCH.1]](grippers/datasets_cn.md#am-man-grip-bench-1)

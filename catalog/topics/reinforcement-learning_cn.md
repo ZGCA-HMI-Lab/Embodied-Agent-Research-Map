@@ -6,9 +6,9 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (14)](vla_cn.md) · [强化学习 (21)](reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](vla_cn.md) · [强化学习 (22)](reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
 
-21 篇工作
+22 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
@@ -25,6 +25,7 @@
 | [CHORD｜接触力旋量引导 · 人类示范迁移 · 残差RL](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-12) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `reinforcement-learning` · `residual-rl` |
 | [High-DoF VLA Post-Training｜**VLA后训练** · 低维手部动作编码 · 潜空间残差RL](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-15) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `residual-rl` |
 | [DexCompose｜技能组合 · 手指控制权分配 · 残差RL](../manipulation/dexterous/policies/skill-composition_cn.md#am-man-dex-policy-skill-2) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 技能学习与组合 | `residual-rl` · `ppo` |
+| [CaP-X｜**Coding Agent** · 接口抽象层级评测 · 代码生成后训练](../manipulation/grippers/datasets_cn.md#am-man-grip-bench-1) | 操作动作模型 → 夹爪操作模型 → 数据集与评测基准 | `reinforcement-learning` |
 | [SGS｜RL · 成功率引导采样 · 训练起点调度](../manipulation/common-methods/rl-training-exploration_cn.md#am-man-method-rl-1) | 操作动作模型 → 共性方法 → 强化学习训练与探索 | `reinforcement-learning` · `ppo` |
 | [HARBOR｜**Agent自动化RL训练** · 分阶段检查与修复 · 并行调参与经验复用](../manipulation/common-methods/rl-training-exploration_cn.md#am-man-method-rl-2) | 操作动作模型 → 共性方法 → 强化学习训练与探索 | `reinforcement-learning` · `ppo` |
 | [WBD｜RL专家蒸馏 · 扩散策略 · 指令细化](../whole-body-control/arm-torso-manipulation_cn.md#am-wbc-arm-torso-1) | 身体运动与全身控制模型 → 双臂与躯干协同操作 | `reinforcement-learning` · `ppo` |

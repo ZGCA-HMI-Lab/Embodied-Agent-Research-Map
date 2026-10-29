@@ -11,16 +11,16 @@
           "name_zh": "夹爪操作模型",
           "children": [
             {
-              "name": "Datasets",
-              "name_zh": "数据集",
+              "name": "Datasets and Benchmarks",
+              "name_zh": "数据集与评测基准",
               "code": "AM.MAN.GRIP.DATASET",
               "children": [],
               "catalog_path": "manipulation/grippers/datasets",
               "catalog_aliases": [
                 "manipulation/grippers"
               ],
-              "description": "Datasets for gripper manipulation, including single-arm and bimanual collection. Record acquisition hardware and processing methods alongside the dataset; distinguish reported collection scale from public releases.",
-              "description_zh": "服务于夹爪操作学习的数据集，包括单臂和双臂采集。采集硬件与处理方法随数据集记录，区分论文报告规模和实际公开范围。"
+              "description": "Reusable datasets, task environments and evaluation protocols for gripper manipulation, including single-arm, bimanual and mobile platforms. Use kind to distinguish datasets from benchmarks; record hardware, task coverage, paired cross-effector evidence and actual releases. Evaluating Coding Agents does not by itself make a benchmark an Agent Architecture; multiple robot platforms do not establish dexterous-hand validation. Retain the historical category code and catalog path.",
+              "description_zh": "面向夹爪操作的可复用数据集、任务环境与评测协议，包括单臂、双臂和移动平台。用 kind 区分数据集与基准，记录硬件、任务范围、同任务跨末端证据及实际开放内容；评测 Coding Agent 不自动归入 Agent 架构，多机器人平台不等于验证了多指灵巧手。保留历史分类码与目录路径。"
             },
             {
               "name": "Agent Architectures",

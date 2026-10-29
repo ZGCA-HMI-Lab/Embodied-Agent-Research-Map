@@ -8,7 +8,7 @@
 
 面向全身机器人的任务规划与技能协调架构，组织行走、站位调整、主动感知和操作。注明高层计划、中层技能落地、反馈及各低层策略的输入输出；全身任务协调不等于统一关节运动规划或单一全身动作策略，也不因配备灵巧手就归入灵巧手主分类。
 
-**按主题浏览：** [VLA (14)](../topics/vla_cn.md) · [强化学习 (21)](../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../topics/tactile_cn.md) · [手内操作 (5)](../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../topics/vla_cn.md) · [强化学习 (22)](../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../topics/tactile_cn.md) · [手内操作 (5)](../topics/in-hand-manipulation_cn.md)
 
 `AM.WBC.AGENT` · 1 篇主分类工作
 

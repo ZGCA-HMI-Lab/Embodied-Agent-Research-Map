@@ -8,7 +8,7 @@ Body Motion and Whole-Body Control Models → Agent Architectures
 
 Agent architectures for whole-body task planning and skill coordination across locomotion, stance adjustment, active perception and manipulation. Record high-level plans, intermediate skill grounding, feedback and the input/output interfaces of separate low-level policies. Whole-body task coordination does not establish unified joint-level motion planning or a single whole-body action policy; hand hardware alone does not determine primary placement.
 
-**Browse by topic：** [VLA (14)](../topics/vla.md) · [Reinforcement learning (21)](../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../topics/tactile.md) · [In-hand manipulation (5)](../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../topics/vla.md) · [Reinforcement learning (22)](../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../topics/tactile.md) · [In-hand manipulation (5)](../topics/in-hand-manipulation.md)
 
 `AM.WBC.AGENT` · 1 primary records
 

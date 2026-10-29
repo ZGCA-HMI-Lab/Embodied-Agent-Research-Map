@@ -8,7 +8,7 @@
 
 可复用的强化学习训练机制与流程自动化，包括课程学习、任务／重置采样、探索资源分配及 Agent 驱动的训练开发。注明训练改动、配置来源、策略优化器、验证本体及部署策略；区分训练阶段 Agent 与执行阶段控制架构，从已有重置池采样不等同于生成新配置。
 
-**按主题浏览：** [VLA (14)](../../topics/vla_cn.md) · [强化学习 (21)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../../topics/vla_cn.md) · [强化学习 (22)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.METHOD.RL` · 2 篇主分类工作
 

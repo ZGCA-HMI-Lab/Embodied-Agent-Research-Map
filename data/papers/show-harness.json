@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.GRIP.AGENT.ICL.4",
+  "slug": "show-harness",
+  "short_name": "Show-Harness",
+  "title": "Show-Harness: Just a VLM Agent Can Play Robots",
+  "authors": "Yanzhe Chen, Zechen Bai, Zhijun Cao, Wenzheng Zeng, Kevin Qinghong Lin, Yiqi Lin, Guoqiang Liang, Kevin Yuchen Ma, Qiming Huang, Mike Zheng Shou",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.GRIP.AGENT.ICL",
+  "related_categories": [],
+  "tags": [
+    "gripper",
+    "bimanual",
+    "agent-architecture",
+    "vlm",
+    "semantic-action-interface",
+    "discrete-incremental-actions",
+    "deterministic-embodiment-interpreter",
+    "tool-use",
+    "multi-view-visual-feedback",
+    "proprioceptive-feedback",
+    "subtask-planning",
+    "situated-planning",
+    "action-history",
+    "adaptive-step-size",
+    "action-chunking",
+    "failure-recovery",
+    "zero-shot-control",
+    "supervised-fine-tuning",
+    "lora",
+    "gui-demonstration-collection",
+    "gumi",
+    "cross-arm-transfer",
+    "sim-to-real",
+    "franka-research-3",
+    "agilex-piper",
+    "simulation",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Show-Harness 让 VLM 根据图像、状态和执行历史选择离散语义微动作，再由机器人专用解释器转换为位姿增量与夹爪控制，以同一接口支持前沿模型零样本操作、小模型微调和 GUI 示范采集。",
+    "en": "Show-Harness lets a VLM select discrete semantic micro-actions from images, state and interaction history; embodiment-specific interpreters convert them into pose increments and gripper commands, sharing one interface for frontier zero-shot control, small-model fine-tuning and GUI demonstration collection."
+  },
+  "evaluation_scope": {
+    "zh": "基本接口为六方向移动、抓取、释放与完成，按需增加旋转，双臂增加闲置符号；解释器提供步长、视角到机器人坐标变换及运动限制。Franka 以阻抗控制跟踪末端位姿，AgileX 用 IK 与关节目标执行。零样本模式默认 Gemini-3.1 Pro，规划与控制角色配合子任务判定、动作历史、步长／动作块调整及失败重试；微调模式默认 Qwen3.5-2B，以动作符号交叉熵训练 rank-64 LoRA，冻结视觉编码器和多模态投影，默认无独立规划器，无 RL 或专用动作头。部署反馈更新上下文和动作，不在线更新模型权重。真机 Franka Research 3 七自由度臂与 AgileX 六自由度单／双臂均配平行夹爪，未验证多指灵巧手。标准评测五物体×盘／碗共十任务，默认每项十次、最多五十步。FT 使用 164 条真机示范共同训练两种机械臂，不能称为未见机械臂零样本迁移；仿真到真机另用 230 条仿真示范。GUMI 以相同按钮／键盘动作采集观测—动作对及低层轨迹。官方已公开代码、真机／仿真数据和六个 LoRA 适配器（五个真机、一个仿真，需对应基座）。",
+    "en": "The basic interface has six translations, grasp, release and done, with optional rotations and dual-arm idle. Interpreters supply metric increments, view-to-robot transforms and motion limits; Franka uses impedance control, AgileX IK/joint targets. Zero-shot Gemini-3.1 Pro combines planning/controller roles with subtask checks, history, adaptive steps/chunks and retries. Fine-tuned Qwen3.5-2B predicts action symbols with cross-entropy and rank-64 LoRA, freezing vision/projector, without RL, a dedicated action head or a separate default planner. Deployment feedback changes context/actions, not weights. Real Franka Research 3 (7-DoF) and AgileX (6-DoF, single/dual arm) use parallel grippers; multi-finger hands are untested. Ten standard tasks pair five objects with plate/bowl, normally ten trials each and fifty-step limits. FT jointly trains on both arm platforms using 164 real demonstrations, not unseen-arm zero-shot transfer; separate sim-to-real training uses 230 simulated demonstrations. GUMI records observation/action pairs and low-level traces through the same keyboard/button units. Official releases include code, real/sim data and six LoRA adapters: five real-corpus models and one sim model, requiring their base models."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.10522v1",
+    "project": "https://showlab.github.io/Show-Harness/",
+    "code": "https://github.com/showlab/Show-Harness",
+    "data": "https://huggingface.co/datasets/showlab/Show-Harness-Data",
+    "assets": "https://huggingface.co/showlab/Show-Harness-VLMs"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.10522v1",
+    "https://arxiv.org/html/2609.10522v1",
+    "https://showlab.github.io/Show-Harness/",
+    "https://github.com/showlab/Show-Harness",
+    "https://huggingface.co/datasets/showlab/Show-Harness-Data",
+    "https://huggingface.co/showlab/Show-Harness-VLMs"
+  ],
+  "verified_on": "2026-10-28",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "Agent + semantic action interface",
+      "zh": "Agent＋语义动作接口",
+      "bold": true
+    },
+    {
+      "en": "Deterministic action grounding",
+      "zh": "确定性动作映射"
+    },
+    {
+      "en": "Lightweight VLM fine-tuning",
+      "zh": "轻量VLM微调"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-09-09",
+    "source": "https://arxiv.org/abs/2609.10522v1",
+    "basis": "source"
+  }
+}

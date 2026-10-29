@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Reusable dexterous-hand datasets, tasks, environments and evaluation protocols. Distinguish reported support, public assets and evaluated configurations.
 
-**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (21)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (22)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.DATA` · 5 primary records
 

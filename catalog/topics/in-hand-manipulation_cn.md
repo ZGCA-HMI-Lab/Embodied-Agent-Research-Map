@@ -6,7 +6,7 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (14)](vla_cn.md) · [强化学习 (21)](reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](vla_cn.md) · [强化学习 (22)](reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
 
 5 篇工作
 

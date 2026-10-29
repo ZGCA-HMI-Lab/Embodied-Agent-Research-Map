@@ -6,7 +6,7 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (14)](vla.md) · [Reinforcement learning (21)](reinforcement-learning.md) · [Touch and contact feedback (13)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](vla.md) · [Reinforcement learning (22)](reinforcement-learning.md) · [Touch and contact feedback (13)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
 
 14 records
 

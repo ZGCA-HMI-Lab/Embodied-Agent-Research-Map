@@ -8,7 +8,7 @@
 
 学习根据观测生成机器人动作的策略。主要贡献是技能结构、技能间过渡与序列组合的工作归入“技能学习与组合”。手内操作等任务，以及 RL、VLA、触觉融合等方法，通过可见标签和主题入口展示，不作为相互竞争的主分类。
 
-**按主题浏览：** [VLA (14)](../../../topics/vla_cn.md) · [强化学习 (21)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (14)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.POLICY.LEARNING` · 17 篇主分类工作
 

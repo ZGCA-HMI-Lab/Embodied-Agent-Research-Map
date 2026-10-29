@@ -6,9 +6,9 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (14)](vla.md) · [Reinforcement learning (21)](reinforcement-learning.md) · [Touch and contact feedback (13)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (14)](vla.md) · [Reinforcement learning (22)](reinforcement-learning.md) · [Touch and contact feedback (13)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
 
-21 records
+22 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
@@ -25,6 +25,7 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [CHORD｜Contact wrench guidance · Human demonstration transfer · Residual RL](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-12) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `reinforcement-learning` · `residual-rl` |
 | [High-DoF VLA Post-Training｜**VLA post-training** · Low-dimensional hand-action codec · Latent residual RL](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-15) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `residual-rl` |
 | [DexCompose｜Skill composition · Finger action ownership · Residual RL](../manipulation/dexterous/policies/skill-composition.md#am-man-dex-policy-skill-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Skill Learning and Composition | `residual-rl` · `ppo` |
+| [CaP-X｜**Coding Agent** · Primitive-level benchmarking · Code-generation post-training](../manipulation/grippers/datasets.md#am-man-grip-bench-1) | Manipulation Action Models → Gripper Manipulation Models → Datasets and Benchmarks | `reinforcement-learning` |
 | [SGS｜RL · Success-guided sampling · Training-reset scheduling](../manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-1) | Manipulation Action Models → Common Methods → RL Training and Exploration | `reinforcement-learning` · `ppo` |
 | [HARBOR｜**Agent-automated RL training** · Staged validation and repair · Parallel tuning and experience reuse](../manipulation/common-methods/rl-training-exploration.md#am-man-method-rl-2) | Manipulation Action Models → Common Methods → RL Training and Exploration | `reinforcement-learning` · `ppo` |
 | [WBD｜RL expert distillation · Diffusion policy · Command refinement](../whole-body-control/arm-torso-manipulation.md#am-wbc-arm-torso-1) | Body Motion and Whole-Body Control Models → Bimanual and Torso-Assisted Manipulation | `reinforcement-learning` · `ppo` |

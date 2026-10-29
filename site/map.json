@@ -14,16 +14,16 @@
             "name_zh": "夹爪操作模型",
             "children": [
               {
-                "name": "Datasets",
-                "name_zh": "数据集",
+                "name": "Datasets and Benchmarks",
+                "name_zh": "数据集与评测基准",
                 "code": "AM.MAN.GRIP.DATASET",
                 "children": [],
                 "catalog_path": "manipulation/grippers/datasets",
                 "catalog_aliases": [
                   "manipulation/grippers"
                 ],
-                "description": "Datasets for gripper manipulation, including single-arm and bimanual collection. Record acquisition hardware and processing methods alongside the dataset; distinguish reported collection scale from public releases.",
-                "description_zh": "服务于夹爪操作学习的数据集，包括单臂和双臂采集。采集硬件与处理方法随数据集记录，区分论文报告规模和实际公开范围。"
+                "description": "Reusable datasets, task environments and evaluation protocols for gripper manipulation, including single-arm, bimanual and mobile platforms. Use kind to distinguish datasets from benchmarks; record hardware, task coverage, paired cross-effector evidence and actual releases. Evaluating Coding Agents does not by itself make a benchmark an Agent Architecture; multiple robot platforms do not establish dexterous-hand validation. Retain the historical category code and catalog path.",
+                "description_zh": "面向夹爪操作的可复用数据集、任务环境与评测协议，包括单臂、双臂和移动平台。用 kind 区分数据集与基准，记录硬件、任务范围、同任务跨末端证据及实际开放内容；评测 Coding Agent 不自动归入 Agent 架构，多机器人平台不等于验证了多指灵巧手。保留历史分类码与目录路径。"
               },
               {
                 "name": "Agent Architectures",
@@ -4060,6 +4060,276 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.GRIP.AGENT.ICL.3",
+      "slug": "vlcp",
+      "short_name": "VLCP",
+      "title": "VLCP: Vision Language Control Policy Closed-Loop Code Replanning for Robot Manipulation",
+      "authors": "Dhia Naouali, Minghan Wu, Claudia Wong, Abhinav Puthran, Omar G. Younis",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.GRIP.AGENT.ICL",
+      "related_categories": [],
+      "tags": [
+        "gripper",
+        "agent-architecture",
+        "coding-agent",
+        "code-as-policy",
+        "runtime-programming",
+        "within-episode-code-rewriting",
+        "execution-feedback",
+        "failure-recovery",
+        "dual-loop-feedback",
+        "multi-view-visual-feedback",
+        "state-delta-conditioning",
+        "jacobian-based-control",
+        "joint-position-control",
+        "persistent-skill-library",
+        "prompt-caching",
+        "training-free",
+        "privileged-object-poses",
+        "franka-panda",
+        "simulation"
+      ],
+      "tldr": {
+        "zh": "VLCP 让固定权重的 VLM 每 50 步根据前后图像、状态变化和执行记录重写控制函数，再由该函数逐步生成关节目标，在同一次执行中修正抓取与运动错误。",
+        "en": "VLCP re-queries a frozen VLM every 50 steps to rewrite a control function from before/after images, state changes and execution traces; the function generates joint targets step by step to correct grasping and motion errors within the same episode."
+      },
+      "evaluation_scope": {
+        "zh": "慢层 GPT-5.5 读取双视角 RGB、本体状态、仿真物体位姿及上轮代码／动作记录，生成下一段 control(obs, J)；快层每步读取新状态和解析雅可比，输出关节位置目标，由 PD 控制器执行。反馈改写程序，不更新模型权重，无 RL 或示范微调；提示仍包含接口与 3 个控制代码示例。MuJoCo／RoboVerse 中的 Franka Panda 七自由度臂＋平行夹爪，57 项任务（10 物体拾取、30 厨房、17 客厅）各跑一次、每次最多 500 步；定期重写为 20/57（35.1%），仅首次生成代码为 2/57（3.5%），后者的固定代码仍逐步接收状态，不能称为完全无反馈。额外日志中，55 次出现失败抓取的回合有 15 次后来重新抓起物体（27.3%），不等于完整任务恢复成功率。辅助模块可跨回合保存并回填提示，但主对照每任务清空技能库，未据此验证跨任务累积收益。重规划中位耗时 18.8 秒，未验证真机、跨手或无特权位姿的视觉部署；代码、数据和权重开放状态未核实。",
+        "en": "Slow GPT-5.5 reads two RGB views, proprioception, simulator object poses and previous code/action traces to generate control(obs, J). The fast loop reads fresh state and an analytic Jacobian each step, emitting joint-position targets for PD execution. Feedback changes code, not model weights; no RL or demonstration fine-tuning, but prompts include APIs and three control-code examples. MuJoCo/RoboVerse Franka Panda with a parallel gripper runs 57 tasks once each: 10 object picks, 30 kitchen and 17 living-room tasks, with 500-step horizons. Rewriting yields 20/57 (35.1%) versus 2/57 (3.5%) for one-time code generation; the latter still receives per-step state feedback. In additional logs, 15 of 55 episodes containing failed grasps later lift the object (27.3%), not necessarily complete the task. Helpers persist across episodes, but the main comparison resets the library per task and does not establish cumulative transfer gains. Median replanning latency is 18.8 seconds. Real robots, cross-hand transfer and deployment without privileged poses are untested; code/data/weight release is unverified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2608.16978v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.16978v1",
+        "https://arxiv.org/html/2608.16978v1"
+      ],
+      "verified_on": "2026-10-28",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent + code control",
+          "zh": "Agent＋代码控制",
+          "bold": true
+        },
+        {
+          "en": "Within-episode code rewriting",
+          "zh": "执行中重写控制代码"
+        },
+        {
+          "en": "Dual feedback loops",
+          "zh": "双层反馈循环"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-08-17",
+        "source": "https://arxiv.org/abs/2608.16978v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "VLCP｜Agent + code control · Within-episode code rewriting · Dual feedback loops",
+        "zh": "VLCP｜Agent＋代码控制 · 执行中重写控制代码 · 双层反馈循环"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control.md#am-man-grip-agent-icl-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control_cn.md#am-man-grip-agent-icl-3"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.GRIP.AGENT.ICL.4",
+      "slug": "show-harness",
+      "short_name": "Show-Harness",
+      "title": "Show-Harness: Just a VLM Agent Can Play Robots",
+      "authors": "Yanzhe Chen, Zechen Bai, Zhijun Cao, Wenzheng Zeng, Kevin Qinghong Lin, Yiqi Lin, Guoqiang Liang, Kevin Yuchen Ma, Qiming Huang, Mike Zheng Shou",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.GRIP.AGENT.ICL",
+      "related_categories": [],
+      "tags": [
+        "gripper",
+        "bimanual",
+        "agent-architecture",
+        "vlm",
+        "semantic-action-interface",
+        "discrete-incremental-actions",
+        "deterministic-embodiment-interpreter",
+        "tool-use",
+        "multi-view-visual-feedback",
+        "proprioceptive-feedback",
+        "subtask-planning",
+        "situated-planning",
+        "action-history",
+        "adaptive-step-size",
+        "action-chunking",
+        "failure-recovery",
+        "zero-shot-control",
+        "supervised-fine-tuning",
+        "lora",
+        "gui-demonstration-collection",
+        "gumi",
+        "cross-arm-transfer",
+        "sim-to-real",
+        "franka-research-3",
+        "agilex-piper",
+        "simulation",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Show-Harness 让 VLM 根据图像、状态和执行历史选择离散语义微动作，再由机器人专用解释器转换为位姿增量与夹爪控制，以同一接口支持前沿模型零样本操作、小模型微调和 GUI 示范采集。",
+        "en": "Show-Harness lets a VLM select discrete semantic micro-actions from images, state and interaction history; embodiment-specific interpreters convert them into pose increments and gripper commands, sharing one interface for frontier zero-shot control, small-model fine-tuning and GUI demonstration collection."
+      },
+      "evaluation_scope": {
+        "zh": "基本接口为六方向移动、抓取、释放与完成，按需增加旋转，双臂增加闲置符号；解释器提供步长、视角到机器人坐标变换及运动限制。Franka 以阻抗控制跟踪末端位姿，AgileX 用 IK 与关节目标执行。零样本模式默认 Gemini-3.1 Pro，规划与控制角色配合子任务判定、动作历史、步长／动作块调整及失败重试；微调模式默认 Qwen3.5-2B，以动作符号交叉熵训练 rank-64 LoRA，冻结视觉编码器和多模态投影，默认无独立规划器，无 RL 或专用动作头。部署反馈更新上下文和动作，不在线更新模型权重。真机 Franka Research 3 七自由度臂与 AgileX 六自由度单／双臂均配平行夹爪，未验证多指灵巧手。标准评测五物体×盘／碗共十任务，默认每项十次、最多五十步。FT 使用 164 条真机示范共同训练两种机械臂，不能称为未见机械臂零样本迁移；仿真到真机另用 230 条仿真示范。GUMI 以相同按钮／键盘动作采集观测—动作对及低层轨迹。官方已公开代码、真机／仿真数据和六个 LoRA 适配器（五个真机、一个仿真，需对应基座）。",
+        "en": "The basic interface has six translations, grasp, release and done, with optional rotations and dual-arm idle. Interpreters supply metric increments, view-to-robot transforms and motion limits; Franka uses impedance control, AgileX IK/joint targets. Zero-shot Gemini-3.1 Pro combines planning/controller roles with subtask checks, history, adaptive steps/chunks and retries. Fine-tuned Qwen3.5-2B predicts action symbols with cross-entropy and rank-64 LoRA, freezing vision/projector, without RL, a dedicated action head or a separate default planner. Deployment feedback changes context/actions, not weights. Real Franka Research 3 (7-DoF) and AgileX (6-DoF, single/dual arm) use parallel grippers; multi-finger hands are untested. Ten standard tasks pair five objects with plate/bowl, normally ten trials each and fifty-step limits. FT jointly trains on both arm platforms using 164 real demonstrations, not unseen-arm zero-shot transfer; separate sim-to-real training uses 230 simulated demonstrations. GUMI records observation/action pairs and low-level traces through the same keyboard/button units. Official releases include code, real/sim data and six LoRA adapters: five real-corpus models and one sim model, requiring their base models."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.10522v1",
+        "project": "https://showlab.github.io/Show-Harness/",
+        "code": "https://github.com/showlab/Show-Harness",
+        "data": "https://huggingface.co/datasets/showlab/Show-Harness-Data",
+        "assets": "https://huggingface.co/showlab/Show-Harness-VLMs"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.10522v1",
+        "https://arxiv.org/html/2609.10522v1",
+        "https://showlab.github.io/Show-Harness/",
+        "https://github.com/showlab/Show-Harness",
+        "https://huggingface.co/datasets/showlab/Show-Harness-Data",
+        "https://huggingface.co/showlab/Show-Harness-VLMs"
+      ],
+      "verified_on": "2026-10-28",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent + semantic action interface",
+          "zh": "Agent＋语义动作接口",
+          "bold": true
+        },
+        {
+          "en": "Deterministic action grounding",
+          "zh": "确定性动作映射"
+        },
+        {
+          "en": "Lightweight VLM fine-tuning",
+          "zh": "轻量VLM微调"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-09",
+        "source": "https://arxiv.org/abs/2609.10522v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Show-Harness｜Agent + semantic action interface · Deterministic action grounding · Lightweight VLM fine-tuning",
+        "zh": "Show-Harness｜Agent＋语义动作接口 · 确定性动作映射 · 轻量VLM微调"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control.md#am-man-grip-agent-icl-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control_cn.md#am-man-grip-agent-icl-4"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.GRIP.AGENT.ICL.5",
+      "slug": "robo-harness-k1",
+      "short_name": "Robo-Harness K1",
+      "title": "Robo-Harness K1: Harnessing Robot-Use Agents via Perception Augmentation",
+      "authors": "Zexi Li, Yehang Zhang, Wenqian Li, Haojian Huang, Chenxu Wang, Shiyuan Deng, Yangkai Wei, Tianyi Zhang, Binghui Xie, Bohan Zhou, Yifan Chang, Kaiwen Zhou, Ying-Cong Chen, James Cheng, Yinchuan Li",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.GRIP.AGENT.ICL",
+      "related_categories": [],
+      "tags": [
+        "gripper",
+        "agent-architecture",
+        "vlm",
+        "tool-use",
+        "perception-augmentation",
+        "rgb-d",
+        "metric-spatial-measurement",
+        "persistent-visual-anchors",
+        "grasp-hypotheses",
+        "execution-feedback",
+        "failure-recovery",
+        "cross-arm-transfer",
+        "bimanual",
+        "tool-call-distillation",
+        "supervised-fine-tuning",
+        "lora",
+        "simulation",
+        "libero-pro",
+        "robosuite",
+        "robotwin"
+      ],
+      "tldr": {
+        "zh": "Robo-Harness K1 将目标分割、标定深度测量、锚点跟踪和候选抓姿封装成可查询工具，让 VLM 根据返回的三维证据选择运动与夹爪指令，并用教师工具调用轨迹训练小模型。",
+        "en": "Robo-Harness K1 packages target segmentation, calibrated depth measurements, anchor tracking and grasp hypotheses as queryable tools; a VLM uses the returned 3D evidence to select motions and gripper commands, while teacher tool-call traces train a smaller model."
+      },
+      "evaluation_scope": {
+        "zh": "Agent 输入指令、RGB、末端／夹爪状态和交互历史，输出一个工具名及参数。SAM3 提供区域，标定深度提供三维测量，TAPNext++ 跟踪锚点，GraspGen 提供候选夹爪位姿；结果以图像标注和结构化记录返回，无需修改 VLM 架构或训练深度编码器，候选抓姿不保证无碰撞或抓取成功。感知查询不推进仿真；运动工具通过原生控制器执行相对位移、目标位姿或夹爪开合，并返回实际运动／残差及新图像。前沿模型执行时冻结权重，反馈改变上下文与后续调用。小模型 Qwen3.5-9B 冻结视觉编码器，以 rank-16 语言 LoRA 监督学习工具调用及简短决策说明；107 条教师成功轨迹、43 个条件，过滤后 2,482 个训练目标，无 RL 或专用动作头，部署仍依赖工具。实验均为仿真 LIBERO-PRO、RoboSuite、RoboTwin，无真机；RoboSuite 的 Panda／UR5e／IIWA 均用 PandaGripper（擦拭任务附加海绵），属于跨机械臂，未验证灵巧手。LIBERO-PRO 完整评测 139/180＝77.2%；77.8%／88.9% 对比 RGB 的 61.1% 来自仅 18 例匹配子集，感知、记忆、运动和完成接口同时变化，不能归因于深度单项。学生新初态 19/43＝44.2%，留出任务条件 5/36＝13.9%，不等同于全新技能。官方 MIT 仓库公开代码、配置和训练接口，支持 LIBERO-Pro／RoboSuite；未包含数据集、教师轨迹、训练权重或第三方仿真器，需另备数据、基座与依赖。",
+        "en": "The agent reads instructions, RGB, TCP/gripper state and history, emitting one tool name with arguments. SAM3 supplies regions, calibrated depth metric geometry, TAPNext++ tracked anchors and GraspGen grasp hypotheses. Overlays and structured receipts expose evidence without VLM architecture changes or a trained depth encoder; grasp proposals guarantee neither collision-free motion nor success. Perception queries do not advance simulation. Motion tools execute relative displacements, target poses or gripper commands through native controllers, returning actual motion/residuals and fresh images. Frozen frontier models update context and calls, not weights. Qwen3.5-9B freezes vision and uses rank-16 language LoRA to supervise tool calls and short decision notes: 107 successful teacher episodes, 43 conditions and 2,482 filtered targets; no RL or dedicated action head, and deployment still needs tools. All experiments use simulated LIBERO-PRO, RoboSuite and RoboTwin, without real robots. RoboSuite Panda/UR5e/IIWA share PandaGripper, with an attached sponge for wiping: cross-arm transfer, not dexterous-hand validation. Full LIBERO-PRO achieves 139/180 (77.2%). Headline 77.8%/88.9% versus RGB-only 61.1% covers only 18 matched cases and jointly changes perception, memory, motion and completion interfaces, not depth alone. Student results are 19/43 (44.2%) on new states and 5/36 (13.9%) on held-out task conditions, not necessarily new skills. The MIT release provides code, configurations and training interfaces for LIBERO-Pro/RoboSuite; datasets, teacher recordings, trained weights and third-party simulators are not included and require separate inputs/dependencies."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.29389v1",
+        "project": "https://robo-harness.github.io/k1/",
+        "code": "https://github.com/Robo-Harness/k1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.29389v1",
+        "https://arxiv.org/html/2609.29389v1",
+        "https://robo-harness.github.io/k1/",
+        "https://github.com/Robo-Harness/k1"
+      ],
+      "verified_on": "2026-10-29",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Agent + perception tools",
+          "zh": "Agent＋感知工具",
+          "bold": true
+        },
+        {
+          "en": "3D measurement and anchors",
+          "zh": "三维测量与锚点"
+        },
+        {
+          "en": "Tool-call distillation",
+          "zh": "工具调用蒸馏"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-09-24",
+        "source": "https://arxiv.org/abs/2609.29389v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Robo-Harness K1｜Agent + perception tools · 3D measurement and anchors · Tool-call distillation",
+        "zh": "Robo-Harness K1｜Agent＋感知工具 · 三维测量与锚点 · 工具调用蒸馏"
+      },
+      "topics": [],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control.md#am-man-grip-agent-icl-5",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/in-context-tool-control_cn.md#am-man-grip-agent-icl-5"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.GRIP.AGENT.WAM.1",
       "slug": "ar-wam",
       "short_name": "AR-WAM",
@@ -4222,6 +4492,118 @@
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/agent-wam.md#am-man-grip-agent-wam-2",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/agent-architectures/agent-wam_cn.md#am-man-grip-agent-wam-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.GRIP.BENCH.1",
+      "slug": "cap-x",
+      "short_name": "CaP-X",
+      "title": "CaP-X: A Framework for Benchmarking and Improving Coding Agents for Robot Manipulation",
+      "authors": "Letian Fu, Justin Yu, Karim El-Refai, Ethan Kou, Haoru Xue, Huang Huang, Wenli Xiao, Guanzhi Wang, Dantong Niu, Fei-Fei Li, Guanya Shi, Jiajun Wu, Shankar Sastry, Yuke Zhu, Ken Goldberg, Linxi “Jim” Fan",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "benchmark",
+      "category": "AM.MAN.GRIP.DATASET",
+      "related_categories": [
+        "AM.MAN.GRIP.AGENT.ICL"
+      ],
+      "tags": [
+        "benchmark",
+        "gripper",
+        "bimanual",
+        "mobile-manipulation",
+        "coding-agent",
+        "agent-architecture",
+        "code-as-policy",
+        "code-generation",
+        "tool-use",
+        "primitive-abstraction",
+        "multi-turn-interaction",
+        "visual-differencing",
+        "execution-feedback",
+        "skill-library-synthesis",
+        "candidate-code-ensemble",
+        "reinforcement-learning",
+        "grpo",
+        "code-generation-post-training",
+        "sim-to-real",
+        "simulation",
+        "real-world"
+      ],
+      "benchmark": {
+        "hands": {
+          "zh": "以夹爪控制为主：核心 Robosuite 单／双臂任务与 LIBERO-PRO；BEHAVIOR 扩展评测使用 R1Pro 移动平台，真机展示包含 Franka Panda 与 AgiBot G1。末端接口以开合夹爪为主；未找到多指灵巧手关节控制评测，不能按机器人平台数推算手型数。",
+          "en": "Gripper-oriented control in core Robosuite single/bimanual tasks and LIBERO-PRO; extended BEHAVIOR evaluation uses mobile R1Pro, with Franka Panda and AgiBot G1 real-robot demonstrations. Interfaces chiefly expose gripper opening/closing; multi-finger dexterous joint-control evaluation was not found. Robot count is not hand-type count."
+        },
+        "tasks": {
+          "zh": "v2 的 CaP-Gym 声称 187 项任务（7 Robosuite＋130 LIBERO-PRO＋50 BEHAVIOR）；主要 CaP-Bench 对照为 7 项：拾块、叠块、擦拭、插销、积木重堆、双臂抬举和交接，比较 12 个模型、S1–S4／M1–M4 八档，每任务每档 100 次。CaP-Agent0 扩展至 30 项 LIBERO-PRO 与 2 项 BEHAVIOR 任务；后者各 25 次。CaP-RL 在拾块／叠块／擦拭三任务分别训练，真机只量化前两项，各 25 次。",
+          "en": "V2 reports 187 CaP-Gym tasks: 7 Robosuite, 130 LIBERO-PRO and 50 BEHAVIOR. Core CaP-Bench compares 12 models across eight S1–S4/M1–M4 tiers, with 100 trials per task/tier on cube lift, stack, spill wipe, peg insertion, cube restack, two-arm lift and handover. Agent0 extends evaluation to 30 LIBERO-PRO and two BEHAVIOR tasks, the latter with 25 trials each. CaP-RL trains lift/stack/wipe separately; real-robot quantitative evaluation covers lift/stack with 25 trials each."
+        },
+        "cross_hand": {
+          "zh": "有不同机器人平台上的代码接口复用与仿真到真机展示，但未验证夹爪与多指灵巧手之间的同任务迁移。单臂到双臂仍需调整控制接口，不代表任意末端零适配；未报告同任务跨手型配对评测。",
+          "en": "Shared code interfaces support demonstrations across robots and sim-to-real, but no same-task transfer between grippers and multi-finger hands is validated. Single-to-bimanual deployment still changes control primitives; arbitrary effector deployment without adaptation and paired cross-hand evaluation are not established."
+        },
+        "release": {
+          "zh": "官方 MIT 仓库提供环境适配、评测配置、CaP-Agent0 和 GRPO 训练／部署说明。论文 v2 写 187 项，仓库 README 仍写 39 项并另列扩展任务说明，不能将二者等同为已完整验证的开放规模；部分仿真资产与感知模型需按上游条款获取。未核实独立示范数据集或后训练模型 checkpoint 下载入口；训练脚本会保存权重不等于作者已发布权重。",
+          "en": "The official MIT repository provides environment adapters, evaluation configurations, Agent0 and GRPO training/deployment instructions. V2 reports 187 tasks while the README still lists 39 alongside extension guides, so full released coverage is not independently verified. Some assets/perception models require upstream access. Separate demonstration datasets and post-trained checkpoint downloads remain unverified; local checkpoint-saving instructions do not prove released weights."
+        },
+        "highlight": {
+          "zh": "通过工具抽象层级、单／多轮交互和视觉反馈的受控对照，区分 Coding Agent 能力与人工高级接口的帮助；再用视觉变化文字反馈、自动函数库和多候选代码综合构建免训练 CaP-Agent0，并以仿真奖励后训练代码生成模型。",
+          "en": "Controlled comparisons of primitive abstraction, single/multi-turn interaction and visual grounding separate Coding Agent capability from designer scaffolding. Visual-change text, synthesized helpers and candidate-code synthesis form training-free Agent0; simulation rewards additionally post-train a code generator."
+        }
+      },
+      "evaluation_scope": {
+        "zh": "执行链为任务／观测→Python 代码→感知、运动规划／IK 与夹爪接口→执行反馈；底层控制器负责运动落地。CaP-Agent0 权重固定，复用从成功记录一次综合出的 9 个通用辅助函数，不是已实现持续技能进化。CaP-RL 则按任务以特权状态接口和 GRPO 更新 Qwen2.5-Coder-7B 的代码生成参数，部署仍调用共享控制工具；不是训练关节级残差策略。真机拾块／叠块为 84%／76%，各 25 次，不能推广到所有任务或跨手能力。",
+        "en": "The execution chain is task/observations → Python → perception, planning/IK and gripper APIs → feedback; controllers realize motions. Fixed-weight Agent0 reuses nine helpers synthesized once from successful traces, not demonstrated continual skill evolution. CaP-RL independently updates Qwen2.5-Coder-7B code generation per task with GRPO and privileged state APIs; deployed programs still call shared control tools, rather than a joint-level residual policy. Real lift/stack success is 84%/76% over 25 trials each, not an all-task or cross-hand result."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2603.22435v2",
+        "project": "https://capgym.github.io/",
+        "code": "https://github.com/capgym/cap-x"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.22435v2",
+        "https://arxiv.org/html/2603.22435v2",
+        "https://capgym.github.io/",
+        "https://github.com/capgym/cap-x",
+        "https://github.com/capgym/cap-x/blob/main/docs/rl-training.md"
+      ],
+      "verified_on": "2026-10-28",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "Coding Agent",
+          "zh": "Coding Agent",
+          "bold": true
+        },
+        {
+          "en": "Primitive-level benchmarking",
+          "zh": "接口抽象层级评测"
+        },
+        {
+          "en": "Code-generation post-training",
+          "zh": "代码生成后训练"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-03-23",
+        "source": "https://arxiv.org/abs/2603.22435v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "CaP-X｜Coding Agent · Primitive-level benchmarking · Code-generation post-training",
+        "zh": "CaP-X｜Coding Agent · 接口抽象层级评测 · 代码生成后训练"
+      },
+      "topics": [
+        "reinforcement-learning"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/datasets.md#am-man-grip-bench-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/grippers/datasets_cn.md#am-man-grip-bench-1"
       },
       "notes_urls": {}
     },
