@@ -118,3 +118,122 @@ test('history restores explicit collapsed state while fresh category links expan
  assert.deepEqual([...M.expandedCategories(deepTaxonomy,parent.key,[parent.key,'deleted'])],[parent.key]);
  assert.ok(M.expandedCategories(deepTaxonomy,parent.key).size>1);
 });
+
+test('tree share links roundtrip scope, filters, language and an outside paper',()=>{
+ const state=M.readState('?view=tree&category=NEW.LEARN&range=all&topic=rl&lang=en&paper=bench',collection);
+ assert.equal(state.view,'tree');
+ assert.equal(state.category,'NEW.LEARN');
+ assert.deepEqual(M.readState(M.stateQuery(state),collection),state);
+ assert.equal(M.readState('?view=tree&category=retired',collection).invalidCategory,true);
+});
+
+test('tree re-roots at the selected category and retains every descendant level',()=>{
+ const T=require('../web/tree-view.js');
+ const d={...collection,taxonomy:deepTaxonomy,papers:[{...collection.papers[0],category:'LEARN'},{...collection.papers[1],category:'PLAN'}]};
+ const dex=M.categoryIndex(deepTaxonomy).find(n=>n.name==='Dexterous');
+ const model=T.model(d,{category:dex.key,range:'all'});
+ assert.equal(model.root.name,'Dexterous');
+ assert.deepEqual(model.root.children.map(n=>n.name||n.code),['Control','BENCH']);
+ assert.deepEqual(model.root.children[0].children.map(n=>n.code),['LEARN','PLAN']);
+ assert.equal(model.parentKey,M.categoryIndex(deepTaxonomy)[0].key);
+ assert.deepEqual(model.breadcrumbs.map(n=>n.name),['Research Map','Manipulation','Dexterous']);
+ const leaves=T.model(d,{category:'LEARN',range:'all'});
+ assert.equal(leaves.root.code,'LEARN');
+ assert.deepEqual(leaves.root.children.map(n=>n.paper.slug),['touch']);
+});
+
+test('tree places papers once by current category and includes nonrepresentatives',()=>{
+ const T=require('../web/tree-view.js');
+ const d={...collection,papers:collection.papers.map(p=>({...p,related_categories:['NEW.LEARN','NEW.DATA']}))};
+ const before=JSON.stringify(d);
+ const model=T.model(d,{range:'all'});
+ const flat=T.layout(model.root).nodes;
+ assert.deepEqual(flat.filter(n=>n.type==='paper').map(n=>n.paper.slug).sort(),['bench','touch','vla']);
+ assert.equal(flat.find(n=>n.paper?.slug==='bench').parentKey,'NEW.DATA');
+ assert.equal(JSON.stringify(d),before);
+});
+
+test('tree distinguishes uncollected categories from filters hiding existing work',()=>{
+ const T=require('../web/tree-view.js');
+ const empty=T.model(collection,{category:'EMPTY',range:'all'});
+ assert.equal(empty.total,0);assert.equal(empty.matched,0);assert.equal(empty.root.children.length,0);
+ const filtered=T.model(collection,{category:'NEW.LEARN',query:'no-such-paper',range:'all'});
+ assert.equal(filtered.total,2);assert.equal(filtered.matched,0);assert.equal(filtered.root.children.length,0);
+ const reps=T.model(collection,{category:'NEW.LEARN',representatives:true,range:'all'});
+ assert.deepEqual(reps.root.children.map(n=>n.paper.slug),['vla']);
+});
+
+test('tree layout keeps all nodes within the canvas without overlapping cards',()=>{
+ const T=require('../web/tree-view.js');
+ const d={...collection,papers:[...collection.papers,...Array.from({length:40},(_,i)=>({...collection.papers[0],slug:`extra-${i}`}))]};
+ const graph=T.layout(T.model(d,{range:'all'}).root);
+ assert.equal(graph.nodes.length,48); // 43 papers + virtual root + four categories
+ assert.equal(graph.edges.length,47);
+ for(const n of graph.nodes){
+  assert.ok(n.x>=0&&n.y>=0&&n.x+n.width<=graph.width&&n.y+n.height<=graph.height);
+  if(n.parentKey!==null){const parent=graph.nodes.find(p=>p.key===n.parentKey);assert.ok(parent.x+parent.width<n.x||n.x+n.width<parent.x);}
+ }
+ for(let i=0;i<graph.nodes.length;i++)for(const b of graph.nodes.slice(i+1)){
+  const a=graph.nodes[i];
+  assert.ok(a.x+a.width<=b.x||b.x+b.width<=a.x||a.y+a.height<=b.y||b.y+b.height<=a.y,`${a.key} overlaps ${b.key}`);
+ }
+ const leaf=T.layout(T.model(collection,{category:'EMPTY',range:'all'}).root);
+ assert.equal(leaf.nodes.length,1);assert.equal(leaf.edges.length,0);
+});
+
+test('tree cards reserve more space for long names and bilingual method tags',()=>{
+ const T=require('../web/tree-view.js');
+ const short={type:'paper',key:'short',paper:{short_name:'A',display_tags:[]},children:[]};
+ const long={type:'paper',key:'long',paper:{short_name:'A very long paper name about dexterous manipulation with multiple embodiments',display_tags:[{en:'Cross-embodiment adaptation of learned manipulation policies',zh:'跨手迁移'},{en:'Execution feedback and action refinement',zh:'执行反馈与动作修正'}]},children:[]};
+ const root={type:'category',key:'root',children:[short,long]};
+ const graph=T.layout(root);
+ assert.ok(graph.nodes.find(n=>n.key==='short').height<=100);
+ assert.ok(graph.nodes.find(n=>n.key==='long').height>graph.nodes.find(n=>n.key==='short').height);
+});
+
+test('compact tree balances dense leaf siblings and removes card-sized whitespace',()=>{
+ const T=require('../web/tree-view.js');
+ const ps=Array.from({length:20},(_,i)=>({...collection.papers[0],slug:`p-${i}`,short_name:`Paper ${i}`,display_tags:[{en:'RL',zh:'RL'}]}));
+ const graph=T.layout(T.model({...collection,papers:ps},{category:'NEW.LEARN',range:'all'}).root,{lang:'zh'});
+ assert.ok(graph.height<=600,`twenty short papers should fit a compact tree, got ${graph.height}px`);
+ const root=graph.nodes.find(n=>n.parentKey===null),leaves=graph.nodes.filter(n=>n.type==='paper');
+ assert.ok(leaves.some(n=>n.x+n.width<root.x));assert.ok(leaves.some(n=>n.x>root.x+root.width));
+ assert.ok(leaves.every(n=>n.height<=52));
+});
+
+test('Chinese layout uses Chinese label lengths rather than reserving English whitespace',()=>{
+ const T=require('../web/tree-view.js');
+ const p={...collection.papers[0],short_name:'Policy',display_tags:[{en:'Long language-conditioned contact feedback for multi-fingered manipulation control',zh:'触觉'}]};
+ const root=T.model({...collection,papers:[p]},{category:'NEW.LEARN',range:'all'}).root;
+ const zh=T.layout(root,{lang:'zh'}),en=T.layout(root,{lang:'en'});
+ assert.ok(zh.nodes.find(n=>n.type==='paper').height<en.nodes.find(n=>n.type==='paper').height);
+});
+
+test('subtree SVG exports every scoped paper, links and bold tags with safe standalone XML',()=>{
+ const T=require('../web/tree-view.js');
+ const ps=collection.papers.map(p=>({...p,display_tags:[{en:'Agent & code',zh:'Agent＋代码',bold:true}]}));
+ const d={...collection,papers:ps},state={category:'NEW.LEARN',range:'all',lang:'zh'};
+ const graph=T.layout(T.model(d,state).root,{lang:'zh'}),svg=T.svg(graph,{lang:'zh',state});
+ assert.equal((svg.match(/data-paper-slug=/g)||[]).length,2);
+ assert.ok(svg.includes('https://example.org/0'));assert.ok(svg.includes('https://example.org/1'));assert.ok(!svg.includes('https://example.org/2'));
+ assert.ok(svg.includes('Agent＋代码'));assert.ok(svg.includes('font-weight="700"'));
+ assert.ok(svg.includes(`viewBox="0 0 ${graph.width} ${graph.height}"`));
+ assert.ok(!svg.includes('foreignObject'));assert.ok(!svg.includes('<script'));assert.ok(!svg.includes('data-tree-paper'));
+ const unsafe={...ps[0],short_name:'<script>& unsafe',links:{paper:'https://example.org/?a=1&b=2'}};
+ const escaped=T.svg(T.layout(T.model({...d,papers:[unsafe]},state).root,{lang:'en'}),{lang:'en'});
+ assert.ok(escaped.includes('&lt;script&gt;'));assert.ok(escaped.includes('?a=1&amp;b=2'));assert.ok(!escaped.includes('<script>'));
+});
+
+test('PNG export bounds pixel allocation while preserving the full-tree aspect ratio',()=>{
+ const T=require('../web/tree-view.js');
+ assert.deepEqual(T.rasterSize({width:2000,height:1000}),{width:4000,height:2000});
+ const large=T.rasterSize({width:20000,height:10000});
+ assert.ok(large.width*large.height<=16000000);assert.ok(Math.max(large.width,large.height)<=8192);
+ assert.ok(Math.abs(large.width/large.height-2)<.002);
+});
+
+test('fit-tree scales the complete graph even below the manual zoom minimum',()=>{
+ const T=require('../web/tree-view.js');
+ assert.equal(T.fitScale({width:20000,height:10000},400,600),.02);
+ assert.equal(T.fitScale({width:200,height:100},400,600),1);
+});

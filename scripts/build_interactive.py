@@ -8,7 +8,7 @@ from research_data import categories, paper_label
 
 REPOSITORY = "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map"
 ASSETS = Path(__file__).resolve().parents[1] / "web"
-ASSET_NAMES = ("index.html", "style.css", "map-core.js", "app.js")
+ASSET_NAMES = ("index.html", "style.css", "map-core.js", "tree-view.js", "app.js")
 
 
 def interactive_outputs(root, taxonomy, papers, topics):

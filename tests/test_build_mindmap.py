@@ -94,6 +94,15 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(paper["benchmark"]["hands"]["zh"], "一种明确手型。")
         self.assertTrue(paper["catalog_urls"]["zh"].endswith("/catalog/new-category_cn.md#am-man-dex-bench-1"))
 
+    def test_generated_page_loads_versioned_tree_module_before_app(self):
+        outputs = build_outputs(self.root)
+        page = outputs[self.root / "site/index.html"]
+        self.assertTrue(self.root / "site/tree-view.js" in outputs)
+        self.assertIn('data-view="tree"', page)
+        self.assertLess(page.index('src="map-core.js?'), page.index('src="tree-view.js?'))
+        self.assertLess(page.index('src="tree-view.js?'), page.index('src="app.js?'))
+        self.assertNotIn('__ASSET_VERSION__', page)
+
     def test_publication_dates_preserve_precision_and_do_not_use_verification_date(self):
         for value in ("2024", "2024-02", "2024-02-29"):
             with self.subTest(value=value):

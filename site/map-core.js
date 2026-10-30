@@ -92,7 +92,7 @@
       kind:pick('type',['model','benchmark','dataset','tool','survey'],''),
       range:pick('range',['6','12','all'],'12'), representatives:q.get('representatives') === '1',
       category:validCategory ? category : '', invalidCategory:!!category && !validCategory,
-      view:pick('view',['map','list'],defaults.view || 'map'), sort:pick('sort',['newest','oldest','name'],'newest'),
+      view:pick('view',['map','list','tree'],defaults.view || 'map'), sort:pick('sort',['newest','oldest','name'],'newest'),
       lang:pick('lang',['zh','en'],defaults.lang || 'zh'),
       paper:data.papers.some(p => p.slug === q.get('paper')) ? q.get('paper') : ''};
   }

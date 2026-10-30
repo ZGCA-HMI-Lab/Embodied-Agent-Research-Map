@@ -99,6 +99,20 @@ git diff --check
 
 接口增加兼容性字段不破坏旧记录；删除、重命名或改变字段语义时必须升级导出版本并同时修改生成器、前端、测试与此说明。前端发现不支持的版本应显示错误，不能静默漏掉论文。
 
+## 可聚焦的思维导图视图
+
+“思维导图”与“分类地图”“论文列表”并列，URL 使用 `view=tree`。它从同一份导出 taxonomy 和 papers 构树；不依赖静态 SVG，不另存分类或论文。默认入口仍按原来的桌面地图／手机列表规则选择，显式分享参数优先。直接打开 `?view=tree&range=all&lang=zh` 可浏览完整时间范围。
+
+- 点击任何分类，以它为根重新布局，只展示全部后代分类及匹配论文；不需要逐级手动展开。当前层的“子分类”按钮提供快速聚焦入口，空分类也保留。
+- 路径导航可返回任一祖先；“返回上一级”回到父类，“返回总览”回到整棵树。分享、浏览器前进／返回和语言切换使用既有 category 标识及状态契约；失效分类回退总览并提示。
+- 与地图、列表共用搜索、时间、成果类型、主题交集和代表作开关。切换视图保留这些条件；默认时间仍是近一年，查看历史工作请选择“全部”。“分类全部展开”不代表忽略当前筛选。默认不限制代表作，不同于静态 SVG 的 show_on_map 规则。
+- 每个末端分类显示全部匹配论文，按当前排序；不按 related_categories 复制节点，也不截取前三篇。名称打开原文，简介按钮复用双语详情、基准五项、资源和焦点恢复。
+- 画布内部滚动，支持缩放、恢复 100% 和适应全图。按当前语言换行计算紧凑节点尺寸；文字字号保持 13px／10.5px，左右内边距 4px、普通双行论文节点高 30px，长文本按需换行增高，根的完整分支按高度平衡分到两侧，各侧保留原分类顺序；切换根节点恢复 100% 并将视窗对准新根。缩放是本地展示状态，不进入分享参数。完整显示名称和标签，不裁切方法标签。窄屏只滚动画布，不撑宽页面。
+
+实现文件：`web/tree-view.js` 提供纯函数 `TreeView.model(data,state)` 与 `TreeView.layout(root)`；前者负责主分类、范围、路径、匹配／全库计数，后者按当前语言输出紧凑双侧文本节点与连线；`TreeView.svg(graph, options)` 是网页与图片导出共用的 SVG 渲染器，`TreeView.rasterSize(graph)` 限制 PNG 资源开销。`web/app.js` 负责 DOM、导航、缩放和共享详情；`web/style.css` 负责外观。`scripts/build_interactive.py` 统一复制并版本化 tree-view.js；修改后仍只运行 build_catalog.py。论文添加无需编辑任何网页代码。不预生成分类静态子图。使用树形视图工具栏的“导出 SVG／导出 PNG”即时导出当前分类、排序和筛选下的整棵子树。导出覆盖全部匹配论文，与画布滚动、缩放及屏幕可见范围无关。SVG 为独立矢量图，纯 SVG text/tspan/连线，无 foreignObject、外部字体或脚本，保留论文原文链接和加粗标签；PNG 从同一 SVG 栅格化。导出固定白底，文件名含当前分类与语言。PNG 优先两倍分辨率，最多 1600 万像素、单边 8192px；大图按比例降低分辨率并保留整图，SVG 始终保留矢量精度。过滤为零的提示页禁用图片导出；尚未收录的空分类仍可导出分类结构。
+
+验收除已有项目外，检查从操作→灵巧手→策略→末端分类逐级聚焦、子类默认全部可见、祖先／上级／总览、完整论文数、空分类与零匹配、深链接及失效链接、键盘操作、缩放与适应全图、当前子树的 SVG／PNG 完整导出、390px 窄屏、深色模式、双语标签及 file:// 离线入口。测试位于 tests/test_map_core.cjs 和 tests/test_build_mindmap.py。
+
 ## 分享状态与导出接口
 
 URL 查询参数由 `web/map-core.js` 的 `readState` 校验、`stateQuery` 编码；前端不得自行拼接未转义的分类名称或摘要。
@@ -111,7 +125,7 @@ URL 查询参数由 `web/map-core.js` 的 `readState` 校验、`stateQuery` 编�
 | `category` | 末端 code 或当前树可核对的父类标识；失效时回退全部并提示 |
 | `range` | 6 / 12 / all；默认 12 |
 | `reps` | 1 表示仅代表作 |
-| `view` | map / list |
+| `view` | map / list / tree |
 | `sort` | newest / oldest / name；地图固定最新优先 |
 | `lang` | zh / en |
 | `paper` | 稳定论文 slug；未知值忽略，有效值不受筛选限制 |
@@ -138,4 +152,4 @@ URL 查询参数由 `web/map-core.js` 的 `readState` 校验、`stateQuery` 编�
 
 ## English maintenance summary
 
-Edit canonical paper JSON, taxonomy and topic rules once. Run build_catalog.py to regenerate the catalog, SVGs and complete site. Never hand-edit site/. The versioned browser payload contains all papers and explicit current categories, stable IDs, bilingual facts, derived topic memberships, date provenance and canonical record links. Identifier-derived arXiv dates have month precision only; a missing date falls back to year and never to verified_on. Use the Python and Node test commands above, verify browser behavior for UI changes, and deploy only after validation. Local HTML works offline; hosted browsing requires the one-time GitHub Pages/Actions setting. Citation edges remain out of scope until evidence is recorded.
+The focused mind-map view (`view=tree`) reuses category identity, filters, paper details and history; it does not add a data source. Clicking a category makes it the new root with every descendant expanded; breadcrumb/up/overview navigation, zoom and fit-tree work on mobile. Compact SVG layout uses current-language text and balanced branches; standalone SVG and bounded-resolution PNG exports include the entire current subtree and filtered papers, independent of viewport cropping. Edit canonical paper JSON, taxonomy and topic rules once. Run build_catalog.py to regenerate the catalog, SVGs and complete site. Never hand-edit site/. The versioned browser payload contains all papers and explicit current categories, stable IDs, bilingual facts, derived topic memberships, date provenance and canonical record links. Identifier-derived arXiv dates have month precision only; a missing date falls back to year and never to verified_on. Use the Python and Node test commands above, verify browser behavior for UI changes, and deploy only after validation. Local HTML works offline; hosted browsing requires the one-time GitHub Pages/Actions setting. Citation edges remain out of scope until evidence is recorded.

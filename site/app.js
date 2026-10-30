@@ -1,8 +1,8 @@
 /* Shared controller for the generated map schema v1. */
 (() => {
   'use strict';
-  const M=window.MapCore, data=window.RESEARCH_MAP, $=id=>document.getElementById(id);
-  if(!M || !data || data.schema_version!==1){$('timeline').textContent='地图数据未加载 / Map data unavailable';return;}
+  const M=window.MapCore, T=window.TreeView, data=window.RESEARCH_MAP, $=id=>document.getElementById(id);
+  if(!M || !T || !data || data.schema_version!==1){$('timeline').textContent='地图数据未加载 / Map data unavailable';return;}
   const read=(key,fallback)=>{try{return localStorage.getItem(key)||fallback;}catch(_){return fallback;}};
   const save=(key,value)=>{try{localStorage.setItem(key,value);}catch(_){} };
   const defaults={lang:read('research-map-lang','zh')==='en'?'en':'zh',view:matchMedia('(max-width:760px)').matches?'list':'map'};
@@ -17,6 +17,9 @@
   };
   Object.assign(words.zh,{list:'论文列表',mapView:'分类地图',allCategories:'全部研究分类',sort:'排序',sorts:{newest:'最新优先',oldest:'最早优先',name:'名称'},overview:'返回总览',focus:'聚焦此分类',share:'分享当前视图',sharePaper:'分享这篇',copied:'链接已复制',shareTitle:'分享链接',shareHelp:'复制下方链接；本地预览地址仅可在本机打开。',newer:'← 更新',earlier:'更早 →',more:n=>`还有 ${n} 篇`,less:'收起',loadMore:n=>`继续显示（剩余 ${n} 篇）`,previous:'← 上一篇',next:'下一篇 →',locate:'查看所在分类',outside:'这篇论文不在当前筛选结果中，仍可阅读完整详情。',invalid:'原链接的分类已变化，已返回全部分类。',noCategoryMatch:'当前条件无匹配',clear:'清除',close:'关闭',exported:n=>`已导出 ${n} 篇工作`,countHint:'匹配 / 全库',previewHint:'每格预览三篇，点击“还有 N 篇”展开。',showing:n=>`已显示 ${n} 篇`});
   Object.assign(words.en,{list:'Paper list',mapView:'Category map',allCategories:'All research categories',sort:'Sort',sorts:{newest:'Newest',oldest:'Oldest',name:'Name'},overview:'Overview',focus:'Focus category',share:'Share view',sharePaper:'Share paper',copied:'Link copied',shareTitle:'Share link',shareHelp:'Copy the link below. Local preview addresses only work on this computer.',newer:'← Newer',earlier:'Older →',more:n=>`${n} more papers`,less:'Show less',loadMore:n=>`Load more (${n} remaining)`,previous:'← Previous',next:'Next →',locate:'View category',outside:'This paper is outside the current filters. Its full details remain available.',invalid:'The linked category has changed. Showing all categories.',noCategoryMatch:'No matches under current filters',clear:'Clear',close:'Close',exported:n=>`Exported ${n} works`,countHint:'Matched / total',previewHint:'Three papers per cell; expand to see all.',showing:n=>`${n} papers shown`});
+  Object.assign(words.zh,{tree:'思维导图',treeChildren:'子分类',treeHint:'点击分类，以它为根查看全部子类；画布可左右、上下滚动。论文受顶部筛选条件影响。',treeUp:'返回上一级',treeFit:'适应全图',treeSVG:'导出 SVG',treePNG:'导出 PNG',treeExported:f=>`已导出当前子树 ${f.toUpperCase()}`,treeExportError:'图片导出失败，请重试或使用 SVG',treeCanvas:'思维导图画布，可滚动',treePath:'分类路径',treeOpen:'查看此子树 →',treeRoot:'当前根节点',zoomIn:'放大',zoomOut:'缩小',zoomReset:'恢复 100% 缩放',treeCount:(n,total)=>`${n} / ${total} 篇工作`});
+  Object.assign(words.en,{tree:'Mind map',treeChildren:'Subcategories',treeHint:'Click a category to make it the root and show all its descendants. Scroll the canvas in either direction. Papers follow the filters above.',treeUp:'Up one level',treeFit:'Fit tree',treeSVG:'Export SVG',treePNG:'Export PNG',treeExported:f=>`Current subtree exported as ${f.toUpperCase()}`,treeExportError:'Image export failed. Retry or use SVG.',treeCanvas:'Mind map canvas, scrollable',treePath:'Category path',treeOpen:'Explore this subtree →',treeRoot:'Current root',zoomIn:'Zoom in',zoomOut:'Zoom out',zoomReset:'Reset zoom to 100%',treeCount:(n,total)=>`${n} / ${total} works`});
+  let treeScope=null, treeZoom=1, treeGraph=null, treeModel=null, treeExportBusy=false;
   const w=()=>words[state.lang], local=obj=>obj?.[state.lang]||obj?.zh||obj?.en||'', name=n=>state.lang==='zh'?n.name_zh:n.name;
   const cat=key=>index.find(n=>n.key===key), path=code=>(cat(code)?.path||[]).map(name).join(' → ');
   const resource=(label,url)=>`<a href="${e(url)}" target="_blank" rel="noopener noreferrer">${e(label)} ↗</a>`;
@@ -37,7 +40,8 @@
   function restoreFocus(token){
     if(!token)return;
     const scope=$('detail').open?$('detail'):document;
-    const target=[...scope.querySelectorAll('[id],[data-focus]')].find(x=>(x.id===token||x.dataset.focus===token)&&x.getClientRects().length&&!x.closest('[hidden]'));
+    let target=[...scope.querySelectorAll('[id],[data-focus]')].find(x=>(x.id===token||x.dataset.focus===token)&&x.getClientRects().length&&!x.closest('[hidden]'));
+    if(!target&&state.view==='tree'&&!$('detail').open)target=$('tree-breadcrumbs').querySelector('[aria-current=page]');
     target?.focus({preventScroll:true});
   }
   function controls(){
@@ -46,7 +50,7 @@
     const labels={title:t.title,subtitle:t.subtitle,'total-label':t.total,'nav-map':t.map,'static-map':t.static,'catalog-link':t.catalog,
       'category-label':t.category,'kind-label':t.kind,'representatives-label':t.representatives,reset:t.reset,'filter-hint':t.hint,
       expand:t.expand,collapse:t.collapse,'time-direction':t.direction,'time-note':t.note,'footer-note':t.footer,reference:t.reference,
-      'view-map':t.mapView,'view-list':t.list,'sort-label':t.sort,share:t.share,overview:t.overview,newer:t.newer,earlier:t.earlier,
+      'view-map':t.mapView,'view-list':t.list,'view-tree':t.tree,'tree-up':t.treeUp,'tree-fit':t.treeFit,'tree-export-svg':t.treeSVG,'tree-export-png':t.treePNG,'tree-hint':t.treeHint,'sort-label':t.sort,share:t.share,overview:t.overview,newer:t.newer,earlier:t.earlier,
       'share-title':t.shareTitle,'share-help':t.shareHelp,'close-share':t.close};
     for(const [id,text]of Object.entries(labels))$(id).textContent=text;
     $('total').textContent=data.papers.length;$('language').textContent=state.lang==='zh'?'EN':'中文';
@@ -67,10 +71,13 @@
     $('category').setAttribute('aria-label',t.category);$('kind').setAttribute('aria-label',t.kind);$('sort').setAttribute('aria-label',t.sort);
     $('range-buttons').innerHTML=Object.entries(t.range).map(([key,label])=>`<button data-range="${key}" data-focus="range-${key}" aria-pressed="${state.range===key}">${label}</button>`).join('');
     $('topics').innerHTML=Object.entries(data.topics).map(([key,topic])=>`<button class="topic" data-topic="${e(key)}" data-focus="topic-${e(key)}" aria-pressed="${state.topics.includes(key)}">${e(local(topic))}<span>${M.filterPapers(data,{...state,topics:[key]}).length}</span></button>`).join('');
-    for(const v of ['map','list'])$('view-'+v).setAttribute('aria-pressed',state.view===v);
+    for(const v of ['map','list','tree'])$('view-'+v).setAttribute('aria-pressed',state.view===v);
     $('map-controls').hidden=state.view!=='map';$('timeline').hidden=state.view!=='map';$('paper-list').hidden=state.view!=='list';
+    $('tree-panel').hidden=state.view!=='tree';$('time-note').hidden=state.view==='tree';
+    $('tree-canvas').setAttribute('aria-label',t.treeCanvas);$('tree-breadcrumbs').setAttribute('aria-label',t.treePath);
+    $('tree-zoom-in').setAttribute('aria-label',t.zoomIn);$('tree-zoom-out').setAttribute('aria-label',t.zoomOut);$('tree-zoom-reset').setAttribute('aria-label',t.zoomReset);
     $('sort').disabled=state.view==='map';
-    const focused=cat(state.category);$('map-heading').textContent=focused?path(focused.code)||focused.path.map(name).join(' → '):state.view==='map'?t.heading:t.list;
+    const focused=cat(state.category);$('map-heading').textContent=focused?path(focused.code)||focused.path.map(name).join(' → '):state.view==='map'?t.heading:state.view==='tree'?t.tree:t.list;
     $('category-description').textContent=focused?(state.lang==='zh'?focused.description_zh:focused.description)||'':state.view==='map'?t.previewHint:'';
     $('overview').hidden=!state.category;
     $('state-notice').hidden=!state.invalidCategory;$('state-notice').textContent=t.invalid;
@@ -117,6 +124,62 @@
     $('timeline').innerHTML=html+'</div>';$('timeline').scrollLeft=sx;$('timeline').scrollTop=sy;
     timeButtons();
   }
+  function treeView(){
+    const canvas=$('tree-canvas'), sx=canvas.scrollLeft, sy=canvas.scrollTop, changed=treeScope!==state.category;
+    treeModel=T.model(data,state);treeGraph=T.layout(treeModel.root,{lang:state.lang});
+    const t=w();
+    $('tree-up').hidden=!state.category;
+    $('tree-breadcrumbs').innerHTML=treeModel.breadcrumbs.map((n,i)=>`${i?'<span aria-hidden="true">›</span>':''}<button data-category="${e(n.key)}" data-focus="crumb-${e(n.key)}" ${i===treeModel.breadcrumbs.length-1?'aria-current="page"':''}>${e(name(n))}</button>`).join('');
+    const children=treeModel.root.children.filter(n=>n.type==='category');
+    $('tree-children').innerHTML=children.length?`<span>${t.treeChildren}</span>`+children.map(n=>`<button data-category="${e(n.key)}" data-focus="branch-${e(n.key)}">${e(name(n))} <small>${n.matched}/${n.total}</small></button>`).join(''):'';
+    if(changed){treeZoom=1;treeScope=state.category;}
+    if(treeModel.total>0&&!treeModel.matched){canvas.innerHTML=emptyHtml();treeScale();return;}
+    const drawing=T.svg(treeGraph,{lang:state.lang,state,interactive:true,dark:theme==='dark'});
+    canvas.innerHTML=`<div class="tree-surface" id="tree-surface"><div class="tree-stage" id="tree-stage" style="width:${treeGraph.width}px;height:${treeGraph.height}px">${drawing}</div></div>`;
+    treeScale();
+    const root=treeGraph.nodes[0];
+    canvas.scrollLeft=changed?(root.x+root.width/2)*treeZoom-canvas.clientWidth/2:sx;
+    canvas.scrollTop=changed?(root.y+root.height/2)*treeZoom-canvas.clientHeight/2:sy;
+  }
+
+  function treeScale(){
+    const stage=$('tree-stage'), surface=$('tree-surface');
+    if(stage&&surface){stage.style.transform=`scale(${treeZoom})`;surface.style.width=`${treeGraph.width*treeZoom}px`;surface.style.height=`${treeGraph.height*treeZoom}px`;}
+    $('tree-zoom-reset').textContent=`${treeZoom<.1?(treeZoom*100).toFixed(1):Math.round(treeZoom*100)}%`;
+    $('tree-zoom-in').disabled=!stage||treeZoom>=2;$('tree-zoom-out').disabled=!stage||treeZoom<=.1;
+    $('tree-zoom-reset').disabled=!stage;$('tree-fit').disabled=!stage;
+    for(const b of document.querySelectorAll('[data-tree-export]'))b.disabled=!stage||treeExportBusy;
+  }
+  function zoomTree(value,fit=false){
+    if(!treeGraph||!$('tree-stage'))return;
+    const canvas=$('tree-canvas'), before=treeZoom;
+    treeZoom=fit?value:Math.max(.1,Math.min(2,value));treeScale();
+    canvas.scrollLeft=fit?0:(canvas.scrollLeft+canvas.clientWidth/2)*treeZoom/before-canvas.clientWidth/2;
+    canvas.scrollTop=fit?0:(canvas.scrollTop+canvas.clientHeight/2)*treeZoom/before-canvas.clientHeight/2;
+  }
+  function saveBlob(blob,filename){
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  async function downloadTree(format){
+    if(!treeGraph||!$('tree-stage')||treeExportBusy)return;
+    const graph=treeGraph,lang=state.lang,source=T.svg(graph,{lang,state});
+    const slug=(treeModel.root.code||treeModel.root.name||'overview').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,70);
+    treeExportBusy=true;treeScale();
+    try{
+      let blob=new Blob([source],{type:'image/svg+xml;charset=utf-8'});
+      if(format==='png'){
+        const url=URL.createObjectURL(blob);
+        try{
+          const image=new Image();image.src=url;await image.decode();
+          const size=T.rasterSize(graph),canvas=document.createElement('canvas');canvas.width=size.width;canvas.height=size.height;
+          const context=canvas.getContext('2d');if(!context)throw new Error('Canvas unavailable');
+          context.drawImage(image,0,0,size.width,size.height);
+          blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('PNG unavailable');
+        }finally{URL.revokeObjectURL(url);}
+      }
+      saveBlob(blob,`research-subtree-${slug}-${lang}.${format}`);toast(w().treeExported(format));
+    }catch(_){toast(w().treeExportError);}finally{treeExportBusy=false;treeScale();}
+  }
   function listView(){
     $('paper-list').innerHTML=matches.length?matches.slice(0,limit).map(p=>{
       const summary=p.benchmark?local(p.benchmark.highlight):local(p.tldr);
@@ -128,7 +191,7 @@
   function render(){
     const focus=focusToken();matches=M.sortPapers(M.filterPapers(data,state),state.view==='map'?'newest':state.sort);
     controls();$('result-count').textContent=w().result(matches.length,data.papers.length);
-    if(state.view==='map'){mapView();$('load-more').hidden=true;}else listView();
+    if(state.view==='map'){mapView();$('load-more').hidden=true;}else if(state.view==='tree'){treeView();$('load-more').hidden=true;}else listView();
     for(const button of document.querySelectorAll('[data-export]'))button.disabled=!matches.length;
     renderDetail();restoreFocus(focus);
   }
@@ -161,17 +224,25 @@
   $('sort').addEventListener('change',event=>change({sort:event.target.value}));
   $('representatives').addEventListener('change',event=>change({representatives:event.target.checked}));
   document.addEventListener('click',event=>{
+    const link=event.target.closest('[data-tree-category],[data-tree-paper]');
+    if(link){
+      if(event.button||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+      event.preventDefault();
+      if(Object.hasOwn(link.dataset,'treeCategory'))change({category:link.dataset.treeCategory});else change({paper:link.dataset.treePaper});
+      return;
+    }
     const b=event.target.closest('button');if(!b||b.disabled)return;
     const d=b.dataset;
     if(d.view)change({view:d.view});
     else if(d.range)change({range:d.range});
     else if(d.topic)change({topics:state.topics.includes(d.topic)?state.topics.filter(x=>x!==d.topic):[...state.topics,d.topic]});
-    else if(d.category)change({category:d.category});
+    else if(Object.hasOwn(d,'category'))change({category:d.category});
     else if(d.node){open.has(d.node)?open.delete(d.node):open.add(d.node);remember('replace');render();}
     else if(d.cell){cells.has(d.cell)?cells.delete(d.cell):cells.add(d.cell);render();}
     else if(d.year){years.has(d.year)?years.delete(d.year):years.add(d.year);remember('replace');render();}
     else if(d.paper)change({paper:d.paper});
     else if(d.export)download(d.export);
+    else if(d.treeExport)downloadTree(d.treeExport);
     else if(d.clear){
       const key=d.clear;if(key.startsWith('topic:'))change({topics:state.topics.filter(x=>x!==key.slice(6))});
       else change({[key]:key==='range'?'all':key==='representatives'?false:''});
@@ -180,6 +251,11 @@
     else switch(b.id){
       case 'reset':reset();break;
       case 'overview':change({category:''});break;
+      case 'tree-up':change({category:treeModel?.parentKey||''});break;
+      case 'tree-zoom-in':zoomTree(treeZoom+.25);break;
+      case 'tree-zoom-out':zoomTree(treeZoom-.25);break;
+      case 'tree-zoom-reset':zoomTree(1);break;
+      case 'tree-fit':zoomTree(T.fitScale(treeGraph,$('tree-canvas').clientWidth-2,$('tree-canvas').clientHeight-2),true);break;
       case 'expand':M.expandedCategories(data.taxonomy,state.category).forEach(k=>open.add(k));remember('replace');render();break;
       case 'collapse':open.clear();cells.clear();remember('replace');render();break;
       case 'newer':case 'earlier':$('timeline').scrollBy({left:(b.id==='newer'?-1:1)*Math.max(200,$('timeline').clientWidth-300),behavior:'smooth'});break;
@@ -189,7 +265,7 @@
       case 'close-detail':closeDetail();break;
       case 'previous-paper':case 'next-paper':{const pos=matches.findIndex(p=>p.slug===state.paper),next=matches[pos+(b.id==='previous-paper'?-1:1)];if(next)change({paper:next.slug});break;}
       case 'language':state.lang=state.lang==='zh'?'en':'zh';save('research-map-lang',state.lang);remember('replace');render();break;
-      case 'theme':theme=theme==='dark'?'light':'dark';save('research-map-theme',theme);document.documentElement.dataset.theme=theme;break;
+      case 'theme':theme=theme==='dark'?'light':'dark';save('research-map-theme',theme);document.documentElement.dataset.theme=theme;if(state.view==='tree')treeView();break;
     }
   });
   $('detail').addEventListener('cancel',event=>{event.preventDefault();closeDetail();});

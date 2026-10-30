@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Explore embodied action research by category, publication time and topic.">
 <title>具身动作模型 · Interactive Map</title>
-<link rel="stylesheet" href="style.css?v=299e3663c22286cb">
-<script defer src="map-data.js?v=299e3663c22286cb"></script>
-<script defer src="map-core.js?v=299e3663c22286cb"></script>
-<script defer src="app.js?v=299e3663c22286cb"></script>
+<link rel="stylesheet" href="style.css?v=9c20a009399e840f">
+<script defer src="map-data.js?v=9c20a009399e840f"></script>
+<script defer src="map-core.js?v=9c20a009399e840f"></script>
+<script defer src="tree-view.js?v=9c20a009399e840f"></script>
+<script defer src="app.js?v=9c20a009399e840f"></script>
 </head>
 <body>
 <header class="masthead">
@@ -34,13 +35,22 @@
   </section>
   <section class="map-section" aria-labelledby="map-heading">
     <div class="map-toolbar">
-      <div class="view-tabs" role="group" aria-label="View"><button id="view-map" data-view="map">分类地图</button><button id="view-list" data-view="list">论文列表</button><span id="result-count" role="status" aria-live="polite"></span></div>
+      <div class="view-tabs" role="group" aria-label="View"><button id="view-map" data-view="map">分类地图</button><button id="view-list" data-view="list">论文列表</button><button id="view-tree" data-view="tree">思维导图</button><span id="result-count" role="status" aria-live="polite"></span></div>
       <div class="map-actions"><label><span id="sort-label">排序</span> <select id="sort"></select></label><button id="share">分享当前视图</button><button data-export="json">JSON ↓</button><button data-export="csv">CSV ↓</button></div>
     </div>
     <div class="category-context"><div><h2 id="map-heading">分类 × 时间</h2><p id="category-description"></p></div><button id="overview">返回总览</button></div>
     <div id="map-controls" class="map-toolbar compact-toolbar"><div class="map-actions"><button id="expand">展开分类</button><button id="collapse">收起分类</button></div><div class="map-actions"><button id="newer">← 更新</button><button id="earlier">更早 →</button><span id="time-direction">最新 ← 更早</span></div></div>
     <p id="state-notice" class="notice" hidden></p>
     <div class="timeline" id="timeline" tabindex="0" aria-label="按分类和时间排列的论文"></div>
+    <section id="tree-panel" hidden aria-labelledby="view-tree">
+      <div class="tree-toolbar">
+        <nav id="tree-breadcrumbs" class="tree-breadcrumbs" aria-label="分类路径"></nav>
+        <div class="tree-tools"><button id="tree-up">返回上一级</button><button id="tree-zoom-out" aria-label="缩小">−</button><button id="tree-zoom-reset">100%</button><button id="tree-zoom-in" aria-label="放大">＋</button><button id="tree-fit">适应全图</button><button id="tree-export-svg" data-tree-export="svg">导出 SVG</button><button id="tree-export-png" data-tree-export="png">导出 PNG</button></div>
+      </div>
+      <div id="tree-children" class="tree-children"></div>
+      <p id="tree-hint" class="tree-hint"></p>
+      <div id="tree-canvas" class="tree-canvas" tabindex="0" role="region" aria-label="思维导图画布"></div>
+    </section>
     <div id="paper-list" class="paper-list" hidden></div>
     <button id="load-more" class="load-more" hidden></button>
     <p class="time-note" id="time-note"></p>
