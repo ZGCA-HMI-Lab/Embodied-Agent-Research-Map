@@ -45,7 +45,7 @@ git diff --check
 
 `build_catalog.py` 是唯一构建入口，同时生成 README 导航、分类与主题页、思维导图和交互站点。`--check` 不写文件，发现任一生成物缺失或过期即失败。网页 JS/CSS 或数据有变化时，生成的资源版本标记随之改变。
 
-分类调整规则：改名或移动整个分支时，只修改 `taxonomy.json` 的双语名称／children 层级，并保留分类 code 和 catalog_path；论文改归属时修改该记录的 category，保留论文 id 和 slug；拆分／合并分类时先定义目标分类、迁移受影响论文，再处理旧分类与 catalog_aliases。构建会拒绝不存在的 category，禁止网页另写一套分类。生成数据中的 taxonomy 是源文件的完整导出，网页树和 SVG 树的论文归属均以 category 为准。静态导图默认仅显示 show_on_map 代表作，网页默认展示全部论文，因此论文数量可以不同，分类体系相同。
+分类调整规则：改名或移动整个分支时，只修改 `taxonomy.json` 的双语名称／children 层级，并保留分类 code 和 catalog_path；论文改归属时修改该记录的 category，保留论文 id 和 slug；拆分／合并分类时先定义目标分类、迁移受影响论文，再处理旧分类与 catalog_aliases。构建会拒绝不存在的 category，禁止网页另写一套分类。生成数据中的 taxonomy 是源文件的完整导出，网页树和 SVG 树均读取 category 与可选 additional_entries 中的显式展示分类；不根据编号推断，也不从 related_categories 自动增加节点。静态导图默认仅显示 show_on_map 代表作，网页默认展示全部论文，因此论文数量可以不同，分类体系相同。
 
 这是构建时同步：修改源 JSON 后运行构建并刷新浏览器；线上更新还需要推送并部署成功。`site/map.json` 是自动导出结果，不是第二份需要维护的数据。
 
@@ -81,9 +81,19 @@ git diff --check
 | `catalog_urls.en / zh` | 当前主分类的 GitHub 记录锚点链接 |
 | `notes_urls` | 已存在阅读笔记的链接，仅导出已登记语言 |
 
-`id` 和 `slug` 永久稳定；当前归属只看 `category`。历史编号前缀可以不同于 category。前端末端节点使用 code；中间节点使用英文名称与排序后的后代末端 code 集合构成标识，区分后代相同的单子节点层级，不依赖数组位置或共同的 AM 前缀。重排不改变标识；改名或改变后代集合会使旧父类链接失效并安全回退。
+`id` 和 `slug` 永久稳定；主归属读取 `category`；额外展示读取 `additional_entries`。历史编号前缀可以不同于 category。前端末端节点使用 code；中间节点使用英文名称与排序后的后代末端 code 集合构成标识，区分后代相同的单子节点层级，不依赖数组位置或共同的 AM 前缀。重排不改变标识；改名或改变后代集合会使旧父类链接失效并安全回退。
 
-所有论文进入导出，与 show_on_map 无关；该字段只控制静态总图和交互页可选的“仅代表作”。相关分类不复制论文节点。Benchmark 仍保留 hands/tasks/cross_hand/release/highlight 五项双语事实，详情页逐项显示，不能用泛化摘要替代。
+所有论文进入导出，与 show_on_map 无关；该字段只控制静态总图和交互页可选的“仅代表作”。普通 related_categories 不复制论文节点；只有 additional_entries 会创建共享同一记录的额外展示节点。Benchmark 仍保留 hands/tasks/cross_hand/release/highlight 五项双语事实，详情页逐项显示，不能用泛化摘要替代。
+
+## 显式额外展示入口（可选兼容扩展）
+
+论文 schema v1 新增可选 `additional_entries` 数组；非 benchmark 的每项必须含 `category`、双语 `tldr` 和最多三个 `display_tags`。分类必须是已定义末端，不能与主分类或数组内其他分类重复；只允许这三个字段。缺省／空数组沿用原行为；非空 benchmark 入口暂不支持，五项事实仍完整保留。原 `category`、id、slug 与共享事实含义不变，浏览器导出原样携带额外入口。
+
+Python 的 paper_entries / paper_view / papers_in_category 与 MapCore.entries / paperView / inCategory / scopedPaper 处理同一规则。视图对象只覆盖摘要和标签，不能写回规范数据。buildTree 的叶分类使用对应入口的显示内容，父级以唯一论文成员计数；filterPapers、主题、详情导航、列表和 JSON/CSV 导出仍返回去重的规范记录。搜索包括所有入口摘要及标签；列表在聚焦额外分类时使用该入口的显示内容，范围同时包含主分类时优先主入口。相关分类不改变语义。
+
+分类地图、静态图和可聚焦树均显示显式入口。论文总数去重，分类条目数之和可能大于总数。网页详情列出主分类和额外入口的路径、标签与简介，共享相同作者、原文、资源及评测范围；各入口指向同一 paper slug。每个树节点与详情按钮的焦点标识包含分类和 slug，避免同名节点冲突。完整树导出可包含两个展示节点；JSON/CSV 仍只有一篇记录，CSV 末尾的 additional_entries 字段保留全部双语入口数据。
+
+InternW0 是首个使用该扩展的条目：主入口为触觉后训练，额外入口为异步WAM架构。新增论文通常只改一份 JSON；不能创建第二份记录、手改 site/ 或让历史 related_categories 自动变成额外入口。验收需核对两个叶类分别命中、共同父类与列表／导出不重复、每处标签／摘要不同、双语详情显示全部入口和图片导出覆盖当前子树。
 
 ## 交互约定
 
@@ -106,10 +116,10 @@ git diff --check
 - 点击任何分类，以它为根重新布局，只展示全部后代分类及匹配论文；不需要逐级手动展开。当前层的“子分类”按钮提供快速聚焦入口，空分类也保留。
 - 路径导航可返回任一祖先；“返回上一级”回到父类，“返回总览”回到整棵树。分享、浏览器前进／返回和语言切换使用既有 category 标识及状态契约；失效分类回退总览并提示。
 - 与地图、列表共用搜索、时间、成果类型、主题交集和代表作开关。切换视图保留这些条件；默认时间仍是近一年，查看历史工作请选择“全部”。“分类全部展开”不代表忽略当前筛选。默认不限制代表作，不同于静态 SVG 的 show_on_map 规则。
-- 每个末端分类显示全部匹配论文，按当前排序；不按 related_categories 复制节点，也不截取前三篇。名称打开原文，简介按钮复用双语详情、基准五项、资源和焦点恢复。
+- 每个末端分类显示全部匹配的主入口及显式 additional_entries，使用各入口的标签，按当前排序；related_categories 仍不增加节点，也不截取前三篇。一个分类内一篇只出现一次，公共祖先和结果总数按唯一论文去重；同一论文在不同叶类的节点 key 使用分类码＋slug。名称打开原文，简介按钮复用双语详情、基准五项、资源和焦点恢复。
 - 画布内部滚动，支持缩放、恢复 100% 和适应全图。按当前语言换行计算紧凑节点尺寸；文字字号保持 13px／10.5px，左右内边距 4px、普通双行论文节点高 30px，长文本按需换行增高，根的完整分支按高度平衡分到两侧，各侧保留原分类顺序；切换根节点恢复 100% 并将视窗对准新根。缩放是本地展示状态，不进入分享参数。完整显示名称和标签，不裁切方法标签。窄屏只滚动画布，不撑宽页面。
 
-实现文件：`web/tree-view.js` 提供纯函数 `TreeView.model(data,state)` 与 `TreeView.layout(root)`；前者负责主分类、范围、路径、匹配／全库计数，后者按当前语言输出紧凑双侧文本节点与连线；`TreeView.svg(graph, options)` 是网页与图片导出共用的 SVG 渲染器，`TreeView.rasterSize(graph)` 限制 PNG 资源开销。`web/app.js` 负责 DOM、导航、缩放和共享详情；`web/style.css` 负责外观。`scripts/build_interactive.py` 统一复制并版本化 tree-view.js；修改后仍只运行 build_catalog.py。论文添加无需编辑任何网页代码。不预生成分类静态子图。使用树形视图工具栏的“导出 SVG／导出 PNG”即时导出当前分类、排序和筛选下的整棵子树。导出覆盖全部匹配论文，与画布滚动、缩放及屏幕可见范围无关。SVG 为独立矢量图，纯 SVG text/tspan/连线，无 foreignObject、外部字体或脚本，保留论文原文链接和加粗标签；PNG 从同一 SVG 栅格化。导出固定白底，文件名含当前分类与语言。PNG 优先两倍分辨率，最多 1600 万像素、单边 8192px；大图按比例降低分辨率并保留整图，SVG 始终保留矢量精度。过滤为零的提示页禁用图片导出；尚未收录的空分类仍可导出分类结构。
+实现文件：`web/tree-view.js` 提供纯函数 `TreeView.model(data,state)` 与 `TreeView.layout(root)`；前者负责显式展示入口、范围、路径、去重后的匹配／全库计数，后者按当前语言输出紧凑双侧文本节点与连线；`TreeView.svg(graph, options)` 是网页与图片导出共用的 SVG 渲染器，`TreeView.rasterSize(graph)` 限制 PNG 资源开销。`web/app.js` 负责 DOM、导航、缩放和共享详情；`web/style.css` 负责外观。`scripts/build_interactive.py` 统一复制并版本化 tree-view.js；修改后仍只运行 build_catalog.py。论文添加无需编辑任何网页代码。不预生成分类静态子图。使用树形视图工具栏的“导出 SVG／导出 PNG”即时导出当前分类、排序和筛选下的整棵子树。导出覆盖全部匹配论文，与画布滚动、缩放及屏幕可见范围无关。SVG 为独立矢量图，纯 SVG text/tspan/连线，无 foreignObject、外部字体或脚本，保留论文原文链接和加粗标签；PNG 从同一 SVG 栅格化。导出固定白底，文件名含当前分类与语言。PNG 优先两倍分辨率，最多 1600 万像素、单边 8192px；大图按比例降低分辨率并保留整图，SVG 始终保留矢量精度。过滤为零的提示页禁用图片导出；尚未收录的空分类仍可导出分类结构。
 
 验收除已有项目外，检查从操作→灵巧手→策略→末端分类逐级聚焦、子类默认全部可见、祖先／上级／总览、完整论文数、空分类与零匹配、深链接及失效链接、键盘操作、缩放与适应全图、当前子树的 SVG／PNG 完整导出、390px 窄屏、深色模式、双语标签及 file:// 离线入口。测试位于 tests/test_map_core.cjs 和 tests/test_build_mindmap.py。
 
@@ -135,7 +145,7 @@ URL 查询参数由 `web/map-core.js` 的 `readState` 校验、`stateQuery` 编�
 导出始终覆盖**全部筛选结果**，不能仅导出每格三篇预览或当前已加载的 30 篇。
 
 - JSON：沿用浏览器 schema v1，保留 repository、完整 taxonomy/topics 和匹配论文的全部双语事实，适合程序读取；不是可直接覆盖单篇源 JSON 的格式。
-- CSV：UTF-8 BOM；列为 slug、title、authors、publication_date、date_basis、category、category_path、tags、summary、evaluation_scope、paper、project、code、data。摘要使用当前语言，Benchmark summary 保留五项事实。逗号、换行、双引号正确转义；危险公式前缀加单引号，使表格软件按文本读取。
+- CSV：UTF-8 BOM；列为 slug、title、authors、publication_date、date_basis、category、category_path、tags、summary、evaluation_scope、paper、project、code、data、additional_entries。additional_entries 为包含全部双语入口摘要与标签的 JSON 字符串，其他列保留规范主记录。摘要使用当前语言，Benchmark summary 保留五项事实。逗号、换行、双引号正确转义；危险公式前缀加单引号，使表格软件按文本读取。
 - 空结果时导出按钮禁用。导出和结果计数、详情上下篇使用同一完整结果集合。
 
 ## 页面变更验收
@@ -152,4 +162,4 @@ URL 查询参数由 `web/map-core.js` 的 `readState` 校验、`stateQuery` 编�
 
 ## English maintenance summary
 
-The focused mind-map view (`view=tree`) reuses category identity, filters, paper details and history; it does not add a data source. Clicking a category makes it the new root with every descendant expanded; breadcrumb/up/overview navigation, zoom and fit-tree work on mobile. Compact SVG layout uses current-language text and balanced branches; standalone SVG and bounded-resolution PNG exports include the entire current subtree and filtered papers, independent of viewport cropping. Edit canonical paper JSON, taxonomy and topic rules once. Run build_catalog.py to regenerate the catalog, SVGs and complete site. Never hand-edit site/. The versioned browser payload contains all papers and explicit current categories, stable IDs, bilingual facts, derived topic memberships, date provenance and canonical record links. Identifier-derived arXiv dates have month precision only; a missing date falls back to year and never to verified_on. Use the Python and Node test commands above, verify browser behavior for UI changes, and deploy only after validation. Local HTML works offline; hosted browsing requires the one-time GitHub Pages/Actions setting. Citation edges remain out of scope until evidence is recorded.
+Optional additional_entries provide explicit secondary display categories with their own summaries/tags, sharing canonical identity and facts. Leaf displays use entry-specific content; ancestor/global counts, lists, topics and JSON/CSV exports remain unique by paper. related_categories remain document-only links. The focused mind-map view (`view=tree`) reuses category identity, filters, paper details and history; it does not add a data source. Clicking a category makes it the new root with every descendant expanded; breadcrumb/up/overview navigation, zoom and fit-tree work on mobile. Compact SVG layout uses current-language text and balanced branches; standalone SVG and bounded-resolution PNG exports include the entire current subtree and filtered papers, independent of viewport cropping. Edit canonical paper JSON, taxonomy and topic rules once. Run build_catalog.py to regenerate the catalog, SVGs and complete site. Never hand-edit site/. The versioned browser payload contains all papers and explicit current categories, stable IDs, bilingual facts, derived topic memberships, date provenance and canonical record links. Identifier-derived arXiv dates have month precision only; a missing date falls back to year and never to verified_on. Use the Python and Node test commands above, verify browser behavior for UI changes, and deploy only after validation. Local HTML works offline; hosted browsing requires the one-time GitHub Pages/Actions setting. Citation edges remain out of scope until evidence is recorded.

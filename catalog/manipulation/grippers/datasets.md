@@ -8,7 +8,7 @@ Manipulation Action Models → Gripper Manipulation Models → Datasets and Benc
 
 Reusable datasets, task environments and evaluation protocols for gripper manipulation, including single-arm, bimanual and mobile platforms. Use kind to distinguish datasets from benchmarks; record hardware, task coverage, paired cross-effector evidence and actual releases. Evaluating Coding Agents does not by itself make a benchmark an Agent Architecture; multiple robot platforms do not establish dexterous-hand validation. Retain the historical category code and catalog path.
 
-**Browse by topic：** [VLA (14)](../../topics/vla.md) · [Reinforcement learning (22)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (13)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (16)](../../topics/vla.md) · [Reinforcement learning (22)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (17)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.GRIP.DATASET` · 2 primary records
 

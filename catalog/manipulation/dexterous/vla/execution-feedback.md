@@ -15,7 +15,3 @@
 <a id="am-man-dex-policy-feedback-3"></a>
 
 [DEWO [AM.MAN.DEX.POLICY.FEEDBACK.3]](../policies/execution-feedback.md#am-man-dex-policy-feedback-3)
-
-<a id="am-man-dex-vla-feedback-1"></a>
-
-[AgenticTactileVLA [AM.MAN.DEX.VLA.FEEDBACK.1]](../policies/execution-feedback.md#am-man-dex-vla-feedback-1)

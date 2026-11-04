@@ -76,6 +76,32 @@ def load_topics(root):
     return topics
 
 
+def paper_entries(paper):
+    """Explicit display entries; related categories remain document-only links."""
+    return [{"category": paper["category"], "tldr": paper.get("tldr"),
+             "display_tags": paper.get("display_tags", [])}, *paper.get("additional_entries", [])]
+
+
+def paper_view(paper, category):
+    entry = next(e for e in paper_entries(paper) if e["category"] == category)
+    return {**paper, **{key: entry[key] for key in ("tldr", "display_tags") if entry[key] is not None}}
+
+
+def papers_in_category(papers, category):
+    return [p for p in papers if any(e["category"] == category for e in paper_entries(p))]
+
+
+def validate_display_tags(tags, context):
+    if not isinstance(tags, list) or len(tags) > 3:
+        raise ValueError(f"{context}: display_tags must contain at most three bilingual labels")
+    for tag in tags:
+        if not isinstance(tag, dict) or set(tag) - {"en", "zh", "bold"}:
+            raise ValueError(f"{context}: invalid display tag fields")
+        localized({key: value for key, value in tag.items() if key != "bold"}, context)
+        if "bold" in tag and not isinstance(tag["bold"], bool):
+            raise ValueError(f"{context}: display tag bold must be boolean")
+
+
 def paper_label(paper, language, markdown=False):
     labels = [f"**{tag[language]}**" if markdown and tag.get("bold", False) else tag[language]
               for tag in paper.get("display_tags", [])]
@@ -157,7 +183,7 @@ def load_papers(root, taxonomy):
     required = {"schema_version", "id", "slug", "short_name", "title", "authors", "year", "venue",
                 "kind", "category", "related_categories", "tags", "links", "sources", "verified_on",
                 "reading_status", "notes", "show_on_map"}
-    optional = {"benchmark", "tldr", "evaluation_scope", "display_tags", "publication_date"}
+    optional = {"benchmark", "tldr", "evaluation_scope", "display_tags", "publication_date", "additional_entries"}
     records, ids, slugs, identities = [], set(), set(), set()
     retired_path = root / "data/retired_ids.json"
     retired = read_json(retired_path) if retired_path.exists() else []
@@ -198,16 +224,20 @@ def load_papers(root, taxonomy):
         if (not isinstance(tags, list) or any(not isinstance(t, str) or not SLUG_RE.fullmatch(t) for t in tags)
                 or len(set(tags)) != len(tags)):
             raise ValueError(f"{slug}: invalid tags")
-        display_tags = record.get("display_tags", [])
-        if not isinstance(display_tags, list) or len(display_tags) > 3:
-            raise ValueError(f"{slug}: display_tags must contain at most three bilingual labels")
-        for tag in display_tags:
-            if not isinstance(tag, dict) or set(tag) - {"en", "zh", "bold"}:
-                raise ValueError(f"{slug}: invalid display tag fields")
-            localized({key: value for key, value in tag.items() if key != "bold"},
-                      f"{slug}.display_tags")
-            if "bold" in tag and not isinstance(tag["bold"], bool):
-                raise ValueError(f"{slug}: display tag bold must be boolean")
+        validate_display_tags(record.get("display_tags", []), f"{slug}.display_tags")
+        entries = record.get("additional_entries", [])
+        if not isinstance(entries, list) or (entries and record["kind"] == "benchmark"):
+            raise ValueError(f"{slug}: additional_entries must be a list for non-benchmark records")
+        seen_entries = {record["category"]}
+        for entry in entries:
+            if not isinstance(entry, dict) or set(entry) != {"category", "tldr", "display_tags"}:
+                raise ValueError(f"{slug}: additional entry requires category, tldr and display_tags")
+            code = entry["category"]
+            if not isinstance(code, str) or code not in known or code in seen_entries:
+                raise ValueError(f"{slug}: invalid or duplicate additional entry category")
+            seen_entries.add(code)
+            localized(entry["tldr"], f"{slug}.additional_entries.tldr")
+            validate_display_tags(entry["display_tags"], f"{slug}.additional_entries.display_tags")
         if record["kind"] not in ("benchmark", "model", "dataset", "tool", "survey"):
             raise ValueError(f"{slug}: invalid kind")
         if record["kind"] == "benchmark":
@@ -264,7 +294,8 @@ def render_tree(taxonomy, records, language):
             children = visit(node["children"], depth + 1)
             if code:
                 for paper in records:
-                    if paper["category"] == code and paper["show_on_map"]:
+                    if any(e["category"] == code for e in paper_entries(paper)) and paper["show_on_map"]:
+                        paper = paper_view(paper, code)
                         entry = {"name": paper_label(paper, language), "code": None, "paper_id": paper["id"],
                                  "depth": depth + 1, "children": []}
                         if any(tag.get("bold", False) for tag in paper.get("display_tags", [])):

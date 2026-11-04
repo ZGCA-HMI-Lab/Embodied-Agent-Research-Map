@@ -66,6 +66,69 @@ class CatalogTests(unittest.TestCase):
         taxonomy = load_taxonomy(self.root / "taxonomy.json")
         return taxonomy, load_papers(self.root, taxonomy)
 
+    def additional_entry_fixture(self):
+        other = copy.deepcopy(self.category)
+        other.update(code="AM.EXTRA", name="Extra", name_zh="额外入口", catalog_path="extra")
+        self.taxonomy["children"][0]["children"][0]["children"].append(other)
+        self.write_taxonomy()
+        self.paper.pop("benchmark")
+        self.paper.update(kind="model", tldr={"en": "Primary mechanism", "zh": "主要机制"},
+                          display_tags=[{"en": "Primary", "zh": "主要标签"}])
+        entry = {"category": "AM.EXTRA", "tldr": {"en": "Alternate mechanism", "zh": "另一侧重"},
+                 "display_tags": [{"en": "WAM", "zh": "WAM架构", "bold": True}]}
+        self.paper["additional_entries"] = [entry]
+        self.write_paper(self.paper)
+        return entry
+
+    def test_additional_entry_has_own_summary_labels_and_one_canonical_export(self):
+        self.additional_entry_fixture()
+        outputs = build_outputs(self.root)
+        primary = outputs[self.root / "catalog/manipulation/dexterous/benchmarks_cn.md"]
+        extra = outputs[self.root / "catalog/extra_cn.md"]
+        self.assertIn("主要机制", primary)
+        self.assertNotIn("另一侧重", primary)
+        self.assertIn("另一侧重", extra)
+        self.assertIn("WAM架构", extra)
+        self.assertIn("benchmarks_cn.md#am-man-dex-bench-1", extra)
+        self.assertIn("WAM架构", outputs[self.root / "README_cn.md"])
+        tree = ET.fromstring(outputs[self.root / "mindmap_cn.svg"])
+        labels = "".join(tree.itertext())
+        self.assertEqual(labels.count("Work One"), 2)
+        self.assertIn("主要标签", labels)
+        self.assertIn("WAM架构", labels)
+        exported = json.loads(outputs[self.root / "site/map.json"])["papers"]
+        self.assertEqual(len(exported), 1)
+        self.assertEqual(exported[0]["category"], self.paper["category"])
+        self.assertEqual(exported[0]["additional_entries"], self.paper["additional_entries"])
+        self.assertIn("共 1 篇工作", outputs[self.root / "catalog/README_cn.md"])
+
+    def test_additional_entries_validation_is_strict(self):
+        entry = self.additional_entry_fixture()
+        variants = [None, {}, [None], [{**entry, "category": "AM.UNKNOWN"}],
+                    [{**entry, "category": self.paper["category"]}], [entry, entry],
+                    [{**entry, "tldr": {"en": "Missing Chinese"}}],
+                    [{**entry, "display_tags": entry["display_tags"] * 4}],
+                    [{**entry, "display_tags": [{"en": "X", "zh": "X", "bold": 1}]}],
+                    [{**entry, "links": {"paper": "https://example.org/override"}}]]
+        for value in variants:
+            with self.subTest(value=value):
+                self.paper["additional_entries"] = value
+                self.write_paper(self.paper)
+                with self.assertRaises(ValueError):
+                    self.load()
+        self.paper["additional_entries"] = [entry]
+        self.write_paper(self.paper)
+        self.load()
+
+    def test_benchmark_additional_summary_cannot_replace_five_facts(self):
+        self.additional_entry_fixture()
+        self.paper.update(kind="benchmark", benchmark={field: {"en": "Fact", "zh": "事实"}
+            for field in ("hands", "tasks", "cross_hand", "release", "highlight")})
+        self.paper.pop("tldr")
+        self.write_paper(self.paper)
+        with self.assertRaisesRegex(ValueError, "non-benchmark"):
+            self.load()
+
     def test_one_record_generates_both_indexes_and_preserves_home_intro(self):
         outputs = build_outputs(self.root)
         en = outputs[self.root / "catalog/manipulation/dexterous/benchmarks.md"]

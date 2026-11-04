@@ -8,7 +8,7 @@
   "year": 2026,
   "venue": "arXiv v1",
   "kind": "model",
-  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "category": "AM.MAN.DEX.TACTILE.PRETRAIN",
   "related_categories": [],
   "tags": [
     "dexterous",
@@ -24,12 +24,12 @@
     "real-world"
   ],
   "tldr": {
-    "zh": "FACT 利用人类视触觉示范预训练，先联合预测未来视频、视觉轨迹与粗动作，再通过力—动作联合去噪结合最新触觉持续修正未执行动作，实现接触敏感的双臂灵巧操作。",
-    "en": "FACT pretrains on human visual–tactile demonstrations, jointly predicts future video, visual tracks and coarse actions, then jointly denoises force and actions with fresh tactile feedback to refine unexecuted actions for contact-sensitive bimanual dexterity."
+    "zh": "FACT 用人类视触觉示范联合预训练视频—轨迹—动作粗规划器与力—动作细化器，在执行中结合最新触觉，共同预测未来指尖力并修正尚未执行的动作。",
+    "en": "FACT jointly pretrains a video–track–action coarse planner and a force–action refiner on human visual–tactile demonstrations, using fresh tactile feedback during execution to jointly predict future fingertip forces and refine unexecuted actions."
   },
   "evaluation_scope": {
-    "zh": "两个模块以流匹配联合训练；细化器通过双向注意力耦合未来力与动作，每次触觉刷新复用粗规划缓存，仅修改未执行部分，权重不在线更新。输出双臂末端位姿变化与手指关节目标，预测力不作为控制参考。双 Sharpa Wave 手上评测十项任务，每项微调使用 10 条机器人＋90 条人类示范；另有预训练数据，不是零样本部署。",
-    "en": "Both modules train with flow matching. Bidirectional attention couples future force and actions; tactile refreshes reuse coarse-plan memory and refine only the unexecuted suffix, without online weight updates. Outputs are end-effector pose changes and finger-joint targets; predicted force is not a control reference. Ten tasks use two Sharpa Wave hands, with 10 robot plus 90 human demonstrations per task for fine-tuning, in addition to pretraining data; deployment is not zero-shot."
+    "zh": "以 2,000 小时人类 EgoForce 数据和 100 小时机器人示范联合预训练，两个模块使用流匹配。Wan2.2 视频主干根据指令、视觉与机器人状态联合预测视频、轨迹和粗动作；细化器读取粗动作、规划缓存、当前指尖力与受力历史，通过双向注意力联合去噪未来力与动作。20 Hz 执行动作、5 Hz 刷新触觉，复用粗规划缓存并固定已执行前缀，仅细化未执行部分，权重不在线更新。动作是双臂末端位姿变化与手指关节目标，预测力不作为控制参考。双 Sharpa Wave 手评测十项任务，每项另用 10 条机器人＋90 条人类示范微调，并非零样本部署。项目页的代码与数据仍标为 Coming Soon，未核实可下载的模型权重。",
+    "en": "Joint pretraining uses 2,000 hours of human EgoForce data and 100 hours of robot demonstrations; both modules use flow matching. A Wan2.2 video backbone jointly predicts video, tracks and coarse actions from instructions, vision and robot state. The refiner reads coarse actions, cached planner features, current fingertip force and force history, using bidirectional attention to jointly denoise future force and actions. Actions execute at 20 Hz with tactile refreshes at 5 Hz; cached coarse plans and a clamped executed prefix allow refinement of only the unexecuted suffix, without online weight updates. Outputs are bimanual end-effector pose changes and finger-joint targets; predicted force is not a control reference. Ten tasks use two Sharpa Wave hands, with an additional 10 robot plus 90 human demonstrations per task for fine-tuning, rather than zero-shot deployment. The project page still labels code and data Coming Soon; downloadable model weights have not been verified."
   },
   "links": {
     "paper": "https://arxiv.org/pdf/2610.19155v1",
@@ -37,16 +37,27 @@
   },
   "sources": [
     "https://arxiv.org/html/2610.19155v1",
-    "https://arxiv.org/abs/2610.19155v1"
+    "https://arxiv.org/abs/2610.19155v1",
+    "https://fact-1-0.github.io/"
   ],
-  "verified_on": "2026-10-25",
+  "verified_on": "2026-11-03",
   "reading_status": "skimmed",
   "notes": {},
   "show_on_map": true,
   "display_tags": [
-    { "en": "WAM", "zh": "WAM" },
-    { "en": "Joint force–action prediction", "zh": "力—动作联合预测" },
-    { "en": "Tactile closed-loop refinement", "zh": "触觉闭环修正" }
+    {
+      "en": "WAM architecture",
+      "zh": "WAM架构"
+    },
+    {
+      "en": "Joint force–action prediction",
+      "zh": "力—动作联合预测",
+      "bold": true
+    },
+    {
+      "en": "Tactile-driven action refinement",
+      "zh": "触觉驱动动作细化"
+    }
   ],
   "publication_date": {
     "value": "2026-10-13",

@@ -9,7 +9,7 @@
     count(M.buildTree(data.taxonomy,data.papers));
     const convert=n=>({type:'category',key:n.key,code:n.code,name:n.name||n.code,name_zh:n.name_zh||n.name||n.code,
       matched:n.papers.length,total:totals.get(n.key)||0,
-      children:[...n.children.map(convert),...(n.code?M.sortPapers(n.papers,state.sort).map(p=>({type:'paper',key:'paper:'+p.slug,paper:p,children:[]})):[])]});
+      children:[...n.children.map(convert),...(n.code?M.sortPapers(n.papers,state.sort).map(p=>({type:'paper',key:'paper:'+n.code+':'+p.slug,paper:p,children:[]})):[])]});
     const overview={type:'category',key:'',name:data.taxonomy.title||'Research Map',name_zh:data.taxonomy.title_zh||data.taxonomy.title||'Research Map',
       matched:matches.length,total:data.papers.length,children:M.buildTree(data.taxonomy,matches).map(convert)};
     let selected=overview;
@@ -90,7 +90,7 @@
       let body=(paper?'':title)+text(n.tagLines,4,12+n.titleLines.length*14,10.5,muted)+text(n.countLines,4,12+n.titleLines.length*14,10.5,muted);
       if(!paper&&interactive){const query=M.stateQuery({...state,view:'tree',category:n.key,paper:''});body=`<a href="${e(query)}" data-tree-category="${e(n.key)}" data-focus="tree-${e(n.key)}" class="tree-category-link" aria-label="${e(n.title)}"${current?' aria-current="page"':''}><rect width="${n.width}" height="${n.height}" fill="transparent"/>${body}</a>`;}
       parts.push(body);
-      if(paper&&interactive){const query=M.stateQuery({...state,view:'tree',paper:n.paper.slug});parts.push(`<a href="${e(query)}" data-tree-paper="${e(n.paper.slug)}" data-focus="paper-${e(n.paper.slug)}" class="tree-info" aria-label="${e(n.paper.short_name)}: ${lang==='zh'?'简介与资源':'Summary & resources'}"><rect x="${n.width-20}" width="20" height="20" fill="transparent"/><text x="${n.width-14}" y="14" font-size="14" fill="${accent}" aria-hidden="true">ⓘ</text></a>`);}
+      if(paper&&interactive){const query=M.stateQuery({...state,view:'tree',paper:n.paper.slug});parts.push(`<a href="${e(query)}" data-tree-paper="${e(n.paper.slug)}" data-focus="${e(n.key)}" class="tree-info" aria-label="${e(n.paper.short_name)}: ${lang==='zh'?'简介与资源':'Summary & resources'}"><rect x="${n.width-20}" width="20" height="20" fill="transparent"/><text x="${n.width-14}" y="14" font-size="14" fill="${accent}" aria-hidden="true">ⓘ</text></a>`);}
       parts.push('</g>');
     }
     parts.push('</svg>');return parts.join('');

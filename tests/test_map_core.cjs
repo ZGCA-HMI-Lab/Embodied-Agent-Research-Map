@@ -237,3 +237,50 @@ test('fit-tree scales the complete graph even below the manual zoom minimum',()=
  assert.equal(T.fitScale({width:20000,height:10000},400,600),.02);
  assert.equal(T.fitScale({width:200,height:100},400,600),1);
 });
+
+function dualEntryCollection(){
+ const p={...collection.papers[0],additional_entries:[{category:'NEW.DATA',tldr:{en:'Alternate context route',zh:'另一个上下文侧重'},display_tags:[{en:'Asynchronous WAM',zh:'异步WAM架构',bold:true}]}]};
+ return {...collection,papers:[p,...collection.papers.slice(1)]};
+}
+test('explicit additional entries filter and search once without changing canonical records',()=>{
+ const d=dualEntryCollection(),before=JSON.stringify(d);
+ const parent=M.categoryIndex(d.taxonomy).find(n=>n.name==='Manipulation');
+ assert.deepEqual(M.filterPapers(d,{category:'NEW.DATA',query:'另一个上下文',range:'all'}).map(p=>p.slug),['touch']);
+ assert.equal(M.filterPapers(d,{category:parent.key,range:'all'}).length,3);
+ const result=M.filterPapers(d,{category:'NEW.DATA',range:'all'}).find(p=>p.slug==='touch');
+ assert.equal(result,d.papers[0]);assert.equal(result.category,'NEW.LEARN');
+ const view=M.scopedPaper(result,['NEW.DATA']);
+ assert.equal(view.tldr.zh,'另一个上下文侧重');
+ assert.equal(M.scopedPaper(result,parent.codes).tldr.zh,'触觉策略');
+ assert.equal(JSON.stringify(d),before);
+});
+test('additional entries count once at ancestors and render per-leaf labels with unique tree identities',()=>{
+ const T=require('../web/tree-view.js'),d=dualEntryCollection(),before=JSON.stringify(d);
+ const root=M.buildTree(d.taxonomy,d.papers)[0];
+ assert.equal(root.papers.length,3);
+ assert.equal(root.children[1].papers.length,2);
+ const model=T.model(d,{range:'all'}),graph=T.layout(model.root,{lang:'zh'});
+ const nodes=graph.nodes.filter(n=>n.paper?.slug==='touch');
+ assert.equal(nodes.length,2);assert.notEqual(nodes[0].key,nodes[1].key);
+ assert.equal(new Set(graph.nodes.map(n=>n.key)).size,graph.nodes.length);
+ assert.ok(nodes.some(n=>n.tagLines.flat().some(t=>t.text.includes('异步WAM'))));
+ assert.equal(T.model(d,{category:'NEW.DATA',range:'all'}).matched,2);
+ for(const lang of ['zh','en']){
+  const svg=T.svg(T.layout(model.root,{lang}),{lang,interactive:true});
+  const focus=[...svg.matchAll(/data-focus="([^"]+)"/g)].map(m=>m[1]);
+  assert.equal(new Set(focus).size,focus.length);
+  assert.ok(svg.includes(lang==='zh'?'异步WAM架构':'Asynchronous WAM'));
+ }
+ assert.equal(JSON.stringify(d),before);
+});
+test('dual-entry exports remain canonical and unique with bilingual entry data retained',()=>{
+ const d=dualEntryCollection(),state={category:'NEW.DATA',range:'all',lang:'en'};
+ const out=JSON.parse(M.exportResults(d,state,'json'));
+ assert.equal(out.papers.length,2);
+ const p=out.papers.find(p=>p.slug==='touch');
+ assert.equal(p.category,'NEW.LEARN');assert.equal(p.tldr.zh,'触觉策略');
+ assert.deepEqual(p.additional_entries,d.papers[0].additional_entries);
+ const csv=M.exportResults(d,state,'csv');
+ assert.ok(csv.includes('additional_entries'));assert.ok(csv.includes('另一个上下文侧重'));
+ assert.equal(JSON.parse(M.exportResults(d,{range:'all'},'json')).papers.length,3);
+});

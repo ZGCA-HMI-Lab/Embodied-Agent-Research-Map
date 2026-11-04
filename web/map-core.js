@@ -18,26 +18,38 @@
     return d.length === 4 ? `${d}-12` >= window.start && `${d}-01` <= window.end
       : d.slice(0, 7) >= window.start && d.slice(0, 7) <= window.end;
   }
+  function entries(paper) {
+    return [{category:paper.category,tldr:paper.tldr,display_tags:paper.display_tags||[]},...(paper.additional_entries||[])];
+  }
+  function inCategory(paper, codes) {return entries(paper).some(entry=>codes.includes(entry.category));}
+  function paperView(paper, category) {
+    const entry=(paper.additional_entries||[]).find(entry=>entry.category===category);
+    return entry?{...paper,tldr:entry.tldr,display_tags:entry.display_tags}:paper;
+  }
+  function scopedPaper(paper, codes=[]) {
+    if(codes.includes(paper.category))return paper;
+    const entry=(paper.additional_entries||[]).find(entry=>codes.includes(entry.category));
+    return entry?paperView(paper,entry.category):paper;
+  }
   function filterPapers(data, state = {}) {
     const window = bounds(data.papers, state.range || 'all');
     const query = (state.query || '').trim().toLocaleLowerCase();
     const category = state.category && categoryIndex(data.taxonomy).find(n => n.key === state.category);
     return data.papers.filter(p => inWindow(p, window)
-      && (!category || category.codes.includes(p.category))
+      && (!category || inCategory(p,category.codes))
       && (!state.kind || p.kind === state.kind)
       && (!state.representatives || p.show_on_map)
       && (state.topics || []).every(topic => (p.topics || []).includes(topic))
-      && (!query || JSON.stringify([p.short_name,p.title,p.authors,p.tags,p.display_tags,p.tldr,p.benchmark,p.evaluation_scope]).toLocaleLowerCase().includes(query)));
+      && (!query || JSON.stringify([p.short_name,p.title,p.authors,p.tags,p.display_tags,p.tldr,p.benchmark,p.evaluation_scope,p.additional_entries]).toLocaleLowerCase().includes(query)));
   }
   function buildTree(taxonomy, papers) {
-    const byCategory = new Map();
-    papers.forEach(p => { if (!byCategory.has(p.category)) byCategory.set(p.category, []); byCategory.get(p.category).push(p); });
     const walk = (nodes, path = '') => nodes.map((n, index) => {
       const key = `${path}/${index}`;
       const children = walk(n.children || [], key);
       const codes = n.code ? [n.code] : children.flatMap(c => c.codes).sort();
       const stableKey = n.code || `group:${n.name}:${codes.join(',')}`;
-      return {...n, key:stableKey, codes, children, papers: [...(byCategory.get(n.code) || []), ...children.flatMap(c => c.papers)]};
+      const members=papers.filter(p=>inCategory(p,codes));
+      return {...n,key:stableKey,codes,children,papers:n.code?members.map(p=>paperView(p,n.code)):members};
     });
     return walk(taxonomy.children);
   }
@@ -113,14 +125,14 @@
       if (/^\s*[=+@-]|^[\t\r\n]/.test(s))s = "'" + s;
       return '"' + s.replace(/"/g,'""') + '"';
     };
-    const header = ['slug','title','authors','publication_date','date_basis','category','category_path','tags','summary','evaluation_scope','paper','project','code','data'];
+    const header = ['slug','title','authors','publication_date','date_basis','category','category_path','tags','summary','evaluation_scope','paper','project','code','data','additional_entries'];
     const rows = papers.map(p => [p.slug,p.title,p.authors,stamp(p),p.publication_date?.basis || 'year-only',p.category,
       (index.find(n=>n.code===p.category)?.path || []).map(n=>lang==='zh'?n.name_zh:n.name).join(' → '),
       (p.tags || []).join('; '),p.benchmark ? Object.entries(p.benchmark).map(([k,v])=>k+': '+local(v)).join('\n') : local(p.tldr),
-      local(p.evaluation_scope),p.links?.paper,p.links?.project,p.links?.code,p.links?.data]);
+      local(p.evaluation_scope),p.links?.paper,p.links?.project,p.links?.code,p.links?.data,p.additional_entries?.length?JSON.stringify(p.additional_entries):'']);
     return [header,...rows].map(row=>row.map(quote).join(',')).join('\r\n')+'\r\n';
   }
-  const api = {expandedCategories, categoryIndex, sortPapers, preview, readState, stateQuery, exportResults, stamp, monthKey, bounds, inWindow, filterPapers, buildTree, columns, columnFor, escape, formatText};
+  const api = {entries,inCategory,paperView,scopedPaper,expandedCategories, categoryIndex, sortPapers, preview, readState, stateQuery, exportResults, stamp, monthKey, bounds, inWindow, filterPapers, buildTree, columns, columnFor, escape, formatText};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.MapCore = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.2",
+  "slug": "visforce",
+  "short_name": "VisForce",
+  "title": "VisForce: Visual Grounding of Current and Desired Forces for Goal-Conditioned Dexterous Manipulation",
+  "authors": "Jung-Woo Lee, Soo-Chul Lim",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "vla",
+    "tactile",
+    "force-feedback",
+    "actuator-force",
+    "force-visualization",
+    "desired-force-conditioning",
+    "fingertip-alignment",
+    "visual-goal-conditioning",
+    "cross-attention",
+    "pi-0-5",
+    "supervised-fine-tuning",
+    "lora",
+    "flow-matching",
+    "real-world"
+  ],
+  "display_tags": [
+    {
+      "en": "VLA architecture",
+      "zh": "VLA架构",
+      "bold": true
+    },
+    {
+      "en": "Visual force input to VLM",
+      "zh": "VLM侧力信息输入",
+      "bold": true
+    },
+    {
+      "en": "Current and desired force visualization",
+      "zh": "当前力与目标力可视化",
+      "bold": true
+    }
+  ],
+  "tldr": {
+    "zh": "VisForce 将当前驱动力与目标力分别画在当前腕部图像和目标图像的对应指尖位置，让 π₀.₅ 通过视觉输入联合理解抓姿与用力大小，生成满足目标力条件的臂手动作。",
+    "en": "VisForce renders current actuator forces and desired forces at the corresponding fingertips in the current wrist image and a goal image, conditioning π₀.₅ through vision on both grasp configuration and force magnitude to generate arm–hand actions under the desired-force condition."
+  },
+  "evaluation_scope": {
+    "zh": "当前五指驱动力通过对齐实机腕部相机的 MuJoCo 手模型定位，按指尖位置与预设法向画成箭头叠加到实时图像；箭头编码驱动力大小，不是真实三维接触力向量。目标图从参考示范选取子任务帧，离线去除背景并画入预设目标力，执行时按用户指定的当前子任务读取。当前与目标图经共享 SigLIP 编码，当前腕部 token 查询目标前景 token 的交叉注意力后进入 VLM 和动作专家；力通过视觉路径输入，而非单独力编码器。训练全量更新 SigLIP 与交叉注意力模块，VLM、AE 用 LoRA 微调，沿用流匹配损失；输出 12 维关节增量（UR10 机械臂 6 维＋RH56F1 手 6 维），不直接输出力控指令。实机 T1 为力条件抓取，T2–T4 为杯插入与倒液、夹具辅助面包转移、可控滑移插孔；每任务每策略 20 次，T2–T4 最终累计成功率为 70%、55%、40%。多阶段的当前子任务由用户指定，未证明自主任务规划；未验证跨手型泛化。代码、数据与权重下载情况未核实。",
+    "en": "Current five-finger actuator forces are rendered as arrows at fingertip locations using a MuJoCo hand model aligned with the real wrist camera and predefined fingertip normals, then overlaid on live images. Arrows encode actuator-force magnitude, not measured 3D contact-force vectors. Goal images are selected from reference demonstrations, foreground-isolated and augmented with predefined desired forces offline, then retrieved for the user-specified current subtask. Shared SigLIP features fuse current wrist queries with foreground goal tokens through cross-attention before entering the VLM and action expert; force enters through vision rather than a separate force encoder. Training fully updates SigLIP and cross-attention, uses LoRA for the VLM and AE, and retains the flow-matching loss. Outputs are 12D joint increments: six UR10 arm joints plus six RH56F1 hand channels, not direct force-control commands. T1 evaluates force-conditioned grasping; T2–T4 evaluate cup insertion/bottle pouring, tong-assisted bread transfer and slip-modulated peg-in-hole. Each policy has 20 trials per task; final cumulative success on T2–T4 is 70%, 55% and 40%. Users specify the current subtask, so autonomous task planning is not established; cross-hand generalization is not evaluated. Code, dataset and checkpoint downloads have not been verified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.25785v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.25785v1",
+    "https://arxiv.org/html/2609.25785v1",
+    "https://arxiv.org/pdf/2609.25785v1"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-09-22",
+    "source": "https://arxiv.org/abs/2609.25785v1",
+    "basis": "source"
+  }
+}

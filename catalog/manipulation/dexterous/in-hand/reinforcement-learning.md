@@ -20,10 +20,6 @@
 
 [HiFun [AM.MAN.DEX.POLICY.LEARNING.3]](../policies/policy-learning.md#am-man-dex-policy-learning-3)
 
-<a id="am-man-dex-policy-learning-4"></a>
-
-[FACT [AM.MAN.DEX.POLICY.LEARNING.4]](../policies/policy-learning.md#am-man-dex-policy-learning-4)
-
 <a id="am-man-dex-policy-learning-5"></a>
 
 [DexMimic [AM.MAN.DEX.POLICY.LEARNING.5]](../policies/policy-learning.md#am-man-dex-policy-learning-5)
@@ -51,10 +47,6 @@
 <a id="am-man-dex-policy-learning-13"></a>
 
 [LiMA [AM.MAN.DEX.POLICY.LEARNING.13]](../policies/policy-learning.md#am-man-dex-policy-learning-13)
-
-<a id="am-man-dex-policy-learning-14"></a>
-
-[DexTacWAM [AM.MAN.DEX.POLICY.LEARNING.14]](../policies/policy-learning.md#am-man-dex-policy-learning-14)
 
 <a id="am-man-dex-policy-learning-15"></a>
 

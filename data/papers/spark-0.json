@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.TACTILE.PRETRAIN.1",
+  "slug": "spark-0",
+  "short_name": "Spark-0",
+  "title": "Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation",
+  "authors": "Tianxing Chen, Wenwei Lin, Chuqiao Lyu, Peicheng Xiang, Junyuan Tang, Tian Nian, Zijian Cai, Kehe Ye, Chenze Yu, Wenxuan Zhu, Eric J. Chen, Yan Qin, Yue Chen, Tongyu Wu, Junhao Gong, Kai-Chong Lei, Jiahao Zhang, Kailun Su, Qiwei Liang, Renjing Xu, Ping Luo, Wenbo Ding",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.TACTILE.PRETRAIN",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "vla",
+    "vtla",
+    "tactile",
+    "pretraining",
+    "tactile-supervised-visual-pretraining",
+    "contact-map-supervision",
+    "geometry-distillation",
+    "flow-matching",
+    "action-expert",
+    "regional-force-history",
+    "3d-taxels",
+    "tactile-adaln-conditioning",
+    "missing-modality-placeholder",
+    "human-demonstrations",
+    "human-to-robot-transfer",
+    "supervised-fine-tuning",
+    "wuji-hand-2",
+    "simulation",
+    "real-world"
+  ],
+  "tldr": {
+    "zh": "Spark-0 用触觉接触热图监督 VLM 的视觉表征，同时将受力历史与三维触觉点输入流匹配动作专家，使预训练模型同时支持纯视觉和带触觉的灵巧手控制。",
+    "en": "Spark-0 supervises VLM visual representations with tactile-derived contact maps and feeds force histories and 3D taxels to a flow-matching action expert, enabling the pretrained model to support both vision-only and tactile-conditioned dexterous control."
+  },
+  "evaluation_scope": {
+    "zh": "VLA 架构为 Qwen3-VL-4B＋36 层流匹配动作专家。训练时，将手套接触映射到人手网格并渲染为头视角接触热图，联合冻结的 Depth-Anything-3 几何教师监督 VLM 第 25 层视觉 token；原始触觉不输入 VLM，教师和对齐监督头在推理时移除。动作专家另接收 20 帧区域受力历史与当前三维触觉点，经编码形成 12 个受力＋12 个三维触觉 token，并通过联合注意力与受力条件 AdaLN 参与动作生成；AE 指 Action Expert，不是自编码器。结合图像、指令和三帧状态预测 50 步动作块，每步为双手合计 58 维末端相对位姿和手指关节目标。无触觉时使用学习到的占位 token，部署不在线更新权重。HumanTouch 提供 1,000 小时、100＋任务、32 名操作者的全手触觉人类示范，手套每手 460 点屏蔽 140 个弯折区后使用 320 点；混合人类、机器人与仿真数据预训练，再针对各基准微调，非零样本部署。SparkArena-Sim 为同一 Gen 1 Prototype／双 WUJI Hand 2 本体的 7 项纯视觉任务，每任务 50 次；SparkArena-Real 为 5 项带触觉任务，每任务 10 次、采用配对初态。相同 RGB 与预训练计算量下，加入触觉预训练使无在线触觉的 Ego Humanoid 成功率从 52.45% 升至 71.72%，Real 从 44% 升至 52%；这是整体触觉预训练比较，不是单独监督头或在线触觉的独立消融。代码和预训练 checkpoint 入口已公开；HumanTouch 完整数据与 SparkArena 仿真资产的实际下载范围未核实，项目页仍将 SparkArena-Sim 代码标为 Coming soon。数据集与基准作为同一论文的配套贡献记录，不另建重复条目。",
+    "en": "The VLA pairs Qwen3-VL-4B with a 36-layer flow-matching action expert. Glove contacts are mapped onto a human-hand mesh and rendered as head-view contact maps; these targets and a frozen Depth-Anything-3 geometry teacher supervise VLM layer-25 visual tokens. Raw touch never enters the VLM; teacher/alignment heads are removed at inference. Separately, 20-frame regional force histories and current 3D taxels yield 12 force plus 12 spatial tactile tokens, conditioning the action expert through joint attention and force-conditioned AdaLN. AE means Action Expert, not autoencoder. Images, instructions and three state frames condition a 50-row chunk of 58-dimensional bimanual relative end-effector poses and finger-joint targets. Missing touch uses learned placeholders; deployment does not update weights online. HumanTouch contains 1,000 hours across 100+ tasks and 32 operators; each glove uses 320 of 460 taxels after masking 140 flexion-region points. Mixed human/robot/simulation pretraining is followed by benchmark-specific fine-tuning, not zero-shot deployment. SparkArena-Sim has seven vision-only tasks with 50 trials each; SparkArena-Real has five tactile-conditioned tasks with ten paired-initial-state trials each, on the same Gen 1 Prototype with two WUJI Hand 2 hands. With identical RGB and pretraining compute, retaining touch raises vision-only Ego Humanoid success from 52.45% to 71.72% and Real from 44% to 52%. This compares overall tactile pretraining, not an isolated alignment-head or online-touch ablation. Official code and pretrained-checkpoint links are public; complete HumanTouch data and simulator-asset downloads remain unverified, and the project still marks SparkArena-Sim code Coming soon. Dataset and benchmark contributions remain in this single paper record."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2610.22342v1",
+    "project": "https://xsparkai.com/Spark-0/",
+    "code": "https://github.com/XsparkAI/Spark-0",
+    "assets": "https://huggingface.co/TianxingChen/Spark-0"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2610.22342v1",
+    "https://arxiv.org/pdf/2610.22342v1",
+    "https://xsparkai.com/Spark-0/",
+    "https://github.com/XsparkAI/Spark-0",
+    "https://huggingface.co/TianxingChen/Spark-0/tree/main"
+  ],
+  "verified_on": "2026-11-03",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "display_tags": [
+    {
+      "en": "VLA architecture",
+      "zh": "VLA架构"
+    },
+    {
+      "en": "Tactile supervision of VLM",
+      "zh": "VLM侧触觉监督",
+      "bold": true
+    },
+    {
+      "en": "Tactile input to action expert",
+      "zh": "动作专家触觉输入"
+    }
+  ],
+  "publication_date": {
+    "value": "2026-10-15",
+    "source": "https://arxiv.org/abs/2610.22342v1",
+    "basis": "source"
+  }
+}

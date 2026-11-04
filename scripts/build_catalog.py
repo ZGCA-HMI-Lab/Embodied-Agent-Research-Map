@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import quote, unquote
 
 from research_data import (BENCHMARK_FIELDS, categories, load_papers, load_taxonomy,
-                           load_topics, paper_label, render_tree)
+                           load_topics, paper_label, paper_view, papers_in_category, render_tree)
 import build_mindmap as renderer
 from build_interactive import interactive_outputs
 
@@ -98,11 +98,12 @@ def navigation(root, taxonomy, papers, page, language, topics=None):
     lines = [topic_navigation(root, topics or {}, papers, page, language), "", heading, "|---|---:|---|---|"]
     paths = category_paths(taxonomy, language)
     for code, category in categories(taxonomy).items():
-        count = sum(p["category"] == code for p in papers)
+        members = papers_in_category(papers, code)
+        count = len(members)
         name = paths[code]
         target = relative(catalog_file(root, category, language), page)
-        selected = "<br>".join(link(paper_label(p, language, markdown=True), target + "#" + anchor(p))
-                                for p in papers if p["category"] == code and p["show_on_map"])
+        selected = "<br>".join(link(paper_label(paper_view(p, code), language, markdown=True), target + "#" + anchor(p))
+                                for p in members if p["show_on_map"])
         lines.append(f"| {cell(name)} | {count} | {link('查看' if language == 'zh' else 'Open', target)} | {selected or '—'} |")
     return "\n".join(lines)
 
@@ -117,8 +118,11 @@ def replace_home_block(content, block):
 def category_page(root, taxonomy, category, papers, language, topics=None):
     topics = topics or {}
     page = catalog_file(root, category, language)
-    own = [p for p in papers if p["category"] == category["code"]]
-    related = [p for p in papers if category["code"] in p["related_categories"]]
+    members = papers_in_category(papers, category["code"])
+    own = [paper_view(p, category["code"]) for p in members]
+    primary_count = sum(p["category"] == category["code"] for p in members)
+    extra_count = len(members) - primary_count
+    related = [p for p in papers if category["code"] in p["related_categories"] and p not in members]
     name = category["name_zh" if language == "zh" else "name"]
     description = category["description_zh" if language == "zh" else "description"]
     opposite = catalog_file(root, category, "en" if language == "zh" else "zh")
@@ -130,7 +134,9 @@ def category_page(root, taxonomy, category, papers, language, topics=None):
              link("English" if language == "zh" else "简体中文", relative(opposite, page)), "",
              category_paths(taxonomy, language)[category["code"]], "",
              description, "", topic_navigation(root, topics, papers, page, language), "",
-             f"`{category['code']}` · {len(own)} " + ("篇主分类工作" if language == "zh" else "primary records"), ""]
+             f"`{category['code']}` · {primary_count} " + ("篇主分类工作" if language == "zh" else "primary records")
+             + ((f" · {extra_count} 个额外展示入口（共享同一论文记录）" if language == "zh" else
+                 f" · {extra_count} additional display entries (shared canonical records)") if extra_count else ""), ""]
     if not own:
         lines.append("尚未收录工作。" if language == "zh" else "No records yet.")
     else:
@@ -147,6 +153,10 @@ def category_page(root, taxonomy, category, papers, language, topics=None):
             title = link(paper["title"], paper["links"]["paper"])
             author = cell(paper["authors"])
             work = f"**{cell(paper_label(paper, language))}**<br>{title}<br>{author}"
+            if paper["category"] != category["code"]:
+                target = catalog_file(root, categories(taxonomy)[paper["category"]], language)
+                work += "<br>" + link("同一论文的主记录" if language == "zh" else "Canonical paper entry",
+                                        relative(target, page) + "#" + anchor(paper))
             if paper["tags"]:
                 label = "标签" if language == "zh" else "Tags"
                 def tag_link(tag):
@@ -201,7 +211,7 @@ def alias_page(root, category, route, papers, language):
     label = "前往当前分类" if language == "zh" else "Open the current category"
     lines = [GENERATED, "", f"# {title}", "", link(label, target), ""]
     for paper in papers:
-        if paper["category"] == category["code"]:
+        if paper in papers_in_category(papers, category["code"]):
             lines += [f'<a id="{anchor(paper)}"></a>', "",
                       link(f"{paper['short_name']} [{paper['id']}]", target + "#" + anchor(paper)), ""]
     return "\n".join(lines)
@@ -226,7 +236,7 @@ def build_outputs(root):
         outputs[home] = replace_home_block(home.read_text(encoding="utf-8"), block)
         index = root / "catalog" / f"README{suffix}.md"
         title = "# 分类索引" if language == "zh" else "# Category Index"
-        count = f"共 {len(papers)} 篇工作。每篇只有一个主分类，可通过相关分类关联其他方向。" if language == "zh" else f"{len(papers)} records. Each has one primary category and may reference related areas."
+        count = f"共 {len(papers)} 篇工作。每篇只有一个主分类；显式额外入口可在其他分类展示，论文总数按唯一记录去重，分类条目数之和可能大于论文总数。" if language == "zh" else f"{len(papers)} records. Each has one primary category and may have explicit additional display entries. Paper totals count unique records; category counts may sum to more than the paper total."
         outputs[index] = "\n".join([GENERATED, "", title, "", link("首页" if language == "zh" else "Home", relative(home, index)), "", count, "", navigation(root, taxonomy, papers, index, language, topics), ""])
         for slug in topics:
             outputs[topic_file(root, slug, language)] = topic_page(root, taxonomy, topics, slug, papers, language)

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.1",
+  "slug": "internw0",
+  "short_name": "InternW0",
+  "title": "InternW0: A Foundational Physical World Model for Efficient Real-World Interactions",
+  "authors": "Jisong Cai, Yao Mu, Ganlin Yang, Zhe Cao, Zhangzheng Tu, Xing Gao, Kailin Li, Xinyu Zhan, Lixin Yang, Yangkun Zhu, Haoxiang Ma, Ming Zhou, Qiaojun Yu, Yufei Xue, Liqun He, Yifei Yao, Yifan Zhu, Long Ling, Bingqi Jiang, Haoyu Guo, Xueyue Zhu, Bowen Zhou, Bin Zhao, Tianfan Xue, Chunhua Shen, Weinan Zhang",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "parallel-gripper",
+    "wam",
+    "asynchronous-inference",
+    "observation-conditioned-routing",
+    "kv-cache-editing",
+    "action-expert",
+    "tactile",
+    "force-feedback",
+    "tactile-post-training",
+    "joint-action-contact-prediction",
+    "flow-matching",
+    "human-video-pretraining",
+    "cross-embodiment",
+    "laboratory-manipulation",
+    "real-world",
+    "simulation"
+  ],
+  "display_tags": [
+    {
+      "en": "WAM architecture",
+      "zh": "WAM架构",
+      "bold": true
+    },
+    {
+      "en": "AE-side tactile input",
+      "zh": "AE侧触觉输入",
+      "bold": true
+    },
+    {
+      "en": "Joint action–contact prediction",
+      "zh": "动作—接触联合预测"
+    }
+  ],
+  "tldr": {
+    "zh": "InternW0 在预训练 WAM 的动作专家侧加入已观测的力／触觉历史，用流匹配联合去噪未来动作与接触信号，再将动作通道解码执行，使后续动作结合接触反馈生成。",
+    "en": "InternW0 adds observed force/tactile history to the action expert of a pretrained WAM, jointly denoises future actions and contact signals with flow matching, and decodes the action channels for execution so that subsequent actions incorporate contact feedback."
+  },
+  "additional_entries": [
+    {
+      "category": "AM.MAN.METHOD.ASYNCWAM",
+      "tldr": {
+        "zh": "InternW0 将慢速视频预测与快速动作生成异步解耦，用最新图像通过 K/V 编辑器修正缓存预测上下文，供动作专家生成下一段动作，减少每次动作更新所需的视频重计算。",
+        "en": "InternW0 asynchronously decouples slow video prediction from fast action generation: the latest image drives a K/V editor that adapts cached predictive context for the next action chunk, avoiding full video recomputation at each action update."
+      },
+      "display_tags": [
+        {
+          "en": "Asynchronous WAM architecture",
+          "zh": "异步WAM架构",
+          "bold": true
+        },
+        {
+          "en": "Observation-conditioned K/V editing",
+          "zh": "观测条件K/V编辑"
+        },
+        {
+          "en": "Multiple manipulation platforms",
+          "zh": "跨操作平台"
+        }
+      ]
+    }
+  ],
+  "evaluation_scope": {
+    "zh": "AE 指 Action Expert（动作专家），不是自编码器。基础异构预训练使用约 7,200 小时机器人与人类第一视角数据（其中 EgoLab 约 275 小时）：机器人轨迹监督视频与动作流匹配，人类视频仅监督未来视频，不要求触觉标注。接触感知后训练在动作侧扩展力／触觉历史输入和动作—接触联合预测目标；只输入生成前已观测的历史，未来接触通道加噪并与动作一起去噪，动作通道用于执行，不能据此把预测接触直接写成下发的力控目标。视频专家慢速提供各层 K/V，动作侧用最新 DINOv3 图像特征查询并残差编辑当前动作块的上下文视图，基础缓存不被逐块累积改写，部署不在线更新权重。异步调度与观测引导路由承接 AHA-WAM。实机为双臂平行夹爪的四项任务，以及 20 自由度灵巧手＋7 自由度机械臂的五阶段移液；手型号未明确，不能宣称同任务直接跨手迁移。五项任务各 15 次试验，移液的 65.3% 是顺序子任务平均进度率，最终阶段达成率为 46.7%，不是整条流程 65.3% 成功率。RTX 5090D 上 60.73 ms／16.47 Hz 仅是动作关键路径，排除异步视频预测开销。官方代码及 Base、RoboTwin-clean、LIBERO 权重入口已公开，已核实 RoboTwin-clean 的 .pt 文件列表；官方仓库明确不包含论文的力／触觉、实机与实验室资产，未核实触觉后训练数据、专用权重或实机接口可下载。",
+    "en": "AE means Action Expert, not autoencoder. Heterogeneous pretraining uses about 7,200 hours of robot and human egocentric data, including about 275 hours of EgoLab: robot trajectories supervise video and action flow matching, while human videos supervise future video only, without requiring tactile labels. Contact-aware post-training extends the action-side inputs with measured force/tactile history and the targets with joint action–contact prediction. Only history observed before generation is supplied; future contact channels are noised and denoised jointly with actions. Action channels execute, so predicted contact must not be assumed to be a directly issued force-control target. The slow video expert exposes layerwise K/V; current DINOv3 image features query and residually edit a chunk-specific context view without cumulatively rewriting the base cache or updating weights online. Asynchronous scheduling and observation-guided routing follow AHA-WAM. Real experiments comprise four tasks with dual parallel-gripper arms and five-stage pipetting with a 20-DoF dexterous hand on a 7-DoF arm; the hand model is unspecified, and paired same-task cross-hand transfer is not established. Each of the five tasks has 15 trials. Pipetting achieves 65.3% ordered-subtask progress, with 46.7% reaching the final stage, rather than 65.3% full-episode success. RTX 5090D latency of 60.73 ms / 16.47 Hz measures only the action critical path, excluding asynchronous video prediction. Official code and Base, RoboTwin-clean and LIBERO weight links are public; the RoboTwin-clean .pt listing was verified. The repository explicitly excludes the paper’s force/tactile, real-robot and laboratory assets; downloadable tactile post-training data, specialized weights and real-robot interfaces have not been verified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.27656v1",
+    "project": "https://internrobotics.github.io/internw0/",
+    "code": "https://github.com/InternRobotics/InternW0",
+    "assets": "https://huggingface.co/collections/InternRobotics/nternw0"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.27656v1",
+    "https://arxiv.org/html/2609.27656v1",
+    "https://internrobotics.github.io/internw0/",
+    "https://github.com/InternRobotics/InternW0",
+    "https://huggingface.co/collections/InternRobotics/nternw0",
+    "https://huggingface.co/InternRobotics/InternW0-RoboTwin-clean/tree/main"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-09-23",
+    "source": "https://arxiv.org/abs/2609.27656v1",
+    "basis": "source"
+  }
+}

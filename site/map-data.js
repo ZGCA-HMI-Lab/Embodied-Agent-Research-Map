@@ -118,11 +118,53 @@ window.RESEARCH_MAP = {
                     "code": "AM.MAN.DEX.POLICY.FEEDBACK",
                     "children": [],
                     "catalog_path": "manipulation/dexterous/policies/execution-feedback",
-                    "description": "Execution monitoring, action correction and failure recovery as the main contribution. Specify whether feedback changes commands, subsequent observations or model parameters. Ordinary closed-loop input alone does not qualify.",
-                    "description_zh": "主要贡献是执行监控、动作修正与失败恢复。注明反馈作用于执行指令、后续观测还是模型参数；不能仅因策略使用闭环观测就归入本类。",
+                    "description": "Execution monitoring, action correction and failure recovery as the main contribution. Specify whether feedback changes commands, subsequent observations or model parameters. Ordinary closed-loop input alone does not qualify. Work primarily contributing tactile/contact-driven execution correction belongs under Tactile Manipulation; a tactile tag alone does not determine placement.",
+                    "description_zh": "主要贡献是执行监控、动作修正与失败恢复。注明反馈作用于执行指令、后续观测还是模型参数；不能仅因策略使用闭环观测就归入本类。 以触觉／接触反馈驱动的执行纠错为主要贡献的工作归触觉操作；不能仅凭触觉标签判断归属。",
                     "catalog_aliases": [
                       "manipulation/dexterous/vla/execution-feedback"
                     ]
+                  }
+                ]
+              },
+              {
+                "name": "Tactile Manipulation",
+                "name_zh": "触觉操作",
+                "children": [
+                  {
+                    "name": "Pretraining",
+                    "name_zh": "预训练",
+                    "code": "AM.MAN.DEX.TACTILE.PRETRAIN",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/tactile/pretraining",
+                    "description": "Dexterous manipulation research whose main contribution is tactile pretraining. Cover tactile-derived representation supervision and joint force–action pretraining. Distinguish model architecture, training-only objectives, deployment tactile inputs, predicted forces versus control targets, and pretraining versus downstream fine-tuning. Classify by the main contribution; execution-time contact correction belongs under tactile Execution Feedback and Action Correction. Do not automatically migrate existing tactile-tagged records.",
+                    "description_zh": "以触觉预训练为主要贡献的灵巧手操作研究。涵盖触觉表征监督与力—动作联合预训练；区分模型架构、仅训练使用的目标、部署触觉输入、预测力与控制目标，以及预训练和下游微调。按主要贡献归类；以执行时接触纠错为核心的工作归触觉操作下的“执行反馈与动作修正”。不自动迁移已有带触觉标签的工作。"
+                  },
+                  {
+                    "name": "Execution Feedback and Action Correction",
+                    "name_zh": "执行反馈与动作修正",
+                    "code": "AM.MAN.DEX.TACTILE.FEEDBACK",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/tactile/execution-feedback",
+                    "description": "Dexterous manipulation whose main contribution is using measured tactile feedback or proprioceptively inferred contact to intervene in execution, refine actions or trigger retries. State the sensing source, feedback-to-command interface and whether weights change. Distinguish inferred contact from calibrated force and execution supervisors from learned action policies. Review papers individually rather than automatically migrating tactile-tagged records.",
+                    "description_zh": "以触觉测量或本体信号推断的接触反馈干预执行、修正动作或触发重试为主要贡献的灵巧手操作研究。明确感知来源、反馈到执行指令的接口及权重是否更新；区分接触推断与标定力、执行监督层与学习式动作策略。逐篇判断归属，不自动迁移带触觉标签的工作。"
+                  },
+                  {
+                    "name": "Post-training",
+                    "name_zh": "后训练",
+                    "code": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/tactile/post-training",
+                    "description": "Adapt pretrained manipulation models with tactile or force observations and contact-aware objectives. Specify which expert receives measured history, whether future contact is a training target or an execution command, and which components are updated during training. Additional display entries may highlight another contribution of the same canonical paper.",
+                    "description_zh": "通过触觉／力观测与接触感知训练目标适配预训练操作模型。明确已观测历史输入哪个专家、未来接触是预测目标还是执行指令，以及训练时更新哪些模块。同一论文可通过显式额外展示入口突出其他贡献。"
+                  },
+                  {
+                    "name": "Data Generation",
+                    "name_zh": "数据生成",
+                    "code": "AM.MAN.DEX.TACTILE.GEN",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/tactile/data-generation",
+                    "description": "Generate tactile or visual–tactile training samples for robot manipulation. Specify which observations are synthesized, where action sequences come from, and how synthetic data train a separate policy. Distinguish action-conditioned observation prediction from generating new executable action trajectories; record policy-evaluation uses and downstream performance limits separately.",
+                    "description_zh": "利用生成模型构造用于机器人操作的触觉或视触觉训练样本。明确生成哪些观测、动作序列来自哪里，以及合成数据如何训练独立策略。区分给定动作的观测预测与生成新的可执行动作轨迹；策略评测等附加用途及下游性能边界分别说明。"
                   }
                 ]
               },
@@ -179,6 +221,15 @@ window.RESEARCH_MAP = {
                 "catalog_path": "manipulation/common-methods/cross-platform-benchmarks",
                 "description": "Benchmarks whose main contribution is reusable evaluation across manipulation platforms, including coding agents and long-horizon execution. Record the evaluated systems, tasks, controller access, grading and budgets; distinguish paper evaluations from later platform support and cross-arm transfer from cross-hand transfer. Data generation and policy training remain secondary contributions within one record.",
                 "description_zh": "主要贡献是服务不同操作平台的可复用评测体系，包括 Coding Agent 与长时序执行基准。记录评测对象、任务、控制接口、评分和预算；区分论文实际评测与后续平台支持，以及跨机械臂与跨手型迁移。附带的数据生成与策略训练在同一条目中说明，不重复收录。"
+              },
+              {
+                "name": "Asynchronous WAM Architectures",
+                "name_zh": "异步WAM架构",
+                "code": "AM.MAN.METHOD.ASYNCWAM",
+                "children": [],
+                "catalog_path": "manipulation/common-methods/asynchronous-wam",
+                "description": "World–action model architectures that coordinate expensive predictive modeling and faster observation-conditioned action generation at different timescales. Record expert interfaces, cache reuse or editing, feedback paths, training objectives and measured latency boundaries. Distinguish inherited architecture principles from new contributions and evaluated robot platforms from untested transfer claims.",
+                "description_zh": "以不同时间尺度协调高开销世界预测与快速观测条件动作生成的世界—动作模型架构。记录专家接口、缓存复用或编辑、反馈路径、训练目标与延迟测量边界；区分承接的架构思想与新增贡献，以及实际验证平台与未经验证的迁移。"
               }
             ]
           }
@@ -2577,7 +2628,7 @@ window.RESEARCH_MAP = {
       "year": 2026,
       "venue": "arXiv v1",
       "kind": "model",
-      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "category": "AM.MAN.DEX.TACTILE.PRETRAIN",
       "related_categories": [],
       "tags": [
         "dexterous",
@@ -2593,12 +2644,12 @@ window.RESEARCH_MAP = {
         "real-world"
       ],
       "tldr": {
-        "zh": "FACT 利用人类视触觉示范预训练，先联合预测未来视频、视觉轨迹与粗动作，再通过力—动作联合去噪结合最新触觉持续修正未执行动作，实现接触敏感的双臂灵巧操作。",
-        "en": "FACT pretrains on human visual–tactile demonstrations, jointly predicts future video, visual tracks and coarse actions, then jointly denoises force and actions with fresh tactile feedback to refine unexecuted actions for contact-sensitive bimanual dexterity."
+        "zh": "FACT 用人类视触觉示范联合预训练视频—轨迹—动作粗规划器与力—动作细化器，在执行中结合最新触觉，共同预测未来指尖力并修正尚未执行的动作。",
+        "en": "FACT jointly pretrains a video–track–action coarse planner and a force–action refiner on human visual–tactile demonstrations, using fresh tactile feedback during execution to jointly predict future fingertip forces and refine unexecuted actions."
       },
       "evaluation_scope": {
-        "zh": "两个模块以流匹配联合训练；细化器通过双向注意力耦合未来力与动作，每次触觉刷新复用粗规划缓存，仅修改未执行部分，权重不在线更新。输出双臂末端位姿变化与手指关节目标，预测力不作为控制参考。双 Sharpa Wave 手上评测十项任务，每项微调使用 10 条机器人＋90 条人类示范；另有预训练数据，不是零样本部署。",
-        "en": "Both modules train with flow matching. Bidirectional attention couples future force and actions; tactile refreshes reuse coarse-plan memory and refine only the unexecuted suffix, without online weight updates. Outputs are end-effector pose changes and finger-joint targets; predicted force is not a control reference. Ten tasks use two Sharpa Wave hands, with 10 robot plus 90 human demonstrations per task for fine-tuning, in addition to pretraining data; deployment is not zero-shot."
+        "zh": "以 2,000 小时人类 EgoForce 数据和 100 小时机器人示范联合预训练，两个模块使用流匹配。Wan2.2 视频主干根据指令、视觉与机器人状态联合预测视频、轨迹和粗动作；细化器读取粗动作、规划缓存、当前指尖力与受力历史，通过双向注意力联合去噪未来力与动作。20 Hz 执行动作、5 Hz 刷新触觉，复用粗规划缓存并固定已执行前缀，仅细化未执行部分，权重不在线更新。动作是双臂末端位姿变化与手指关节目标，预测力不作为控制参考。双 Sharpa Wave 手评测十项任务，每项另用 10 条机器人＋90 条人类示范微调，并非零样本部署。项目页的代码与数据仍标为 Coming Soon，未核实可下载的模型权重。",
+        "en": "Joint pretraining uses 2,000 hours of human EgoForce data and 100 hours of robot demonstrations; both modules use flow matching. A Wan2.2 video backbone jointly predicts video, tracks and coarse actions from instructions, vision and robot state. The refiner reads coarse actions, cached planner features, current fingertip force and force history, using bidirectional attention to jointly denoise future force and actions. Actions execute at 20 Hz with tactile refreshes at 5 Hz; cached coarse plans and a clamped executed prefix allow refinement of only the unexecuted suffix, without online weight updates. Outputs are bimanual end-effector pose changes and finger-joint targets; predicted force is not a control reference. Ten tasks use two Sharpa Wave hands, with an additional 10 robot plus 90 human demonstrations per task for fine-tuning, rather than zero-shot deployment. The project page still labels code and data Coming Soon; downloadable model weights have not been verified."
       },
       "links": {
         "paper": "https://arxiv.org/pdf/2610.19155v1",
@@ -2606,24 +2657,26 @@ window.RESEARCH_MAP = {
       },
       "sources": [
         "https://arxiv.org/html/2610.19155v1",
-        "https://arxiv.org/abs/2610.19155v1"
+        "https://arxiv.org/abs/2610.19155v1",
+        "https://fact-1-0.github.io/"
       ],
-      "verified_on": "2026-10-25",
+      "verified_on": "2026-11-03",
       "reading_status": "skimmed",
       "notes": {},
       "show_on_map": true,
       "display_tags": [
         {
-          "en": "WAM",
-          "zh": "WAM"
+          "en": "WAM architecture",
+          "zh": "WAM架构"
         },
         {
           "en": "Joint force–action prediction",
-          "zh": "力—动作联合预测"
+          "zh": "力—动作联合预测",
+          "bold": true
         },
         {
-          "en": "Tactile closed-loop refinement",
-          "zh": "触觉闭环修正"
+          "en": "Tactile-driven action refinement",
+          "zh": "触觉驱动动作细化"
         }
       ],
       "publication_date": {
@@ -2632,15 +2685,15 @@ window.RESEARCH_MAP = {
         "basis": "source"
       },
       "labels": {
-        "en": "FACT｜WAM · Joint force–action prediction · Tactile closed-loop refinement",
-        "zh": "FACT｜WAM · 力—动作联合预测 · 触觉闭环修正"
+        "en": "FACT｜WAM architecture · Joint force–action prediction · Tactile-driven action refinement",
+        "zh": "FACT｜WAM架构 · 力—动作联合预测 · 触觉驱动动作细化"
       },
       "topics": [
         "tactile"
       ],
       "catalog_urls": {
-        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-4",
-        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-4"
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/pretraining.md#am-man-dex-policy-learning-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/pretraining_cn.md#am-man-dex-policy-learning-4"
       },
       "notes_urls": {}
     },
@@ -3245,7 +3298,7 @@ window.RESEARCH_MAP = {
       "year": 2026,
       "venue": "arXiv v1",
       "kind": "model",
-      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
       "related_categories": [],
       "tags": [
         "dexterous",
@@ -3262,15 +3315,17 @@ window.RESEARCH_MAP = {
         "flow-matching",
         "imitation-learning",
         "action-chunking",
-        "real-world"
+        "real-world",
+        "tactile-post-training",
+        "world-model-tactile-input"
       ],
       "tldr": {
-        "zh": "DexTacWAM 将十指触觉压缩为双手潜变量，与视觉联合预测接触演化，再让动作专家读取预测性视触觉特征，生成机械臂相对位姿与手部动作。",
-        "en": "DexTacWAM compresses ten fingertip streams into two hand latents, jointly models visual and tactile contact evolution, and conditions an action expert on predictive visuo-tactile features to generate relative arm poses and hand actions."
+        "zh": "DexTacWAM 将十指触觉压缩为双手潜变量，作为额外视图接入预训练视频世界模型，联合预测未来画面与接触变化，再由动作专家读取预测性视触觉特征生成臂手动作。",
+        "en": "DexTacWAM compresses ten fingertip streams into two hand latents and adds them as extra views to a pretrained video world model, jointly predicting future images and contact evolution; an action expert then reads predictive visual–tactile features to generate arm–hand actions."
       },
       "evaluation_scope": {
-        "zh": "逐指复用冻结视觉 VAE，结合手指身份、手部姿态与时序，将每手五路触觉压为一路；动作专家对视觉／触觉 K/V 分别归一化后交叉注意。训练依次为 488 条多样交互适配触觉编码器、每任务约 100 条示范微调视触觉世界模型、同批示范联合训练世界模型和新动作专家，无 RL；约四小时指采集数据量，不是训练耗时。部署由世界模型单次前向提供预测特征，无需完整生成未来视频或搜索候选轨迹。194 维训练目标含臂手动作、逐指力与下一本体状态预测，不等于 194 个关节；力仅作训练监督，非部署力输入或已验证的直接力控制。双 Sharpa Wave 手平台六项真机任务：遮挡放块、双手交接、双手擦拭、夹具夹番茄、拆叠碗、拧瓶盖，各方法每项 20 次；70.6 为含分阶段计分的平均任务得分。四任务控制消融移除触觉世界预测后，得分从 74.7 降至 26.6。世界模型与动作专家按任务训练，未验证跨手迁移。官方仓库提供训练／部署代码、488 条语料及六任务数据和触觉编码器权重，明确未发布任务专用世界模型与动作专家权重。",
-        "en": "A frozen visual VAE encodes each fingertip; finger identity, hand pose and temporal refinement compress five streams per hand into one latent. The action expert separately normalizes visual/tactile K/V before cross-attention. Training adapts the tactile encoder on 488 interactions, finetunes the world model on about 100 demonstrations per task, then jointly trains it and a new action expert on those demonstrations, without RL. Roughly four hours refers to recorded data, not training time. Deployment uses one world-model forward pass for predictive features, without fully rendering futures or searching trajectories. The 194-D target includes arm/hand actions, finger-force and next-proprioception predictions, not 194 joints; forces are training supervision, not deployment inputs or demonstrated direct force control. Six real-robot tasks on a dual-Sharpa-Wave platform cover occluded cube placement, handover, wiping, tongs/tomato transfer, bowl unstacking and cap unscrewing, with 20 trials per method/task. The 70.6 average mixes binary and staged scores. Removing tactile world prediction drops the controlled four-task mean from 74.7 to 26.6. Models are trained per task; cross-hand transfer is untested. The official repository provides training/deployment code, the 488-episode corpus, six task datasets and tactile-encoder weights, explicitly excluding task-specific world-model and action-expert checkpoints."
+        "zh": "逐指复用冻结视觉 VAE，结合手指身份、手部姿态与时序，将每手五路触觉压为一路；动作专家对视觉／触觉 K/V 分别归一化后交叉注意。训练依次为 488 条多样交互适配触觉编码器、每任务约 100 条示范微调视触觉世界模型、同批示范联合训练世界模型和新动作专家，无 RL；约四小时指采集数据量，不是训练耗时。部署由世界模型单次前向提供预测特征，无需完整生成未来视频或搜索候选轨迹。194 维训练目标含臂手动作、逐指力与下一本体状态预测，不等于 194 个关节；力仅作训练监督，非部署力输入或已验证的直接力控制。双 Sharpa Wave 手平台六项真机任务：遮挡放块、双手交接、双手擦拭、夹具夹番茄、拆叠碗、拧瓶盖，各方法每项 20 次；70.6 为含分阶段计分的平均任务得分。四任务控制消融移除触觉世界预测后，得分从 74.7 降至 26.6。世界模型与动作专家按任务训练，未验证跨手迁移。开放状态（2026-10-28 核验）：官方仓库提供训练／部署代码、488 条语料及六任务数据和触觉编码器权重，明确未发布任务专用世界模型与动作专家权重。",
+        "en": "A frozen visual VAE encodes each fingertip; finger identity, hand pose and temporal refinement compress five streams per hand into one latent. The action expert separately normalizes visual/tactile K/V before cross-attention. Training adapts the tactile encoder on 488 interactions, finetunes the world model on about 100 demonstrations per task, then jointly trains it and a new action expert on those demonstrations, without RL. Roughly four hours refers to recorded data, not training time. Deployment uses one world-model forward pass for predictive features, without fully rendering futures or searching trajectories. The 194-D target includes arm/hand actions, finger-force and next-proprioception predictions, not 194 joints; forces are training supervision, not deployment inputs or demonstrated direct force control. Six real-robot tasks on a dual-Sharpa-Wave platform cover occluded cube placement, handover, wiping, tongs/tomato transfer, bowl unstacking and cap unscrewing, with 20 trials per method/task. The 70.6 average mixes binary and staged scores. Removing tactile world prediction drops the controlled four-task mean from 74.7 to 26.6. Models are trained per task; cross-hand transfer is untested. Release status checked on 2026-10-28: the official repository provides training/deployment code, the 488-episode corpus, six task datasets and tactile-encoder weights, explicitly excluding task-specific world-model and action-expert checkpoints."
       },
       "links": {
         "paper": "https://arxiv.org/pdf/2609.24976v1",
@@ -3287,22 +3342,25 @@ window.RESEARCH_MAP = {
         "https://huggingface.co/collections/JensenYuan/dextacwam",
         "https://huggingface.co/JensenYuan/DexTacWAM_multi_finger_tactile_encoder"
       ],
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-04",
       "reading_status": "skimmed",
       "notes": {},
       "show_on_map": true,
       "display_tags": [
         {
-          "en": "Visuo-tactile WAM",
-          "zh": "视触觉WAM"
+          "en": "WAM architecture",
+          "zh": "WAM架构",
+          "bold": true
         },
         {
-          "en": "Multi-finger tactile compression",
-          "zh": "多指触觉压缩"
+          "en": "World-model-side tactile input",
+          "zh": "世界模型侧触觉输入",
+          "bold": true
         },
         {
-          "en": "Contact evolution prediction",
-          "zh": "接触演化预测"
+          "en": "Joint visual–tactile prediction",
+          "zh": "视触觉联合预测",
+          "bold": true
         }
       ],
       "publication_date": {
@@ -3311,15 +3369,15 @@ window.RESEARCH_MAP = {
         "basis": "source"
       },
       "labels": {
-        "en": "DexTacWAM｜Visuo-tactile WAM · Multi-finger tactile compression · Contact evolution prediction",
-        "zh": "DexTacWAM｜视触觉WAM · 多指触觉压缩 · 接触演化预测"
+        "en": "DexTacWAM｜WAM architecture · World-model-side tactile input · Joint visual–tactile prediction",
+        "zh": "DexTacWAM｜WAM架构 · 世界模型侧触觉输入 · 视触觉联合预测"
       },
       "topics": [
         "tactile"
       ],
       "catalog_urls": {
-        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-14",
-        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-14"
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training.md#am-man-dex-policy-learning-14",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-policy-learning-14"
       },
       "notes_urls": {}
     },
@@ -3660,15 +3718,394 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.TACTILE.GEN.1",
+      "slug": "dextouch-wm",
+      "short_name": "DexTouch-WM",
+      "title": "DexTouch-WM: Learning Action-Conditioned Tactile World Models from Human Touch for Dexterous Robot Manipulation",
+      "authors": "Yan Qin, Yue Chen, Wenwei Lin, Shujia Liu, Chuqiao Lyu, Kailun Su, Weiyang Jin, Chenze Yu, Ping Luo, Wenbo Ding, Tianxing Chen, Renjing Xu",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.TACTILE.GEN",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "tactile",
+        "visuo-tactile-world-model",
+        "action-conditioned-world-model",
+        "synthetic-demonstrations",
+        "data-generation",
+        "human-to-robot-transfer",
+        "shared-tactile-layout",
+        "action-retargeting",
+        "mixture-of-transformers",
+        "anatomy-aware-tokenization",
+        "residual-tactile-prediction",
+        "flow-matching",
+        "policy-evaluation",
+        "wuji-hand-2",
+        "real-world"
+      ],
+      "display_tags": [
+        {
+          "en": "Visual–tactile world model",
+          "zh": "视触觉世界模型",
+          "bold": true
+        },
+        {
+          "en": "Action-conditioned data generation",
+          "zh": "动作条件数据生成",
+          "bold": true
+        },
+        {
+          "en": "Human-to-robot touch transfer",
+          "zh": "人类触觉迁移",
+          "bold": true
+        }
+      ],
+      "tldr": {
+        "zh": "DexTouch-WM 利用对齐的人类与机器人触觉交互训练视触觉世界模型，给定已有动作序列生成对应的未来视频和触觉观测，组成机器人策略的合成示范，并用于模拟环境中的策略评测。",
+        "en": "DexTouch-WM trains a visual–tactile world model on aligned human and robot touch interactions, generates future video and tactile observations conditioned on existing action sequences to form synthetic demonstrations for robot policies, and supports policy evaluation in imagined environments."
+      },
+      "evaluation_scope": {
+        "zh": "模型输入初始 RGB、双手触觉、指令与给定的未来 67 维姿态序列，输出未来视频与触觉；动作是条件，不是该模型生成的控制输出，也没有直接执行动作的 AE。人手与 WujiHand2 使用同一触觉布局，每手记录 360 点、保留 320 点（五块 4×4 指尖＋一块 15×16 手掌）；人手运动经标定和 IK 重定向为机器人空间的双腕、双手 20DoF 与相机运动表示。Wan2.2-TI2V-5B 视频专家与轻量触觉专家通过 MoT 联合注意力交互，指尖与手掌分区编码；触觉预测以初始状态为锚的残差，动作经 AdaLN 按视频／触觉各自时间分辨率注入，使用条件流匹配。固定六项任务的 5 小时机器人数据，增加最多 100 小时／50 项人类任务，检验未参与训练的机器人片段预测；两域预训练任务集合不重叠。实机为天机机械臂＋20DoF Wuji 手。另四项下游任务用于适配与评测，最终执行策略为独立的 FTP-1、π₀.₅ 或 X-VLA。合成示范保留未用于世界模型训练的真实轨迹初始观测及已记录动作，仅替换未来 RGB 与触觉；比较 200 条真实示范与 100 条真实＋100 条合成示范，不能称为自动规划出新动作或减少动作轨迹来源。混合人类数据适配提升平均策略评测一致性，但合成数据的策略训练收益依模型和任务而变，部分实机得分下降，不保证等同全真实数据。代码、数据与权重下载情况未核实。",
+        "en": "Inputs are initial RGB, bilateral touch, an instruction and a given future 67D pose sequence; outputs are future video and touch. Actions condition the model rather than being its control outputs, and there is no action-generating AE. Humans and WujiHand2 share a sensing layout: 360 taxels recorded per hand, 320 retained as five 4×4 fingertip pads and one 15×16 palm pad. Calibration and IK retarget human motion into robot-space bilateral wrists, two 20-DoF hand configurations and camera motion. A Wan2.2-TI2V-5B video expert and lightweight tactile expert interact through MoT joint attention. Fingertips and palms are encoded separately; tactile predictions are residuals anchored to the initial state. AdaLN supplies action conditioning at each modality’s temporal resolution, with conditional flow matching. Scaling holds five hours of robot data from six tasks fixed while adding up to 100 hours across 50 human tasks, testing held-out robot episodes with disjoint human/robot pretraining task sets. Hardware uses a Tianji arm with a 20-DoF Wuji hand. Four additional tasks support adaptation and downstream evaluation, with separate FTP-1, π₀.₅ or X-VLA execution policies. Synthetic demonstrations retain initial observations and recorded actions from real trajectories excluded from world-model training and replace only future RGB/tactile observations. Comparing 200 real demonstrations with 100 real plus 100 synthetic demonstrations does not establish new action planning or reduced need for source action trajectories. Human-mixed adaptation improves average evaluator consistency, but synthetic-policy training utility varies by policy/task, with some real-robot scores declining; equivalence to all-real training is not established. Code, dataset and checkpoint downloads have not been verified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.20649v2"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.20649v2",
+        "https://arxiv.org/html/2609.20649v2",
+        "https://arxiv.org/pdf/2609.20649v2"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-09-17",
+        "source": "https://arxiv.org/abs/2609.20649v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DexTouch-WM｜Visual–tactile world model · Action-conditioned data generation · Human-to-robot touch transfer",
+        "zh": "DexTouch-WM｜视触觉世界模型 · 动作条件数据生成 · 人类触觉迁移"
+      },
+      "topics": [
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/data-generation.md#am-man-dex-tactile-gen-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/data-generation_cn.md#am-man-dex-tactile-gen-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.1",
+      "slug": "internw0",
+      "short_name": "InternW0",
+      "title": "InternW0: A Foundational Physical World Model for Efficient Real-World Interactions",
+      "authors": "Jisong Cai, Yao Mu, Ganlin Yang, Zhe Cao, Zhangzheng Tu, Xing Gao, Kailin Li, Xinyu Zhan, Lixin Yang, Yangkun Zhu, Haoxiang Ma, Ming Zhou, Qiaojun Yu, Yufei Xue, Liqun He, Yifei Yao, Yifan Zhu, Long Ling, Bingqi Jiang, Haoyu Guo, Xueyue Zhu, Bowen Zhou, Bin Zhao, Tianfan Xue, Chunhua Shen, Weinan Zhang",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "parallel-gripper",
+        "wam",
+        "asynchronous-inference",
+        "observation-conditioned-routing",
+        "kv-cache-editing",
+        "action-expert",
+        "tactile",
+        "force-feedback",
+        "tactile-post-training",
+        "joint-action-contact-prediction",
+        "flow-matching",
+        "human-video-pretraining",
+        "cross-embodiment",
+        "laboratory-manipulation",
+        "real-world",
+        "simulation"
+      ],
+      "display_tags": [
+        {
+          "en": "WAM architecture",
+          "zh": "WAM架构",
+          "bold": true
+        },
+        {
+          "en": "AE-side tactile input",
+          "zh": "AE侧触觉输入",
+          "bold": true
+        },
+        {
+          "en": "Joint action–contact prediction",
+          "zh": "动作—接触联合预测"
+        }
+      ],
+      "tldr": {
+        "zh": "InternW0 在预训练 WAM 的动作专家侧加入已观测的力／触觉历史，用流匹配联合去噪未来动作与接触信号，再将动作通道解码执行，使后续动作结合接触反馈生成。",
+        "en": "InternW0 adds observed force/tactile history to the action expert of a pretrained WAM, jointly denoises future actions and contact signals with flow matching, and decodes the action channels for execution so that subsequent actions incorporate contact feedback."
+      },
+      "additional_entries": [
+        {
+          "category": "AM.MAN.METHOD.ASYNCWAM",
+          "tldr": {
+            "zh": "InternW0 将慢速视频预测与快速动作生成异步解耦，用最新图像通过 K/V 编辑器修正缓存预测上下文，供动作专家生成下一段动作，减少每次动作更新所需的视频重计算。",
+            "en": "InternW0 asynchronously decouples slow video prediction from fast action generation: the latest image drives a K/V editor that adapts cached predictive context for the next action chunk, avoiding full video recomputation at each action update."
+          },
+          "display_tags": [
+            {
+              "en": "Asynchronous WAM architecture",
+              "zh": "异步WAM架构",
+              "bold": true
+            },
+            {
+              "en": "Observation-conditioned K/V editing",
+              "zh": "观测条件K/V编辑"
+            },
+            {
+              "en": "Multiple manipulation platforms",
+              "zh": "跨操作平台"
+            }
+          ]
+        }
+      ],
+      "evaluation_scope": {
+        "zh": "AE 指 Action Expert（动作专家），不是自编码器。基础异构预训练使用约 7,200 小时机器人与人类第一视角数据（其中 EgoLab 约 275 小时）：机器人轨迹监督视频与动作流匹配，人类视频仅监督未来视频，不要求触觉标注。接触感知后训练在动作侧扩展力／触觉历史输入和动作—接触联合预测目标；只输入生成前已观测的历史，未来接触通道加噪并与动作一起去噪，动作通道用于执行，不能据此把预测接触直接写成下发的力控目标。视频专家慢速提供各层 K/V，动作侧用最新 DINOv3 图像特征查询并残差编辑当前动作块的上下文视图，基础缓存不被逐块累积改写，部署不在线更新权重。异步调度与观测引导路由承接 AHA-WAM。实机为双臂平行夹爪的四项任务，以及 20 自由度灵巧手＋7 自由度机械臂的五阶段移液；手型号未明确，不能宣称同任务直接跨手迁移。五项任务各 15 次试验，移液的 65.3% 是顺序子任务平均进度率，最终阶段达成率为 46.7%，不是整条流程 65.3% 成功率。RTX 5090D 上 60.73 ms／16.47 Hz 仅是动作关键路径，排除异步视频预测开销。官方代码及 Base、RoboTwin-clean、LIBERO 权重入口已公开，已核实 RoboTwin-clean 的 .pt 文件列表；官方仓库明确不包含论文的力／触觉、实机与实验室资产，未核实触觉后训练数据、专用权重或实机接口可下载。",
+        "en": "AE means Action Expert, not autoencoder. Heterogeneous pretraining uses about 7,200 hours of robot and human egocentric data, including about 275 hours of EgoLab: robot trajectories supervise video and action flow matching, while human videos supervise future video only, without requiring tactile labels. Contact-aware post-training extends the action-side inputs with measured force/tactile history and the targets with joint action–contact prediction. Only history observed before generation is supplied; future contact channels are noised and denoised jointly with actions. Action channels execute, so predicted contact must not be assumed to be a directly issued force-control target. The slow video expert exposes layerwise K/V; current DINOv3 image features query and residually edit a chunk-specific context view without cumulatively rewriting the base cache or updating weights online. Asynchronous scheduling and observation-guided routing follow AHA-WAM. Real experiments comprise four tasks with dual parallel-gripper arms and five-stage pipetting with a 20-DoF dexterous hand on a 7-DoF arm; the hand model is unspecified, and paired same-task cross-hand transfer is not established. Each of the five tasks has 15 trials. Pipetting achieves 65.3% ordered-subtask progress, with 46.7% reaching the final stage, rather than 65.3% full-episode success. RTX 5090D latency of 60.73 ms / 16.47 Hz measures only the action critical path, excluding asynchronous video prediction. Official code and Base, RoboTwin-clean and LIBERO weight links are public; the RoboTwin-clean .pt listing was verified. The repository explicitly excludes the paper’s force/tactile, real-robot and laboratory assets; downloadable tactile post-training data, specialized weights and real-robot interfaces have not been verified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.27656v1",
+        "project": "https://internrobotics.github.io/internw0/",
+        "code": "https://github.com/InternRobotics/InternW0",
+        "assets": "https://huggingface.co/collections/InternRobotics/nternw0"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.27656v1",
+        "https://arxiv.org/html/2609.27656v1",
+        "https://internrobotics.github.io/internw0/",
+        "https://github.com/InternRobotics/InternW0",
+        "https://huggingface.co/collections/InternRobotics/nternw0",
+        "https://huggingface.co/InternRobotics/InternW0-RoboTwin-clean/tree/main"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-09-23",
+        "source": "https://arxiv.org/abs/2609.27656v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "InternW0｜WAM architecture · AE-side tactile input · Joint action–contact prediction",
+        "zh": "InternW0｜WAM架构 · AE侧触觉输入 · 动作—接触联合预测"
+      },
+      "topics": [
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.2",
+      "slug": "visforce",
+      "short_name": "VisForce",
+      "title": "VisForce: Visual Grounding of Current and Desired Forces for Goal-Conditioned Dexterous Manipulation",
+      "authors": "Jung-Woo Lee, Soo-Chul Lim",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "vla",
+        "tactile",
+        "force-feedback",
+        "actuator-force",
+        "force-visualization",
+        "desired-force-conditioning",
+        "fingertip-alignment",
+        "visual-goal-conditioning",
+        "cross-attention",
+        "pi-0-5",
+        "supervised-fine-tuning",
+        "lora",
+        "flow-matching",
+        "real-world"
+      ],
+      "display_tags": [
+        {
+          "en": "VLA architecture",
+          "zh": "VLA架构",
+          "bold": true
+        },
+        {
+          "en": "Visual force input to VLM",
+          "zh": "VLM侧力信息输入",
+          "bold": true
+        },
+        {
+          "en": "Current and desired force visualization",
+          "zh": "当前力与目标力可视化",
+          "bold": true
+        }
+      ],
+      "tldr": {
+        "zh": "VisForce 将当前驱动力与目标力分别画在当前腕部图像和目标图像的对应指尖位置，让 π₀.₅ 通过视觉输入联合理解抓姿与用力大小，生成满足目标力条件的臂手动作。",
+        "en": "VisForce renders current actuator forces and desired forces at the corresponding fingertips in the current wrist image and a goal image, conditioning π₀.₅ through vision on both grasp configuration and force magnitude to generate arm–hand actions under the desired-force condition."
+      },
+      "evaluation_scope": {
+        "zh": "当前五指驱动力通过对齐实机腕部相机的 MuJoCo 手模型定位，按指尖位置与预设法向画成箭头叠加到实时图像；箭头编码驱动力大小，不是真实三维接触力向量。目标图从参考示范选取子任务帧，离线去除背景并画入预设目标力，执行时按用户指定的当前子任务读取。当前与目标图经共享 SigLIP 编码，当前腕部 token 查询目标前景 token 的交叉注意力后进入 VLM 和动作专家；力通过视觉路径输入，而非单独力编码器。训练全量更新 SigLIP 与交叉注意力模块，VLM、AE 用 LoRA 微调，沿用流匹配损失；输出 12 维关节增量（UR10 机械臂 6 维＋RH56F1 手 6 维），不直接输出力控指令。实机 T1 为力条件抓取，T2–T4 为杯插入与倒液、夹具辅助面包转移、可控滑移插孔；每任务每策略 20 次，T2–T4 最终累计成功率为 70%、55%、40%。多阶段的当前子任务由用户指定，未证明自主任务规划；未验证跨手型泛化。代码、数据与权重下载情况未核实。",
+        "en": "Current five-finger actuator forces are rendered as arrows at fingertip locations using a MuJoCo hand model aligned with the real wrist camera and predefined fingertip normals, then overlaid on live images. Arrows encode actuator-force magnitude, not measured 3D contact-force vectors. Goal images are selected from reference demonstrations, foreground-isolated and augmented with predefined desired forces offline, then retrieved for the user-specified current subtask. Shared SigLIP features fuse current wrist queries with foreground goal tokens through cross-attention before entering the VLM and action expert; force enters through vision rather than a separate force encoder. Training fully updates SigLIP and cross-attention, uses LoRA for the VLM and AE, and retains the flow-matching loss. Outputs are 12D joint increments: six UR10 arm joints plus six RH56F1 hand channels, not direct force-control commands. T1 evaluates force-conditioned grasping; T2–T4 evaluate cup insertion/bottle pouring, tong-assisted bread transfer and slip-modulated peg-in-hole. Each policy has 20 trials per task; final cumulative success on T2–T4 is 70%, 55% and 40%. Users specify the current subtask, so autonomous task planning is not established; cross-hand generalization is not evaluated. Code, dataset and checkpoint downloads have not been verified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.25785v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.25785v1",
+        "https://arxiv.org/html/2609.25785v1",
+        "https://arxiv.org/pdf/2609.25785v1"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-09-22",
+        "source": "https://arxiv.org/abs/2609.25785v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "VisForce｜VLA architecture · Visual force input to VLM · Current and desired force visualization",
+        "zh": "VisForce｜VLA架构 · VLM侧力信息输入 · 当前力与目标力可视化"
+      },
+      "topics": [
+        "vla",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-2",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-2"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.TACTILE.PRETRAIN.1",
+      "slug": "spark-0",
+      "short_name": "Spark-0",
+      "title": "Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation",
+      "authors": "Tianxing Chen, Wenwei Lin, Chuqiao Lyu, Peicheng Xiang, Junyuan Tang, Tian Nian, Zijian Cai, Kehe Ye, Chenze Yu, Wenxuan Zhu, Eric J. Chen, Yan Qin, Yue Chen, Tongyu Wu, Junhao Gong, Kai-Chong Lei, Jiahao Zhang, Kailun Su, Qiwei Liang, Renjing Xu, Ping Luo, Wenbo Ding",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.TACTILE.PRETRAIN",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "vla",
+        "vtla",
+        "tactile",
+        "pretraining",
+        "tactile-supervised-visual-pretraining",
+        "contact-map-supervision",
+        "geometry-distillation",
+        "flow-matching",
+        "action-expert",
+        "regional-force-history",
+        "3d-taxels",
+        "tactile-adaln-conditioning",
+        "missing-modality-placeholder",
+        "human-demonstrations",
+        "human-to-robot-transfer",
+        "supervised-fine-tuning",
+        "wuji-hand-2",
+        "simulation",
+        "real-world"
+      ],
+      "tldr": {
+        "zh": "Spark-0 用触觉接触热图监督 VLM 的视觉表征，同时将受力历史与三维触觉点输入流匹配动作专家，使预训练模型同时支持纯视觉和带触觉的灵巧手控制。",
+        "en": "Spark-0 supervises VLM visual representations with tactile-derived contact maps and feeds force histories and 3D taxels to a flow-matching action expert, enabling the pretrained model to support both vision-only and tactile-conditioned dexterous control."
+      },
+      "evaluation_scope": {
+        "zh": "VLA 架构为 Qwen3-VL-4B＋36 层流匹配动作专家。训练时，将手套接触映射到人手网格并渲染为头视角接触热图，联合冻结的 Depth-Anything-3 几何教师监督 VLM 第 25 层视觉 token；原始触觉不输入 VLM，教师和对齐监督头在推理时移除。动作专家另接收 20 帧区域受力历史与当前三维触觉点，经编码形成 12 个受力＋12 个三维触觉 token，并通过联合注意力与受力条件 AdaLN 参与动作生成；AE 指 Action Expert，不是自编码器。结合图像、指令和三帧状态预测 50 步动作块，每步为双手合计 58 维末端相对位姿和手指关节目标。无触觉时使用学习到的占位 token，部署不在线更新权重。HumanTouch 提供 1,000 小时、100＋任务、32 名操作者的全手触觉人类示范，手套每手 460 点屏蔽 140 个弯折区后使用 320 点；混合人类、机器人与仿真数据预训练，再针对各基准微调，非零样本部署。SparkArena-Sim 为同一 Gen 1 Prototype／双 WUJI Hand 2 本体的 7 项纯视觉任务，每任务 50 次；SparkArena-Real 为 5 项带触觉任务，每任务 10 次、采用配对初态。相同 RGB 与预训练计算量下，加入触觉预训练使无在线触觉的 Ego Humanoid 成功率从 52.45% 升至 71.72%，Real 从 44% 升至 52%；这是整体触觉预训练比较，不是单独监督头或在线触觉的独立消融。代码和预训练 checkpoint 入口已公开；HumanTouch 完整数据与 SparkArena 仿真资产的实际下载范围未核实，项目页仍将 SparkArena-Sim 代码标为 Coming soon。数据集与基准作为同一论文的配套贡献记录，不另建重复条目。",
+        "en": "The VLA pairs Qwen3-VL-4B with a 36-layer flow-matching action expert. Glove contacts are mapped onto a human-hand mesh and rendered as head-view contact maps; these targets and a frozen Depth-Anything-3 geometry teacher supervise VLM layer-25 visual tokens. Raw touch never enters the VLM; teacher/alignment heads are removed at inference. Separately, 20-frame regional force histories and current 3D taxels yield 12 force plus 12 spatial tactile tokens, conditioning the action expert through joint attention and force-conditioned AdaLN. AE means Action Expert, not autoencoder. Images, instructions and three state frames condition a 50-row chunk of 58-dimensional bimanual relative end-effector poses and finger-joint targets. Missing touch uses learned placeholders; deployment does not update weights online. HumanTouch contains 1,000 hours across 100+ tasks and 32 operators; each glove uses 320 of 460 taxels after masking 140 flexion-region points. Mixed human/robot/simulation pretraining is followed by benchmark-specific fine-tuning, not zero-shot deployment. SparkArena-Sim has seven vision-only tasks with 50 trials each; SparkArena-Real has five tactile-conditioned tasks with ten paired-initial-state trials each, on the same Gen 1 Prototype with two WUJI Hand 2 hands. With identical RGB and pretraining compute, retaining touch raises vision-only Ego Humanoid success from 52.45% to 71.72% and Real from 44% to 52%. This compares overall tactile pretraining, not an isolated alignment-head or online-touch ablation. Official code and pretrained-checkpoint links are public; complete HumanTouch data and simulator-asset downloads remain unverified, and the project still marks SparkArena-Sim code Coming soon. Dataset and benchmark contributions remain in this single paper record."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2610.22342v1",
+        "project": "https://xsparkai.com/Spark-0/",
+        "code": "https://github.com/XsparkAI/Spark-0",
+        "assets": "https://huggingface.co/TianxingChen/Spark-0"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.22342v1",
+        "https://arxiv.org/pdf/2610.22342v1",
+        "https://xsparkai.com/Spark-0/",
+        "https://github.com/XsparkAI/Spark-0",
+        "https://huggingface.co/TianxingChen/Spark-0/tree/main"
+      ],
+      "verified_on": "2026-11-03",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "display_tags": [
+        {
+          "en": "VLA architecture",
+          "zh": "VLA架构"
+        },
+        {
+          "en": "Tactile supervision of VLM",
+          "zh": "VLM侧触觉监督",
+          "bold": true
+        },
+        {
+          "en": "Tactile input to action expert",
+          "zh": "动作专家触觉输入"
+        }
+      ],
+      "publication_date": {
+        "value": "2026-10-15",
+        "source": "https://arxiv.org/abs/2610.22342v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Spark-0｜VLA architecture · Tactile supervision of VLM · Tactile input to action expert",
+        "zh": "Spark-0｜VLA架构 · VLM侧触觉监督 · 动作专家触觉输入"
+      },
+      "topics": [
+        "vla",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/pretraining.md#am-man-dex-tactile-pretrain-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/pretraining_cn.md#am-man-dex-tactile-pretrain-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.VLA.FEEDBACK.1",
       "slug": "agentic-tactile-vla",
       "short_name": "AgenticTactileVLA",
       "title": "AgenticTactileVLA: Contact-Guided Execution-Time Supervision for Generalizable Dexterous Manipulation without VLA Retraining",
-      "authors": "Elizaveta Semenyakina et al",
+      "authors": "Elizaveta Semenyakina, Ivan Snegirev, Mikhail Kiselev, Miguel Altamirano Cabrera, Artem Lykov, Hajira Amjad, Dzmitry Tsetserukou",
       "year": 2026,
       "venue": "arXiv v1",
       "kind": "model",
-      "category": "AM.MAN.DEX.POLICY.FEEDBACK",
+      "category": "AM.MAN.DEX.TACTILE.FEEDBACK",
       "related_categories": [],
       "tags": [
         "dexterous",
@@ -3680,57 +4117,61 @@ window.RESEARCH_MAP = {
         "compliant-control",
         "grasping",
         "pick-and-place",
-        "real-world"
+        "real-world",
+        "agentic-execution-supervision",
+        "fixed-vla"
       ],
       "tldr": {
-        "zh": "**反馈与纠错：**在 VLA 闭合手指后，用指令与实际指位的偏差、以及纠正时的电机负载反馈判断接触；抓握不足时暂停后续身体运动指令的推进（保持身体稳定），逐指补闭合至接触，满足支持判据则保持手形继续执行，否则交回 VLA 重试。\n**作用位置：**外部、无需训练的监督层修改执行指令；修正后的手部状态进入下一轮 VLA 观测，不更新 VLA 参数。基础 VLA 已用遥操作示范微调。\n**柔顺模式：**闭合前由语言提示或 VLM 选择预设限流控制，减小对易损物体的挤压；无需额外触觉传感器，电机反馈不等于标定接触力。",
-        "en": "**Feedback/correction:** After nominal VLA finger closure, detect contact evidence from commanded-versus-measured finger motion and, during correction, motor-effort feedback. If support is insufficient, pause body-reference progression while maintaining stabilization and advance unsupported fingers independently until contact. Retain the corrected hand configuration when support criteria pass; otherwise return control to the VLA for retry.\n**Where it acts:** An external, nonlearned supervisor changes executed commands; the corrected hand state enters subsequent VLA observations without updating VLA parameters. The base VLA was fine-tuned on teleoperated demonstrations.\n**Compliant mode:** Before closure, language cues or a VLM select predefined current-limited control for fragile objects. No additional tactile sensors are required; motor feedback is not calibrated contact force."
+        "zh": "在固定 VLA 外增加执行监督 Agent，用指位偏差和电机负载推断接触，在抓握支撑不足时暂停后续运动、逐指修正闭合，并决定保持修正或交回 VLA 重试，无需额外触觉传感器或重新训练 VLA。",
+        "en": "AgenticTactileVLA wraps a fixed VLA with an execution-supervision Agent that infers contact from finger-motion mismatch and motor effort, pauses subsequent motion and corrects individual finger closure when grasp support is insufficient, then retains the correction or returns control to the VLA for retry, without extra tactile sensors or VLA retraining."
       },
       "evaluation_scope": {
-        "zh": "Unitree G1＋BrainCo Revo2，固定 GR00T-N1.6-3B；5 个训练外物体、每物体 15 次配对试验，共享 60 秒／最多 3 次接近预算，完成率由基础 VLA 的 61.3% 提升到 84.0%（无条件补闭合为 72.0%）。柔顺分支仅验证闭合与保持时的物体完整性，未验证自主搬运；未证明跨手型或跨 VLA 通用。",
-        "en": "Unitree G1 with BrainCo Revo2 and fixed GR00T-N1.6-3B; five held-out objects, 15 matched trials per object, with a shared 60-second/three-approach budget. Completion rises from 61.3% for the base VLA to 84.0% (72.0% for unconditional close-to-stall). The compliant branch evaluates object integrity during closure and holding, not autonomous transport; cross-hand and cross-VLA generality are not established."
+        "zh": "基础 GR00T-N1.6-3B 经遥操作示范微调后固定，读取图像、指令、机器人状态与实测指位，输出身体运动 token 和六通道手部位置目标。外部、无需训练的有状态监督层在闭合末期依据指令与实际指位的运动偏差判断支撑不足，调整时再结合电机负载变化逐指补闭合；暂停的仅是身体运动参考推进，稳定控制保持运行。通过支撑判据则保持修正手形，否则释放手部接管，由后续 VLA 指令决定重新张手和接近；释放接管本身不命令张手。权重不在线更新，修正后的实测手形进入下一轮观测。闭合前可由语言提示或 VLM 选择预设限流柔顺模式，VLM 不生成控制参数。本体反馈是接触证据，不是标定接触力，也没有新增触觉硬件。Unitree G1＋BrainCo Revo2，5 个训练外物体、每物体 15 次配对试验，共享 60 秒／最多 3 次接近预算，完成率由 61.3% 提升到 84.0%（无条件补闭合为 72.0%）。柔顺分支仅验证闭合与保持时的物体完整性，未验证自主搬运；未证明跨手型或跨 VLA 通用。",
+        "en": "The base GR00T-N1.6-3B is fixed after teleoperation fine-tuning. It reads images, instructions, robot state and measured hand positions, and outputs body-motion tokens and six-channel hand-position targets. An external, nonlearned stateful supervisor detects insufficient support at terminal closure from commanded-versus-measured finger motion; motor-effort deviations additionally guide per-finger adjustment. Only body-reference progression pauses, while stabilization remains active. Passing the support criterion retains the corrected configuration; otherwise the hand override is released so subsequent VLA commands can reopen and re-approach. Releasing the override does not itself command reopening. Weights remain unchanged; corrected measured hand positions enter subsequent observations. Before closure, language cues or a VLM can select a predefined current-limited compliant mode; the VLM does not generate controller parameters. Proprioceptive feedback is contact evidence rather than calibrated force, with no extra tactile hardware. Unitree G1 with BrainCo Revo2 is evaluated on five held-out objects, 15 matched trials per object, with a shared 60-second/three-approach budget. Completion rises from 61.3% to 84.0% (72.0% for unconditional close-to-stall). The compliant branch evaluates object integrity during closure and holding, not autonomous transport; cross-hand and cross-VLA generality are not established."
       },
       "links": {
         "paper": "https://arxiv.org/pdf/2610.04391v1"
       },
       "sources": [
         "https://arxiv.org/html/2610.04391v1",
-        "https://arxiv.org/pdf/2610.04391v1"
+        "https://arxiv.org/pdf/2610.04391v1",
+        "https://arxiv.org/abs/2610.04391v1"
       ],
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-11-04",
       "reading_status": "skimmed",
       "notes": {},
       "show_on_map": true,
       "display_tags": [
         {
-          "en": "VLA",
-          "zh": "VLA"
+          "en": "Agent execution supervision",
+          "zh": "Agent执行监督",
+          "bold": true
         },
         {
-          "en": "Contact feedback",
-          "zh": "接触反馈"
+          "en": "Fixed VLA",
+          "zh": "固定VLA"
         },
         {
-          "en": "Online action correction",
-          "zh": "在线动作修正"
+          "en": "Proprioceptive contact feedback",
+          "zh": "本体接触反馈"
         }
       ],
       "publication_date": {
-        "value": "2026-10",
-        "source": "https://arxiv.org/pdf/2610.04391v1",
-        "basis": "arxiv-id-month"
+        "value": "2026-10-03",
+        "source": "https://arxiv.org/abs/2610.04391v1",
+        "basis": "source"
       },
       "labels": {
-        "en": "AgenticTactileVLA｜VLA · Contact feedback · Online action correction",
-        "zh": "AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正"
+        "en": "AgenticTactileVLA｜Agent execution supervision · Fixed VLA · Proprioceptive contact feedback",
+        "zh": "AgenticTactileVLA｜Agent执行监督 · 固定VLA · 本体接触反馈"
       },
       "topics": [
         "vla",
         "tactile"
       ],
       "catalog_urls": {
-        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback.md#am-man-dex-vla-feedback-1",
-        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1"
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/execution-feedback.md#am-man-dex-vla-feedback-1",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/execution-feedback_cn.md#am-man-dex-vla-feedback-1"
       },
       "notes_urls": {}
     },

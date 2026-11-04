@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.TACTILE.GEN.1",
+  "slug": "dextouch-wm",
+  "short_name": "DexTouch-WM",
+  "title": "DexTouch-WM: Learning Action-Conditioned Tactile World Models from Human Touch for Dexterous Robot Manipulation",
+  "authors": "Yan Qin, Yue Chen, Wenwei Lin, Shujia Liu, Chuqiao Lyu, Kailun Su, Weiyang Jin, Chenze Yu, Ping Luo, Wenbo Ding, Tianxing Chen, Renjing Xu",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.TACTILE.GEN",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "tactile",
+    "visuo-tactile-world-model",
+    "action-conditioned-world-model",
+    "synthetic-demonstrations",
+    "data-generation",
+    "human-to-robot-transfer",
+    "shared-tactile-layout",
+    "action-retargeting",
+    "mixture-of-transformers",
+    "anatomy-aware-tokenization",
+    "residual-tactile-prediction",
+    "flow-matching",
+    "policy-evaluation",
+    "wuji-hand-2",
+    "real-world"
+  ],
+  "display_tags": [
+    {
+      "en": "Visual–tactile world model",
+      "zh": "视触觉世界模型",
+      "bold": true
+    },
+    {
+      "en": "Action-conditioned data generation",
+      "zh": "动作条件数据生成",
+      "bold": true
+    },
+    {
+      "en": "Human-to-robot touch transfer",
+      "zh": "人类触觉迁移",
+      "bold": true
+    }
+  ],
+  "tldr": {
+    "zh": "DexTouch-WM 利用对齐的人类与机器人触觉交互训练视触觉世界模型，给定已有动作序列生成对应的未来视频和触觉观测，组成机器人策略的合成示范，并用于模拟环境中的策略评测。",
+    "en": "DexTouch-WM trains a visual–tactile world model on aligned human and robot touch interactions, generates future video and tactile observations conditioned on existing action sequences to form synthetic demonstrations for robot policies, and supports policy evaluation in imagined environments."
+  },
+  "evaluation_scope": {
+    "zh": "模型输入初始 RGB、双手触觉、指令与给定的未来 67 维姿态序列，输出未来视频与触觉；动作是条件，不是该模型生成的控制输出，也没有直接执行动作的 AE。人手与 WujiHand2 使用同一触觉布局，每手记录 360 点、保留 320 点（五块 4×4 指尖＋一块 15×16 手掌）；人手运动经标定和 IK 重定向为机器人空间的双腕、双手 20DoF 与相机运动表示。Wan2.2-TI2V-5B 视频专家与轻量触觉专家通过 MoT 联合注意力交互，指尖与手掌分区编码；触觉预测以初始状态为锚的残差，动作经 AdaLN 按视频／触觉各自时间分辨率注入，使用条件流匹配。固定六项任务的 5 小时机器人数据，增加最多 100 小时／50 项人类任务，检验未参与训练的机器人片段预测；两域预训练任务集合不重叠。实机为天机机械臂＋20DoF Wuji 手。另四项下游任务用于适配与评测，最终执行策略为独立的 FTP-1、π₀.₅ 或 X-VLA。合成示范保留未用于世界模型训练的真实轨迹初始观测及已记录动作，仅替换未来 RGB 与触觉；比较 200 条真实示范与 100 条真实＋100 条合成示范，不能称为自动规划出新动作或减少动作轨迹来源。混合人类数据适配提升平均策略评测一致性，但合成数据的策略训练收益依模型和任务而变，部分实机得分下降，不保证等同全真实数据。代码、数据与权重下载情况未核实。",
+    "en": "Inputs are initial RGB, bilateral touch, an instruction and a given future 67D pose sequence; outputs are future video and touch. Actions condition the model rather than being its control outputs, and there is no action-generating AE. Humans and WujiHand2 share a sensing layout: 360 taxels recorded per hand, 320 retained as five 4×4 fingertip pads and one 15×16 palm pad. Calibration and IK retarget human motion into robot-space bilateral wrists, two 20-DoF hand configurations and camera motion. A Wan2.2-TI2V-5B video expert and lightweight tactile expert interact through MoT joint attention. Fingertips and palms are encoded separately; tactile predictions are residuals anchored to the initial state. AdaLN supplies action conditioning at each modality’s temporal resolution, with conditional flow matching. Scaling holds five hours of robot data from six tasks fixed while adding up to 100 hours across 50 human tasks, testing held-out robot episodes with disjoint human/robot pretraining task sets. Hardware uses a Tianji arm with a 20-DoF Wuji hand. Four additional tasks support adaptation and downstream evaluation, with separate FTP-1, π₀.₅ or X-VLA execution policies. Synthetic demonstrations retain initial observations and recorded actions from real trajectories excluded from world-model training and replace only future RGB/tactile observations. Comparing 200 real demonstrations with 100 real plus 100 synthetic demonstrations does not establish new action planning or reduced need for source action trajectories. Human-mixed adaptation improves average evaluator consistency, but synthetic-policy training utility varies by policy/task, with some real-robot scores declining; equivalence to all-real training is not established. Code, dataset and checkpoint downloads have not been verified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.20649v2"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.20649v2",
+    "https://arxiv.org/html/2609.20649v2",
+    "https://arxiv.org/pdf/2609.20649v2"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-09-17",
+    "source": "https://arxiv.org/abs/2609.20649v2",
+    "basis": "source"
+  }
+}

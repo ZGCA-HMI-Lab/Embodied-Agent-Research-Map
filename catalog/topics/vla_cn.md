@@ -6,9 +6,9 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (14)](vla_cn.md) · [强化学习 (22)](reinforcement-learning_cn.md) · [触觉与接触反馈 (13)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (16)](vla_cn.md) · [强化学习 (22)](reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
 
-14 篇工作
+16 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
@@ -21,7 +21,9 @@
 | [AFCE｜VLA · 动作—结果联合表征 · 双手协同](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-8) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `vla` |
 | [DextER｜接触推理 · 语言条件抓姿生成 · 自回归VLA](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-10) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `vla` |
 | [High-DoF VLA Post-Training｜**VLA后训练** · 低维手部动作编码 · 潜空间残差RL](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-15) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `vla` · `vla-fine-tuning` |
-| [AgenticTactileVLA｜VLA · 接触反馈 · 在线动作修正](../manipulation/dexterous/policies/execution-feedback_cn.md#am-man-dex-vla-feedback-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 执行反馈与动作修正 | `vla` |
+| [VisForce｜**VLA架构** · **VLM侧力信息输入** · **当前力与目标力可视化**](../manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-2) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 后训练 | `vla` |
+| [Spark-0｜VLA架构 · **VLM侧触觉监督** · 动作专家触觉输入](../manipulation/dexterous/tactile/pretraining_cn.md#am-man-dex-tactile-pretrain-1) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 预训练 | `vla` |
+| [AgenticTactileVLA｜**Agent执行监督** · 固定VLA · 本体接触反馈](../manipulation/dexterous/tactile/execution-feedback_cn.md#am-man-dex-vla-feedback-1) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 执行反馈与动作修正 | `vla` |
 | [TTP｜VLA · 触觉融合 · 动作与触觉联合预测](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `vla` |
 | [EmbodiedSWE｜**Coding Agent评测** · 长时序操作 · 示范生成](../manipulation/common-methods/cross-platform-benchmarks_cn.md#am-man-method-bench-1) | 操作动作模型 → 共性方法 → 跨平台评测基准 | `vla` |
 | [PaceVLA｜VLA · 执行加速 · 动作时间粒度](../manipulation/common-methods/execution-efficiency_cn.md#am-man-method-eff-1) | 操作动作模型 → 共性方法 → 执行效率与时序控制 | `vla` |
