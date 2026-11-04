@@ -8,7 +8,7 @@
 
 利用生成模型构造用于机器人操作的触觉或视触觉训练样本。明确生成哪些观测、动作序列来自哪里，以及合成数据如何训练独立策略。区分给定动作的观测预测与生成新的可执行动作轨迹；策略评测等附加用途及下游性能边界分别说明。
 
-**按主题浏览：** [VLA (16)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (18)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.TACTILE.GEN` · 1 篇主分类工作
 

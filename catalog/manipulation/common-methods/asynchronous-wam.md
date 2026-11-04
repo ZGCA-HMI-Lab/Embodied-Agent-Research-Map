@@ -8,7 +8,7 @@ Manipulation Action Models → Common Methods → Asynchronous WAM Architectures
 
 World–action model architectures that coordinate expensive predictive modeling and faster observation-conditioned action generation at different timescales. Record expert interfaces, cache reuse or editing, feedback paths, training objectives and measured latency boundaries. Distinguish inherited architecture principles from new contributions and evaluated robot platforms from untested transfer claims.
 
-**Browse by topic：** [VLA (16)](../../topics/vla.md) · [Reinforcement learning (22)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (17)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (18)](../../topics/vla.md) · [Reinforcement learning (22)](../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../topics/tactile.md) · [In-hand manipulation (5)](../../topics/in-hand-manipulation.md)
 
 `AM.MAN.METHOD.ASYNCWAM` · 0 primary records · 1 additional display entries (shared canonical records)
 

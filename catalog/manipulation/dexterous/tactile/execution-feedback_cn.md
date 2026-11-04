@@ -8,7 +8,7 @@
 
 以触觉测量或本体信号推断的接触反馈干预执行、修正动作或触发重试为主要贡献的灵巧手操作研究。明确感知来源、反馈到执行指令的接口及权重是否更新；区分接触推断与标定力、执行监督层与学习式动作策略。逐篇判断归属，不自动迁移带触觉标签的工作。
 
-**按主题浏览：** [VLA (16)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (18)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.TACTILE.FEEDBACK` · 1 篇主分类工作
 

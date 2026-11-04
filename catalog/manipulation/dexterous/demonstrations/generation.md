@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Generate robot demonstration trajectories or training data from real or generated videos, retargeting and simulation optimization. Classify by the main contribution: online retargeting controllers belong under policy/control. Distinguish replay from closed-loop deployment.
 
-**Browse by topic：** [VLA (16)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (17)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (18)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.DEMO` · 10 primary records
 

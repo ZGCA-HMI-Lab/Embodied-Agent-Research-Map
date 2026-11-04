@@ -8,7 +8,7 @@
 
 以不同时间尺度协调高开销世界预测与快速观测条件动作生成的世界—动作模型架构。记录专家接口、缓存复用或编辑、反馈路径、训练目标与延迟测量边界；区分承接的架构思想与新增贡献，以及实际验证平台与未经验证的迁移。
 
-**按主题浏览：** [VLA (16)](../../topics/vla_cn.md) · [强化学习 (22)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (18)](../../topics/vla_cn.md) · [强化学习 (22)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.METHOD.ASYNCWAM` · 0 篇主分类工作 · 1 个额外展示入口（共享同一论文记录）
 

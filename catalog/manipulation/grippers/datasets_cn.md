@@ -8,7 +8,7 @@
 
 面向夹爪操作的可复用数据集、任务环境与评测协议，包括单臂、双臂和移动平台。用 kind 区分数据集与基准，记录硬件、任务范围、同任务跨末端证据及实际开放内容；评测 Coding Agent 不自动归入 Agent 架构，多机器人平台不等于验证了多指灵巧手。保留历史分类码与目录路径。
 
-**按主题浏览：** [VLA (16)](../../topics/vla_cn.md) · [强化学习 (22)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (18)](../../topics/vla_cn.md) · [强化学习 (22)](../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../topics/tactile_cn.md) · [手内操作 (5)](../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.GRIP.DATASET` · 2 篇主分类工作
 

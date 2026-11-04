@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.3",
+  "slug": "star",
+  "short_name": "STAR",
+  "title": "STAR: Sparse Tactile Representation Learning in Vision-Tactile-Language-Action Models for Dexterous Manipulation",
+  "authors": "Xiangcheng Liu, Tianhao Wu, Le Zheng, Yidong Wang, Bowen Jiang, Mingjie Pan, Xinlin Ren, Yi Liu, Jianlan Luo",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "vla",
+    "vtla",
+    "tactile",
+    "pi-0-5",
+    "pretrained-tactile-encoder",
+    "vlm-tactile-input",
+    "visual-tactile-masked-pretraining",
+    "sparse-global-tactile-tokens",
+    "contact-gating",
+    "future-tactile-auxiliary-supervision",
+    "supervised-fine-tuning",
+    "flow-matching",
+    "real-world"
+  ],
+  "display_tags": [
+    {
+      "en": "VLA architecture",
+      "zh": "VLA架构",
+      "bold": true
+    },
+    {
+      "en": "Pretrained tactile encoder into VLM",
+      "zh": "预训练触觉编码器接入VLM",
+      "bold": true
+    },
+    {
+      "en": "Sparse–global tactile representation",
+      "zh": "稀疏—全局触觉表征",
+      "bold": true
+    }
+  ],
+  "tldr": {
+    "zh": "STAR 先用视触觉联合掩码重建训练触觉编码器，再将其产生的激活局部与全局触觉 token 接入 π₀.₅ 的 VLM，配合未来触觉辅助监督，训练能够利用稀疏接触信息的臂手操作策略。",
+    "en": "STAR first trains a tactile encoder with joint visual–tactile masked reconstruction, then feeds its activated local and global tactile tokens into the π₀.₅ VLM, using auxiliary future-touch supervision to train an arm–hand policy that exploits sparse contact information."
+  },
+  "evaluation_scope": {
+    "zh": "触觉编码器预训练是接入既有 VLA 的前置步骤，主归属按触觉扩展与策略适配放在后训练。先在自采 200 小时数据中的非零触觉帧及对应腕图上做 MAE 式联合重建，两模态各随机遮挡 75% patch。策略阶段每手输出 196 个局部 patch token＋1 个全局 token，经投影后与视觉和语言共同组成 VLM 前缀；接触门控仅屏蔽未激活局部 token，全局 token 始终可被访问。全局触觉 token 不读取视觉／语言／动作，其他模态可读取它。初始化 π₀.₅ 的 VLM 和动作专家后，在 200 小时多任务示范上联合微调，触觉编码器也继续更新，再用每任务 100 条示范后训练。辅助 MLP 从 VLM 输出的局部触觉 token 预测未来第 10／20／30／40／50 步的法向力 patch，全局 token 不作为预测头输入；动作仍以流匹配生成，不把未来触觉作为直接力控指令。动作接口 64 维中 34 维有效：双臂各 7 维末端位姿＋双手各 10 维关节，其余填零，不能称为 64 个执行关节。平台为双臂轮式机器人，每手 10 个主动自由度、总计 16 自由度，268 点压阻触觉覆盖掌面和手指内侧，不覆盖指缘。数据共 10,576 条、65 项任务，其中 69.5% 轨迹涉及灵巧多指操作；配套数据记在同一论文中。四项真机评测为耳机翻转、紧密书堆取书、明信片取放、多物体抓取，每策略每任务 20 次，平均成功率约 61%。评测物体未出现在 200 小时数据中，但已用于任务专属后训练，并非零样本新物体泛化；跨手型、跨传感器与全部任务触觉收益未获验证。代码、数据和模型权重下载情况未核实。",
+    "en": "Tactile-encoder pretraining is a prerequisite for extending an existing VLA; primary placement is Post-training for tactile integration and policy adaptation. MAE-style joint reconstruction uses nonzero tactile frames and paired wrist images from the collected 200-hour dataset, independently masking 75% of patches in each modality. During policy training, each hand produces 196 local patch tokens plus one global token, projected into the VLM prefix alongside visual/language tokens. Contact gating masks inactive local tokens while keeping global tokens attendable. Global tactile tokens cannot attend to visual/language/action tokens, but other modalities can attend to them. The VLM and action expert initialize from π₀.₅ and jointly finetune on 200 hours of multi-task demonstrations, with the tactile encoder also updated, before post-training on 100 demonstrations per task. Auxiliary MLPs predict normal-force patches at future steps 10/20/30/40/50 from local VLM tactile outputs, excluding the global token; actions still use flow matching and predicted touch is not a direct force-control command. The 64D action interface has 34 active dimensions: two 7D end-effector poses and two 10D hand-joint vectors, with zero padding rather than 64 actuated joints. The bimanual wheeled platform has hands with 10 actuated and 16 total DoF each, with 268 piezoresistive taxels covering palms/inner fingers but not finger edges. The dataset has 10,576 trajectories across 65 tasks; 69.5% of trajectories involve dexterous multi-finger manipulation. Supporting data remain in this paper record. Four real-robot tasks cover earbud flipping, stacked-book retrieval, postcard retrieval and multi-object grasping, with 20 trials per policy/task and about 61% mean success. Evaluation objects are absent from the 200-hour dataset but used during task-specific post-training, so this is not zero-shot object generalization. Cross-hand/sensor transfer and uniformly positive tactile gains are not established. Code, dataset and checkpoint downloads have not been verified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.12549v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.12549v1",
+    "https://arxiv.org/html/2609.12549v1",
+    "https://arxiv.org/pdf/2609.12549v1"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-09-11",
+    "source": "https://arxiv.org/abs/2609.12549v1",
+    "basis": "source"
+  }
+}

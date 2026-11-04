@@ -6,9 +6,9 @@
 
 跨分类检索：按标签汇集工作；每篇只计一次，点击工作回到唯一的主分类记录。主题涉及该方法或任务，不表示它一定是论文的主要贡献。
 
-**按主题浏览：** [VLA (16)](vla_cn.md) · [强化学习 (22)](reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (18)](vla_cn.md) · [强化学习 (22)](reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](tactile_cn.md) · [手内操作 (5)](in-hand-manipulation_cn.md)
 
-17 篇工作
+19 篇工作
 
 | 工作／主题与方法 | 主分类 | 匹配标签 |
 |---|---|---|
@@ -24,6 +24,8 @@
 | [DexTouch-WM｜**视触觉世界模型** · **动作条件数据生成** · **人类触觉迁移**](../manipulation/dexterous/tactile/data-generation_cn.md#am-man-dex-tactile-gen-1) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 数据生成 | `tactile` |
 | [InternW0｜**WAM架构** · **AE侧触觉输入** · 动作—接触联合预测](../manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-1) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 后训练 | `tactile` |
 | [VisForce｜**VLA架构** · **VLM侧力信息输入** · **当前力与目标力可视化**](../manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-2) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 后训练 | `tactile` |
+| [STAR｜**VLA架构** · **预训练触觉编码器接入VLM** · **稀疏—全局触觉表征**](../manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-3) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 后训练 | `tactile` |
+| [DeCAL｜**MoT 统一模型** · **VLM侧触觉门控** · **WM视触觉未来联合预测**](../manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-4) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 后训练 | `tactile` |
 | [Spark-0｜VLA架构 · **VLM侧触觉监督** · 动作专家触觉输入](../manipulation/dexterous/tactile/pretraining_cn.md#am-man-dex-tactile-pretrain-1) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 预训练 | `tactile` |
 | [AgenticTactileVLA｜**Agent执行监督** · 固定VLA · 本体接触反馈](../manipulation/dexterous/tactile/execution-feedback_cn.md#am-man-dex-vla-feedback-1) | 操作动作模型 → 多指灵巧手操作研究 → 触觉操作 → 执行反馈与动作修正 | `contact-estimation` |
 | [TTP｜VLA · 触觉融合 · 动作与触觉联合预测](../manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-vla-tactile-1) | 操作动作模型 → 多指灵巧手操作研究 → 机器人操作策略与控制 → 动作策略学习 | `tactile` |

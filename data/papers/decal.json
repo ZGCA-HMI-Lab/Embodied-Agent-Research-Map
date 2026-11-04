@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.4",
+  "slug": "decal",
+  "short_name": "DeCAL",
+  "title": "DeCAL: Towards Physically-Grounded Dexterous Vision-Language-Action Models via Contact-Aware Latent Co-Imagination",
+  "authors": "Yankai Fu, Ning Chen, Junkai Zhao, Heng Zhang, Guocai Yao, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "vla",
+    "vtla",
+    "mixture-of-transformers",
+    "tactile",
+    "tactile-post-training",
+    "vlm-tactile-input",
+    "contact-aware-gating",
+    "visuo-tactile-world-model",
+    "future-tactile-prediction",
+    "latent-co-imagination",
+    "factorized-flow-matching",
+    "flow-matching",
+    "imitation-learning",
+    "supervised-fine-tuning",
+    "action-chunking",
+    "real-world"
+  ],
+  "display_tags": [
+    {
+      "en": "Unified MoT model",
+      "zh": "MoT 统一模型",
+      "bold": true
+    },
+    {
+      "en": "VLM-side tactile gating",
+      "zh": "VLM侧触觉门控",
+      "bold": true
+    },
+    {
+      "en": "WM joint future visual–tactile prediction",
+      "zh": "WM视触觉未来联合预测",
+      "bold": true
+    }
+  ],
+  "tldr": {
+    "zh": "DeCAL 在预训练 VLA 上，用接触状态门控将指尖触觉注入 VLM，并联合预测未来视觉与触觉潜变量，再由动作专家结合这些预测，通过臂手分离建模、联合协调的 Flow Matching 生成操作动作。",
+    "en": "DeCAL extends a pretrained VLA with contact-aware gating that injects fingertip touch into the VLM and joint prediction of future visual and tactile latents; conditioned on these predictions, its action expert generates manipulation actions through factorized arm–hand flow matching with joint coordination."
+  },
+  "evaluation_scope": {
+    "zh": "从 InternVLA-A1-3B 预训练权重初始化，在机器人示范上联合训练未来视觉预测、未来触觉重建与流匹配动作生成，因此归入触觉后训练。MoT 内含理解、生成和动作三个 Transformer 专家，信息由理解端向生成端、动作端单向传播，并非三个独立 Agent。部署时，指尖形变图经共享 ResNet 和跨指 Transformer 编为局部／全局触觉 token；局部 token 经交叉注意注入 VLM，全局 token 决定门控强度。当前逐指六维力／力矩另经编码器输入生成端，预测未来视触觉潜变量；训练用未来视觉潜变量及触觉原图、形变图、六维力监督，部署省略重建解码器，预测触觉不作为直接力控指令。动作专家读取理解特征、预测潜变量与本体状态，臂和手分别初始化噪声、投影为独立 token 后联合处理，输出 50 步动作块，无 RL 或在线权重更新。观测历史含此前 15 帧及当前帧。真机为双 UR5 机械臂与双 22 自由度 SharpaWave 手，每指尖配置视触觉传感器；六维力／力矩由触觉图像回归估计。六项任务为擦花瓶、擦白板、零件装配、拧瓶盖、移液和拧灯泡，每项 100 条示范、每方法每项默认 20 次评测；未验证跨手型迁移。",
+    "en": "Initialized from InternVLA-A1-3B, DeCAL jointly trains visual foresight, tactile reconstruction and flow-matching actions on robot demonstrations, supporting placement under tactile post-training. The MoT contains understanding, generation and action Transformer experts with directional information flow, rather than three independent agents. At deployment, shared ResNet and cross-finger Transformer layers encode fingertip deformation maps into local/global tactile tokens: local tokens enter the VLM through cross-attention, while the global token controls the gate. Encoded current per-finger 6D force/torque also conditions the generation expert's future visual–tactile latents. Training uses future visual latents, raw tactile images, deformation maps and 6D force targets; reconstruction decoders are omitted at inference, and predicted touch is not a direct force-control command. The action expert conditions on understanding features, predicted latents and proprioception. Arm/hand actions start from separate noise distributions and token projections, then are jointly processed into 50-step chunks, without RL or online weight updates. Observation history includes 15 preceding frames and the current frame. The real platform uses dual UR5 arms and two 22-DoF SharpaWave hands with vision-based fingertip tactile sensors; 6D force/torque is regressed from tactile images. Six tasks cover vase wiping, whiteboard erasing, part assembly, cap unscrewing, pipetting and bulb screwing, with 100 demonstrations per task and 20 evaluation trials per method/task by default. Cross-hand transfer is not established."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2609.09119v1",
+    "project": "https://aureleopku.github.io/DeCAL/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2609.09119v1",
+    "https://arxiv.org/html/2609.09119v1",
+    "https://aureleopku.github.io/DeCAL/"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-09-08",
+    "source": "https://arxiv.org/abs/2609.09119v1",
+    "basis": "source"
+  }
+}

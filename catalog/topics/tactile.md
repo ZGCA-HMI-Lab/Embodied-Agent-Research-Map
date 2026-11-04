@@ -6,9 +6,9 @@
 
 Cross-category retrieval by tags: each work appears once and links to its canonical record. Topic membership does not imply that the topic is the main contribution.
 
-**Browse by topic：** [VLA (16)](vla.md) · [Reinforcement learning (22)](reinforcement-learning.md) · [Touch and contact feedback (17)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
+**Browse by topic：** [VLA (18)](vla.md) · [Reinforcement learning (22)](reinforcement-learning.md) · [Touch and contact feedback (19)](tactile.md) · [In-hand manipulation (5)](in-hand-manipulation.md)
 
-17 records
+19 records
 
 | Work / topics and methods | Primary category | Matching tags |
 |---|---|---|
@@ -24,6 +24,8 @@ Cross-category retrieval by tags: each work appears once and links to its canoni
 | [DexTouch-WM｜**Visual–tactile world model** · **Action-conditioned data generation** · **Human-to-robot touch transfer**](../manipulation/dexterous/tactile/data-generation.md#am-man-dex-tactile-gen-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Data Generation | `tactile` |
 | [InternW0｜**WAM architecture** · **AE-side tactile input** · Joint action–contact prediction](../manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Post-training | `tactile` |
 | [VisForce｜**VLA architecture** · **Visual force input to VLM** · **Current and desired force visualization**](../manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-2) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Post-training | `tactile` |
+| [STAR｜**VLA architecture** · **Pretrained tactile encoder into VLM** · **Sparse–global tactile representation**](../manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-3) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Post-training | `tactile` |
+| [DeCAL｜**Unified MoT model** · **VLM-side tactile gating** · **WM joint future visual–tactile prediction**](../manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-4) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Post-training | `tactile` |
 | [Spark-0｜VLA architecture · **Tactile supervision of VLM** · Tactile input to action expert](../manipulation/dexterous/tactile/pretraining.md#am-man-dex-tactile-pretrain-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Pretraining | `tactile` |
 | [AgenticTactileVLA｜**Agent execution supervision** · Fixed VLA · Proprioceptive contact feedback](../manipulation/dexterous/tactile/execution-feedback.md#am-man-dex-vla-feedback-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Tactile Manipulation → Execution Feedback and Action Correction | `contact-estimation` |
 | [TTP｜VLA · Tactile fusion · Joint action/touch prediction](../manipulation/dexterous/policies/policy-learning.md#am-man-dex-vla-tactile-1) | Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Research → Robot Manipulation Policies and Control → Action Policy Learning | `tactile` |

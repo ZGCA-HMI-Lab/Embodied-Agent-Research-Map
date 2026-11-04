@@ -4002,6 +4002,180 @@
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.3",
+      "slug": "star",
+      "short_name": "STAR",
+      "title": "STAR: Sparse Tactile Representation Learning in Vision-Tactile-Language-Action Models for Dexterous Manipulation",
+      "authors": "Xiangcheng Liu, Tianhao Wu, Le Zheng, Yidong Wang, Bowen Jiang, Mingjie Pan, Xinlin Ren, Yi Liu, Jianlan Luo",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "vla",
+        "vtla",
+        "tactile",
+        "pi-0-5",
+        "pretrained-tactile-encoder",
+        "vlm-tactile-input",
+        "visual-tactile-masked-pretraining",
+        "sparse-global-tactile-tokens",
+        "contact-gating",
+        "future-tactile-auxiliary-supervision",
+        "supervised-fine-tuning",
+        "flow-matching",
+        "real-world"
+      ],
+      "display_tags": [
+        {
+          "en": "VLA architecture",
+          "zh": "VLA架构",
+          "bold": true
+        },
+        {
+          "en": "Pretrained tactile encoder into VLM",
+          "zh": "预训练触觉编码器接入VLM",
+          "bold": true
+        },
+        {
+          "en": "Sparse–global tactile representation",
+          "zh": "稀疏—全局触觉表征",
+          "bold": true
+        }
+      ],
+      "tldr": {
+        "zh": "STAR 先用视触觉联合掩码重建训练触觉编码器，再将其产生的激活局部与全局触觉 token 接入 π₀.₅ 的 VLM，配合未来触觉辅助监督，训练能够利用稀疏接触信息的臂手操作策略。",
+        "en": "STAR first trains a tactile encoder with joint visual–tactile masked reconstruction, then feeds its activated local and global tactile tokens into the π₀.₅ VLM, using auxiliary future-touch supervision to train an arm–hand policy that exploits sparse contact information."
+      },
+      "evaluation_scope": {
+        "zh": "触觉编码器预训练是接入既有 VLA 的前置步骤，主归属按触觉扩展与策略适配放在后训练。先在自采 200 小时数据中的非零触觉帧及对应腕图上做 MAE 式联合重建，两模态各随机遮挡 75% patch。策略阶段每手输出 196 个局部 patch token＋1 个全局 token，经投影后与视觉和语言共同组成 VLM 前缀；接触门控仅屏蔽未激活局部 token，全局 token 始终可被访问。全局触觉 token 不读取视觉／语言／动作，其他模态可读取它。初始化 π₀.₅ 的 VLM 和动作专家后，在 200 小时多任务示范上联合微调，触觉编码器也继续更新，再用每任务 100 条示范后训练。辅助 MLP 从 VLM 输出的局部触觉 token 预测未来第 10／20／30／40／50 步的法向力 patch，全局 token 不作为预测头输入；动作仍以流匹配生成，不把未来触觉作为直接力控指令。动作接口 64 维中 34 维有效：双臂各 7 维末端位姿＋双手各 10 维关节，其余填零，不能称为 64 个执行关节。平台为双臂轮式机器人，每手 10 个主动自由度、总计 16 自由度，268 点压阻触觉覆盖掌面和手指内侧，不覆盖指缘。数据共 10,576 条、65 项任务，其中 69.5% 轨迹涉及灵巧多指操作；配套数据记在同一论文中。四项真机评测为耳机翻转、紧密书堆取书、明信片取放、多物体抓取，每策略每任务 20 次，平均成功率约 61%。评测物体未出现在 200 小时数据中，但已用于任务专属后训练，并非零样本新物体泛化；跨手型、跨传感器与全部任务触觉收益未获验证。代码、数据和模型权重下载情况未核实。",
+        "en": "Tactile-encoder pretraining is a prerequisite for extending an existing VLA; primary placement is Post-training for tactile integration and policy adaptation. MAE-style joint reconstruction uses nonzero tactile frames and paired wrist images from the collected 200-hour dataset, independently masking 75% of patches in each modality. During policy training, each hand produces 196 local patch tokens plus one global token, projected into the VLM prefix alongside visual/language tokens. Contact gating masks inactive local tokens while keeping global tokens attendable. Global tactile tokens cannot attend to visual/language/action tokens, but other modalities can attend to them. The VLM and action expert initialize from π₀.₅ and jointly finetune on 200 hours of multi-task demonstrations, with the tactile encoder also updated, before post-training on 100 demonstrations per task. Auxiliary MLPs predict normal-force patches at future steps 10/20/30/40/50 from local VLM tactile outputs, excluding the global token; actions still use flow matching and predicted touch is not a direct force-control command. The 64D action interface has 34 active dimensions: two 7D end-effector poses and two 10D hand-joint vectors, with zero padding rather than 64 actuated joints. The bimanual wheeled platform has hands with 10 actuated and 16 total DoF each, with 268 piezoresistive taxels covering palms/inner fingers but not finger edges. The dataset has 10,576 trajectories across 65 tasks; 69.5% of trajectories involve dexterous multi-finger manipulation. Supporting data remain in this paper record. Four real-robot tasks cover earbud flipping, stacked-book retrieval, postcard retrieval and multi-object grasping, with 20 trials per policy/task and about 61% mean success. Evaluation objects are absent from the 200-hour dataset but used during task-specific post-training, so this is not zero-shot object generalization. Cross-hand/sensor transfer and uniformly positive tactile gains are not established. Code, dataset and checkpoint downloads have not been verified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.12549v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.12549v1",
+        "https://arxiv.org/html/2609.12549v1",
+        "https://arxiv.org/pdf/2609.12549v1"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-09-11",
+        "source": "https://arxiv.org/abs/2609.12549v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "STAR｜VLA architecture · Pretrained tactile encoder into VLM · Sparse–global tactile representation",
+        "zh": "STAR｜VLA架构 · 预训练触觉编码器接入VLM · 稀疏—全局触觉表征"
+      },
+      "topics": [
+        "vla",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-3"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.TACTILE.POSTTRAIN.4",
+      "slug": "decal",
+      "short_name": "DeCAL",
+      "title": "DeCAL: Towards Physically-Grounded Dexterous Vision-Language-Action Models via Contact-Aware Latent Co-Imagination",
+      "authors": "Yankai Fu, Ning Chen, Junkai Zhao, Heng Zhang, Guocai Yao, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "vla",
+        "vtla",
+        "mixture-of-transformers",
+        "tactile",
+        "tactile-post-training",
+        "vlm-tactile-input",
+        "contact-aware-gating",
+        "visuo-tactile-world-model",
+        "future-tactile-prediction",
+        "latent-co-imagination",
+        "factorized-flow-matching",
+        "flow-matching",
+        "imitation-learning",
+        "supervised-fine-tuning",
+        "action-chunking",
+        "real-world"
+      ],
+      "display_tags": [
+        {
+          "en": "Unified MoT model",
+          "zh": "MoT 统一模型",
+          "bold": true
+        },
+        {
+          "en": "VLM-side tactile gating",
+          "zh": "VLM侧触觉门控",
+          "bold": true
+        },
+        {
+          "en": "WM joint future visual–tactile prediction",
+          "zh": "WM视触觉未来联合预测",
+          "bold": true
+        }
+      ],
+      "tldr": {
+        "zh": "DeCAL 在预训练 VLA 上，用接触状态门控将指尖触觉注入 VLM，并联合预测未来视觉与触觉潜变量，再由动作专家结合这些预测，通过臂手分离建模、联合协调的 Flow Matching 生成操作动作。",
+        "en": "DeCAL extends a pretrained VLA with contact-aware gating that injects fingertip touch into the VLM and joint prediction of future visual and tactile latents; conditioned on these predictions, its action expert generates manipulation actions through factorized arm–hand flow matching with joint coordination."
+      },
+      "evaluation_scope": {
+        "zh": "从 InternVLA-A1-3B 预训练权重初始化，在机器人示范上联合训练未来视觉预测、未来触觉重建与流匹配动作生成，因此归入触觉后训练。MoT 内含理解、生成和动作三个 Transformer 专家，信息由理解端向生成端、动作端单向传播，并非三个独立 Agent。部署时，指尖形变图经共享 ResNet 和跨指 Transformer 编为局部／全局触觉 token；局部 token 经交叉注意注入 VLM，全局 token 决定门控强度。当前逐指六维力／力矩另经编码器输入生成端，预测未来视触觉潜变量；训练用未来视觉潜变量及触觉原图、形变图、六维力监督，部署省略重建解码器，预测触觉不作为直接力控指令。动作专家读取理解特征、预测潜变量与本体状态，臂和手分别初始化噪声、投影为独立 token 后联合处理，输出 50 步动作块，无 RL 或在线权重更新。观测历史含此前 15 帧及当前帧。真机为双 UR5 机械臂与双 22 自由度 SharpaWave 手，每指尖配置视触觉传感器；六维力／力矩由触觉图像回归估计。六项任务为擦花瓶、擦白板、零件装配、拧瓶盖、移液和拧灯泡，每项 100 条示范、每方法每项默认 20 次评测；未验证跨手型迁移。",
+        "en": "Initialized from InternVLA-A1-3B, DeCAL jointly trains visual foresight, tactile reconstruction and flow-matching actions on robot demonstrations, supporting placement under tactile post-training. The MoT contains understanding, generation and action Transformer experts with directional information flow, rather than three independent agents. At deployment, shared ResNet and cross-finger Transformer layers encode fingertip deformation maps into local/global tactile tokens: local tokens enter the VLM through cross-attention, while the global token controls the gate. Encoded current per-finger 6D force/torque also conditions the generation expert's future visual–tactile latents. Training uses future visual latents, raw tactile images, deformation maps and 6D force targets; reconstruction decoders are omitted at inference, and predicted touch is not a direct force-control command. The action expert conditions on understanding features, predicted latents and proprioception. Arm/hand actions start from separate noise distributions and token projections, then are jointly processed into 50-step chunks, without RL or online weight updates. Observation history includes 15 preceding frames and the current frame. The real platform uses dual UR5 arms and two 22-DoF SharpaWave hands with vision-based fingertip tactile sensors; 6D force/torque is regressed from tactile images. Six tasks cover vase wiping, whiteboard erasing, part assembly, cap unscrewing, pipetting and bulb screwing, with 100 demonstrations per task and 20 evaluation trials per method/task by default. Cross-hand transfer is not established."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2609.09119v1",
+        "project": "https://aureleopku.github.io/DeCAL/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.09119v1",
+        "https://arxiv.org/html/2609.09119v1",
+        "https://aureleopku.github.io/DeCAL/"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-09-08",
+        "source": "https://arxiv.org/abs/2609.09119v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "DeCAL｜Unified MoT model · VLM-side tactile gating · WM joint future visual–tactile prediction",
+        "zh": "DeCAL｜MoT 统一模型 · VLM侧触觉门控 · WM视触觉未来联合预测"
+      },
+      "topics": [
+        "vla",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training.md#am-man-dex-tactile-posttrain-4",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/tactile/post-training_cn.md#am-man-dex-tactile-posttrain-4"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.TACTILE.PRETRAIN.1",
       "slug": "spark-0",
       "short_name": "Spark-0",

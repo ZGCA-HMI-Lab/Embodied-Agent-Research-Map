@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Learn policies that generate robot actions from observations. When the main contribution is skill structure, transitions or sequential composition, use Skill Learning and Composition. Record tasks such as in-hand manipulation and methods such as RL, VLA and tactile fusion as visible labels and topics, rather than competing primary categories.
 
-**Browse by topic：** [VLA (16)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (17)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (18)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.POLICY.LEARNING` · 15 primary records
 

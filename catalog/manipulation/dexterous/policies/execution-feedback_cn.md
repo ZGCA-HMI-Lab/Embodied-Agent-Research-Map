@@ -8,7 +8,7 @@
 
 主要贡献是执行监控、动作修正与失败恢复。注明反馈作用于执行指令、后续观测还是模型参数；不能仅因策略使用闭环观测就归入本类。 以触觉／接触反馈驱动的执行纠错为主要贡献的工作归触觉操作；不能仅凭触觉标签判断归属。
 
-**按主题浏览：** [VLA (16)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (17)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (18)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.POLICY.FEEDBACK` · 3 篇主分类工作
 
