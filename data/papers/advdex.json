@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.LEARNING.16",
+  "slug": "advdex",
+  "short_name": "AdvDex / OmniShare",
+  "title": "AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning",
+  "authors": "Zhiyue Zhao, Jingyi Wu, Hairuo Liu, Mingyu Liu, Liyang Li, Hengdi Zhang, Tong He, Zhengxue Cheng",
+  "year": 2026,
+  "venue": "arXiv v1",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.LEARNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "vla",
+    "human-demonstrations",
+    "cross-embodiment",
+    "joint-aligned-action-space",
+    "domain-adversarial-learning",
+    "gradient-reversal",
+    "diffusion-action-expert",
+    "imitation-learning",
+    "tactile",
+    "human-visuo-tactile-dataset",
+    "tactile-data-collection",
+    "synchronized-motion-touch",
+    "contact-constrained-retargeting",
+    "human-to-robot-transfer",
+    "real-world"
+  ],
+  "display_tags": [
+    {
+      "en": "VLA architecture",
+      "zh": "VLA架构",
+      "bold": true
+    },
+    {
+      "en": "Cross-embodiment action-space alignment",
+      "zh": "跨具身动作空间对齐",
+      "bold": true
+    },
+    {
+      "en": "Domain-adversarial visual representation",
+      "zh": "视觉表征域对抗学习",
+      "bold": true
+    }
+  ],
+  "tldr": {
+    "zh": "AdvDex 将人手、灵巧手和夹爪动作映射到统一关节空间，并通过域对抗训练抑制 VLM 对硬件外观的依赖，使同一个扩散动作专家能够利用人类与机器人示范学习可迁移的操作策略。",
+    "en": "AdvDex maps human-hand, dexterous-hand and gripper actions into a shared joint space and uses domain-adversarial training to reduce the VLM's reliance on hardware appearance, allowing one diffusion action expert to learn transferable manipulation from human and robot demonstrations."
+  },
+  "additional_entries": [
+    {
+      "category": "AM.MAN.DEX.TACTILE.DATASET",
+      "tldr": {
+        "zh": "OmniShare 同步采集人手运动、多视角视频与法向接触力，并在手部重定向优化中联合使用运动学和触觉约束，构建供 AdvDex 跨具身动作学习使用的人类视触觉示范数据集。",
+        "en": "OmniShare synchronizes human-hand motion, multi-view video and normal contact force, combining kinematic and tactile constraints during hand retargeting to build human visual–tactile demonstrations for AdvDex's cross-embodiment action learning."
+      },
+      "display_tags": [
+        {
+          "en": "Human visual–tactile dataset",
+          "zh": "人类视触觉数据集",
+          "bold": true
+        },
+        {
+          "en": "Synchronized action–touch collection",
+          "zh": "动作—触觉同步采集",
+          "bold": true
+        },
+        {
+          "en": "Contact-constrained retargeting",
+          "zh": "接触约束重定向",
+          "bold": true
+        }
+      ]
+    }
+  ],
+  "evaluation_scope": {
+    "zh": "模型贡献与 OmniShare 数据贡献共用一份记录，触觉入口属于真实采集数据，不属于生成模型合成观测。OmniShare 表 1 列出 168k 条轨迹、14 个视角和 721 个物体，正文称覆盖 500 余任务；数据手套配备 29 个磁编码器与霍尔触觉阵列，测量手部运动和法向接触力。ArUco／FoundationPose 估计腕部和物体位姿，随后联合运动学、触觉差异优化到 MANO，再映射 JAAS；触觉参与采集及数据处理，文中未描述部署策略以触觉为输入。JAAS 以 SE(3) 腕姿和 15 个标准手指关节槽位按功能对齐人手、DexH13 与夹爪，缺失槽位屏蔽动作损失；15 个关节槽位不能直接等同于 15 个标量自由度。VLM 从单视角图像与指令提取特征，DiT 结合该特征和当前运动学状态去噪生成动作块；域判别器读取特征与状态，梯度反转作用于 VLM，判别分支仅用于训练。OmniShare、VITRA-1M 和 OXE 按 5:4:1 混合预训练，再适配目标机器人。真机为 Paxini Tora＋19 自由度 DexH13 灵巧手，五项任务使用 1,000 条机器人示范、每方法每任务 20 次评测；夹爪是共享表示和混合数据的一部分，未见夹爪真机及多种灵巧手之间的迁移对照。零样本技能迁移实验仍联合训练 1,000 条其他任务机器人轨迹与 1,000 条人类轨迹，目标技能仅见于人类数据，并非完全无机器人数据。代码、数据和模型权重的可下载状态未核实。",
+    "en": "The model and OmniShare contributions share one record. The tactile entry concerns real data acquisition, not model-synthesized observations. Table 1 lists 168k trajectories, 14 views and 721 objects; the text reports over 500 tasks. The glove combines 29 magnetic encoders with a Hall-effect tactile array for hand motion and normal contact force. ArUco/FoundationPose estimate wrist/object poses; kinematic and tactile discrepancies jointly guide MANO retargeting before JAAS mapping. Touch is used in collection and processing; the paper does not describe tactile input to the deployed policy. JAAS functionally aligns SE(3) wrist poses and 15 canonical finger-joint slots across human hands, DexH13 and grippers, masking unavailable slots in the action loss; 15 slots must not be equated with 15 scalar DoF. A VLM encodes a single-view image/instruction; the DiT combines its feature with the current kinematic state to denoise action chunks. A discriminator reads features/state, with reversed gradients applied to the VLM only during training. OmniShare, VITRA-1M and OXE are mixed 5:4:1 for pretraining before target-robot adaptation. Real-robot evaluation uses Paxini Tora with 19-DoF DexH13 hands, 1,000 robot demonstrations across five tasks and 20 trials per method/task. Grippers participate in the shared representation/training data, but real-gripper and multi-dexterous-hand transfer comparisons are not established. Zero-shot skill transfer still co-trains on 1,000 other-task robot trajectories and 1,000 human trajectories, with target skills present only in human data; it is not robot-data-free learning. Downloadable code, datasets and checkpoints have not been verified."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2608.14028v1"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2608.14028v1",
+    "https://arxiv.org/html/2608.14028v1",
+    "https://arxiv.org/pdf/2608.14028v1"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-08-14",
+    "source": "https://arxiv.org/abs/2608.14028v1",
+    "basis": "source"
+  }
+}

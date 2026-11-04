@@ -52,6 +52,10 @@
 
 [High-DoF VLA Post-Training [AM.MAN.DEX.POLICY.LEARNING.15]](../policies/policy-learning.md#am-man-dex-policy-learning-15)
 
+<a id="am-man-dex-policy-learning-16"></a>
+
+[AdvDex / OmniShare [AM.MAN.DEX.POLICY.LEARNING.16]](../policies/policy-learning.md#am-man-dex-policy-learning-16)
+
 <a id="am-man-dex-vla-tactile-1"></a>
 
 [TTP [AM.MAN.DEX.VLA.TACTILE.1]](../policies/policy-learning.md#am-man-dex-vla-tactile-1)

@@ -131,6 +131,15 @@ window.RESEARCH_MAP = {
                 "name_zh": "触觉操作",
                 "children": [
                   {
+                    "name": "Data Collection and Datasets",
+                    "name_zh": "数据采集与数据集",
+                    "code": "AM.MAN.DEX.TACTILE.DATASET",
+                    "children": [],
+                    "catalog_path": "manipulation/dexterous/tactile/data-collection-datasets",
+                    "description": "Real tactile or visual–tactile demonstration acquisition and datasets. Record sensing hardware, measured quantities, motion/contact synchronization, processing and retargeting, actual downstream tactile use and release evidence. Use an additional entry when a policy paper also contributes a tactile dataset. Keep model-synthesized observations under Data Generation; collecting touch does not establish a touch-conditioned deployed policy.",
+                    "description_zh": "真实触觉或视触觉示范的采集方法与数据集。记录传感硬件、测量量、动作与接触同步、数据处理及重定向、下游实际触觉用途与开放证据。策略论文同时贡献触觉数据集时可用额外入口展示。生成模型合成观测仍归数据生成；采集触觉不等于部署策略以触觉为输入。"
+                  },
+                  {
                     "name": "Pretraining",
                     "name_zh": "预训练",
                     "code": "AM.MAN.DEX.TACTILE.PRETRAIN",
@@ -3476,6 +3485,118 @@ window.RESEARCH_MAP = {
     },
     {
       "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.LEARNING.16",
+      "slug": "advdex",
+      "short_name": "AdvDex / OmniShare",
+      "title": "AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning",
+      "authors": "Zhiyue Zhao, Jingyi Wu, Hairuo Liu, Mingyu Liu, Liyang Li, Hengdi Zhang, Tong He, Zhengxue Cheng",
+      "year": 2026,
+      "venue": "arXiv v1",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.LEARNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "vla",
+        "human-demonstrations",
+        "cross-embodiment",
+        "joint-aligned-action-space",
+        "domain-adversarial-learning",
+        "gradient-reversal",
+        "diffusion-action-expert",
+        "imitation-learning",
+        "tactile",
+        "human-visuo-tactile-dataset",
+        "tactile-data-collection",
+        "synchronized-motion-touch",
+        "contact-constrained-retargeting",
+        "human-to-robot-transfer",
+        "real-world"
+      ],
+      "display_tags": [
+        {
+          "en": "VLA architecture",
+          "zh": "VLA架构",
+          "bold": true
+        },
+        {
+          "en": "Cross-embodiment action-space alignment",
+          "zh": "跨具身动作空间对齐",
+          "bold": true
+        },
+        {
+          "en": "Domain-adversarial visual representation",
+          "zh": "视觉表征域对抗学习",
+          "bold": true
+        }
+      ],
+      "tldr": {
+        "zh": "AdvDex 将人手、灵巧手和夹爪动作映射到统一关节空间，并通过域对抗训练抑制 VLM 对硬件外观的依赖，使同一个扩散动作专家能够利用人类与机器人示范学习可迁移的操作策略。",
+        "en": "AdvDex maps human-hand, dexterous-hand and gripper actions into a shared joint space and uses domain-adversarial training to reduce the VLM's reliance on hardware appearance, allowing one diffusion action expert to learn transferable manipulation from human and robot demonstrations."
+      },
+      "additional_entries": [
+        {
+          "category": "AM.MAN.DEX.TACTILE.DATASET",
+          "tldr": {
+            "zh": "OmniShare 同步采集人手运动、多视角视频与法向接触力，并在手部重定向优化中联合使用运动学和触觉约束，构建供 AdvDex 跨具身动作学习使用的人类视触觉示范数据集。",
+            "en": "OmniShare synchronizes human-hand motion, multi-view video and normal contact force, combining kinematic and tactile constraints during hand retargeting to build human visual–tactile demonstrations for AdvDex's cross-embodiment action learning."
+          },
+          "display_tags": [
+            {
+              "en": "Human visual–tactile dataset",
+              "zh": "人类视触觉数据集",
+              "bold": true
+            },
+            {
+              "en": "Synchronized action–touch collection",
+              "zh": "动作—触觉同步采集",
+              "bold": true
+            },
+            {
+              "en": "Contact-constrained retargeting",
+              "zh": "接触约束重定向",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "evaluation_scope": {
+        "zh": "模型贡献与 OmniShare 数据贡献共用一份记录，触觉入口属于真实采集数据，不属于生成模型合成观测。OmniShare 表 1 列出 168k 条轨迹、14 个视角和 721 个物体，正文称覆盖 500 余任务；数据手套配备 29 个磁编码器与霍尔触觉阵列，测量手部运动和法向接触力。ArUco／FoundationPose 估计腕部和物体位姿，随后联合运动学、触觉差异优化到 MANO，再映射 JAAS；触觉参与采集及数据处理，文中未描述部署策略以触觉为输入。JAAS 以 SE(3) 腕姿和 15 个标准手指关节槽位按功能对齐人手、DexH13 与夹爪，缺失槽位屏蔽动作损失；15 个关节槽位不能直接等同于 15 个标量自由度。VLM 从单视角图像与指令提取特征，DiT 结合该特征和当前运动学状态去噪生成动作块；域判别器读取特征与状态，梯度反转作用于 VLM，判别分支仅用于训练。OmniShare、VITRA-1M 和 OXE 按 5:4:1 混合预训练，再适配目标机器人。真机为 Paxini Tora＋19 自由度 DexH13 灵巧手，五项任务使用 1,000 条机器人示范、每方法每任务 20 次评测；夹爪是共享表示和混合数据的一部分，未见夹爪真机及多种灵巧手之间的迁移对照。零样本技能迁移实验仍联合训练 1,000 条其他任务机器人轨迹与 1,000 条人类轨迹，目标技能仅见于人类数据，并非完全无机器人数据。代码、数据和模型权重的可下载状态未核实。",
+        "en": "The model and OmniShare contributions share one record. The tactile entry concerns real data acquisition, not model-synthesized observations. Table 1 lists 168k trajectories, 14 views and 721 objects; the text reports over 500 tasks. The glove combines 29 magnetic encoders with a Hall-effect tactile array for hand motion and normal contact force. ArUco/FoundationPose estimate wrist/object poses; kinematic and tactile discrepancies jointly guide MANO retargeting before JAAS mapping. Touch is used in collection and processing; the paper does not describe tactile input to the deployed policy. JAAS functionally aligns SE(3) wrist poses and 15 canonical finger-joint slots across human hands, DexH13 and grippers, masking unavailable slots in the action loss; 15 slots must not be equated with 15 scalar DoF. A VLM encodes a single-view image/instruction; the DiT combines its feature with the current kinematic state to denoise action chunks. A discriminator reads features/state, with reversed gradients applied to the VLM only during training. OmniShare, VITRA-1M and OXE are mixed 5:4:1 for pretraining before target-robot adaptation. Real-robot evaluation uses Paxini Tora with 19-DoF DexH13 hands, 1,000 robot demonstrations across five tasks and 20 trials per method/task. Grippers participate in the shared representation/training data, but real-gripper and multi-dexterous-hand transfer comparisons are not established. Zero-shot skill transfer still co-trains on 1,000 other-task robot trajectories and 1,000 human trajectories, with target skills present only in human data; it is not robot-data-free learning. Downloadable code, datasets and checkpoints have not been verified."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2608.14028v1"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.14028v1",
+        "https://arxiv.org/html/2608.14028v1",
+        "https://arxiv.org/pdf/2608.14028v1"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-08-14",
+        "source": "https://arxiv.org/abs/2608.14028v1",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "AdvDex / OmniShare｜VLA architecture · Cross-embodiment action-space alignment · Domain-adversarial visual representation",
+        "zh": "AdvDex / OmniShare｜VLA架构 · 跨具身动作空间对齐 · 视觉表征域对抗学习"
+      },
+      "topics": [
+        "vla",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning.md#am-man-dex-policy-learning-16",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/policy-learning_cn.md#am-man-dex-policy-learning-16"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
       "id": "AM.MAN.DEX.POLICY.PLANNING.1",
       "slug": "dsp",
       "short_name": "DSP",
@@ -3549,6 +3670,123 @@ window.RESEARCH_MAP = {
       "catalog_urls": {
         "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-1",
         "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-1"
+      },
+      "notes_urls": {}
+    },
+    {
+      "schema_version": 1,
+      "id": "AM.MAN.DEX.POLICY.PLANNING.3",
+      "slug": "motus2",
+      "short_name": "Motus2",
+      "title": "Motus2: A Self-Evolving General World Model for Dexterous Manipulation",
+      "authors": "Hongzhe Bi, Zihao Zhou, Yihang Tang, Jingrui Pang, Shuhe Huang, Haitian Liu, Runqing Wang, Shuai Huang, Yichen Wang, Yiming Cheng, Ruowen Zhao, Zhenghua Li, Hengkai Tan, Xiaolong Liu, Jinhui Wan, Jiabao Liu, Min Zhao, Fan Bao, Jun Zhu",
+      "year": 2026,
+      "venue": "arXiv v2",
+      "kind": "model",
+      "category": "AM.MAN.DEX.POLICY.PLANNING",
+      "related_categories": [],
+      "tags": [
+        "dexterous",
+        "bimanual",
+        "wam",
+        "general-world-model",
+        "shared-policy-simulator-evaluator",
+        "model-based-rl",
+        "reinforcement-learning",
+        "diffusion-nft",
+        "value-guided-planning",
+        "best-of-n",
+        "egocentric-human-pretraining",
+        "tactile",
+        "tactile-post-training",
+        "tactile-expert",
+        "tactile-action-refinement",
+        "future-force-prediction",
+        "flow-matching",
+        "action-chunking",
+        "working-memory",
+        "real-world"
+      ],
+      "display_tags": [
+        {
+          "en": "Unified GWM",
+          "zh": "GWM统一模型",
+          "bold": true
+        },
+        {
+          "en": "Value-guided MBRL",
+          "zh": "价值引导MBRL",
+          "bold": true
+        },
+        {
+          "en": "Candidate-action simulation and scoring",
+          "zh": "候选动作仿真与评分",
+          "bold": true
+        }
+      ],
+      "tldr": {
+        "zh": "Motus2 用共享参数模型提出动作、模拟未来并评价任务进展，以评分进行候选选择和模型式 RL 策略更新，同时由轻量触觉专家在各短动作段执行前，结合最新接触信息完成动作去噪修正。",
+        "en": "Motus2 uses one shared-parameter model to propose actions, simulate their futures and evaluate task progress, using scores for candidate selection and model-based RL policy updates; a lightweight tactile expert also completes action denoising with fresh contact feedback before each short sub-chunk executes."
+      },
+      "additional_entries": [
+        {
+          "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+          "tldr": {
+            "zh": "Motus2 在已有世界—动作主干上后训练轻量触觉专家，复用中间动作与主干缓存，在每段动作执行前结合最新触觉完成最后去噪，并以未来力预测辅助训练。",
+            "en": "Motus2 post-trains a lightweight tactile expert on an existing world–action backbone, reusing intermediate actions and cached backbone features to finish denoising each sub-chunk with fresh touch immediately before execution, with auxiliary future-force prediction during training."
+          },
+          "display_tags": [
+            {
+              "en": "WAM architecture",
+              "zh": "WAM架构",
+              "bold": true
+            },
+            {
+              "en": "Tactile-expert post-training",
+              "zh": "触觉专家后训练",
+              "bold": true
+            },
+            {
+              "en": "Sub-chunk action denoising refinement",
+              "zh": "分段动作去噪修正",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "evaluation_scope": {
+        "zh": "整体入口按共享策略—仿真—价值模型与价值引导改进归入世界模型与规划控制，触觉入口按既有主干上的专家适配归入后训练。主干从 Wan 2.2-TI2V-5B 初始化，经单目视频、双目视频—人手动作预训练及机器人域适配；动作先行注意力阻止动作读取同段未来视频与价值。成功示范监督动作，失败及次优轨迹用于动力学／价值学习。普通部署可只生成动作；Best-of-N 规划才调用预测与评分链，执行后用真实观测重规划且不更新权重。MBRL 则用 DiffusionNFT 更新动作相关参数，冻结视频主干与价值模块；其异步流水线用于训练，不等同于异步部署 WAM。触觉专家读取停止梯度的中间动作与逐层 K/V 缓存，以及最新触觉窗口；48 步动作先去噪至噪声水平 0.2，再分成 8 段，每段 6 步、约 0.2 秒，逐段完成最后去噪。触觉损失仅更新专家、力编码／解码器及适用的形变编码器。Sharpa Wave 输入双手 60 维力／力矩与十指形变图；Wuji Hand 2 输入 1086 维点式及逐指力信号。未来力为辅助训练目标，形变图仅作输入；部署输出修正动作，不将预测力作为控制指令。触觉对照分别在 Sharpa 抽纸杯、Wuji Hand 2 撕纸上各评测 20 次，成功率从 65%／55% 升至 75%／70%，未构成同一任务跨手迁移验证。MBRL 与规划另在放手机、多指操作两任务各 20 次对照，平均成功率由 65% 升至二者合用的 75%；不能与触觉对照合并为同一实验结论。",
+        "en": "The main entry emphasizes the shared policy–simulator–evaluator and value-guided improvement under world-model planning; the tactile entry emphasizes adapting an existing backbone through expert post-training. Initialized from Wan 2.2-TI2V-5B, the backbone undergoes monocular video pretraining, stereo video–human-action pretraining and robot-domain adaptation. Its action-first mask prevents actions from reading same-chunk future video or value. Successful demonstrations supervise actions, while failures/suboptimal trajectories inform dynamics and value learning. Ordinary deployment can generate actions alone; Best-of-N additionally simulates and scores candidates, replanning from real observations without weight updates. DiffusionNFT MBRL instead updates action-related parameters while freezing the video backbone and evaluator. Its asynchronous pipeline is for training, not asynchronous WAM deployment. The tactile expert reads detached intermediate actions, layer-wise K/V caches and the latest tactile window. A 48-step chunk is first denoised to noise level 0.2, then divided into eight six-action sub-chunks of about 0.2 seconds for sequential final denoising. Tactile losses update only the expert, force encoder/decoder and applicable deformation encoder. Sharpa Wave inputs are 60D bimanual force/torque and ten fingertip deformation images; Wuji Hand 2 uses 1086D pointwise and per-finger force signals. Future force is an auxiliary training target; deformation images are conditioning inputs only. Deployment outputs refined actions, not force-control references. Tactile comparisons use 20 trials each on paper-cup extraction with Sharpa and paper tearing with Wuji Hand 2, improving 65%/55% to 75%/70%; these do not establish same-task cross-hand transfer. Separate 20-trial/task MBRL/planning comparisons on Put Phone and Multi-Finger improve the mean from 65% to 75% with both enabled; these results must not be conflated with the tactile study."
+      },
+      "links": {
+        "paper": "https://arxiv.org/pdf/2608.30237v2",
+        "project": "https://motus-robotics.github.io/motus2/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.30237v2",
+        "https://arxiv.org/html/2608.30237v2",
+        "https://motus-robotics.github.io/motus2/"
+      ],
+      "verified_on": "2026-11-04",
+      "reading_status": "skimmed",
+      "notes": {},
+      "show_on_map": true,
+      "publication_date": {
+        "value": "2026-08-31",
+        "source": "https://arxiv.org/abs/2608.30237v2",
+        "basis": "source"
+      },
+      "labels": {
+        "en": "Motus2｜Unified GWM · Value-guided MBRL · Candidate-action simulation and scoring",
+        "zh": "Motus2｜GWM统一模型 · 价值引导MBRL · 候选动作仿真与评分"
+      },
+      "topics": [
+        "reinforcement-learning",
+        "tactile"
+      ],
+      "catalog_urls": {
+        "en": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning.md#am-man-dex-policy-planning-3",
+        "zh": "https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map/blob/main/catalog/manipulation/dexterous/policies/world-model-planning_cn.md#am-man-dex-policy-planning-3"
       },
       "notes_urls": {}
     },

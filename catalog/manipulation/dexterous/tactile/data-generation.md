@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Generate tactile or visual–tactile training samples for robot manipulation. Specify which observations are synthesized, where action sequences come from, and how synthetic data train a separate policy. Distinguish action-conditioned observation prediction from generating new executable action trajectories; record policy-evaluation uses and downstream performance limits separately.
 
-**Browse by topic：** [VLA (18)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (19)](../../../topics/vla.md) · [Reinforcement learning (23)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (21)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.TACTILE.GEN` · 1 primary records
 

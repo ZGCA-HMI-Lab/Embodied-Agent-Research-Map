@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "AM.MAN.DEX.POLICY.PLANNING.3",
+  "slug": "motus2",
+  "short_name": "Motus2",
+  "title": "Motus2: A Self-Evolving General World Model for Dexterous Manipulation",
+  "authors": "Hongzhe Bi, Zihao Zhou, Yihang Tang, Jingrui Pang, Shuhe Huang, Haitian Liu, Runqing Wang, Shuai Huang, Yichen Wang, Yiming Cheng, Ruowen Zhao, Zhenghua Li, Hengkai Tan, Xiaolong Liu, Jinhui Wan, Jiabao Liu, Min Zhao, Fan Bao, Jun Zhu",
+  "year": 2026,
+  "venue": "arXiv v2",
+  "kind": "model",
+  "category": "AM.MAN.DEX.POLICY.PLANNING",
+  "related_categories": [],
+  "tags": [
+    "dexterous",
+    "bimanual",
+    "wam",
+    "general-world-model",
+    "shared-policy-simulator-evaluator",
+    "model-based-rl",
+    "reinforcement-learning",
+    "diffusion-nft",
+    "value-guided-planning",
+    "best-of-n",
+    "egocentric-human-pretraining",
+    "tactile",
+    "tactile-post-training",
+    "tactile-expert",
+    "tactile-action-refinement",
+    "future-force-prediction",
+    "flow-matching",
+    "action-chunking",
+    "working-memory",
+    "real-world"
+  ],
+  "display_tags": [
+    {
+      "en": "Unified GWM",
+      "zh": "GWM统一模型",
+      "bold": true
+    },
+    {
+      "en": "Value-guided MBRL",
+      "zh": "价值引导MBRL",
+      "bold": true
+    },
+    {
+      "en": "Candidate-action simulation and scoring",
+      "zh": "候选动作仿真与评分",
+      "bold": true
+    }
+  ],
+  "tldr": {
+    "zh": "Motus2 用共享参数模型提出动作、模拟未来并评价任务进展，以评分进行候选选择和模型式 RL 策略更新，同时由轻量触觉专家在各短动作段执行前，结合最新接触信息完成动作去噪修正。",
+    "en": "Motus2 uses one shared-parameter model to propose actions, simulate their futures and evaluate task progress, using scores for candidate selection and model-based RL policy updates; a lightweight tactile expert also completes action denoising with fresh contact feedback before each short sub-chunk executes."
+  },
+  "additional_entries": [
+    {
+      "category": "AM.MAN.DEX.TACTILE.POSTTRAIN",
+      "tldr": {
+        "zh": "Motus2 在已有世界—动作主干上后训练轻量触觉专家，复用中间动作与主干缓存，在每段动作执行前结合最新触觉完成最后去噪，并以未来力预测辅助训练。",
+        "en": "Motus2 post-trains a lightweight tactile expert on an existing world–action backbone, reusing intermediate actions and cached backbone features to finish denoising each sub-chunk with fresh touch immediately before execution, with auxiliary future-force prediction during training."
+      },
+      "display_tags": [
+        {
+          "en": "WAM architecture",
+          "zh": "WAM架构",
+          "bold": true
+        },
+        {
+          "en": "Tactile-expert post-training",
+          "zh": "触觉专家后训练",
+          "bold": true
+        },
+        {
+          "en": "Sub-chunk action denoising refinement",
+          "zh": "分段动作去噪修正",
+          "bold": true
+        }
+      ]
+    }
+  ],
+  "evaluation_scope": {
+    "zh": "整体入口按共享策略—仿真—价值模型与价值引导改进归入世界模型与规划控制，触觉入口按既有主干上的专家适配归入后训练。主干从 Wan 2.2-TI2V-5B 初始化，经单目视频、双目视频—人手动作预训练及机器人域适配；动作先行注意力阻止动作读取同段未来视频与价值。成功示范监督动作，失败及次优轨迹用于动力学／价值学习。普通部署可只生成动作；Best-of-N 规划才调用预测与评分链，执行后用真实观测重规划且不更新权重。MBRL 则用 DiffusionNFT 更新动作相关参数，冻结视频主干与价值模块；其异步流水线用于训练，不等同于异步部署 WAM。触觉专家读取停止梯度的中间动作与逐层 K/V 缓存，以及最新触觉窗口；48 步动作先去噪至噪声水平 0.2，再分成 8 段，每段 6 步、约 0.2 秒，逐段完成最后去噪。触觉损失仅更新专家、力编码／解码器及适用的形变编码器。Sharpa Wave 输入双手 60 维力／力矩与十指形变图；Wuji Hand 2 输入 1086 维点式及逐指力信号。未来力为辅助训练目标，形变图仅作输入；部署输出修正动作，不将预测力作为控制指令。触觉对照分别在 Sharpa 抽纸杯、Wuji Hand 2 撕纸上各评测 20 次，成功率从 65%／55% 升至 75%／70%，未构成同一任务跨手迁移验证。MBRL 与规划另在放手机、多指操作两任务各 20 次对照，平均成功率由 65% 升至二者合用的 75%；不能与触觉对照合并为同一实验结论。",
+    "en": "The main entry emphasizes the shared policy–simulator–evaluator and value-guided improvement under world-model planning; the tactile entry emphasizes adapting an existing backbone through expert post-training. Initialized from Wan 2.2-TI2V-5B, the backbone undergoes monocular video pretraining, stereo video–human-action pretraining and robot-domain adaptation. Its action-first mask prevents actions from reading same-chunk future video or value. Successful demonstrations supervise actions, while failures/suboptimal trajectories inform dynamics and value learning. Ordinary deployment can generate actions alone; Best-of-N additionally simulates and scores candidates, replanning from real observations without weight updates. DiffusionNFT MBRL instead updates action-related parameters while freezing the video backbone and evaluator. Its asynchronous pipeline is for training, not asynchronous WAM deployment. The tactile expert reads detached intermediate actions, layer-wise K/V caches and the latest tactile window. A 48-step chunk is first denoised to noise level 0.2, then divided into eight six-action sub-chunks of about 0.2 seconds for sequential final denoising. Tactile losses update only the expert, force encoder/decoder and applicable deformation encoder. Sharpa Wave inputs are 60D bimanual force/torque and ten fingertip deformation images; Wuji Hand 2 uses 1086D pointwise and per-finger force signals. Future force is an auxiliary training target; deformation images are conditioning inputs only. Deployment outputs refined actions, not force-control references. Tactile comparisons use 20 trials each on paper-cup extraction with Sharpa and paper tearing with Wuji Hand 2, improving 65%/55% to 75%/70%; these do not establish same-task cross-hand transfer. Separate 20-trial/task MBRL/planning comparisons on Put Phone and Multi-Finger improve the mean from 65% to 75% with both enabled; these results must not be conflated with the tactile study."
+  },
+  "links": {
+    "paper": "https://arxiv.org/pdf/2608.30237v2",
+    "project": "https://motus-robotics.github.io/motus2/"
+  },
+  "sources": [
+    "https://arxiv.org/abs/2608.30237v2",
+    "https://arxiv.org/html/2608.30237v2",
+    "https://motus-robotics.github.io/motus2/"
+  ],
+  "verified_on": "2026-11-04",
+  "reading_status": "skimmed",
+  "notes": {},
+  "show_on_map": true,
+  "publication_date": {
+    "value": "2026-08-31",
+    "source": "https://arxiv.org/abs/2608.30237v2",
+    "basis": "source"
+  }
+}

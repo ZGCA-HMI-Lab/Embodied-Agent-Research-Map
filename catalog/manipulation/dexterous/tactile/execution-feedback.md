@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Dexterous manipulation whose main contribution is using measured tactile feedback or proprioceptively inferred contact to intervene in execution, refine actions or trigger retries. State the sensing source, feedback-to-command interface and whether weights change. Distinguish inferred contact from calibrated force and execution supervisors from learned action policies. Review papers individually rather than automatically migrating tactile-tagged records.
 
-**Browse by topic：** [VLA (18)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (19)](../../../topics/vla.md) · [Reinforcement learning (23)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (21)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.TACTILE.FEEDBACK` · 1 primary records
 

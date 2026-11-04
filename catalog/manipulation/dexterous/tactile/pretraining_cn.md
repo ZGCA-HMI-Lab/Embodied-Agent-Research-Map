@@ -8,7 +8,7 @@
 
 以触觉预训练为主要贡献的灵巧手操作研究。涵盖触觉表征监督与力—动作联合预训练；区分模型架构、仅训练使用的目标、部署触觉输入、预测力与控制目标，以及预训练和下游微调。按主要贡献归类；以执行时接触纠错为核心的工作归触觉操作下的“执行反馈与动作修正”。不自动迁移已有带触觉标签的工作。
 
-**按主题浏览：** [VLA (18)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (19)](../../../topics/vla_cn.md) · [强化学习 (23)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (21)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.DEX.TACTILE.PRETRAIN` · 2 篇主分类工作
 

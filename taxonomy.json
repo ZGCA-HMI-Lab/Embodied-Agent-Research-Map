@@ -127,6 +127,15 @@
               "name_zh": "触觉操作",
               "children": [
                 {
+                  "name": "Data Collection and Datasets",
+                  "name_zh": "数据采集与数据集",
+                  "code": "AM.MAN.DEX.TACTILE.DATASET",
+                  "children": [],
+                  "catalog_path": "manipulation/dexterous/tactile/data-collection-datasets",
+                  "description": "Real tactile or visual–tactile demonstration acquisition and datasets. Record sensing hardware, measured quantities, motion/contact synchronization, processing and retargeting, actual downstream tactile use and release evidence. Use an additional entry when a policy paper also contributes a tactile dataset. Keep model-synthesized observations under Data Generation; collecting touch does not establish a touch-conditioned deployed policy.",
+                  "description_zh": "真实触觉或视触觉示范的采集方法与数据集。记录传感硬件、测量量、动作与接触同步、数据处理及重定向、下游实际触觉用途与开放证据。策略论文同时贡献触觉数据集时可用额外入口展示。生成模型合成观测仍归数据生成；采集触觉不等于部署策略以触觉为输入。"
+                },
+                {
                   "name": "Pretraining",
                   "name_zh": "预训练",
                   "code": "AM.MAN.DEX.TACTILE.PRETRAIN",

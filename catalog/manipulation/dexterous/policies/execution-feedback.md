@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Execution monitoring, action correction and failure recovery as the main contribution. Specify whether feedback changes commands, subsequent observations or model parameters. Ordinary closed-loop input alone does not qualify. Work primarily contributing tactile/contact-driven execution correction belongs under Tactile Manipulation; a tactile tag alone does not determine placement.
 
-**Browse by topic：** [VLA (18)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (19)](../../../topics/vla.md) · [Reinforcement learning (23)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (21)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.POLICY.FEEDBACK` · 3 primary records
 

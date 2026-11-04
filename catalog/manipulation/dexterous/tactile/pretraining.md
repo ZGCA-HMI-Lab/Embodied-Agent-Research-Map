@@ -8,7 +8,7 @@ Manipulation Action Models → Multi-Fingered Dexterous Hand Manipulation Resear
 
 Dexterous manipulation research whose main contribution is tactile pretraining. Cover tactile-derived representation supervision and joint force–action pretraining. Distinguish model architecture, training-only objectives, deployment tactile inputs, predicted forces versus control targets, and pretraining versus downstream fine-tuning. Classify by the main contribution; execution-time contact correction belongs under tactile Execution Feedback and Action Correction. Do not automatically migrate existing tactile-tagged records.
 
-**Browse by topic：** [VLA (18)](../../../topics/vla.md) · [Reinforcement learning (22)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (19)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
+**Browse by topic：** [VLA (19)](../../../topics/vla.md) · [Reinforcement learning (23)](../../../topics/reinforcement-learning.md) · [Touch and contact feedback (21)](../../../topics/tactile.md) · [In-hand manipulation (5)](../../../topics/in-hand-manipulation.md)
 
 `AM.MAN.DEX.TACTILE.PRETRAIN` · 2 primary records
 

@@ -8,7 +8,7 @@
 
 Agent 编写程序或调用工具明确指定运动目标，由 IK、轨迹生成与控制器执行。记录运行时编程、上下文与经验复用、反馈纠错及权重是否变化；仅感知使用学习模型不等于动作由学习式策略生成。保留历史分类码与目录路径。
 
-**按主题浏览：** [VLA (18)](../../../topics/vla_cn.md) · [强化学习 (22)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (19)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
+**按主题浏览：** [VLA (19)](../../../topics/vla_cn.md) · [强化学习 (23)](../../../topics/reinforcement-learning_cn.md) · [触觉与接触反馈 (21)](../../../topics/tactile_cn.md) · [手内操作 (5)](../../../topics/in-hand-manipulation_cn.md)
 
 `AM.MAN.GRIP.AGENT.ICL` · 5 篇主分类工作
 
